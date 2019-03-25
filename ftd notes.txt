@@ -1,0 +1,2 @@
+FTDI chip ftd1232
+site - https://www.ftdichip.com/Support/Documents/InstallGuides.htm
