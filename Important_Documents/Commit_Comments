@@ -1,0 +1,11 @@
+# Done
+- [x] Successfully Initialized UI Windows.
+- [X] Created New GUI directory with init file to hold all UI components.
+
+# To-Do
+* [ ] Initialize Widgets.
+* [ ] Code Basic Functionality to GUI Widgets and Components.
+* [ ] Link GUI components to Control Module Communication Classes.
+
+# Bugs
+* [ ] $ Bug
