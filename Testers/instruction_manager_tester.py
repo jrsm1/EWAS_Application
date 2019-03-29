@@ -83,9 +83,9 @@ def test_instruction_existante():
 
 
 if __name__ == "__main__":
-    test_listen()
+    # test_listen()
     # test_send()
     # test_send_byte()
     # test_compare_byte()
-    # test_instruction_existante()
+    test_instruction_existante()
     # test_request_number_of_modules_connected()

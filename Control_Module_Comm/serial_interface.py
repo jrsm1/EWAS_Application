@@ -9,11 +9,11 @@ class serial_interface():
 
     def __init__(self):
         self.ser = serial.Serial(
-            port='COM6', \
-            baudrate=230400, \
-            parity=serial.PARITY_NONE, \
-            stopbits=serial.STOPBITS_ONE, \
-            bytesize=serial.EIGHTBITS, \
+            port='COM6',
+            baudrate=230400,
+            parity=serial.PARITY_NONE,
+            stopbits=serial.STOPBITS_ONE,
+            bytesize=serial.EIGHTBITS,
             timeout=2)
         print("connected to: " + self.ser.portstr)
 
