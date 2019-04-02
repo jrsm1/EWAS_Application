@@ -1,6 +1,7 @@
 # Done
 - [x] Successfully Initialized UI Windows.
 - [X] Created New GUI directory with init file to hold all UI components.
+- [X] Created Test Configuration Data Structure and Class.
 
 # To-Do
 * [ ] Initialize Widgets.
