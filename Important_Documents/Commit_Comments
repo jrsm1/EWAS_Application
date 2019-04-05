@@ -2,11 +2,14 @@
 - [x] Successfully Initialized UI Windows.
 - [X] Created New GUI directory with init file to hold all UI components.
 - [X] Created Test Configuration Data Structure and Class.
+Plotting Time, Plotting Coherence. TODO set to correct format.
 
 # To-Do
 * [ ] Initialize Widgets.
 * [ ] Code Basic Functionality to GUI Widgets and Components.
 * [ ] Link GUI components to Control Module Communication Classes.
+Plot others. TODO set to correct format.
+
 
 # Bugs
 * [ ] $ Bug

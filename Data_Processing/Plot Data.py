@@ -34,31 +34,26 @@ class Plot_Data():
 
     def plt_time(self):
         # Multiple Lines in same Plot.
-        fig, ax = plt.subplots()
-        self.data_read.plot(x='timestamp', y='S1', ax=ax, legend=False, figsize=(20, 6), label='Sensor 1')
-        self.data_read.plot(x='timestamp', y='S2', ax=ax, legend=False, figsize=(20, 6), label='Sensor 2')
-        self.data_read.plot(x='timestamp', y='S3', ax=ax, legend=False, figsize=(20, 6), label='Sensor 3')
-        self.data_read.plot(x='timestamp', y='S4', ax=ax, legend=False, figsize=(20, 6), label='Sensor 4')
+        self.data_read.plot(x='timestamp', y='S1', legend=False, figsize=(20, 6), label='Sensor 1')
+        self.data_read.plot(x='timestamp', y='S2', legend=False, figsize=(20, 6), label='Sensor 2')
+        self.data_read.plot(x='timestamp', y='S3', legend=False, figsize=(20, 6), label='Sensor 3')
+        self.data_read.plot(x='timestamp', y='S4', legend=False, figsize=(20, 6), label='Sensor 4')
 
         return self  # Return Instance so that it can be linearly written in code.
 
-    def plot_coherence(self, sensor_1, sensor_2):
-        t = np.arange(0, len(sensor_1) / 100, 0.01)  # TODO REMOVE
+    def plot_coherence(self, sensor_1: str, sensor_2: str):
+        # Get Colums as Series.
+        s1 = self.data_read[sensor_1]  # each row is a list
+        s2 = self.data_read[sensor_2]  # each row is a list
 
-        fig, axs = plt.subplots(2, 1)
-        # axs[0].plot(t, s1, t, s2)
-        # axs[0].set_xlim(0, 2)
-        # axs[0].set_xlabel('time')
-        # axs[0].set_ylabel('s1 and s2')
-        # axs[0].grid(True)
+        plt.cohere(s1, s2, 256)  # FIXME change 256 to display points.
 
-        cxy, f = axs[1].cohere(s1, s2, 256)
-        axs[1].set_ylabel('coherence')
+        plt.tight_layout()
 
-        fig.tight_layout()
-        plt.show()
+        return self   # Return Instance so that it can be linearly written in code.
 
 
 pdata = Plot_Data()
 pdata.read_file(pdata.set_file('Data/Random_dummy_data_v2.csv'))
-pdata.plt_time().show_plot('Sensor Plots')
+# pdata.plt_time().show_plot('Sensor Plots')
+pdata.plot_coherence('S1', 'S2').show_plot('Coherence')
