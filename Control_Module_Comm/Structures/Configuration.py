@@ -56,7 +56,8 @@ class DAQconfigs:
             self.testing_configs["test_name"] = test_name_default
 
 
-dq = DAQconfigs(default=True)
-print(dq.data_handling_configs)
-print(dq.signal_configs['sampling_rate'])
-print(dq.testing_configs)
+# Testing
+# dq = DAQconfigs(default=True)
+# print(dq.data_handling_configs)
+# print(dq.signal_configs['sampling_rate'])
+# print(dq.testing_configs)
