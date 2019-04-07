@@ -1,0 +1,6 @@
+sampling_rate,cutoff_frequency,signal_gain
+200,100,1
+start_time_requested,test_duration,test_name,sensor_localization
+"time.struct_time(tm_year=2019, tm_mon=4, tm_mday=7, tm_hour=15, tm_min=47, tm_sec=5, tm_wday=6, tm_yday=97, tm_isdst=0)",30,Jupyter Test,Somewhere in Stefani
+visualize,store
+False,False
