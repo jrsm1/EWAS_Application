@@ -9,6 +9,7 @@
     [X] PSD
     [X] Phase Spectrum
     [X] Coherence
+- [X] Creates Handler for saving and loading setting profile.
 
 # To-Do
 * [ ] Initialize Widgets.
@@ -16,6 +17,8 @@
 * [ ] Link GUI components to Control Module Communication Classes.
 * [ ] Use real data to verify plots.
 * [ ] Embed plots in Qt widget.
+* [ ] Change/Create Filename method to save in proper path
+* [ ] Handle Better Test Names.
 
 # Bugs
 * [ ] $ Bug
