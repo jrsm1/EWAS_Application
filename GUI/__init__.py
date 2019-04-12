@@ -19,12 +19,14 @@ def show_error(message: str):
     err_dlg = QtWidgets.QErrorMessage()
     err_dlg.showMessage(message)
     err_dlg.exec()
+
+
 """
 Add default functionality here
 """
 
 main_window.main_advanced_HELP_button.clicked.connect(lambda: show_error('This is an Error Message Dialig Box. \n You have done Something Wrong.'))
+main_window.main_advanced_START_button.clicked.connect(lambda: start())
 
 main_window.show()
 app.exec()
-

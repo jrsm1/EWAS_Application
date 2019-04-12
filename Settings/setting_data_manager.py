@@ -86,8 +86,15 @@ sfm = Setting_File_Manager(cc, sc, daq)
 # print(sfm.daq_config.testing_configs)
 # print(sfm.daq_config.data_handling_configs)
 
-# TODO create a method than does this and set it the correct path.
-filename = r'../Data/Channel_Settings.csv'
-sfm.store_channel_configs(filename)
-d = sfm.load_channel_config(filename)
-print(d)
+# TODO create a method that does this and set it the correct path.
+# filename = r'../Data/Channel_Settings.csv'
+# sfm.store_channel_configs(filename)
+# d = sfm.load_channel_config(filename)
+# print(d)
+
+filename = r'../Data/writting_settings.csv'
+sfm.store_daq_configs(filename)
+d = sfm.load_daq_configs(filename)
+for x in range(0, len(d), 1):
+    print(d[x])
+print('\n' + str(type(d[0])))

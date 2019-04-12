@@ -10,6 +10,7 @@
     [X] Phase Spectrum
     [X] Coherence
 - [X] Creates Handler for saving and loading setting profile.
+- [X] Correctly Improving performance on rendering plots.
 
 # To-Do
 * [ ] Initialize Widgets.
@@ -17,8 +18,15 @@
 * [ ] Link GUI components to Control Module Communication Classes.
 * [ ] Use real data to verify plots.
 * [ ] Embed plots in Qt widget.
-* [ ] Change/Create Filename method to save in proper path
+* [ ] setting_data_manager - Change/Create Filename method to save in proper path
 * [ ] Handle Better Test Names.
+* [ ] Change __init__ method in DAQ_Config to remove 'default' parameter.
+* [ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
+* [ ] Make Plots Pretty.
+* [ ] Get Sampling Frequency from file.
+* [ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
+* [ ] call 'show_plot' method to within each plot method to simplify code.
+* [ ] change 'show_plot' method to use a list of titles for multiple plot situation.
 
 # Bugs
-* [ ] $ Bug
+* [ ] $ Bug DAQ_Config __init__ method does no store every default value.

@@ -5,34 +5,34 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 
-
+# TODO Make Plots Pretty.
 class Plot_Data():
+    # TODO get sampling frequency from file.
+    def __init__(self, file_path):
 
-    def __init__(self):
+        file_path = r'../' + file_path
+        self.data_read = pd.read_csv(file_path, header=12, index_col=0)
+
         # Open in New Qt5 Interactive Window
         matplotlib.use('Qt5Agg')
 
+        # Faster Rendering
+        matplotlib.rcParams['path.simplify'] = True
+        matplotlib.rcParams['path.simplify_threshold'] = 1.0
+        # Init Figure Parameters
+        matplotlib.rcParams["figure.figsize"] = (20, 6)
+        matplotlib.rcParams["figure.dpi"] = 80          # Makes Window Size in PIXELS = FIGURE_SIZE * DPI
+        matplotlib.rcParams["figure.facecolor"] = '0.85'
 
-    def set_file(self, file_path):
-        self.file_path = file_path
-
-        return r'../' + file_path
-
-    def read_file(self, file_path):
-        self.data_read = pd.read_csv(str(file_path), header=12, index_col=0)
-        # , names=['Col_1', 'Col_2', ... , 'COL_n')
-
-        print(self.data_read)
-
+    # TODO Use a sensor List parameter to get column titles from file.
     """
     Plots raw data with respect to timestamp from file.
     """
-    def plt_time(self):
-        # Multiple Lines in same Plot.
-        self.data_read.plot(x='timestamp', y='S1', legend=False, figsize=(20, 6), label='Sensor 1')
-        self.data_read.plot(x='timestamp', y='S2', legend=False, figsize=(20, 6), label='Sensor 2')
-        self.data_read.plot(x='timestamp', y='S3', legend=False, figsize=(20, 6), label='Sensor 3')
-        self.data_read.plot(x='timestamp', y='S4', legend=False, figsize=(20, 6), label='Sensor 4')
+    def plt_time(self, ):
+        # Multiple Plots.
+        columns = self.data_read.columns.tolist()  # TODO Change to range(1, len(columns), 1) for timestamp in First Row
+        for sen in range(0, len(columns)-1, 1):
+            self.data_read.plot(x='timestamp', y=columns[sen], legend=False, label='Sensor 1')
 
         return self  # Return Instance so that it can be linearly written in code.
 
@@ -43,10 +43,12 @@ class Plot_Data():
     
     :return Return Instance so that it can be linearly written in code. 
     """
-    def plot_fft(self, sensor: str):
+    def plot_fft(self, sensor: str, sampling_rate):
         #  Get Sensor columns values in a Series.
         fourier = np.fft.fft(self.data_read[sensor])
-        freq = np.fft.fftfreq(len(fourier))
+
+        # Calculate Sample spacing (inverse of the sampling rate).
+        freq = np.fft.fftfreq(fourier.size, d=(1/sampling_rate))
 
         plt.plot(freq, fourier.real ** 2 + fourier.imag ** 2)
         plt.ylabel('FFT')
@@ -92,7 +94,7 @@ class Plot_Data():
     def plot_Phase(self, sensor: str, sampling_freq):
         # sampling_freq = 1 / 0.1
 
-        plt.phase_spectrum(x=self.data_read[sensor], Fs=sampling_freq, color='C2')
+        plt.phase_spectrum(x=self.data_read[sensor], Fs=sampling_freq)
 
         return self  # Return Instance so that it can be linearly written in code.
 
@@ -114,31 +116,27 @@ class Plot_Data():
         return self  # Return Instance so that it can be linearly written in code.
 
 # TODO change and implement with param title as List of Titles for more than one plot situation.
-# TODO get sampling frequency from file.
+# TODO call within each plot method to simplify code.
     """
     Creates necessary Qt Windows with interactive plots.
     Use with a plot method return to setup plots. 
 
     :param title : plot title. 
     """
-    def show_plot(self, title: str):
-        # Faster Rendering
-        matplotlib.rcParams['path.simplify'] = True
-        matplotlib.rcParams['path.simplify_threshold'] = 1.0
-
+    @staticmethod
+    def show_plot(title: str):
         plt.title(title)
         plt.legend()
         plt.show()
 
 
 # TESTING.
-pdata = Plot_Data()
-pdata.read_file(pdata.set_file('Data/Random_dummy_data_v2.csv'))
-# pdata.plt_time().show_plot('Sensor Plots')
-# pdata.plot_coherence('S1', 'S2', 1000).show_plot('Coherence')
-# pdata.plot_fft('S1').show_plot('Fast Fourier Transform')
-# pdata.plot_Phase('S1', 1).show_plot('Phase Spectrum')
-# pdata.plot_CSD('S1', 'S2', 1000).show_plot('CSD Plot') # FIXME leyenda.
-# pdata.plot_PSD('S1', 1000).show_plot('PSD Plot')
+pdata = Plot_Data('Data/Random_dummy_data_v2.csv')
+pdata.plt_time().show_plot('Sensor Plots')
+pdata.plot_coherence('S1', 'S2', 1000).show_plot('Coherence')
+pdata.plot_fft('S1', 1).show_plot('Fast Fourier Transform')
+pdata.plot_Phase('S1', 1).show_plot('Phase Spectrum')
+pdata.plot_CSD('S1', 'S2', 1000).show_plot('CSD Plot')  # FIXME leyenda.
+pdata.plot_PSD('S1', 1000).show_plot('PSD Plot')
 
 # pdata.plt_time().plot_fft('S1').plot_PSD('S1', 1000).plot_CSD('S1', 'S2', 1000).plot_Phase('S1', 1000).plot_coherence('S1', 'S2').show_plot('All Plots')  # FIXME DOES NOT WORK.
