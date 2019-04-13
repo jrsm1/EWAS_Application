@@ -27,6 +27,7 @@
 * [ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
 * [ ] call 'show_plot' method to within each plot method to simplify code.
 * [ ] change 'show_plot' method to use a list of titles for multiple plot situation.
+* [ ] Set GUI Window Icon to EWAS Logo.
 
 # Bugs
 * [ ] $ Bug DAQ_Config __init__ method does no store every default value.

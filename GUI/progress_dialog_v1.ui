@@ -1,69 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>progress_dialog</class>
- <widget class="QDialog" name="progress_dialog">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>171</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Aquiring</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">background-color: rgb(237, 255, 217);</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="progress_dialog_title">
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Aquiring&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::RichText</enum>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QProgressBar" name="progress_dialog_progressBar">
-     <property name="value">
-      <number>24</number>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item alignment="Qt::AlignHCenter">
-    <widget class="QPushButton" name="progress_dialog_STOP_button">
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(209, 99, 65);
-color: rgb(255, 255, 255);
-</string>
-     </property>
-     <property name="text">
-      <string>STOP</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
- </widget>
- <resources/>
- <connections/>
+	<class>progress_dialog</class>
+	<widget class="QDialog" name="progress_dialog">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>400</width>
+				<height>169</height>
+			</rect>
+		</property>
+		<property name="minimumSize">
+			<size>
+				<width>400</width>
+				<height>169</height>
+			</size>
+		</property>
+		<property name="maximumSize">
+			<size>
+				<width>400</width>
+				<height>169</height>
+			</size>
+		</property>
+		<property name="windowTitle">
+			<string>Aquiring</string>
+		</property>
+		<property name="styleSheet">
+			<string notr="true">background-color: rgb(237, 255, 217);</string>
+		</property>
+		<layout class="QVBoxLayout" name="verticalLayout">
+			<item>
+				<widget class="QLabel" name="progress_dialog_title">
+					<property name="text">
+						<string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Aquiring...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+					</property>
+					<property name="textFormat">
+						<enum>Qt::RichText</enum>
+					</property>
+					<property name="alignment">
+						<set>Qt::AlignCenter</set>
+					</property>
+				</widget>
+			</item>
+			<item>
+				<widget class="QProgressBar" name="progress_dialog_progressBar">
+					<property name="value">
+						<number>24</number>
+					</property>
+				</widget>
+			</item>
+			<item>
+				<spacer name="horizontalSpacer">
+					<property name="orientation">
+						<enum>Qt::Horizontal</enum>
+					</property>
+					<property name="sizeHint" stdset="0">
+						<size>
+							<width>40</width>
+							<height>20</height>
+						</size>
+					</property>
+				</spacer>
+			</item>
+			<item alignment="Qt::AlignHCenter">
+				<widget class="QPushButton" name="progress_dialog_STOP_button">
+					<property name="minimumSize">
+						<size>
+							<width>100</width>
+							<height>0</height>
+						</size>
+					</property>
+					<property name="styleSheet">
+						<string notr="true">background-color: rgb(209, 99, 65);
+							color: rgb(255, 255, 255);
+						</string>
+					</property>
+					<property name="text">
+						<string>STOP</string>
+					</property>
+				</widget>
+			</item>
+		</layout>
+	</widget>
+	<resources/>
+	<connections>
+		<connection>
+			<sender>progress_dialog_STOP_button</sender>
+			<signal>clicked()</signal>
+			<receiver>progress_dialog</receiver>
+			<slot>close()</slot>
+			<hints>
+				<hint type="sourcelabel">
+					<x>199</x>
+					<y>148</y>
+				</hint>
+				<hint type="destinationlabel">
+					<x>199</x>
+					<y>84</y>
+				</hint>
+			</hints>
+		</connection>
+	</connections>
 </ui>
