@@ -18,31 +18,24 @@
 * [X] Logic for GPS sync and display info to GUI.
 * [X] Setting Recording data to Display in GUI.
 * [x] Logic for channel info ALMOST ready.
+- [X] Imported all GUI Object variables.
 
 # To-Do
-[X] Initialize Widgets.
-[ ] Code Basic Functionality to GUI Widgets and Components.
-[ ] Link GUI components to Control Module Communication Classes.
-* [X] Use real data to verify plots.
-* [ ] Test with Real Data.
-[ ] Embed plots in Qt widget.
-[ ] setting_data_manager - Change/Create Filename method to save in proper path
-[ ] Handle Better Test Names.
-[ ] Change __init__ method in DAQ_Config to remove 'default' parameter.
-[ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
-[ ] Make Plots Pretty.
-[ ] Get Sampling Frequency from file.
-[ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
-[ ] call 'show_plot' method to within each plot method to simplify code.
-[ ] change 'show_plot' method to use a list of titles for multiple plot situation.
-[ ] Set GUI Window Icon to EWAS Logo.
-[ ] Create and import App Running Dialog.
-[ ] Create Setting Data Structure to send to Control Module.
-[ ] Set Correct Flow when visualize.
-* [ ] GPS Sync Request timeout.
-* [ ] Error Dialog when sync times out.
-* [ ] Finish Channel Info Logic.
-
+* [ ] Initialize Widgets.
+* [ ] Code Basic Functionality to GUI Widgets and Components.
+* [ ] Link GUI components to Control Module Communication Classes.
+* [ ] Use real data to verify plots.
+* [ ] Embed plots in Qt widget.
+* [ ] setting_data_manager - Change/Create Filename method to save in proper path
+* [ ] Handle Better Test Names.
+* [ ] Change __init__ method in DAQ_Config to remove 'default' parameter.
+* [ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
+* [ ] Make Plots Pretty.
+* [ ] Get Sampling Frequency from file.
+* [ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
+* [ ] call 'show_plot' method to within each plot method to simplify code.
+* [ ] change 'show_plot' method to use a list of titles for multiple plot situation.
+* [ ] Set GUI Window Icon to EWAS Logo.
 
 # Bugs
 $ [X] $ Bug DAQ_Config __init__ method does not store every default value.
