@@ -11,6 +11,7 @@
     [X] Coherence
 - [X] Creates Handler for saving and loading setting profile.
 - [X] Correctly Improving performance on rendering plots.
+- [X] Imported all GUI Object variables.
 
 # To-Do
 * [ ] Initialize Widgets.
