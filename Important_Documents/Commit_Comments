@@ -8,8 +8,7 @@ Plotting Time, Plotting Coherence. TODO set to correct format.
 * [ ] Initialize Widgets.
 * [ ] Code Basic Functionality to GUI Widgets and Components.
 * [ ] Link GUI components to Control Module Communication Classes.
-Plot others. TODO set to correct format.
-
+* [ ] Set GUI Window Icon to EWAS Logo.
 
 # Bugs
 * [ ] $ Bug
