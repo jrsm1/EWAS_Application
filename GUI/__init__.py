@@ -2,11 +2,12 @@
 from PyQt5 import QtWidgets, uic
 
 app = QtWidgets.QApplication([])
-main_window = uic.loadUi("main_tab_layout.ui")
+main_window = uic.loadUi("main_tab_layout_V2.ui")
 channel_info_win = uic.loadUi("channel_info_window.ui")
 prog_dlg = uic.loadUi("progress_dialog_v1.ui")
 sensor_sel = uic.loadUi('sensor_selection_matrix.ui')
 mod_sel = uic.loadUi('module_selection_window.ui')
+file_sys = uic.loadUi('file_system_window.ui')
 
 
 def start():
@@ -24,13 +25,13 @@ def show_error(message: str):
 Add default functionality here
 """
 
-main_window.main_advanced_HELP_button.clicked.connect(lambda: show_error('This is an Error Message Dialig Box. \n You have done Something Wrong.'))
+# main_window.main_advanced_HELP_button.clicked.connect(lambda: show_error('This is an Error Message Dialig Box. \n You have done Something Wrong.'))
 
-# main_window.show()
+main_window.show()
 # prog_dlg.show()
 # sensor_sel.show()
 # mod_sel.show()
-channel_info_win.show()
+# channel_info_win.show()
 app.exec()
 
 # Channel Info Window.
@@ -70,7 +71,6 @@ channel_info_win.channel_info_senson4_full_Scale_LineEdit
 channel_info_win.channel_info_sensor4_location_Edit
 channel_info_win.channel_info_sensor4_dampingLineEdit
 channel_info_win.channel_info_sensor4_TITLE
-
 
 
 # Sensor Selection
@@ -127,15 +127,53 @@ mod_sel.module_selection_Module7
 mod_sel.module_selection_Module8
 
 
+# File System
+file_sys.file_system_treeView
+file_sys.file_system_OPEN_button
+file_sys.file_system_CANCEL_button
 
 
-
-
-
-
-
-
-
-
-
-
+# Main Tab Window
+# Localization  Settings
+main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button
+main_window.main_tab_RecordingSettings__SAVE_button
+main_window.main_tab_RecordingSettings_name_LineEdit
+main_window.main_tab_RecordingSettings_id_LineEdit
+main_window.main_tab_RecordingSettings_durationLineEdit
+main_window.main_tab_RecordingSettings_type_DropDown
+main_window.main_tab_RecordingSettings_visualize_checkBox
+main_window.main_tab_RecordingSettings_store_checkBox
+# Localization Settings
+main_window.main_tab_LocalizationSettings_type_DropBox
+main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button
+main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button
+main_window.main_tab_LocalizationSettings_longitudLineEdit
+main_window.main_tab_LocalizationSettings_latitudLineEdit
+main_window.main_tab_LocalizationSettings_hourLineEdit
+main_window.main_tab_LocalizationSettings_minutesLineEdit
+### Module Loc. Settings
+main_window.main_tab_module_loc_LineEdit_1
+main_window.main_tab_module_loc_LineEdit_2
+main_window.main_tab_module_loc_LineEdit_3
+main_window.main_tab_module_loc_LineEdit_4
+main_window.main_tab_module_loc_LineEdit_5
+main_window.main_tab_module_loc_LineEdit_6
+main_window.main_tab_module_loc_LineEdit_7
+main_window.main_tab_module_loc_LineEdit_8
+# Data Acquisition Settings
+main_window.main_tab_DAQParams_SAVE_PARAMS_button
+main_window.main_tab_DAQParams_LOAD_PARAMS_button
+main_window.main_tab_DAQParams_ADC_Constant_LineEdit # FIXME This may change widgets thus changing Object Name.
+main_window.main_tab_DAQParams_samplingRate_DropDown
+main_window.main_tab_DAQParams_Cutoff_Frequency_LineEdit
+main_window.main_tab_DAQParams_gain_DropDown
+main_window.main_tab_CHANNEL_INFO_button
+main_window.main_tab_START_button
+# Visualization
+main_window.visualize_tab_tableWidget
+main_window.visualize_tab_TIME_button
+main_window.visualize_tab_FFT_button
+main_window.visualize_tab_APS_button
+main_window.visualize_tab_XPS_button
+main_window.visualize_tab_PHASE_button
+main_window.visualize_tab_COHERE_button

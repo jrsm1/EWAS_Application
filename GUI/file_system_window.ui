@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+	<class>MainWindow</class>
+	<widget class="QMainWindow" name="MainWindow">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>800</width>
+				<height>600</height>
+			</rect>
+		</property>
+		<property name="windowTitle">
+			<string>MainWindow</string>
+		</property>
+		<property name="styleSheet">
+			<string notr="true">background-color:rgb(156, 209, 173);
+				color:rgb(0, 0, 0);
+			</string>
+		</property>
+		<widget class="QWidget" name="centralwidget">
+			<layout class="QVBoxLayout" name="verticalLayout">
+				<item>
+					<widget class="QTreeView" name="file_system_treeView">
+						<property name="styleSheet">
+							<string notr="true">background-color: rgb(222, 222, 222);</string>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<layout class="QHBoxLayout" name="horizontalLayout">
+						<property name="leftMargin">
+							<number>500</number>
+						</property>
+						<property name="rightMargin">
+							<number>30</number>
+						</property>
+						<item alignment="Qt::AlignRight">
+							<widget class="QPushButton" name="file_system_OPEN_button">
+								<property name="minimumSize">
+									<size>
+										<width>100</width>
+										<height>0</height>
+									</size>
+								</property>
+								<property name="maximumSize">
+									<size>
+										<width>100</width>
+										<height>16777215</height>
+									</size>
+								</property>
+								<property name="styleSheet">
+									<string notr="true">background-color: rgb(209, 99, 65);
+										color: rgb(255, 255, 255);
+										font: 12pt &quot;MS Shell Dlg 2&quot;;
+									</string>
+								</property>
+								<property name="text">
+									<string>Open</string>
+								</property>
+							</widget>
+						</item>
+						<item alignment="Qt::AlignRight">
+							<widget class="QPushButton" name="file_system_CANCEL_button">
+								<property name="minimumSize">
+									<size>
+										<width>100</width>
+										<height>0</height>
+									</size>
+								</property>
+								<property name="maximumSize">
+									<size>
+										<width>100</width>
+										<height>16777215</height>
+									</size>
+								</property>
+								<property name="styleSheet">
+									<string notr="true">background-color: rgb(209, 99, 65);
+										color: rgb(255, 255, 255);
+										font: 12pt &quot;MS Shell Dlg 2&quot;;
+									</string>
+								</property>
+								<property name="text">
+									<string>Cancel</string>
+								</property>
+							</widget>
+						</item>
+					</layout>
+				</item>
+			</layout>
+		</widget>
+		<widget class="QStatusBar" name="statusbar"/>
+	</widget>
+	<resources/>
+	<connections/>
+</ui>
