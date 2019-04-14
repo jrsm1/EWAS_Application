@@ -1,11 +1,10 @@
-import serial_interface
+import Control_Module_Comm.serial_interface as serial_interface
 
-log = 0
+log = 1
 class instruction_manager():
-    def init(self, listen):
+    def __init__(self):
         self.serial_interface = serial_interface.serial_interface()
-        self.listen = listen
-        
+
     """
     function to set configuration.
     input: string with configuration

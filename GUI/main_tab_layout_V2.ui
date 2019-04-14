@@ -1252,7 +1252,7 @@
 													<number>10</number>
 												</property>
 												<item>
-													<widget class="QPushButton" name="pushButton_15">
+													<widget class="QPushButton" name="main_tab_DAQParams_LOAD_PARAMS_button">
 														<property name="minimumSize">
 															<size>
 																<width>150</width>
@@ -1277,7 +1277,7 @@
 													</widget>
 												</item>
 												<item>
-													<widget class="QPushButton" name="main_tab_SAVE_PARAMS_button">
+													<widget class="QPushButton" name="main_tab_DAQParams_SAVE_PARAMS_button">
 														<property name="minimumSize">
 															<size>
 																<width>150</width>
@@ -1361,7 +1361,7 @@
 												</widget>
 											</item>
 											<item row="0" column="1">
-												<widget class="QPushButton" name="main_advanced_START_button">
+												<widget class="QPushButton" name="main_tab_START_button">
 													<property name="minimumSize">
 														<size>
 															<width>0</width>
@@ -1912,10 +1912,10 @@
 		<tabstop>main_tab_DAQParams_samplingRate_DropDown</tabstop>
 		<tabstop>main_tab_DAQParams_Cutoff_Frequency_LineEdit</tabstop>
 		<tabstop>main_tab_DAQParams_gain_DropDown</tabstop>
-		<tabstop>pushButton_15</tabstop>
-		<tabstop>main_tab_SAVE_PARAMS_button</tabstop>
+		<tabstop>main_tab_DAQParams_LOAD_PARAMS_button</tabstop>
+		<tabstop>main_tab_DAQParams_SAVE_PARAMS_button</tabstop>
 		<tabstop>main_tab_CHANNEL_INFO_button</tabstop>
-		<tabstop>main_advanced_START_button</tabstop>
+		<tabstop>main_tab_START_button</tabstop>
 		<tabstop>visualize_tab_tableWidget</tabstop>
 		<tabstop>visualize_tab_TIME_button</tabstop>
 		<tabstop>visualize_tab_FFT_button</tabstop>

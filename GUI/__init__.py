@@ -1,4 +1,5 @@
 # import PyQt5
+from GUI import Main_WIndow as mw
 from PyQt5 import QtWidgets, uic
 
 app = QtWidgets.QApplication([])
@@ -9,9 +10,6 @@ sensor_sel = uic.loadUi('sensor_selection_matrix.ui')
 mod_sel = uic.loadUi('module_selection_window.ui')
 file_sys = uic.loadUi('file_system_window.ui')
 
-
-def start():
-    main_window.main_advanced_sample_rate_label.setText("NEW TEXT")
 
 """
     Creates an Error Message dialog
@@ -26,18 +24,6 @@ def show_error(message: str):
 """
 Add default functionality here
 """
-
-# main_window.main_advanced_HELP_button.clicked.connect(lambda: show_error('This is an Error Message Dialig Box. \n You have done Something Wrong.'))
-main_window.main_advanced_START_button.clicked.connect(lambda: start())
-
-main_window.show()
-# prog_dlg.show()
-# sensor_sel.show()
-# mod_sel.show()
-# channel_info_win.show()
-app.exec()
-
-
 # Channel Info Window.
 # Ch 1
 channel_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -172,7 +158,7 @@ main_window.main_tab_DAQParams_samplingRate_DropDown
 main_window.main_tab_DAQParams_Cutoff_Frequency_LineEdit
 main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button
-main_window.main_tab_START_button
+main_window.main_tab_START_button.clicked.connect(lambda: mw.action_Begin_Recording())
 # Visualization
 main_window.visualize_tab_tableWidget
 main_window.visualize_tab_TIME_button
@@ -181,3 +167,10 @@ main_window.visualize_tab_APS_button
 main_window.visualize_tab_XPS_button
 main_window.visualize_tab_PHASE_button
 main_window.visualize_tab_COHERE_button
+
+main_window.show()
+# prog_dlg.show()
+# sensor_sel.show()
+# mod_sel.show()
+# channel_info_win.show()
+app.exec()
