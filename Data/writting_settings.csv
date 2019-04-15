@@ -1,6 +1,10 @@
 sampling_rate,cutoff_frequency,signal_gain
 2000,1000,1
-start_time_requested,test_duration,test_name,sensor_localization
-"time.struct_time(tm_year=2019, tm_mon=4, tm_mday=11, tm_hour=9, tm_min=46, tm_sec=42, tm_wday=3, tm_yday=101, tm_isdst=0)",15,Test_38fed4c4e2854cd49a8aa5e859027ad7,No Location Specified
+test_name,test_ID,test_duration,test_type
+Test_b8221a054b9d4b039a1fcac17b56cb0e,Test_b8221a054b9d4b039a1fcac17b56cb0e,15,0
 visualize,store
 False,True
+loc_name,longitud,latitud,hour,minute,second
+No Name,0:00:0000,0:00:0000,00,00,00
+1,2,3,4,5,6,7,8
+Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used
