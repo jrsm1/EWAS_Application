@@ -1,18 +1,18 @@
-channel_info = {
-    "sensor_given_name",
-    "sensor_parameters",
-    "channel_description"
-}
+SENSOR_TYPES = ['Acceleration', 'Geophone', 'Velocity']
 
 
 class Sensor:
     # TODO VERIFY IS CASE WHERE SOMETHING IS EMPTY IS POSSIBLE. --> SET DEFAULT VALUES.
     # TODO add default case.
-    def __init__(self, sensor_name: str, sensor_description: str, sensor_sensitivity: str, sensor_localization: str):
+    def __init__(self, sensor_name: str, sensor_type: int, sensor_sensitivity='Not Specified', sensor_localization='Not Specified',
+                 sensor_bandwidth='Not Specified', sensor_full_scale='Not Specified', sensor_damping='Not Specified'):
         self.sensor_info = {
             "sensor_name": sensor_name,
-            "description": sensor_description,
+            "type": sensor_type,
             "sensitivity": sensor_sensitivity,
+            'bandwidth': sensor_bandwidth,
+            'full_scale': sensor_full_scale,
+            'damping': sensor_damping,
             'localization': sensor_localization
         }
 

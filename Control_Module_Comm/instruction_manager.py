@@ -16,7 +16,7 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x80':
-            if log: print("send test succesful")
+            if log: print("send test successful")
             return 1
         return 0
         

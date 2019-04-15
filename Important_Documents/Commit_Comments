@@ -32,4 +32,6 @@
 * [ ] Create Setting Data Structure to send to Control Module.
 
 # Bugs
-* [ ] $ Bug DAQ_Config __init__ method does no store every default value.
+$ [ ] $ Bug DAQ_Config __init__ method does not store every default value.
+$ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable again.
+    [ ] Bug Second window opening when first is closed.
