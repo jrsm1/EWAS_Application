@@ -32,38 +32,38 @@ def test_compare_byte():
 
 def test_send_configuration():
     tester = instruction_manager.instruction_manager()
-    tester.init(1)
+    # tester.init(1)
     tester.send_set_configuration("what")
 
 
 def test_request_configuration():
     tester = instruction_manager.instruction_manager()
-    tester.init(1)
+    # tester.init(1)
     tester.send_request_configuration()
 
 
 def test_request_start():
     tester = instruction_manager.instruction_manager()
-    tester.init(1)
+    # tester.init(1)
     tester.send_request_start()
 
 
 def test_request_number_of_modules_connected():
     tester = instruction_manager.instruction_manager()
-    tester.init(1)
+    # tester.init(1)
     line = tester.send_request_number_of_mods_connected()
     print("modules connected: " + str(line))
 
 
 def test_send_live_stream_request():
     tester = instruction_manager.instruction_manager()
-    tester.init(1)
+    # tester.init(1)
     tester.send_live_stream_request(1, 1, 2)
 
 
 def test_send_cancel():
     tester = instruction_manager.instruction_manager()
-    tester.init(1)
+    # tester.init(1)
     tester.send_cancel_request()
 
 

@@ -132,11 +132,11 @@ class Plot_Data():
 
 # TESTING.
 pdata = Plot_Data('Data/Random_dummy_data_v2.csv')
-pdata.plt_time().show_plot('Sensor Plots')
-pdata.plot_coherence('S1', 'S2', 1000).show_plot('Coherence')
-pdata.plot_fft('S1', 1).show_plot('Fast Fourier Transform')
-pdata.plot_Phase('S1', 1).show_plot('Phase Spectrum')
-pdata.plot_CSD('S1', 'S2', 1000).show_plot('CSD Plot')  # FIXME leyenda.
-pdata.plot_PSD('S1', 1000).show_plot('PSD Plot')
+# pdata.plt_time().show_plot('Sensor Plots')
+# pdata.plot_coherence('S1', 'S2', 1000).show_plot('Coherence')
+# pdata.plot_fft('S1', 1).show_plot('Fast Fourier Transform')
+# pdata.plot_Phase('S1', 1).show_plot('Phase Spectrum')
+# pdata.plot_CSD('S1', 'S2', 1000).show_plot('CSD Plot')  # FIXME leyenda.
+# pdata.plot_PSD('S1', 1000).show_plot('PSD Plot')
 
 # pdata.plt_time().plot_fft('S1').plot_PSD('S1', 1000).plot_CSD('S1', 'S2', 1000).plot_Phase('S1', 1000).plot_coherence('S1', 'S2').show_plot('All Plots')  # FIXME DOES NOT WORK.

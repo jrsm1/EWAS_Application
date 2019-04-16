@@ -103,13 +103,13 @@ sfm = Setting_File_Manager(cc, sc, daq)
 # d = sfm.load_channel_config(filename)
 # print(d)
 
-filename = r'../Data/writting_settings.csv'
+# filename = r'Data/writting_settings.csv'
 # sfm.daq_config.specimen_location['1'] = 'Something ELse'
 
-sfm.store_daq_configs(filename)
-d = sfm.load_daq_configs(filename)
+# sfm.store_daq_configs(filename)
+# d = sfm.load_daq_configs(filename)
 # print(len(d))
 
-for x in range(0, len(d), 1):
-    print(d[x])
+# for x in range(0, len(d), 1):
+#     print(d[x])
 # print('\n' + str(type(d[0])))
