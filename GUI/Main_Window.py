@@ -25,12 +25,6 @@ def action_Begin_Recording():
     GUI_Handler.show_progress_dialog('Test Message')
 
 
-def action_store_DAQ_Params():
-    sc = Sensor_Individual.Sensor('Name', 0)
-    cc = Channel_Individual.Channel('mName', sc, sc, sc, sc)
-    daq = DAQ_Configuration.DAQconfigs()
-    sfm = Setting_File_Manager(cc, sc, daq)
-
 
 def ask_for_sensors():
     # User Select which sensors it wants.
