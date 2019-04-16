@@ -26,6 +26,9 @@ def show_main_window():
     main_window.show()
 
 
+#testing purposes
+log = 1
+
 """
     Disables Input for every Widget inside Main Window.
 """

@@ -24,8 +24,6 @@
 #     # Show Progress Dialog
 #     GUI_Handler.show_progress_dialog('Test Message')
 #
-#
-#
 # def ask_for_sensors():
 #     # User Select which sensors it wants.
 #     GUI_Handler.show_main_sens_sel_window()
