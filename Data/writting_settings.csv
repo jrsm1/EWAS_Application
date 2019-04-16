@@ -1,7 +1,7 @@
 sampling_rate,cutoff_frequency,signal_gain
 2000,1000,1
 test_name,test_ID,test_duration,test_type
-Test_750bcc57909d4194b6326af358b4bd68,Test_750bcc57909d4194b6326af358b4bd68,15,0
+Test_28888518ccc4410aae43e145ba8a0b06,Test_28888518ccc4410aae43e145ba8a0b06,15,0
 visualize,store
 False,True
 loc_name,longitud,latitud,hour,minute,second

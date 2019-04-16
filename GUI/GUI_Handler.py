@@ -6,19 +6,25 @@ from Settings import setting_data_manager as set_man
 from PyQt5 import QtWidgets, uic
 
 app = QtWidgets.QApplication([])
-main_window = uic.loadUi("main_tab_layout_V2.ui")
-channel_info_win = uic.loadUi("channel_info_window.ui")
-prog_dlg = uic.loadUi("progress_dialog_v1.ui")
-viz_sensor_sel_win = uic.loadUi('visualize_sensor_selection_matrix.ui')
-main_sensor_sel_win = uic.loadUi('main_sensor_selection_matrix.ui')
-mod_sel_win = uic.loadUi('module_selection_window.ui')
-file_sys_win = uic.loadUi('file_system_window.ui')
+main_window = uic.loadUi("GUI/main_tab_layout_V2.ui")
+channel_info_win = uic.loadUi("GUI/channel_info_window.ui")
+prog_dlg = uic.loadUi("GUI/progress_dialog_v1.ui")
+viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
+main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
+mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
+file_sys_win = uic.loadUi('GUI/file_system_window.ui')
+
+
+def show_main_window():
+    main_window.show()
+
 
 """
     Disables Input for every Widget inside Main Window.
 """
 def disable_main_window():
     main_window.setEnabled(False)
+
 
 """
     Disables Input for every Widget inside Main Window.
@@ -102,7 +108,7 @@ channel_info_win.channel_info_sensor4_TITLE
 
 # Visualize Sensor Selection
 viz_sensor_sel_win.sensor_selection_Save_Plot_Data_checkBox
-viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(lambda: acq_dlg.show_dialog())
+viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(lambda: acq_dlg.show_dialog('Plot'))
 viz_sensor_sel_win.sensor_select_MAX_Label
 viz_sensor_sel_win.Sensor_1
 viz_sensor_sel_win.Sensor_2

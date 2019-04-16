@@ -5,10 +5,10 @@ from Control_Module_Comm import instruction_manager
 def show_dialog(message: str):
     # Set progress  # TODO LEARN
 
-    # Show Dialog & Set Me
+    # Show Dialog & Set Message
     GUI_Handler.show_progress_dialog('Acquiring ' + message)
 
-    # Enable Main Window when done.  # FIXME Chenge to correct function.
+    # Enable Main Window when done.  # FIXME Change to correct function.
     GUI_Handler.enable_main_window()
 
 
