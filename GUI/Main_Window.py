@@ -12,6 +12,8 @@ from GUI import GUI_Handler
 def action_Begin_Recording():
     instruc_man = im.instruction_manager()
     # Activate App Running Dialog.
+    # for taking the data.
+    GUI_Handler.snapshot_data()
     # Send Setting Information to Control Module.
     instruc_man.send_set_configuration('Configuration String.')
     # Prepare Real-Time Plot to receive Data.
@@ -25,11 +27,11 @@ def action_Begin_Recording():
     GUI_Handler.show_progress_dialog('Test Message')
 
 
-def action_store_DAQ_Params():
-    sc = Sensor_Individual.Sensor('Name', 0)
-    cc = Channel_Individual.Channel('mName', sc, sc, sc, sc)
-    daq = DAQ_Configuration.DAQconfigs()
-    sfm = Setting_File_Manager(cc, sc, daq)
+# def action_store_DAQ_Params():
+#     sc = Sensor_Individual.Sensor('Name', 0)
+#     cc = Channel_Individual.Channel('mName', sc, sc, sc, sc)
+#     daq = DAQ_Configuration.DAQconfigs()
+#     sfm = Setting_File_Manager(cc, sc, daq)
 
 
 def ask_for_sensors():

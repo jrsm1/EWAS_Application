@@ -1,5 +1,5 @@
 # import PyQt5
-import Main_WIndow as mw
+import Main_Window as mw
 from PyQt5 import QtWidgets, uic
 
 app = QtWidgets.QApplication([])
