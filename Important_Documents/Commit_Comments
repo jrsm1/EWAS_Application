@@ -11,6 +11,7 @@
     [X] Coherence
 - [X] Creates Handler for saving and loading setting profile.
 - [X] Correctly Improving performance on rendering plots.
+- [X] Visualize Buttons shows Plots.
 
 # To-Do
 * [ ] Initialize Widgets.
@@ -30,6 +31,8 @@
 * [ ] Set GUI Window Icon to EWAS Logo.
 * [ ] Create and import App Running Dialog.
 * [ ] Create Setting Data Structure to send to Control Module.
+* [ ] Set Correct Flow when visualize
+
 
 # Bugs
 $ [ ] $ Bug DAQ_Config __init__ method does not store every default value.

@@ -1,11 +1,8 @@
 # import PyQt5
-from GUI import Main_Window as main_win
-from GUI import Channel_Info_Window as chan_info_win
-from GUI import Acquire_Dialog as acq_dlg
-from Settings import setting_data_manager as set_man
 from PyQt5 import QtWidgets, uic
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Channel_Individual as chan, Sensor_Individual as sens
+from Data_Processing import Plot_Data
 
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/main_tab_layout_V2.ui")
@@ -84,9 +81,12 @@ Creates and Opens Progress Dialog to 'Acquire'.
 
 
 def show_progress_dialog(message: str):
-    prog_dlg.progress_dialog_title.setText('Acquiring' + message)
+    prog_dlg.progress_dialog_title.setText(message)
     prog_dlg.show()
 
+
+def show_visualization_sensor_selector_window():
+    viz_sensor_sel_win.show()
 
 """
 Gets all the data from fields in Main Window
@@ -214,7 +214,7 @@ def start_acquisition():
 Add default functionality here
 """
 # Channel Info Window.
-channel_info_win.channel_info_SAVE_Button.clicked.connect(lambda: chan_info_win.save_info())
+channel_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info())
 # Ch 1
 channel_info_win.channel_info_sensor1_Sensitivity_LineEdit
 channel_info_win.channel_info_sensor1_dampingLineEdit
@@ -254,7 +254,7 @@ channel_info_win.channel_info_sensor4_TITLE
 
 # Visualize Sensor Selection
 viz_sensor_sel_win.sensor_selection_Save_Plot_Data_checkBox
-viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(lambda: acq_dlg.show_dialog())
+viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(lambda: show_progress_dialog('Plotting ' + 'What you wanna plot'))
 viz_sensor_sel_win.sensor_select_MAX_Label
 viz_sensor_sel_win.Sensor_1
 viz_sensor_sel_win.Sensor_2
@@ -290,8 +290,7 @@ viz_sensor_sel_win.Sensor_31
 viz_sensor_sel_win.Sensor_32
 
 # Main Sensor Selection
-main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
-    lambda: action_Begin_Recording())  # Close() DONE in UI.
+main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: action_Begin_Recording())  # Close() DONE in UI.
 main_sensor_sel_win.sensor_select_MAX_Label
 main_sensor_sel_win.Sensor_1
 main_sensor_sel_win.Sensor_2
@@ -376,7 +375,7 @@ main_window.main_tab_module_loc_LineEdit_6
 main_window.main_tab_module_loc_LineEdit_7
 main_window.main_tab_module_loc_LineEdit_8
 # Data Acquisition Settings
-main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: main_win.action_store_DAQ_Params())
+main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: action_store_DAQ_Params())
 main_window.main_tab_DAQParams_LOAD_PARAMS_button
 main_window.main_tab_DAQParams_ADC_Constant_LineEdit  # FIXME This may change widgets thus changing Object Name.
 main_window.main_tab_DAQParams_samplingRate_DropDown
@@ -387,12 +386,12 @@ main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: show_channel_in
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # Visualization
 main_window.visualize_tab_tableWidget
-main_window.visualize_tab_TIME_button
-main_window.visualize_tab_FFT_button
-main_window.visualize_tab_APS_button
-main_window.visualize_tab_XPS_button
-main_window.visualize_tab_PHASE_button
-main_window.visualize_tab_COHERE_button
+main_window.visualize_tab_TIME_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot('PLOT'))  # TODO GET INFO FROM USER.
+main_window.visualize_tab_FFT_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 1).show_plot('PLOT'))
+main_window.visualize_tab_APS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_XPS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD('S1', 'S2', 100).show_plot('PLOT'))
+main_window.visualize_tab_PHASE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_COHERE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
 
 # ------------------------------------------- MAIN WINDOW -------------------------------------------------
 """
@@ -413,7 +412,7 @@ def action_Begin_Recording():
     main_sensor_sel_win.close()
 
     # Show Progress Dialog
-    show_progress_dialog('Test Message')
+    show_progress_dialog('Data')
 
 
 """
@@ -428,6 +427,10 @@ def ask_for_sensors():
     show_main_sens_sel_window()
     # When Done pressed --> begin recording. | this is handled from UI.
 
+
+def action_store_DAQ_Params():
+    # TODO Implement
+    return
 
 # ------------------------------------------- ACQUIRE DIALOG -------------------------------------------------
 """
@@ -480,9 +483,18 @@ def save_sensor_info():
     channel = chan.Channel('NAME', sens_1, sens_2, sens_3, sens_4)
 
 
+# ----------------------------------------- SENSOR & CHANNEL INFORMATION -----------------------------------------------
+"""
+Creates and Opens Window with Time plot using user information from file.
+"""
+def plot_time(filename: str):
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time('S1', 100).show_plot()
+
+
 main_window.show()
 # show_progress_dialog()
 # sensor_sel.show()
 # mod_sel.show()
 # channel_info_win.show()
+# show_visualization_sensor_selector_window()
 app.exec()
