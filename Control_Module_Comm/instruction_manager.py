@@ -61,7 +61,8 @@ class instruction_manager():
             line = line.split("\\x")
             return line
         return 0
-    """    
+
+
     def send_live_stream_request(self, module, channel1, channel2):
         self.serial_interface.send_byte(b'\x88')
         info = str(module) + str(channel1) + str(channel2)
@@ -71,7 +72,7 @@ class instruction_manager():
         if line == b'\x88':
             if log: print("send live stream request succesful")
             
-    """
+
     """
     instruction to request all data. sends a single byte for instruction
     the byte in hexadecimla is x86

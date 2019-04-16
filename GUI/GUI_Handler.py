@@ -4,15 +4,27 @@ from GUI import Channel_Info_Window as chan_info_win
 from GUI import Acquire_Dialog as acq_dlg
 from Settings import setting_data_manager as set_man
 from PyQt5 import QtWidgets, uic
+from Control_Module_Comm import instruction_manager as ins_man
+from Control_Module_Comm.Structures import Channel_Individual as chan, Sensor_Individual as sens
+
 
 app = QtWidgets.QApplication([])
-main_window = uic.loadUi("main_tab_layout_V2.ui")
-channel_info_win = uic.loadUi("channel_info_window.ui")
-prog_dlg = uic.loadUi("progress_dialog_v1.ui")
-viz_sensor_sel_win = uic.loadUi('visualize_sensor_selection_matrix.ui')
-main_sensor_sel_win = uic.loadUi('main_sensor_selection_matrix.ui')
-mod_sel_win = uic.loadUi('module_selection_window.ui')
-file_sys_win = uic.loadUi('file_system_window.ui')
+main_window = uic.loadUi("GUI/main_tab_layout_V2.ui")
+channel_info_win = uic.loadUi("GUI/channel_info_window.ui")
+prog_dlg = uic.loadUi("GUI/progress_dialog_v1.ui")
+viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
+main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
+mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
+file_sys_win = uic.loadUi('GUI/file_system_window.ui')
+
+
+#testing purposes
+log = 0
+
+
+def show_main_window():
+    main_window.show()
+
 
 #testing purposes
 log = 1
@@ -250,7 +262,7 @@ viz_sensor_sel_win.Sensor_31
 viz_sensor_sel_win.Sensor_32
 
 # Main Sensor Selection
-main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: main_win.action_Begin_Recording())  # Close() DONE in UI.
+main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: action_Begin_Recording())  # Close() DONE in UI.
 main_sensor_sel_win.sensor_select_MAX_Label
 main_sensor_sel_win.Sensor_1
 main_sensor_sel_win.Sensor_2
@@ -353,9 +365,88 @@ main_window.visualize_tab_XPS_button
 main_window.visualize_tab_PHASE_button
 main_window.visualize_tab_COHERE_button
 
-main_window.show()
-# show_progress_dialog()
-# sensor_sel.show()
-# mod_sel.show()
-# channel_info_win.show()
-app.exec()
+
+# ------------------------------------------- MAIN WINDOW -------------------------------------------------
+"""
+Prepares GUI and sends request to control module for begin recording data.
+"""
+def action_Begin_Recording():
+    instruc_man = ins_man.instruction_manager()
+    # Activate App Running Dialog.
+    # Send Setting Information to Control Module.
+    instruc_man.send_set_configuration('Configuration String.')
+    # Prepare Real-Time Plot to receive Data.
+    # Send Begin Recording FLAG to Control Module.
+    instruc_man.send_request_start()
+
+    # Close Window
+    main_sensor_sel_win.close()
+
+    # Show Progress Dialog
+    show_progress_dialog('Test Message')
+
+
+"""
+Shows the Main Sensor Selection Window.
+
+CALL BEFORE SENDING REQUEST TO START.
+"""
+def ask_for_sensors():
+    # User Select which sensors it wants.
+    show_main_sens_sel_window()
+    # When Done pressed --> begin recording. | this is handled from UI.
+
+
+# ------------------------------------------- ACQUIRE DIALOG -------------------------------------------------
+"""
+Shows Dialog with 'Acquiring' as the title beginning.
+
+:param message : the desired dialog message.
+"""
+def show_acquire_dialog(message: str):
+    # Set progress  # TODO LEARN
+
+    # Show Dialog & Set Message
+    show_progress_dialog('Acquiring ' + message)
+
+    # Enable Main Window when done.  # FIXME Change to correct function.
+    enable_main_window()
+
+
+"""
+Sends signal to Control Module to cancel all recording, storing, sending, synchronizing and/or
+any other process the system might be doing. 
+
+Called by user when CANCEL action is desired.
+"""
+def action_cancel_everything():
+    im = ins_man.instruction_manager()
+    im.send_cancel_request()
+    enable_main_window()
+
+
+# ------------------------------------------- ACQUIRE DIALOG -------------------------------------------------
+"""
+Saves sensor data from UI into structure.
+"""
+def save_sesnor_info():
+    # Get info from GUI.
+    # Set info to correct Data Structure.
+    # Set sensor info (4)
+    sens_1 = sens.Sensor('NAME', 'Sensor_1 description', 'sensitivity', 'where am i?')
+    sens_2 = sens.Sensor('NAME', 'Sensor_2 description', 'sensitivity', 'where am i?')
+    sens_3 = sens.Sensor('NAME', 'Sensor_3 description', 'sensitivity', 'where am i?')
+    sens_4 = sens.Sensor('NAME', 'Sensor_4 description', 'sensitivity', 'where am i?')
+
+    # Set channel sensors.
+    channel = chan.Channel('NAME', sens_1, sens_2, sens_3, sens_4)
+
+
+
+
+    main_window.show()
+    # show_progress_dialog()
+    # sensor_sel.show()
+    # mod_sel.show()
+    # channel_info_win.show()
+    app.exec()

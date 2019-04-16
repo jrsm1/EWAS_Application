@@ -1,10 +1,10 @@
-sampling_rate,cutoff_frequency,signal_gain
-2000,1000,1
-test_name,test_ID,test_duration,test_type
-Test_b68c6e4caa794654bfd6d6de6c9f2145,Test_b68c6e4caa794654bfd6d6de6c9f2145,15,0
-visualize,store
-False,True
-loc_name,longitud,latitud,hour,minute,second
-No Name,0:00:0000,0:00:0000,00,00,00
+sampling_rate,cutoff_frequency,signal_gain,,,,,
+2000,1000,1,,,,,
+test_name,test_ID,test_duration,test_type,,,,
+Test_28888518ccc4410aae43e145ba8a0b06,Test_28888518ccc4410aae43e145ba8a0b06,15,0,,,,
+visualize,store,,,,,,
+FALSE,TRUE,,,,,,
+loc_name,longitud,latitud,hour,minute,second,,
+No Name,0:00:0000,0:00:0000,0,0,0,,
 1,2,3,4,5,6,7,8
 Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used

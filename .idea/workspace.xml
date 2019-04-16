@@ -1,0 +1,1585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="564">
+              <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+              <folding>
+                <element signature="e#15#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Testers/instruction_manager_tester.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="60" column="35" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/Acquire_Dialog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/Channel_Info_Window.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1768">
+              <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
+              <folding>
+                <element signature="e#94#193#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>__</find>
+      <find>setting</find>
+      <find>a</find>
+      <find>9</find>
+      <find>box</find>
+      <find>sensor_</find>
+      <find>lsensor_select_MAX_Labelabel</find>
+      <find>init</find>
+      <find>START</find>
+      <find>start</find>
+      <find>main_tab_SAVE_PARAMS_button</find>
+      <find>main_tab_DAQParams_SAVE_PARAMS_button</find>
+      <find>log</find>
+      <find>channel_info_SAVE_Button</find>
+      <find>Bb</find>
+      <find>class</find>
+      <find>class=&quot;QLabel&quot;</find>
+      <find>sensor_select_MAX_Label</find>
+      <find>class=&quot;QLabel</find>
+      <find>action_Begin_Recording</find>
+      <find>bb</find>
+      <find>start_time_requested</find>
+      <find>button</find>
+      <find>live</find>
+      <find>main_window</find>
+      <find>close</find>
+      <find>sens</find>
+      <find>GUI_Handler</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>config</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/serial_interface.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_output.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_input.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/tdt.ipynb" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Settings/Singnal_Settings.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Settings/settings.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/settings.py" />
+        <option value="$PROJECT_DIR$/GUI/Error_Dialog.py" />
+        <option value="$PROJECT_DIR$/Data/random_dummy_data_v1.csv" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Sensor.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Configuration.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/__init__.py" />
+        <option value="$PROJECT_DIR$/Data/Random_Dummy_Data_v2.csv" />
+        <option value="$PROJECT_DIR$/GUI/channel_info_window.ui" />
+        <option value="$PROJECT_DIR$/GUI/progress_dialog_v1.ui" />
+        <option value="$PROJECT_DIR$/GUI/sensor_selection_matrix.ui" />
+        <option value="$PROJECT_DIR$/GUI/file_system_window.ui" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" />
+        <option value="$PROJECT_DIR$/GUI/Main_WIndoww.py" />
+        <option value="$PROJECT_DIR$/GUI/main_tab_layout_V2.ui" />
+        <option value="$PROJECT_DIR$/GUI/Main_WIndow.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py" />
+        <option value="$PROJECT_DIR$/GUI/Channel_Info_Window.py" />
+        <option value="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/tester.py" />
+        <option value="$PROJECT_DIR$/Important_Documents/Commit_Comments" />
+        <option value="$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui" />
+        <option value="$PROJECT_DIR$/GUI/Visualization_GUI.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
+        <option value="$PROJECT_DIR$/Data/CSV_Handler.py" />
+        <option value="$PROJECT_DIR$/GUI/__init__.py" />
+        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Testers/instruction_manager_tester.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
+        <option value="$PROJECT_DIR$/Data_Processing/Plot Data.py" />
+        <option value="$PROJECT_DIR$/GUI/Acquire_Dialog.py" />
+        <option value="$PROJECT_DIR$/GUI/Main_Window.py" />
+        <option value="$PROJECT_DIR$/GUI/GUI_Handler.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="45" />
+    <option name="y" value="25" />
+    <option name="width" value="1750" />
+    <option name="height" value="1030" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Control_Module_Comm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Data_Processing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Settings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Testers" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GUI" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Control_Module_Comm" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Testers" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Important_Documents" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Settings" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="GUI_Handler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/GUI_Handler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setting_data_manager" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Settings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.setting_data_manager" />
+        <item itemvalue="Python.Main_WIndow" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.instruction_manager_tester" />
+        <item itemvalue="Python.GUI_Handler" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="" />
+      <created>1552944095439</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552944095439</updated>
+    </task>
+    <task id="LOCAL-00001" summary="# Done&#10;- [x] Successfully Initialized UI Windows.&#10;- [X] Created New GUI directory with init file to hold all UI components.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1553579382264</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553579382264</updated>
+    </task>
+    <task id="LOCAL-00002" summary="# Done&#10;- [x] Formatted Code and Re-organized Project Structure. &#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1553580652017</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1553580652017</updated>
+    </task>
+    <task id="LOCAL-00003" summary="# Done&#10;- [x] Added Data visualization Jupyter Notebook test files.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1553828453450</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1553828453450</updated>
+    </task>
+    <task id="LOCAL-00004" summary="# Done&#10;- [x] Added preliminary Settings Structure files.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1553836570148</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553836570148</updated>
+    </task>
+    <task id="LOCAL-00005" summary="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1554248622468</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1554248622468</updated>
+    </task>
+    <task id="LOCAL-00006" summary="# Done&#10;- [x] Created GUI Handling Error Dialog from given button for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1554295781877</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1554295781877</updated>
+    </task>
+    <task id="LOCAL-00007" summary="# Done&#10;- [x] Created Data Visialization Class and Dummy Data for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1554442749569</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1554442749569</updated>
+    </task>
+    <task id="LOCAL-00008" summary="# Done&#10;- [x] Plotting Time and Coherence in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1554499492206</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1554499492206</updated>
+    </task>
+    <task id="LOCAL-00009" summary="# Done&#10;- [x] Plotting al 6 desired plots in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
+      <created>1554582469376</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1554582469376</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Minor Changes">
+      <created>1554584789143</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1554584789143</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added jupyter data handling tester file">
+      <created>1554680230350</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1554680230350</updated>
+    </task>
+    <task id="LOCAL-00012" summary="- [X] Creates Handler for saving and loading setting profile. &#10;* [ ] Change/Create Filename method to save in proper path&#10;* [ ] Handle Better Test Names.">
+      <created>1554816498361</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1554816498362</updated>
+    </task>
+    <task id="LOCAL-00013" summary="- Added Channel Settings .csv Output file.">
+      <created>1554986758044</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1554986758044</updated>
+    </task>
+    <task id="LOCAL-00014" summary="- [X] Reformatted Some Code.&#10;- [X] Changes Plot methods to correct size and color.&#10;- [X] Correctly Improving performance on rendering plots.">
+      <created>1555092376527</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1555092376527</updated>
+    </task>
+    <task id="LOCAL-00015" summary="- [X] Reformatted Some Code.&#10;- [X] Added .ui Windows&#10;- [X] imported objects for most windows( EXCLUDING main window)">
+      <created>1555134555021</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1555134555021</updated>
+    </task>
+    <task id="LOCAL-00016" summary="- [X] Added .ui Windows&#10;- [X] imported objects for all windows">
+      <created>1555178746672</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1555178746672</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Commit_Comments Update">
+      <created>1555182506971</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1555182506971</updated>
+    </task>
+    <task id="LOCAL-00018" summary="# DONE&#10;- [X] Connected START button to Control Module Comm methods.&#10;   [X] Changed instruction_manager __init__ method to work with GUI.&#10;&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables">
+      <created>1555286162994</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1555286162994</updated>
+    </task>
+    <task id="LOCAL-00019" summary="# DONE&#10;- [X] Changed Configuration Data Structures according to GUI.&#10;- [X] Connected Progress Dialog and Main Window Buttons.&#10;- [X] Disabling and Enabling Main window when START.&#10;- [X] Sending Cancel signal from Progress Dialog.&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables">
+      <created>1555370417214</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1555370417214</updated>
+    </task>
+    <task id="LOCAL-00020" summary="...">
+      <created>1555424092538</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1555424092538</updated>
+    </task>
+    <task id="LOCAL-00021" summary="...cleanup">
+      <created>1555434280815</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1555434280816</updated>
+    </task>
+    <task id="LOCAL-00022" summary="[X} Changed all methods from UI into GUI_Handler para evitar imports.">
+      <created>1555441872233</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1555441872233</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1858" height="1096" extended-state="7" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498452" weight="0.16043957" />
+      <window_info id="Structure" order="1" sideWeight="0.501548" side_tool="true" weight="0.16043957" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49835163" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28556594" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989011" weight="0.23052959" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49945053" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50164837" side_tool="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917964" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498452" visible="true" weight="0.16043957" />
+      <window_info id="Structure" order="1" sideWeight="0.501548" side_tool="true" visible="true" weight="0.16043957" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49835163" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28556594" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989011" weight="0.23052959" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49945053" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50164837" side_tool="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917964" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="# Done&#10;- [x] Successfully Initialized UI Windows.&#10;- [X] Created New GUI directory with init file to hold all UI components.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Formatted Code and Re-organized Project Structure. &#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Added Data visualization Jupyter Notebook test files.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Added preliminary Settings Structure files.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Created GUI Handling Error Dialog from given button for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Created Data Visialization Class and Dummy Data for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Plotting Time and Coherence in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="# Done&#10;- [x] Plotting al 6 desired plots in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
+    <MESSAGE value="Minor Changes" />
+    <MESSAGE value="added jupyter data handling tester file" />
+    <MESSAGE value="- [X] Creates Handler for saving and loading setting profile. &#10;* [ ] Change/Create Filename method to save in proper path&#10;* [ ] Handle Better Test Names." />
+    <MESSAGE value="- Added Channel Settings .csv Output file." />
+    <MESSAGE value="- [X] Reformatted Some Code.&#10;- [X] Changes Plot methods to correct size and color.&#10;- [X] Correctly Improving performance on rendering plots." />
+    <MESSAGE value="- [X] Reformatted Some Code.&#10;- [X] Added .ui Windows&#10;- [X] imported objects for most windows( EXCLUDING main window)" />
+    <MESSAGE value="- [X] Added .ui Windows&#10;- [X] imported objects for all windows" />
+    <MESSAGE value="Commit_Comments Update" />
+    <MESSAGE value="# DONE&#10;- [X] Connected START button to Control Module Comm methods.&#10;   [X] Changed instruction_manager __init__ method to work with GUI.&#10;&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables" />
+    <MESSAGE value="# DONE&#10;- [X] Changed Configuration Data Structures according to GUI.&#10;- [X] Connected Progress Dialog and Main Window Buttons.&#10;- [X] Disabling and Enabling Main window when START.&#10;- [X] Sending Cancel signal from Progress Dialog.&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables" />
+    <MESSAGE value="..." />
+    <MESSAGE value="...cleanup" />
+    <MESSAGE value="[X} Changed all methods from UI into GUI_Handler para evitar imports." />
+    <option name="LAST_COMMIT_MESSAGE" value="[X} Changed all methods from UI into GUI_Handler para evitar imports." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/Channel_Info_Window.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/Main_Window.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>self.data_read</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>pdata.data_read</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>r'../' + file_path</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Phase Spectrum.ipynb" />
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Settings/Singnal_Settings.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/core/indexes/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="2658" selection-start-line="2658" selection-end-line="2658" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Random_dummy_data_v1.csv">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/numpy/fft/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/sample_plots.ipynb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Data/Random_Dummy_Data_v2.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PyQt5/uic/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="225" selection-start-line="225" selection-end-line="225" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/channel_info_window.ui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <folding>
+            <element signature="n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#rect#0;n#property#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#2;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#3;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#4;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#4;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#1;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#2;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#2;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#2;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#5;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#5;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#5;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#8;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#8;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#8;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#string#0;n#property#0;n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#1;n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#item#3;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/main_tab_layout.ui">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/progress_dialog_v1.ui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/module_selection_window.ui">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/sensor_selection_matrix.ui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="38" column="51" lean-forward="true" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/file_system_window.ui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="87" column="29" lean-forward="true" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Configuration.py" />
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Sensor.py" />
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot Data.ipynb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_output.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PyQt5/uic/uiparser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="1020" selection-start-line="1020" selection-end-line="1020" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/main_tab_layout_V2.ui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="1914" column="54" selection-start-line="1914" selection-start-column="54" selection-end-line="1914" selection-end-column="54" />
+          <folding>
+            <element signature="n#widget#1;n#widget#0;n#ui#0;n#!!top" />
+            <element signature="n#action#0;n#widget#0;n#ui#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="39" column="72" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="685" column="89" lean-forward="true" selection-start-line="685" selection-start-column="89" selection-end-line="685" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Visualization_GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Channel_Settings.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Settings/Store Settings.ipynb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="57" column="18" lean-forward="true" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/writting_settings.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state>
+          <caret column="42" lean-forward="true" selection-start-column="42" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="91" lean-forward="true" selection-start-line="3" selection-start-column="91" selection-end-line="3" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/xml/etree/ElementTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="586" selection-start-line="586" selection-end-line="586" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="e#111#394#0" />
+            <element signature="e#400#583#1" />
+            <element signature="e#615#883#0" />
+            <element signature="e#736#778#0" />
+            <element signature="e#889#988#1" />
+            <element signature="e#1033#1143#0" />
+            <element signature="e#1149#1263#1" />
+            <element signature="e#1304#1401#0" />
+            <element signature="e#1407#1487#1" />
+            <element signature="e#1535#1650#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1363">
+          <caret line="160" column="33" selection-start-line="160" selection-start-column="33" selection-end-line="160" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/CSV_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
+          <folding>
+            <element signature="e#732#770#1" />
+            <element signature="e#821#1173#0" />
+            <element signature="e#990#1156#0" />
+            <element signature="e#1179#1237#1" />
+            <element signature="e#1280#1532#0" />
+            <element signature="e#1449#1515#0" />
+            <element signature="e#1542#1661#1" />
+            <element signature="e#1723#2137#0" />
+            <element signature="e#1892#2120#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <folding>
+            <element signature="e#15#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testers/instruction_manager_tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="35" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Acquire_Dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Channel_Info_Window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
+          <folding>
+            <element signature="e#94#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
