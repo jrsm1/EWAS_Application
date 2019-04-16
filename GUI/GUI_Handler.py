@@ -7,7 +7,6 @@ from PyQt5 import QtWidgets, uic
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Channel_Individual as chan, Sensor_Individual as sens
 
-
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/main_tab_layout_V2.ui")
 channel_info_win = uic.loadUi("GUI/channel_info_window.ui")
@@ -17,27 +16,32 @@ main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
 mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
 file_sys_win = uic.loadUi('GUI/file_system_window.ui')
 
-
-#testing purposes
+# testing purposes
 log = 0
+
+"""
+Displays Main Window on Computer's Screen.
+"""
 
 
 def show_main_window():
     main_window.show()
 
 
-#testing purposes
-log = 1
-
 """
     Disables Input for every Widget inside Main Window.
 """
+
+
 def disable_main_window():
     main_window.setEnabled(False)
 
+
 """
     Disables Input for every Widget inside Main Window.
 """
+
+
 def enable_main_window():
     main_window.setEnabled(True)
 
@@ -47,6 +51,8 @@ def enable_main_window():
     
     :param message: String - The Desired Message Output.
 """
+
+
 def show_error(message: str):
     err_dlg = QtWidgets.QErrorMessage()
     err_dlg.showMessage(message)
@@ -56,6 +62,8 @@ def show_error(message: str):
 """
     Opens Channel Information Window
 """
+
+
 def show_channel_info_window():
     channel_info_win.show()
 
@@ -63,20 +71,33 @@ def show_channel_info_window():
 """
     Opens Sensor Selection Window for Recording
 """
+
+
 def show_main_sens_sel_window():
     disable_main_window()
     main_sensor_sel_win.show()
+
+
+"""
+Creates and Opens Progress Dialog to 'Acquire'.
+"""
 
 
 def show_progress_dialog(message: str):
     prog_dlg.progress_dialog_title.setText('Acquiring' + message)
     prog_dlg.show()
 
+
+"""
+Gets all the data from fields in Main Window
+"""
+
+
 def snapshot_data():
     # we have to change everything to string, because that's how it's going to get passed
     # main tab recording settings
     name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
-    id = main_window.main_tab_RecordingSettings_id_LineEdit.text()
+    recording_name_id = main_window.main_tab_RecordingSettings_id_LineEdit.text()
     duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
     """
     QComboBox, which are the dropdown needs currentText()
@@ -102,7 +123,7 @@ def snapshot_data():
     loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
     loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
 
-    #specimen by module
+    # specimen by module
     module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
     module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
     module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
@@ -112,14 +133,14 @@ def snapshot_data():
     module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
     module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
 
-    #daq parameters
+    # daq parameters
     daq_adc = main_window.main_tab_DAQParams_ADC_Constant_LineEdit.text()
     daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentText())
     daq_cutoff = str(main_window.main_tab_DAQParams_Cutoff_Frequency_LineEdit.currentText())
     daq_gain = str(main_window.main_tab_DAQParams_gain_DropDown.currentText())
 
-    #sensor info has to be fixed
-    #sensor info
+    # sensor info has to be fixed
+    # sensor info
     # sensor1_name = channel_info_win.channel_info_sensor1_nameLineEdit.text()
     # sensor1_type = str(channel_info_win.channel_info_sensor1_type_DropDown.currentText())
     # sensor1_sensitivity = channel_info_win.channel_info_sensor1_Sensitivity_LineEdit.text()
@@ -152,35 +173,42 @@ def snapshot_data():
     # sensor4_loc = channel_info_win.channel_info_sensor4_location_Edit.text()
     # sensor4_damp = channel_info_win.channel_info_sensor4_dampingLineEdit.text()
 
-
     if vis_bool == "2":
         show_main_sens_sel_window()
 
     if log:
-        print("name="+name)
-        print("id="+id)
-        print("duration="+duration)
-        print("type="+type)
-        print("visualization="+vis_bool)
-        print("store_bool="+store_bool)
+        print("name=" + name)
+        print("id=" + recording_name_id)
+        print("duration=" + duration)
+        print("type=" + type)
+        print("visualization=" + vis_bool)
+        print("store_bool=" + store_bool)
         print("localization:")
-        print("localization type:"+loc_type+", name:"+loc_name+", localization longitud:"+loc_longitud
-              +", localization latitude:"+loc_latitude+", lozalization hour"+loc_hour
-              +", minutes:"+loc_minutes+", seconds:"+loc_seconds)
+        print("localization type:" + loc_type + ", name:" + loc_name + ", localization longitud:" + loc_longitud
+              + ", localization latitude:" + loc_latitude + ", lozalization hour" + loc_hour
+              + ", minutes:" + loc_minutes + ", seconds:" + loc_seconds)
         print("specimen by module:")
-        print("1:"+module_loc1+", 2:"+module_loc2+", 3:"+module_loc3+
-              ", 4:"+module_loc4+", 5:"+module_loc5+", 6:"+module_loc6+
-              ", 7:"+module_loc7+", 8:"+module_loc8)
+        print("1:" + module_loc1 + ", 2:" + module_loc2 + ", 3:" + module_loc3 +
+              ", 4:" + module_loc4 + ", 5:" + module_loc5 + ", 6:" + module_loc6 +
+              ", 7:" + module_loc7 + ", 8:" + module_loc8)
         print("DAQ parameters")
-        print("adc constant="+daq_adc+", sampling rate="+daq_sample_rate+", cutoff="+daq_cutoff+
-              ", gain="+daq_gain)
+        print("adc constant=" + daq_adc + ", sampling rate=" + daq_sample_rate + ", cutoff=" + daq_cutoff +
+              ", gain=" + daq_gain)
         print("sensor info:")
         # print("name="+sensor1_name+", type="+sensor1_type+", sensitivity="+sensor1_sensitivity
         #       +", bandwidth="+sensor1_bandwidth+", fullscale="+sensor1_scale+", damping="+sensor1_damp
         #       +", localization="+sensor1_loc)
 
-def start_aquisition():
+
+"""
+Begin Acquisition Process
+"""
+
+
+def start_acquisition():
+    show_main_sens_sel_window()
     snapshot_data()
+
 
 """
 Add default functionality here
@@ -262,7 +290,8 @@ viz_sensor_sel_win.Sensor_31
 viz_sensor_sel_win.Sensor_32
 
 # Main Sensor Selection
-main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: action_Begin_Recording())  # Close() DONE in UI.
+main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
+    lambda: action_Begin_Recording())  # Close() DONE in UI.
 main_sensor_sel_win.sensor_select_MAX_Label
 main_sensor_sel_win.Sensor_1
 main_sensor_sel_win.Sensor_2
@@ -298,7 +327,7 @@ main_sensor_sel_win.Sensor_31
 main_sensor_sel_win.Sensor_32
 
 # Acquiring Something
-prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: acq_dlg.action_cancel_everything())
+prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: action_cancel_everything())
 prog_dlg.progress_dialog_progressBar
 prog_dlg.progress_dialog_title
 
@@ -354,8 +383,8 @@ main_window.main_tab_DAQParams_samplingRate_DropDown
 main_window.main_tab_DAQParams_Cutoff_Frequency_LineEdit
 main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: show_channel_info_window())
-#main_window.main_tab_START_button.clicked.connect(lambda: show_main_sens_sel_window()) #this was the one before
-main_window.main_tab_START_button.clicked.connect(lambda: start_aquisition())
+# main_window.main_tab_START_button.clicked.connect(lambda: show_main_sens_sel_window()) #this was the one before
+main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # Visualization
 main_window.visualize_tab_tableWidget
 main_window.visualize_tab_TIME_button
@@ -365,11 +394,12 @@ main_window.visualize_tab_XPS_button
 main_window.visualize_tab_PHASE_button
 main_window.visualize_tab_COHERE_button
 
-
 # ------------------------------------------- MAIN WINDOW -------------------------------------------------
 """
 Prepares GUI and sends request to control module for begin recording data.
 """
+
+
 def action_Begin_Recording():
     instruc_man = ins_man.instruction_manager()
     # Activate App Running Dialog.
@@ -391,6 +421,8 @@ Shows the Main Sensor Selection Window.
 
 CALL BEFORE SENDING REQUEST TO START.
 """
+
+
 def ask_for_sensors():
     # User Select which sensors it wants.
     show_main_sens_sel_window()
@@ -403,6 +435,8 @@ Shows Dialog with 'Acquiring' as the title beginning.
 
 :param message : the desired dialog message.
 """
+
+
 def show_acquire_dialog(message: str):
     # Set progress  # TODO LEARN
 
@@ -419,34 +453,36 @@ any other process the system might be doing.
 
 Called by user when CANCEL action is desired.
 """
+
+
 def action_cancel_everything():
     im = ins_man.instruction_manager()
     im.send_cancel_request()
     enable_main_window()
 
 
-# ------------------------------------------- ACQUIRE DIALOG -------------------------------------------------
+# ----------------------------------------- SENSOR & CHANNEL INFORMATION -----------------------------------------------
 """
 Saves sensor data from UI into structure.
 """
-def save_sesnor_info():
+
+
+def save_sensor_info():
     # Get info from GUI.
     # Set info to correct Data Structure.
     # Set sensor info (4)
-    sens_1 = sens.Sensor('NAME', 'Sensor_1 description', 'sensitivity', 'where am i?')
-    sens_2 = sens.Sensor('NAME', 'Sensor_2 description', 'sensitivity', 'where am i?')
-    sens_3 = sens.Sensor('NAME', 'Sensor_3 description', 'sensitivity', 'where am i?')
-    sens_4 = sens.Sensor('NAME', 'Sensor_4 description', 'sensitivity', 'where am i?')
+    sens_1 = sens.Sensor('NAME', 0)
+    sens_2 = sens.Sensor('NAME', 0)
+    sens_3 = sens.Sensor('NAME', 0)
+    sens_4 = sens.Sensor('NAME', 0)
 
     # Set channel sensors.
     channel = chan.Channel('NAME', sens_1, sens_2, sens_3, sens_4)
 
 
-
-
-    main_window.show()
-    # show_progress_dialog()
-    # sensor_sel.show()
-    # mod_sel.show()
-    # channel_info_win.show()
-    app.exec()
+main_window.show()
+# show_progress_dialog()
+# sensor_sel.show()
+# mod_sel.show()
+# channel_info_win.show()
+app.exec()
