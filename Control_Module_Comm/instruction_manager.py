@@ -70,12 +70,12 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x88':
-            if log: print("send live stream request succesful")
+            if log: print("send live stream request successful")
             
 
     """
     instruction to request all data. sends a single byte for instruction
-    the byte in hexadecimla is x86
+    the byte in hexadecimal is x86
     """
     def send_request_all_data(self):
         self.serial_interface.send_instruction(b'\x86')
@@ -83,7 +83,7 @@ class instruction_manager():
         line = line.strip(b'\r\n')
         if line == b'\x86':
             if log: 
-                print("request all data succesful")
+                print("request all data successful")
             while not line == b'\xFF\xFF\xFF\xFF\xFF\xFF\r\n':
                 #store the data somehow
                 if log:
@@ -100,7 +100,7 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x88':
-            if log: print("request live bytes succesful")
+            if log: print("request live bytes successful")
             line = self.serial_interface.listen()
             line = line.strip(b'\r\n')
             if log: print("line is", line)
@@ -109,7 +109,7 @@ class instruction_manager():
             
     """
     request the gps data as a string. still needs post processing.
-    returns a string formated a certain way.
+    returns a string formatted a certain way.
     format pending.
     """
     def send_gps_data_request(self):
@@ -117,7 +117,7 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x89':
-            if log: print("gps data request succesful")
+            if log: print("gps data request successful")
             line = self.serial_interface.listen()
             line = line.strip(b'\r\n')
             if log: print("line is", line)
@@ -133,7 +133,7 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x8A':
-            if log: print("gps sync request instruction succesful")
+            if log: print("gps sync request instruction successful")
             return 1
         return 0
             
@@ -142,7 +142,7 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x8B':
-            if log: print("diagnose request succesful")
+            if log: print("diagnose request successful")
             line = self.serial_interface.listen()
             line = line.strip(b'\r\n')
             if log: print("line is", line)
@@ -154,7 +154,7 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x83':
-            if log: print("diagnose request succesful")
+            if log: print("diagnose request successful")
             line = self.serial_interface.listen()
             line = line.strip(b'\r\n')
             if log: print("line is", line)
@@ -166,7 +166,7 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x8C':
-            if log: print("diagnose request succesful")
+            if log: print("diagnose request successful")
             line = self.serial_interface.listen()
             line = line.strip(b'\r\n')
             if log: print("line is", line)
@@ -178,6 +178,6 @@ class instruction_manager():
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\xFF':
-            if log: print("send cancel succesful")
+            if log: print("send cancel successful")
             return 1
         return 0

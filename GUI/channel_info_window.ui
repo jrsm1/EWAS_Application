@@ -33,7 +33,7 @@
 		<widget class="QWidget" name="centralwidget">
 			<layout class="QVBoxLayout" name="verticalLayout">
 				<item>
-					<widget class="QLabel" name="label_5">
+					<widget class="QLabel" name="channel_info_module_name">
 						<property name="text">
 							<string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
 								style=&quot; font-size:12pt;&quot;&gt;MODULE 1 [Sensors from 1-4]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;

@@ -1,19 +1,20 @@
 import time
 import uuid
 
-test_type = ['Free-Field', 'Laboratory', 'Building']
+TEST_TYPES = ['Free-Field', 'Laboratory', 'Building']
+
 class DAQconfigs:
     """
     IF default=False --> MUST PROVIDE ALL PARAMETERS FIXME
     """
 
     def __init__(self,
-                 sampling_rate=2000, cutoff_frequency=1000, signal_gain=1,
+                 sampling_rate=0, cutoff_frequency=0, signal_gain=0,
                  test_duration=15, test_name='Test_' + uuid.uuid4().hex, record_type=0,
-                 loc_name='No Name', latitud='0:00:0000', longitud='0:00:0000', hour='00', minute='00', second='00',
+                 loc_name='No Name', latitude='0:00:0000', longitude='0:00:0000', hour='00', minute='00', second='00',
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
-                 visualize=False, store=True):
+                 visualize=True, store=False):
 
         self.signal_configs = {
             "sampling_rate": int,
@@ -29,14 +30,14 @@ class DAQconfigs:
         }
 
         self.data_handling_configs = {
-            "visualize": False,
-            "store": False
+            "visualize": bool,
+            "store": bool
         }
 
         self.location_configs = {
             'loc_name': str,
-            'longitud': str,
-            'latitud': str,
+            'longitude': str,
+            'latitude': str,
             'hour': int,
             'minute': int,
             'second': int,
@@ -53,6 +54,9 @@ class DAQconfigs:
             '8': str,
         }
 
+        if len(test_name) > 20:
+            test_name = test_name[0: 20]
+
         # if default:  # FIXME Does not store default given values. MUST INPUT ALL.
         self.signal_configs["sampling_rate"] = sampling_rate
         self.signal_configs["cutoff_frequency"] = cutoff_frequency
@@ -64,8 +68,8 @@ class DAQconfigs:
         self.recording_configs["test_type"] = record_type
 
         self.location_configs['loc_name'] = loc_name
-        self.location_configs['longitud'] = longitud
-        self.location_configs['latitud'] = latitud
+        self.location_configs['longitude'] = longitude
+        self.location_configs['latitude'] = latitude
         self.location_configs['hour'] = hour
         self.location_configs['minute'] = minute
         self.location_configs['second'] = second
@@ -92,12 +96,13 @@ class DAQconfigs:
         # self.recording_configs["test_name"] = test_name_default
 
     """
-    Generates Test ID from Name
+    Generates Test ID from Test Name
     
     :param name : Test Name to generate ID from.
     """
-    staticmethod
-    def generate_ID(self, name: str):  # TODO IMPLEMENT.
+    def generate_ID(self, name: str):  # TODO IMPLEMENT BETTER.
+        if len(name) > 10:
+            name = name[0: 10]
         return name
 
 # Testing

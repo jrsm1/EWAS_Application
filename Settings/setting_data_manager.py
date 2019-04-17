@@ -53,6 +53,7 @@ class Setting_File_Manager:
         return [self.daq_config.signal_configs, self.daq_config.recording_configs, self.daq_config.data_handling_configs,
                 self.daq_config.location_configs, self.daq_config.specimen_location]
 
+
     def store_channel_configs(self, filename: str):
         with open(filename, 'w+', newline='') as f:
             writer = csv.writer(f)
@@ -65,12 +66,17 @@ class Setting_File_Manager:
 
         return self.channel_config
 
-    def store_sensor_config(self, filename: str):
-        with open(filename, 'w+', newline='') as f:
+    """
+    Stores all sensor configurations in a single file. 
+    """
+    def store_sensor_config(self, filename: str, sensors: []):
+        sensor_file = 'Config/Sensor/' + filename
+        with open(sensor_file, 'w+', newline='') as f:
             writer = csv.writer(f)
 
-            writer.writerow(self.sensor_config.sensor_info.keys())
-            writer.writerow(self.sensor_config.sensor_info.values())
+            for sen in sensors:
+                writer.writerow(sen.keys())
+                writer.writerow(sen.values())
 
     def load_sensor_config(self, filename: str):
         self.sensor_config = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]
