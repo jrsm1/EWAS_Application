@@ -172,6 +172,63 @@ class instruction_manager():
             if log: print("line is", line)
             return line
         return 0
+
+    """
+    sampling frequency
+    cutoff frequency
+    gain
+    duration
+    """
+    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, sensors_selected):
+        if log: print("entered send recording parameters")
+        self.serial_interface.send_byte(b'\x85')
+        if log: print("sent byte of instruction")
+        duration = self.fix_duration(duration)
+        if log:
+            print("sent byte and fixed duration")
+            print("sfrequency type is " + str(type(sfrequency)))
+        self.serial_interface.send_byte(bytes([int(sfrequency)]))
+        if log: print("sent sampling frequency")
+        self.serial_interface.send_byte(bytes([int(cutoff)]))
+        self.serial_interface.send_byte(bytes([int(gain)]))
+        self.serial_interface.send_byte(bytes([int(duration[0])]))
+        self.serial_interface.send_byte(bytes([int(duration[1])]))
+        self.serial_interface.send_byte(bytes([int(duration[2])]))
+        self.serial_interface.send_byte(bytes([int(duration[3])]))
+        self.serial_interface.send_byte(bytes([int(sensors_selected[0])]))
+        self.serial_interface.send_byte(bytes([int(sensors_selected[1])]))
+        self.serial_interface.send_byte(bytes([int(sensors_selected[2])]))
+        self.serial_interface.send_instruction(bytes([int(sensors_selected[3])]))
+        if log: print("sent whole instruction")
+        line = self.serial_interface.listen()
+        line = line.strip(b'\r\n')
+        if line == b'\x85':
+            if log: print("sent recording parameters succesful")
+            # line = self.serial_interface.listen()
+            # if log: print("line is-", line)
+            # line = line.strip(b'\r\n')
+            # if log: print("got past strip")
+            # line = line.split(",")
+            if log: print("got past split")
+            if log: print("line is", line)
+            return 1
+        return 0
+
+    def fix_duration(self, duration):
+        if log: print("entered fix duration")
+        dur = str(duration)
+        new_duration = dur
+        if log: print("duration is " + new_duration)
+        a = int(len(new_duration))
+        if log: print("length is " + str(a))
+        index = 4 - a
+        if log: print("duration is " + new_duration +" index is " + str(index))
+        if log: print("got to for loop in fix duration")
+        while index > 0:
+            new_duration = "0" + new_duration
+            print("new_duration is " + new_duration)
+            index = index - 1
+        return new_duration
     
     def send_cancel_request(self):
         self.serial_interface.send_instruction(b'\xFF')
