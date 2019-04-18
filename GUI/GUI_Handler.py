@@ -283,6 +283,13 @@ def sensor_sel_start():
     if log: print("came back to sensor_sel_start")
     enable_main_window()
 
+def request_gps_sync():
+    ins = ins_man.instruction_manager()
+    ins = ins.send_gps_sync_request()
+    if log:
+        if ins:
+            print("request gps successful")
+
 """
 Add default functionality here
 """
@@ -439,6 +446,7 @@ main_window.main_tab_LocalizationSettings_latitudLineEdit
 main_window.main_tab_LocalizationSettings_hourLineEdit
 main_window.main_tab_LocalizationSettings_minutesLineEdit
 main_window.main_tab_LocalizationSettings_secondsLineEdit
+main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: request_gps_sync())
 ### Module Loc. Settings
 main_window.main_tab_module_loc_LineEdit_1
 main_window.main_tab_module_loc_LineEdit_2
