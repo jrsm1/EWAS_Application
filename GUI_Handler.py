@@ -321,6 +321,7 @@ def set_daq_params_to_gui():
     cutfreq_drodown.setCurrentIndex(daq_config.signal_configs['cutoff_frequency'])
     gain_dropdown.setCurrentIndex(daq_config.signal_configs['signal_gain'])
 
+
 """
 Gets all the data from fields in Main Window
 """
@@ -437,7 +438,7 @@ Begin Acquisition Process
 def start_acquisition():
     show_main_sens_sel_window()
     enable_start_connected_sensors()
-    # snapshot_data()
+    snapshot_data()
 
 
 def enable_start_connected_sensors():
