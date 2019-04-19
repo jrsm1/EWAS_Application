@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,13 +232,13 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="100" />
     <option name="width" value="1750" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -288,7 +284,22 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="GUI" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -637,7 +648,21 @@
       <option name="project" value="LOCAL" />
       <updated>1555705011217</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="main window change">
+      <created>1555705604286</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1555705604286</updated>
+    </task>
+    <task id="LOCAL-00028" summary="DELETE OR REVERT BEFORE">
+      <created>1555705738270</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1555705738270</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -654,7 +679,7 @@
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49690402" visible="true" weight="0.16043957" />
-      <window_info id="Structure" order="1" sideWeight="0.503096" side_tool="true" visible="true" weight="0.16043957" />
+      <window_info id="Structure" order="1" sideWeight="0.503096" side_tool="true" weight="0.16043957" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
@@ -713,8 +738,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="# Done&#10;- [x] Added Data visualization Jupyter Notebook test files.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Added preliminary Settings Structure files.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Created GUI Handling Error Dialog from given button for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Created Data Visialization Class and Dummy Data for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
@@ -738,7 +761,9 @@
     <MESSAGE value="* [X] Change Main method --&gt; fixed double window bug.&#10;* [X] Fixed some spelling.&#10;* [X] Logic for loading and enabling location parameters.&#10;* [X] Logic for GPS sync and display info to GUI.&#10;* [X] Setting Recording data to Display in GUI.&#10;* [x] Logic for channel info ALMOST ready.&#10;&#10;* [ ] GPS Sync Request timeout.&#10;* [ ] Error Dialog when sync times out.&#10;* [ ] Finish Channel Info Logic." />
     <MESSAGE value="* [X] Change Main method --&gt; fixed double window bug.&#10;* [X] Fixed some spelling.&#10;* [X] Logic for loading and enabling location parameters.&#10;* [X] Logic for GPS sync and display info to GUI.&#10;* [X] Setting Recording data to Display in GUI.&#10;* [x] Logic for channel info ALMOST ready.&#10;* [-] Added Logo to some Windows.&#10;&#10;* [ ] GPS Sync Request timeout.&#10;* [ ] Error Dialog when sync times out.&#10;* [ ] Finish Channel Info Logic." />
     <MESSAGE value="* [X] Store Chanel config with sensors ready." />
-    <option name="LAST_COMMIT_MESSAGE" value="* [X] Store Chanel config with sensors ready." />
+    <MESSAGE value="main window change" />
+    <MESSAGE value="DELETE OR REVERT BEFORE" />
+    <option name="LAST_COMMIT_MESSAGE" value="DELETE OR REVERT BEFORE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -919,9 +944,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
@@ -1135,6 +1157,9 @@
           <caret line="1964" column="71" selection-start-line="1964" selection-start-column="71" selection-end-line="1964" selection-end-column="71" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
