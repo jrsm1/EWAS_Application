@@ -81,9 +81,9 @@
            <property name="geometry">
             <rect>
              <x>310</x>
-             <y>20</y>
+             <y>0</y>
              <width>333</width>
-             <height>161</height>
+             <height>184</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="main_tab_Recording_Settings_Form">
@@ -206,13 +206,16 @@
               </item>
              </widget>
             </item>
-            <item row="4" column="1">
+            <item row="5" column="1">
              <layout class="QHBoxLayout" name="main_tab_visualize_store_horizontalLayout">
               <property name="spacing">
                <number>15</number>
               </property>
               <item>
                <widget class="QCheckBox" name="main_tab_RecordingSettings_visualize_checkBox">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
                 </property>
@@ -220,7 +223,7 @@
                  <string>Visualize Data</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -235,6 +238,32 @@
                </widget>
               </item>
              </layout>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="main_tab_RecordingSettings_durationLineEdit_2">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);
+																font: 12pt &quot;MS Shell Dlg 2&quot;;
+																color: rgb(0, 0, 0)
+															</string>
+              </property>
+              <property name="maxLength">
+               <number>4</number>
+              </property>
+              <property name="placeholderText">
+               <string>In Seconds</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="main_tab_longitud_Label_4">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Start Delay&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="buddy">
+               <cstring>main_tab_RecordingSettings_type_DropDown</cstring>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
