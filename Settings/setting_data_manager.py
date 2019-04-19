@@ -5,6 +5,8 @@ from Control_Module_Comm.Structures import Channel_Individual, DAQ_Configuration
 import csv
 import pandas as pd
 
+log = 1
+
 
 class Setting_File_Manager:
     def __init__(self, ch_con: Channel_Individual, sens_con: Sensor_Individual, daq_con: DAQ_Configuration):
@@ -58,12 +60,36 @@ class Setting_File_Manager:
         with open(filename, 'w+', newline='') as f:
             writer = csv.writer(f)
 
-            writer.writerow(self.channel_config.channel_info.keys())
-            writer.writerow(self.channel_config.channel_info.values())
+            # for x in range(0, 1000000, 1):
+            if log: print(list(self.channel_config.channel_info.keys())[0])
+            # if log: print(type(self.channel_config.channel_info.keys()))
 
+            # writer.writerow(list(self.channel_config.channel_info.keys())[0])
+            # writer.writerow(self.channel_config.channel_info['channel_name'])
+
+            # Marroneo -  Store values in temp dict so that it will be stored like a word in csv.
+            temp_dict = {list(self.channel_config.channel_info.keys())[0]: self.channel_config.channel_info['channel_name']}
+            if log: print(temp_dict)
+            writer.writerow(temp_dict.keys())
+            writer.writerow(temp_dict.values())
+
+            writer.writerow(self.channel_config.channel_info['Sensor 1'].sensor_info.keys())
+            writer.writerow(self.channel_config.channel_info['Sensor 1'].sensor_info.values())
+
+            writer.writerow(self.channel_config.channel_info['Sensor 2'].sensor_info.keys())
+            writer.writerow(self.channel_config.channel_info['Sensor 2'].sensor_info.values())
+
+            writer.writerow(self.channel_config.channel_info['Sensor 3'].sensor_info.keys())
+            writer.writerow(self.channel_config.channel_info['Sensor 3'].sensor_info.values())
+
+            writer.writerow(self.channel_config.channel_info['Sensor 4'].sensor_info.keys())
+            writer.writerow(self.channel_config.channel_info['Sensor 4'].sensor_info.values())
+
+    # TODO
     def load_channel_config(self, filename: str):
-        self.channel_config = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]
+        name_dict = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]
 
+        if log: print(name_dict)
         return self.channel_config
 
     """
@@ -87,7 +113,7 @@ class Setting_File_Manager:
 
 
 # TESTING
-sc = Sensor_Individual.Sensor('Name', 0)
+sc = Sensor_Individual.Sensor('Other Name', 0)
 cc = Channel_Individual.Channel('mName', sc, sc, sc, sc)
 daq = DAQ_Configuration.DAQconfigs()
 sfm = Setting_File_Manager(cc, sc, daq)
@@ -104,12 +130,13 @@ sfm = Setting_File_Manager(cc, sc, daq)
 # print(sfm.daq_config.data_handling_configs)
 
 # TODO create a method that does this and set it the correct path.
-# filename = r'../Data/Channel_Settings.csv'
+filename = r'../Data/Channel_Settings.csv' # USE WHEN RUNNING THIS SCRIPT
+# filename = r'Data/Channel_Settings.csv'  # USE WHEN RUNNING MAIN
 # sfm.store_channel_configs(filename)
 # d = sfm.load_channel_config(filename)
 # print(d)
 
-# filename = r'Data/writting_settings.csv'
+# filename = r'Data/default_settings.csv'
 # sfm.daq_config.specimen_location['1'] = 'Something ELse'
 
 # sfm.store_daq_configs(filename)
@@ -119,3 +146,6 @@ sfm = Setting_File_Manager(cc, sc, daq)
 # for x in range(0, len(d), 1):
 #     print(d[x])
 # print('\n' + str(type(d[0])))
+
+# sfm.store_channel_configs(filename)
+# sfm.load_channel_config(filename)

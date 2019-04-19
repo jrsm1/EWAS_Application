@@ -129,29 +129,94 @@ def show_channel_info_window(channel: int):
     # TODO VERIFY IF THE SENSORS IN THE CHANNEL ARE CONNECTED.
     # TODO ENABLE MODULE SELECTION BUTTONS BASED ON CONNECTED SENSORS.
     # LATER TODO SAVE CORRECT VALUES FOR CHANNEL.
-    # TODO SUGGEST SAME INFO ON ALL FIELDS IF USER FILLED THE FIRST ONE. DYNAMICALLY.
 
     # Close Mosule Selection Window now as it will not do anything. --> Open after module settings are saved.
     mod_sel_win.close()
 
-    chan_mod_name.setTextFormat(1)  # Qt::RichText	1  # TODO DELETE THIS FROM GUI. MODULE NAME WILL NOT BE DISPLAYED.
+    chan_mod_name.setTextFormat(1)  # Qt::RichText	1
+    # TODO Format Texts
+
     # Decide which Module the user has selected.
     if channel == 0:
         chan_mod_name.setText('Module 1')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 1')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_1')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 2')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_2')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 3')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_3')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 4')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_4')
     elif channel == 1:
         chan_mod_name.setText('Module 2')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 5')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_5')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 6')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_6')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 7')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_7')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 8')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_8')
     elif channel == 2:
         chan_mod_name.setText('Module 3')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 9')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_9')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 10')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_10')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 11')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_11')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 12')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_12')
     elif channel == 3:
         chan_mod_name.setText('Module 4')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 13')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_13')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 14 ')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_14')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 15')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_15')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 16')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_16')
     elif channel == 4:
         chan_mod_name.setText('Module 5')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 17')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_17')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 18')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_18')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 19')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_19')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 20')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_20')
     elif channel == 5:
         chan_mod_name.setText('Module 6')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 21')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_21')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 22')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_22')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 23')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_23')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 24')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_24')
     elif channel == 6:
         chan_mod_name.setText('Module 7')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 25')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_25')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 26')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_26')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 27')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_27')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 28')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_28')
     elif channel == 7:
         chan_mod_name.setText('Module 8')
+        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 29')
+        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_29')
+        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 30')
+        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_30')
+        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 31')
+        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_31')
+        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 32')
+        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_32')
 
     channel_info_win.show()
 
@@ -372,13 +437,14 @@ Begin Acquisition Process
 def start_acquisition():
     show_main_sens_sel_window()
     enable_start_connected_sensors()
-    snapshot_data()
+    # snapshot_data()
 
 
 def enable_start_connected_sensors():
     for s in range(0, 32, 1):  # Go through 32 sensors.
         if not sensors_all[s].connected:  # If sensor in not connected.
             sensor_selection_list[s].setEnabled(False)
+
 
 """
 Add default functionality here
@@ -557,7 +623,7 @@ specimen_loc_8 = main_window.main_tab_module_loc_LineEdit_8
 # Data Acquisition Settings
 main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: action_store_DAQ_Params())  # TODO
 main_window.main_tab_DAQParams_LOAD_PARAMS_button
-main_window.main_tab_DAQParams_ADC_Constant_LineEdit  # FIXME This may change widgets thus changing Object Name.
+# main_window.main_tab_DAQParams_ADC_Constant_Label
 samfreq_dropdown = main_window.main_tab_DAQParams_samplingRate_DropDown
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
@@ -583,10 +649,10 @@ def action_Begin_Recording():
     instruc_man = ins_man.instruction_manager()
     # Activate App Running Dialog.
     # Send Setting Information to Control Module.
-    instruc_man.send_set_configuration('Configuration String.')
+    # instruc_man.send_set_configuration('Configuration String.')
     # Prepare Real-Time Plot to receive Data.
     # Send Begin Recording FLAG to Control Module.
-    instruc_man.send_request_start()
+    # instruc_man.send_request_start()
 
     # Close Window
     main_sensor_sel_win.close()
@@ -648,12 +714,12 @@ def action_load_Rec_Setts():
 def sync_gps():  # TODO TEST
     disable_main_window()
     show_acquire_dialog('GPS Signal')
-    # im = ins_man.instruction_manager()
-    # im.send_gps_sync_request()
+    im = ins_man.instruction_manager()
+    im.send_gps_sync_request()
 
     timeout = 0
-    # while im.send_request_status() != 1:
-    while 1:
+    while im.send_request_status() != 1:
+    # while 1:
         if log: print('GPS Waiting....')
 
         sleep(0.500)  # Wait for half a second before asking again.
@@ -683,6 +749,17 @@ def load_local_settings_to_gui():
         set_specimen_location_into_gui()
 
 
+# ---------------------------------------------- CHANNEL INFORMATION----------------------------------------------------
+# """
+# Loads fields from Channel info data structure into GUI.
+# """
+# def load_channel_to_gui():
+#     sens_1 = chan.
+#
+#
+# def load_channel_from_file():
+#     channel =
+
 # ----------------------------------------------- ACQUIRE DIALOG -----------------------------------------------------
 """
 Shows Dialog with 'Acquiring' as the title beginning.
@@ -705,8 +782,8 @@ any other process the system might be doing.
 Called by user when CANCEL action is desired.
 """
 def action_cancel_everything():
-    im = ins_man.instruction_manager()
-    im.send_cancel_request()
+    # im = ins_man.instruction_manager()
+    # im.send_cancel_request()
     enable_main_window()
 
 
@@ -793,5 +870,7 @@ def init():
     # sensor_sel.show()
     # mod_sel.show()
     # channel_info_win.show()
+    # show_acquire_dialog('SOMETHING')
+    # show_main_sens_sel_window()
     # show_visualization_sensor_selector_window()
     app.exec()

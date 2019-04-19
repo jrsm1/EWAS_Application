@@ -1,2 +1,10 @@
 channel_name
 mName
+sensor_name,type,sensitivity,bandwidth,full_scale,damping,localization
+Other Name,Acceleration,Not Specified,Not Specified,Not Specified,Not Specified,Not Specified
+sensor_name,type,sensitivity,bandwidth,full_scale,damping,localization
+Other Name,Acceleration,Not Specified,Not Specified,Not Specified,Not Specified,Not Specified
+sensor_name,type,sensitivity,bandwidth,full_scale,damping,localization
+Other Name,Acceleration,Not Specified,Not Specified,Not Specified,Not Specified,Not Specified
+sensor_name,type,sensitivity,bandwidth,full_scale,damping,localization
+Other Name,Acceleration,Not Specified,Not Specified,Not Specified,Not Specified,Not Specified
