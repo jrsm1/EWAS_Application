@@ -45,6 +45,20 @@ class serial_interface():
         self.ser.write(b'\r')
 
     """
+    send string byte with no ending
+    """
+    def send_string_bytes(self, byte):
+        st = bytes(byte, 'ascii')
+        self.ser.write(st)
+
+    """
+    send ending byte
+    """
+    def send_end_byte(self):
+        self.ser.write(b'\r')
+
+
+    """
     send byte is important to be able to send instructions as bytes, that are not on the ascii table. 
     """
 
