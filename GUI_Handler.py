@@ -81,6 +81,16 @@ daq_config = DAQ_Configuration.DAQconfigs()
 
 # testing purposes
 log = 1
+log_working = 1
+
+# some global bariables
+daq_sample_rate = 0
+daq_cutoff = 0
+daq_gain = 0
+duration = 0
+daq_exp_name = ""
+daq_exp_location = ""
+daq_start_delay = 0
 
 """
 Displays Main Window on Computer's Screen.
@@ -244,6 +254,9 @@ def show_progress_dialog(message: str):
 def show_visualization_sensor_selector_window(plot: int):  # TODO
     viz_sensor_sel_win.show()
 
+    # Pass info on who called me t know which plot to display.
+    begin_visualization(plot)
+
 """
 Begins Visualization Analysis for user selected plots.
 """
@@ -331,6 +344,7 @@ def snapshot_data():
     name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
     recording_name_id = main_window.main_tab_RecordingSettings_id_LineEdit.text()
     duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    start_delay = main_window.main_tab_RecordingSettings_durationLineEdit_2.text()
     """
     QComboBox, which are the dropdown needs currentText()
     it has to be casted to string
@@ -366,10 +380,18 @@ def snapshot_data():
     module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
 
     # daq parameters
-    daq_adc = main_window.main_tab_DAQParams_ADC_Constant_LineEdit.text()
-    daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentText())
-    daq_cutoff = str(main_window.main_tab_DAQParams_Cutoff_Frequency_LineEdit.currentText())
-    daq_gain = str(main_window.main_tab_DAQParams_gain_DropDown.currentText())
+    daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex())
+    daq_cutoff = str(main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex())
+    daq_gain = str(main_window.main_tab_DAQParams_gain_DropDown.currentIndex())
+    daq_exp_name = str(name)
+    daq_exp_location = str(loc_name)
+    if log: print("delay start before is ", start_delay)
+    if start_delay:
+        daq_start_delay = str(start_delay)
+    else:
+        daq_start_delay = "0000"
+
+    if log: print("delay start is ", daq_start_delay)
 
     # sensor info has to be fixed
     # sensor info
@@ -406,9 +428,12 @@ def snapshot_data():
     # sensor4_damp = channel_info_win.channel_info_sensor4_dampingLineEdit.text()
 
     if vis_bool == "2":
-        show_main_sens_sel_window()
+        show_visualization_sensor_selector_window(-1)
+    else:
+        ins = ins_man.instruction_manager()
+        ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, "0000", daq_exp_name, daq_exp_location)
 
-    if log:
+    if log_working:
         print("name=" + name)
         print("id=" + recording_name_id)
         print("duration=" + duration)
@@ -432,19 +457,69 @@ def snapshot_data():
         #       +", localization="+sensor1_loc)
 
 
+def get_module_and_sensors_selected():
+    if log: print("entered get_module_and_sensors_selected()")
+    count = 0;
+    sensors_sel = []
+    if log: print("created empy sensor selected array")
+    sensors_sel.append(main_sensor_sel_win.Sensor_1)
+    # test = int(main_sensor_sel_win.Sensor_1)
+    # if log:
+    #     print("added the first sensor to the list")
+    #     print("tester prints ", test)
+    #     print("sensor sel is ", str(sensors_sel))
+
+    if log: print("print sensors array created correctly")
+    sensors_selected = "0000"
+    correct = 1
+    index = 0
+    for i in sensor_selection_list:
+        index += 1
+        if i.checkState() == 2:
+            count = count + 1
+            module = str(int((index - 1) / 4)+1)
+            sensor = str(((index - 1) % 4) + 1)
+            sensors_selected = module + sensor + sensors_selected
+        if count > 2:
+            correct = 0
+            break
+
+    if log: print("sensors selected are: ", sensors_selected)
+
+    for i in sensor_selection_list:
+        i.setCheckState(False)
+
+    if correct:
+        sensors_selected = sensors_selected[0:4]
+        return sensors_selected
+    return "0000"
+
 """
 Begin Acquisition Process
 """
 def start_acquisition():
-    show_main_sens_sel_window()
+    # show_main_sens_sel_window()
     enable_start_connected_sensors()
     snapshot_data()
 
 
+def sensor_sel_start():
+    sens = get_module_and_sensors_selected()
+    if log: print("sensors selected are ", sens)
+    ins = ins_man.instruction_manager()
+    main_sensor_sel_win.close()
+    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name, daq_exp_location)
+    if log: print("came back to sensor_sel_start")
+    enable_main_window()
+
+
 def enable_start_connected_sensors():
+    # Request Control Module for Connected sensors.
+    if log: print("entered enable start")
     for s in range(0, 32, 1):  # Go through 32 sensors.
         if not sensors_all[s].connected:  # If sensor in not connected.
             sensor_selection_list[s].setEnabled(False)
+    if log: print("got out of enable start connected sensors")
 
 
 """
@@ -647,13 +722,15 @@ Prepares GUI and sends request to control module for begin recording data.
 
 
 def action_Begin_Recording():
+    # snapshot_data()
+    # sensor_sel_start()
     instruc_man = ins_man.instruction_manager()
     # Activate App Running Dialog.
     # Send Setting Information to Control Module.
-    # instruc_man.send_set_configuration('Configuration String.')
+    instruc_man.send_set_configuration('Configuration String.')
     # Prepare Real-Time Plot to receive Data.
     # Send Begin Recording FLAG to Control Module.
-    # instruc_man.send_request_start()
+    instruc_man.send_request_start()
 
     # Close Window
     main_sensor_sel_win.close()
@@ -783,8 +860,8 @@ any other process the system might be doing.
 Called by user when CANCEL action is desired.
 """
 def action_cancel_everything():
-    # im = ins_man.instruction_manager()
-    # im.send_cancel_request()
+    im = ins_man.instruction_manager()
+    im.send_cancel_request()
     enable_main_window()
 
 
