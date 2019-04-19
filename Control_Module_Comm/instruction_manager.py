@@ -179,26 +179,50 @@ class instruction_manager():
     gain
     duration
     """
-    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, sensors_selected):
+    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, sensors_selected, name, location):
         if log: print("entered send recording parameters")
         self.serial_interface.send_byte(b'\x85')
         if log: print("sent byte of instruction")
         duration = self.fix_duration(duration)
+        start_delay = self.fix_duration(start_delay)
         if log:
             print("sent byte and fixed duration")
             print("sfrequency type is " + str(type(sfrequency)))
         self.serial_interface.send_byte(bytes([int(sfrequency)]))
         if log: print("sent sampling frequency")
+        # send cut off
         self.serial_interface.send_byte(bytes([int(cutoff)]))
+        # send gain
         self.serial_interface.send_byte(bytes([int(gain)]))
+        # send duration
         self.serial_interface.send_byte(bytes([int(duration[0])]))
         self.serial_interface.send_byte(bytes([int(duration[1])]))
         self.serial_interface.send_byte(bytes([int(duration[2])]))
         self.serial_interface.send_byte(bytes([int(duration[3])]))
+        # send start time delay
+        self.serial_interface.send_byte(bytes([int(start_delay[0])]))
+        self.serial_interface.send_byte(bytes([int(start_delay[1])]))
+        self.serial_interface.send_byte(bytes([int(start_delay[2])]))
+        self.serial_interface.send_byte(bytes([int(start_delay[3])]))
+        # send sensors selected
         self.serial_interface.send_byte(bytes([int(sensors_selected[0])]))
         self.serial_interface.send_byte(bytes([int(sensors_selected[1])]))
         self.serial_interface.send_byte(bytes([int(sensors_selected[2])]))
-        self.serial_interface.send_instruction(bytes([int(sensors_selected[3])]))
+        self.serial_interface.send_byte(bytes([int(sensors_selected[3])]))
+        # send name
+        for a in name:
+            self.serial_interface.send_string_bytes(a)
+
+        # send comma delimiter
+        self.serial_interface.send_string_bytes(",")
+        # send localization
+        for a in location:
+            self.serial_interface.send_string_bytes(a)
+        # send final comma delimeter
+        self.serial_interface.send_string_bytes(",")
+        # finish transmission, and then wait for answer
+        self.serial_interface.send_end_byte()
+
         if log: print("sent whole instruction")
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
