@@ -25,6 +25,9 @@ daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
 duration = 0
+daq_exp_name = ""
+daq_exp_location = ""
+daq_start_delay = 0
 
 
 def show_main_window():
@@ -95,6 +98,7 @@ def snapshot_data():
     name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
     id = main_window.main_tab_RecordingSettings_id_LineEdit.text()
     duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    start_delay = main_window.main_tab_RecordingSettings_durationLineEdit_2.text()
     """
     QComboBox, which are the dropdown needs currentText()
     it has to be casted to string
@@ -134,6 +138,15 @@ def snapshot_data():
     daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex())
     daq_cutoff = str(main_window.main_tab_DAQParams_Cutoff_Frequency_LineEdit.currentIndex())
     daq_gain = str(main_window.main_tab_DAQParams_gain_DropDown.currentIndex())
+    daq_exp_name = str(name)
+    daq_exp_location = str(loc_name)
+    if log: print("delay start before is ", start_delay)
+    if start_delay:
+        daq_start_delay = str(start_delay)
+    else:
+        daq_start_delay = "0000"
+
+    if log: print("delay start is ", daq_start_delay)
 
     # sensor info has to be fixed
     # sensor info
@@ -174,7 +187,7 @@ def snapshot_data():
         show_main_sens_sel_window()
     else:
         ins = ins_man.instruction_manager()
-        ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, "0000")
+        ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, "0000", daq_exp_name, daq_exp_location)
 
     if log_working:
         print("name=" + name)
@@ -279,7 +292,7 @@ def sensor_sel_start():
     if log: print("sensors selected are ", sens)
     ins = ins_man.instruction_manager()
     main_sensor_sel_win.close()
-    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, sens)
+    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name, daq_exp_location)
     if log: print("came back to sensor_sel_start")
     enable_main_window()
 
@@ -434,6 +447,7 @@ main_window.main_tab_RecordingSettings_name_LineEdit
 main_window.main_tab_RecordingSettings_id_LineEdit
 main_window.main_tab_RecordingSettings_durationLineEdit
 main_window.main_tab_RecordingSettings_type_DropDown
+main_window.main_tab_RecordingSettings_durationLineEdit_2
 main_window.main_tab_RecordingSettings_visualize_checkBox
 main_window.main_tab_RecordingSettings_store_checkBox
 # Localization Settings
