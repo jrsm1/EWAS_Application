@@ -2,7 +2,6 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
 from time import sleep
-
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
 from Data_Processing import Plot_Data
@@ -268,6 +267,7 @@ def show_visualization_sensor_selector_window(plot: int):  # TODO
 def show_filename_editor_window():
     filename_input_win.show()
 
+
 # TODO get selected sensors.
 def begin_visualization(plot: int):
     """
@@ -347,8 +347,7 @@ def set_daq_params_to_gui():
     cutfreq_drodown.setCurrentIndex(daq_config.signal_configs['cutoff_frequency'])
     gain_dropdown.setCurrentIndex(daq_config.signal_configs['signal_gain'])
 
- 
-ERROR_LIST = []
+
 def check_boxes(text_box: str, pattern: str):
     result = regex.match(pattern, text_box)
     return result
@@ -358,26 +357,26 @@ def get_rec_setts_from_gui():
     """
     Gets information on GUI into DAQ Parameters Data Structures.
     """
-    try:  # This should NEVER happen when velidating
-        daq_config.recording_configs['test_name'] = str(main_window.main_tab_RecordingSettings_name_LineEdit.text())
-        daq_config.recording_configs['test_duration'] = int(
-            main_window.main_tab_RecordingSettings_durationLineEdit.text())
-        daq_config.recording_configs['test_start_delay'] = int(
-            main_window.main_tab_RecordingSettings_delay_LineEdit.text())
-        daq_config.recording_configs['test_type'] = int(
-            main_window.main_tab_RecordingSettings_type_DropDown.currentIndex())
-        """
-        QCheckbox, needs checkState() to get the state.
-        There are two states.
-        2 = checked
-        0 = unchecked
-        """
-        daq_config.recording_configs[
-            'visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns BOOLEAN
-        daq_config.recording_configs[
-            'store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
-    except TypeError:
-        show_error('Please Verify all the parameters have the correct value.')
+    # try:  # This should NEVER happen when validating
+    daq_config.recording_configs['test_name'] = str(main_window.main_tab_RecordingSettings_name_LineEdit.text())
+    daq_config.recording_configs['test_duration'] = int(
+        main_window.main_tab_RecordingSettings_durationLineEdit.text())
+    daq_config.recording_configs['test_start_delay'] = int(
+        main_window.main_tab_RecordingSettings_delay_LineEdit.text())
+    daq_config.recording_configs['test_type'] = int(
+        main_window.main_tab_RecordingSettings_type_DropDown.currentIndex())
+    """
+    QCheckbox, needs checkState() to get the state.
+    There are two states.
+    2 = checked
+    0 = unchecked
+    """
+    daq_config.recording_configs[
+        'visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns BOOLEAN
+    daq_config.recording_configs[
+        'store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
+    # except TypeError:
+        #show_error('Please Verify all the parameters have the correct value.')
 
     if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
 
@@ -397,17 +396,27 @@ def snapshot_data():
     """
     # we have to change everything to string, because that's how it's going to get passed
     # main tab recording settings
-    ERROR_LIST.clear()
+    there_is_no_error = True
+    error_list = []
+    error_string = ""
     name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
     validate_box = check_boxes(name, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append("Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.")
-    recording_name_id = main_window.main_tab_RecordingSettings_id_LineEdit.text()
+        error_list.append('Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.<br>')
+        error_string += 'Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.<br>'
+        there_is_no_error = False
     duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
-    validate_box = check_boxes(name, '^[0-9]+$')
+    validate_box = check_boxes(duration, '^[0-9]+$')
     if not validate_box:
-        ERROR_LIST.append("Error: Invalid Duration. Restricted to numbers only.")
+        error_list.append('Error: Invalid Duration. Restricted to numbers only.<br>')
+        error_string+='Error: Invalid Duration. Restricted to numbers only.<br>'
+        there_is_no_error = False
     start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
+    validate_box = check_boxes(start_delay, '^\d+$')
+    if not validate_box:
+        error_list.append('Error: Invalid Start Delay. Restricted to numbers only.<br>')
+        error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+        there_is_no_error = False
     """
     QComboBox, which are the dropdown needs currentText()
     it has to be casted to string
@@ -428,84 +437,127 @@ def snapshot_data():
     loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
     validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Name format. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Name format. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+        there_is_no_error = False
     loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
     validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>')
+        error_list.append('Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>')
+        error_string += 'Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>'
+        there_is_no_error = False
     loc_latitude = main_window.main_tab_LocalizationSettings_latitudLineEdit.text()
     validate_box = check_boxes(loc_latitude, '^(\+|-)?\d{4}.\d{5}$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>')
+        error_list.append('Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>')
+        error_string += 'Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>'
+        there_is_no_error = False
     loc_hour = main_window.main_tab_LocalizationSettings_hourLineEdit.text()
     validate_box = check_boxes(loc_hour, '^\d{2}$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid hour format. Restricted to two digits.<br>')
+        error_list.append('Error: Invalid hour format. Restricted to two digits.<br>')
+        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        there_is_no_error = False
     loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
     validate_box = check_boxes(loc_minutes, '^\d{2}$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid minute format. Restricted to two digits.<br>')
+        error_list.append('Error: Invalid minute format. Restricted to two digits.<br>')
+        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        there_is_no_error = False
     loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
     validate_box = check_boxes(loc_seconds, '^\d{2}$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid second q format. Restricted to two digits.<br>')
-
+        error_list.append('Error: Invalid second q format. Restricted to two digits.<br>')
+        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        there_is_no_error = False
     # specimen by module
     module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
     validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 1. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
     module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
     validate_box = check_boxes(module_loc2, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 2. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 2. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+
     module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
     validate_box = check_boxes(module_loc3, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 3. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 3. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
     module_loc4 = main_window.main_tab_module_loc_LineEdit_4.text()
     validate_box = check_boxes(module_loc4, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 4. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 4. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
     module_loc5 = main_window.main_tab_module_loc_LineEdit_5.text()
     validate_box = check_boxes(module_loc5, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 5. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 5. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
     module_loc6 = main_window.main_tab_module_loc_LineEdit_6.text()
     validate_box = check_boxes(module_loc6, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 6. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 6. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
     module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
     validate_box = check_boxes(module_loc7, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 7. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 7. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
     module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
     validate_box = check_boxes(module_loc8, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+        error_list.append('Error: Invalid Location Specimen 8. Restricted to numbers, '
                           'uppercase and lowercase letters only.<br>')
+        error_string += 'Error: Invalid Location Specimen 8. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
 
     # daq parameters
     daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex())
     daq_cutoff = str(main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex())
     daq_gain = str(main_window.main_tab_DAQParams_gain_DropDown.currentIndex())
-    daq_exp_name = str(name)
-    daq_exp_location = str(loc_name)
-    if log: print("delay start before is ", start_delay)
-    if start_delay:
-        daq_start_delay = str(start_delay)
-    else:
-        daq_start_delay = "0000"
 
-    if log: print("delay start is ", daq_start_delay)
+    if there_is_no_error:
+        return True
+    else:
+        show_error(error_string)
+        return False
+
+    # daq_exp_name = str(name)
+    # daq_exp_location = str(loc_name)
+    # if log: print("delay start before is ", start_delay)
+    # if start_delay:
+    #     daq_start_delay = str(start_delay)
+    # else:
+    #     daq_start_delay = "0000"
+    #
+    # if log: print("delay start is ", daq_start_delay)
 
     # sensor info has to be fixed
     # sensor info
@@ -540,17 +592,24 @@ def snapshot_data():
     # sensor4_scale = channel_info_win.channel_info_senson4_full_Scale_LineEdit.text()
     # sensor4_loc = channel_info_win.channel_info_sensor4_location_Edit.text()
     # sensor4_damp = channel_info_win.channel_info_sensor4_dampingLineEdit.text()
+
+    # if vis_bool == "2":
+    #     show_visualization_sensor_selector_window(-1)
+    # else:
+    #     ins = ins_man.instruction_manager()
+    #     ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
+    #                                   "0000", daq_exp_name, daq_exp_location)
     
     if log_working:
         print("name=" + name)
-        print("id=" + recording_name_id)
+        # print("id=" + recording_name_id)
         print("duration=" + duration)
         print("type=" + type)
         print("visualization=" + vis_bool)
         print("store_bool=" + store_bool)
         print("localization:")
-        print("localization type:" + loc_type + ", name:" + loc_name + ", localization longitud:" + loc_longitude
-              + ", localization latitude:" + loc_latitude + ", lozalization hour" + loc_hour
+        print("localization type:" + loc_type + ", name:" + loc_name + ", localization longitude:" + loc_longitude
+              + ", localization latitude:" + loc_latitude + ", localization hour" + loc_hour
               + ", minutes:" + loc_minutes + ", seconds:" + loc_seconds)
         print("specimen by module:")
         print("1:" + module_loc1 + ", 2:" + module_loc2 + ", 3:" + module_loc3 +

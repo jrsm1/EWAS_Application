@@ -3,28 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DAQ/Default_Configuration.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DAQ/Default_Configuration.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Default_Configuration.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Default_Configuration.csv.csv.csv.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Default_Settings.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/EWAS_Logo_1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/EWAS_Logo_1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Error_Dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Error_Dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Invenio_Logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Invenio_Logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/channel_info_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/channel_info_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/file_system_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/file_system_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/filename_editor_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/filename_editor_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_tab_layout_V2.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_tab_layout_V2.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/module_selection_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/module_selection_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/progress_dialog_v1.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/progress_dialog_v1.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/sensor_selection_matrix.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/sensor_selection_matrix.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Important_Documents/Commit_Comments" beforeDir="false" afterPath="$PROJECT_DIR$/Important_Documents/Commit_Comments" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/setting_data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/setting_data_manager.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,105 +16,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="404" column="30" selection-start-line="404" selection-start-column="30" selection-end-line="404" selection-end-column="30" />
+            <state relative-caret-position="-9682">
+              <caret line="282" column="19" lean-forward="true" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
               <folding>
-                <element signature="e#3124#3448#0" />
-                <element signature="e#4646#4696#1" />
-                <element signature="e#4725#4743#0" />
-                <element signature="e#4746#4809#1" />
-                <element signature="e#4841#4870#0" />
-                <element signature="e#4873#4936#1" />
-                <element signature="e#4967#4995#0" />
-                <element signature="e#4998#5103#1" />
-                <element signature="e#5228#5297#1" />
-                <element signature="e#5359#5403#1" />
-                <element signature="e#5452#11721#0" />
-                <element signature="e#5973#6654#0" />
-                <element signature="e#6686#7367#0" />
-                <element signature="e#7399#8086#0" />
-                <element signature="e#8118#8808#0" />
-                <element signature="e#8840#9529#0" />
-                <element signature="e#9561#10250#0" />
-                <element signature="e#10282#10971#0" />
-                <element signature="e#11003#11692#0" />
-                <element signature="e#11724#11779#1" />
-                <element signature="e#11817#11996#0" />
-                <element signature="e#11999#12232#1" />
-                <element signature="e#12277#12323#0" />
-                <element signature="e#12396#12573#0" />
-                <element signature="e#12615#12640#0" />
-                <element signature="e#12642#12704#1" />
-                <element signature="e#12745#13118#0" />
-                <element signature="e#13121#13186#1" />
-                <element signature="e#13215#13949#0" />
-                <element signature="e#13937#14016#1" />
-                <element signature="e#14059#14550#0" />
-                <element signature="e#14642#15380#0" />
-                <element signature="e#14553#14599#1" />
-                <element signature="e#15406#15709#0" />
-                <element signature="e#15306#15361#1" />
-                <element signature="e#15736#17029#0" />
-                <element signature="e#16937#17361#0" />
-                <element signature="e#16793#16861#1" />
-                <element signature="e#17389#24205#0" />
-                <element signature="e#18430#18459#0" />
-                <element signature="e#22512#23633#0" />
-                <element signature="e#23635#23668#1" />
-                <element signature="e#23698#23784#0" />
-                <element signature="e#23815#24190#0" />
-                <element signature="e#24235#24570#0" />
-                <element signature="e#24573#24611#1" />
-                <element signature="e#29343#29863#0" />
-                <element signature="e#35160#35242#1" />
-                <element signature="e#35277#35763#0" />
-                <element signature="e#35740#35935#1" />
-                <element signature="e#35972#36060#0" />
-                <element signature="e#36063#36149#1" />
-                <element signature="e#36177#36318#0" />
-                <element signature="e#36455#36519#0" />
-                <element signature="e#37212#37220#1" />
-                <element signature="e#37264#37670#0" />
-                <element signature="e#37594#37602#1" />
-                <element signature="e#36375#36429#1" />
-                <element signature="e#36623#36677#1" />
-                <element signature="e#36969#37233#0" />
-                <element signature="e#38424#38666#0" />
-                <element signature="e#37868#38479#0" />
-                <element signature="e#38482#38646#1" />
-                <element signature="e#39086#39206#0" />
-                <element signature="e#39499#39606#1" />
-                <element signature="e#39650#39872#0" />
-                <element signature="e#39997#40046#1" />
-                <element signature="e#40075#40401#0" />
-                <element signature="e#40524#40609#1" />
-                <element signature="e#40644#40765#0" />
-                <element signature="e#40768#40852#1" />
-                <element signature="e#40910#41042#0" />
-                <element signature="e#41045#41130#1" />
-                <element signature="e#41188#41321#0" />
-                <element signature="e#41324#41409#1" />
-                <element signature="e#41443#41568#0" />
-                <element signature="e#41571#41656#1" />
-                <element signature="e#41692#41824#0" />
-                <element signature="e#41827#41912#1" />
-                <element signature="e#41949#42070#0" />
-                <element signature="e#42073#42146#1" />
+                <element signature="e#15#47#0" expanded="true" />
+                <element signature="e#24286#24312#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
+        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="108" column="27" selection-start-line="108" selection-start-column="27" selection-end-line="108" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#3544#3646#1" />
-                <element signature="e#3865#4071#0" />
-              </folding>
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -192,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state relative-caret-position="81">
+              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -201,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3483">
-              <caret line="132" column="51" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
+            <state relative-caret-position="3807">
+              <caret line="144" column="51" selection-start-line="144" selection-start-column="51" selection-end-line="144" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -219,6 +114,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>main_window</find>
+      <find>close</find>
+      <find>sens</find>
+      <find>GUI_Handler</find>
+      <find>next</find>
+      <find>acqui</find>
       <find>enable</find>
       <find>latitudee</find>
       <find>ena</find>
@@ -243,26 +144,19 @@
       <find>main_tab_RecordingSettings_durationLineEdit_2</find>
       <find>main_tab_DAQParams_ADC_Constant_LineEdit</find>
       <find>main_tab_DAQParams_Cutoff_Frequency_LineEdit</find>
-      <find>daq_adc</find>
-      <find>disable_main_window</find>
-      <find>filename</find>
-      <find>filenam</find>
-      <find>sensor_selection_DONE_Bbutton</find>
-      <find>main_tab_RecordingSettings_durationLabel_2</find>
     </findStrings>
     <replaceStrings>
       <replace>config</replace>
       <replace>connected</replace>
       <replace>longitude</replace>
       <replace>latitude</replace>
-      <replace>main_tab_RecordingSettings_delay_Label</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Data_Handlers" />
+        <entry key="$PROJECT_DIR$" value="Field_Parsing" />
       </map>
     </option>
   </component>
@@ -286,11 +180,14 @@
         <option value="$PROJECT_DIR$/GUI/progress_dialog_v1.ui" />
         <option value="$PROJECT_DIR$/GUI/sensor_selection_matrix.ui" />
         <option value="$PROJECT_DIR$/GUI/file_system_window.ui" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" />
         <option value="$PROJECT_DIR$/GUI/Main_WIndoww.py" />
         <option value="$PROJECT_DIR$/GUI/main_tab_layout_V2.ui" />
         <option value="$PROJECT_DIR$/GUI/Main_WIndow.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py" />
         <option value="$PROJECT_DIR$/GUI/Channel_Info_Window.py" />
+        <option value="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" />
+        <option value="$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui" />
         <option value="$PROJECT_DIR$/GUI/Visualization_GUI.py" />
         <option value="$PROJECT_DIR$/Data/CSV_Handler.py" />
         <option value="$PROJECT_DIR$/Testers/instruction_manager_tester.py" />
@@ -305,26 +202,22 @@
         <option value="$PROJECT_DIR$/Control_Module_Comm/tester.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
-        <option value="$PROJECT_DIR$/GUI/channel_info_window.ui" />
-        <option value="$PROJECT_DIR$/GUI/GUI_Handler.py" />
-        <option value="$PROJECT_DIR$/Important_Documents/Commit_Comments" />
-        <option value="$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui" />
-        <option value="$PROJECT_DIR$/GUI/module_selection_window.ui" />
-        <option value="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" />
-        <option value="$PROJECT_DIR$/GUI/filename_editor_window.ui" />
-        <option value="$PROJECT_DIR$/GUI/main_window.ui" />
-        <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/serialwin32.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" />
-        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
+        <option value="$PROJECT_DIR$/GUI/module_selection_window.ui" />
+        <option value="$PROJECT_DIR$/GUI/channel_info_window.ui" />
+        <option value="$PROJECT_DIR$/Important_Documents/Commit_Comments" />
+        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
+        <option value="$PROJECT_DIR$/GUI/GUI_Handler.py" />
+        <option value="$PROJECT_DIR$/GUI/main_window.ui" />
         <option value="$PROJECT_DIR$/GUI_Handler.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="100" />
-    <option name="width" value="1750" />
-    <option name="height" value="1030" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="36" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -378,78 +271,29 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="DAQ" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Module" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Sensor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="GUI" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Important_Documents" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Settings" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/GUI" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/GUI_Handler.py" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\google" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Settings" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Control_Module_Comm" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Testers" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Important_Documents" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\google" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Settings" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -465,7 +309,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="DAQ_Configuration" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Plot_Data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="EWAS_Application" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -473,12 +317,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Control_Module_Comm/Structures" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Data_Processing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -573,20 +416,13 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.DAQ_Configuration" />
-        <item itemvalue="Python.setting_data_manager" />
         <item itemvalue="Python.tester" />
         <item itemvalue="Python.setting_data_manager" />
         <item itemvalue="Python.Sensor_Individual" />
         <item itemvalue="Python.Plot_Data" />
         <item itemvalue="Python.main" />
-
       </list>
     </recent_temporary>
-  </component>
-  <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -795,7 +631,21 @@
       <option name="project" value="LOCAL" />
       <updated>1555705738270</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="changed all window functionality to GUI_Handler script.">
+      <created>1555776985614</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1555776985614</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Commit to reorder start button logic">
+      <created>1555794325122</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1555794325122</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -808,21 +658,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49709302" visible="true" weight="0.1621984" />
-      <window_info id="Structure" order="1" sideWeight="0.502907" side_tool="true" weight="0.16043957" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49608064" visible="true" weight="0.12846482" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.50391936" side_tool="true" visible="true" weight="0.12846482" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49835163" weight="0.3281471" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49835163" visible="true" weight="0.032502707" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28556594" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989011" weight="0.23052959" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49945053" weight="0.32917964" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50164837" side_tool="true" visible="true" weight="0.3281471" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50164837" side_tool="true" weight="0.3281471" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -834,8 +685,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49835163" weight="0.32917964" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.26272067" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49835163" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28556594" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
@@ -889,9 +740,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Created GUI Handling Error Dialog from given button for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Created Data Visialization Class and Dummy Data for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Plotting Time and Coherence in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Plotting al 6 desired plots in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="Minor Changes" />
@@ -914,7 +762,10 @@
     <MESSAGE value="* [X] Store Chanel config with sensors ready." />
     <MESSAGE value="main window change" />
     <MESSAGE value="DELETE OR REVERT BEFORE" />
-    <option name="LAST_COMMIT_MESSAGE" value="DELETE OR REVERT BEFORE" />
+    <MESSAGE value="changed all window functionality to GUI_Handler script." />
+    <MESSAGE value="Created branch for Christian" />
+    <MESSAGE value="Commit to reorder start button logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit to reorder start button logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -931,102 +782,46 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>69</line>
+          <line>75</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-
           <url>file://$PROJECT_DIR$/Data_Processing/Plot_Data.py</url>
           <line>47</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1005</line>
+          <line>1092</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>330</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>991</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>968</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>320</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>401</line>
-          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="daq_config.data_handling_configs['store']" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>10-stop</expression-string>
+        <expression-string>daq_config.data_handling_configs['store']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(answer)</expression-string>
+        <expression-string>self.data_read</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>main_window.main_tab_RecordingSettings_delay_LineEdit.text()</expression-string>
+        <expression-string>pdata.data_read</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>main_window.main_tab_RecordingSettings_name_LineEdit.text()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>verify_file_exists(daq_file</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>daq_config.location_configs['minute']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>daq_config.location_configs['loc_name']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>loc_type_dropdown.currentIndex()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>daq_config.signal_configs['sampling_rate']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>daq_file</expression-string>
+        <expression-string>r'../' + file_path</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1110,15 +905,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Testers/instruction_manager_tester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="1020">
+          <caret line="60" column="35" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Channel_Info_Window.py">
+    <entry file="file://$PROJECT_DIR$/GUI/Acquire_Dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="96" selection-end-line="1" />
+        <state relative-caret-position="187">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1151,24 +946,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/serialwin32.py" />
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="180" column="45" selection-start-line="180" selection-start-column="45" selection-end-line="180" selection-end-column="45" />
-          <folding>
-            <element signature="e#732#770#1" />
-            <element signature="e#821#1173#0" />
-            <element signature="e#990#1156#0" />
-            <element signature="e#1179#1237#1" />
-            <element signature="e#1280#1532#0" />
-            <element signature="e#1449#1515#0" />
-            <element signature="e#1542#1661#1" />
-            <element signature="e#1723#2137#0" />
-            <element signature="e#1892#2120#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
@@ -1182,6 +959,9 @@
           <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/module_selection_window.ui">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/channel_info_window.ui">
       <provider selected="true" editor-type-id="text-editor">
@@ -1199,30 +979,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Data/default_settings.csv" />
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py">
-
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/default_settings.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="42" lean-forward="true" selection-start-column="42" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py" />
-    <entry file="file://$PROJECT_DIR$/Data/Channel_Settings.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Channel_Settings.csv" />
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1238,21 +1001,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py" />
-    <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="91" selection-start-line="46" selection-start-column="91" selection-end-line="46" selection-end-column="91" />
+        <state relative-caret-position="405">
+          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Default_Configuration.csv" />
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="3726">
+          <caret line="181" column="90" selection-start-line="181" selection-start-column="90" selection-end-line="181" selection-end-column="90" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#732#770#1" />
+            <element signature="e#821#1173#0" />
+            <element signature="e#990#1156#0" />
+            <element signature="e#1179#1237#1" />
+            <element signature="e#1280#1532#0" />
+            <element signature="e#1449#1515#0" />
+            <element signature="e#1542#1661#1" />
+            <element signature="e#1723#2137#0" />
+            <element signature="e#1892#2120#0" />
+            <element signature="e#5737#6123#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9682">
+          <caret line="282" column="19" lean-forward="true" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
+          <folding>
+            <element signature="e#15#47#0" expanded="true" />
+            <element signature="e#24286#24312#0" />
           </folding>
         </state>
       </provider>
@@ -1261,14 +1042,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" selection-start-column="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#111#394#0" />
-            <element signature="e#400#583#1" />
-            <element signature="e#615#883#0" />
-            <element signature="e#736#778#0" />
-            <element signature="e#889#988#1" />
-            <element signature="e#1033#1143#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1311,110 +1084,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        <state relative-caret-position="81">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
+    <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="108" column="27" selection-start-line="108" selection-start-column="27" selection-end-line="108" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#3544#3646#1" />
-            <element signature="e#3865#4071#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="404" column="30" selection-start-line="404" selection-start-column="30" selection-end-line="404" selection-end-column="30" />
-          <folding>
-            <element signature="e#3124#3448#0" />
-            <element signature="e#4646#4696#1" />
-            <element signature="e#4725#4743#0" />
-            <element signature="e#4746#4809#1" />
-            <element signature="e#4841#4870#0" />
-            <element signature="e#4873#4936#1" />
-            <element signature="e#4967#4995#0" />
-            <element signature="e#4998#5103#1" />
-            <element signature="e#5228#5297#1" />
-            <element signature="e#5359#5403#1" />
-            <element signature="e#5452#11721#0" />
-            <element signature="e#5973#6654#0" />
-            <element signature="e#6686#7367#0" />
-            <element signature="e#7399#8086#0" />
-            <element signature="e#8118#8808#0" />
-            <element signature="e#8840#9529#0" />
-            <element signature="e#9561#10250#0" />
-            <element signature="e#10282#10971#0" />
-            <element signature="e#11003#11692#0" />
-            <element signature="e#11724#11779#1" />
-            <element signature="e#11817#11996#0" />
-            <element signature="e#11999#12232#1" />
-            <element signature="e#12277#12323#0" />
-            <element signature="e#12396#12573#0" />
-            <element signature="e#12615#12640#0" />
-            <element signature="e#12642#12704#1" />
-            <element signature="e#12745#13118#0" />
-            <element signature="e#13121#13186#1" />
-            <element signature="e#13215#13949#0" />
-            <element signature="e#13937#14016#1" />
-            <element signature="e#14059#14550#0" />
-            <element signature="e#14642#15380#0" />
-            <element signature="e#14553#14599#1" />
-            <element signature="e#15406#15709#0" />
-            <element signature="e#15306#15361#1" />
-            <element signature="e#15736#17029#0" />
-            <element signature="e#16937#17361#0" />
-            <element signature="e#16793#16861#1" />
-            <element signature="e#17389#24205#0" />
-            <element signature="e#18430#18459#0" />
-            <element signature="e#22512#23633#0" />
-            <element signature="e#23635#23668#1" />
-            <element signature="e#23698#23784#0" />
-            <element signature="e#23815#24190#0" />
-            <element signature="e#24235#24570#0" />
-            <element signature="e#24573#24611#1" />
-            <element signature="e#29343#29863#0" />
-            <element signature="e#35160#35242#1" />
-            <element signature="e#35277#35763#0" />
-            <element signature="e#35740#35935#1" />
-            <element signature="e#35972#36060#0" />
-            <element signature="e#36063#36149#1" />
-            <element signature="e#36177#36318#0" />
-            <element signature="e#36455#36519#0" />
-            <element signature="e#37212#37220#1" />
-            <element signature="e#37264#37670#0" />
-            <element signature="e#37594#37602#1" />
-            <element signature="e#36375#36429#1" />
-            <element signature="e#36623#36677#1" />
-            <element signature="e#36969#37233#0" />
-            <element signature="e#38424#38666#0" />
-            <element signature="e#37868#38479#0" />
-            <element signature="e#38482#38646#1" />
-            <element signature="e#39086#39206#0" />
-            <element signature="e#39499#39606#1" />
-            <element signature="e#39650#39872#0" />
-            <element signature="e#39997#40046#1" />
-            <element signature="e#40075#40401#0" />
-            <element signature="e#40524#40609#1" />
-            <element signature="e#40644#40765#0" />
-            <element signature="e#40768#40852#1" />
-            <element signature="e#40910#41042#0" />
-            <element signature="e#41045#41130#1" />
-            <element signature="e#41188#41321#0" />
-            <element signature="e#41324#41409#1" />
-            <element signature="e#41443#41568#0" />
-            <element signature="e#41571#41656#1" />
-            <element signature="e#41692#41824#0" />
-            <element signature="e#41827#41912#1" />
-            <element signature="e#41949#42070#0" />
-            <element signature="e#42073#42146#1" />
-          </folding>
+        <state relative-caret-position="3807">
+          <caret line="144" column="51" selection-start-line="144" selection-start-column="51" selection-end-line="144" selection-end-column="51" />
         </state>
       </provider>
     </entry>
