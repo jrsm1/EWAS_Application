@@ -14,11 +14,11 @@ class serial_interface():
         #  AttributeError: 'serial_interface' object has no attribute 'ser'
         try:
             self.ser = serial.Serial(
-                port='COM6', \
-                baudrate=230400, \
-                parity=serial.PARITY_NONE, \
-                stopbits=serial.STOPBITS_ONE, \
-                bytesize=serial.EIGHTBITS, \
+                port='COM6',
+                baudrate=230400,
+                parity=serial.PARITY_NONE,
+                stopbits=serial.STOPBITS_ONE,
+                bytesize=serial.EIGHTBITS,
                 timeout=2)
             print("connected to: " + self.ser.portstr)
         except serial.SerialException:
@@ -75,11 +75,15 @@ class serial_interface():
         if log == 1:
             print("byte is " + str(bytes(byte)))
 
-    """
-    I need a byte that does not end the stream of bytes being sent. 
-    """
 
     def send_instruction(self, byte):
-        self.ser.write(bytes(byte))
-        if log == 1: print("byte is " + str(bytes(byte)))
-        self.ser.write(b'\r')
+        """
+        I need a byte that does not end the stream of bytes being sent.
+        """
+        try:
+            self.ser.write(bytes(byte))
+            if log == 1: print("byte is " + str(bytes(byte)))
+            self.ser.write(b'\r')
+        except AttributeError:
+            print('The Root Error was Already Handled.')
+            print('This error is caused by handling the Serial Failed to Connect Error.')
