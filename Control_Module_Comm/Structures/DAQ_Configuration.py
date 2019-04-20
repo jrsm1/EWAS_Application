@@ -15,7 +15,7 @@ class DAQconfigs:
     def __init__(self,
                  sampling_rate=7, cutoff_frequency=7, signal_gain=1,
                  test_duration=15, test_name='Test_' + uuid.uuid4().hex, record_type=0, test_delay=0,
-                 loc_name='No Name', latitude='0:00:0000', longitude='0:00:0000', hour='00', minute='00', second='00',
+                 loc_name='No Name', latitude='0000.0000', longitude='0000.0000', hour='00', minute='00', second='00',
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
                  visualize=True, store=False):
@@ -107,9 +107,7 @@ class DAQconfigs:
     :param name : Test Name to generate ID from.
     """
 def generate_ID(name: str):  # TODO IMPLEMENT BETTER.
-    answer = name
-    if len(name) > ID_LIMIT:
-        answer = name[0: int(ID_LIMIT/2)]
+    answer = name[0: int(ID_LIMIT/2)]
 
     answer = answer + '_'
     stop = len(answer)
@@ -120,7 +118,7 @@ def generate_ID(name: str):  # TODO IMPLEMENT BETTER.
     return answer
 
 # Testing
-generate_ID('aqwsxcderfvvbhynmjhgyhgghn')
+# generate_ID('aqwsxcderfvvbhynmjhgyhgghn')
 # dq = DAQconfigs()
 # print(dq.data_handling_configs)
 # print(dq.signal_configs['sampling_rate'])
