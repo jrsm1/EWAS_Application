@@ -4,9 +4,9 @@ from PyQt5.QtGui import QIcon
 from time import sleep
 
 from Control_Module_Comm import instruction_manager as ins_man
-from Control_Module_Comm.Structures import Channel_Individual as chan, Sensor_Individual as sens
+from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
 from Data_Processing import Plot_Data
-from Control_Module_Comm.Structures import Channel_Individual, DAQ_Configuration, Sensor_Individual
+from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Settings import setting_data_manager as set_dat_man
 
 app = QtWidgets.QApplication([])
@@ -17,6 +17,7 @@ viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
 main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
 mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
 file_sys_win = uic.loadUi('GUI/file_system_window.ui')
+filename_input_win = uic.loadUi('GUI/filename_editor_window.ui')
 
 main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 channel_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
@@ -25,6 +26,7 @@ viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 main_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 mod_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
 
 # Init Instances of all classes for reference
@@ -64,14 +66,14 @@ sensors_all = [sens_1, sens_2, sens_3, sens_4, sens_5, sens_6, sens_7, sens_8, s
                sens_11, sens_12, sens_13, sens_14, sens_15, sens_16, sens_17, sens_18, sens_19, sens_20,
                sens_21, sens_22, sens_23, sens_24, sens_25, sens_26, sens_27, sens_28, sens_29, sens_30,
                sens_31, sens_32]  # Used to get sensors easily (goes from 0 to 31)
-ch_1 = Channel_Individual.Channel('Channel 1', sens_1, sens_2, sens_3, sens_4)
-ch_2 = Channel_Individual.Channel('Channel 2', sens_5, sens_6, sens_7, sens_8)
-ch_3 = Channel_Individual.Channel('Channel 3', sens_9, sens_10, sens_11, sens_12)
-ch_4 = Channel_Individual.Channel('Channel 4', sens_13, sens_14, sens_15, sens_16)
-ch_5 = Channel_Individual.Channel('Channel 5', sens_17, sens_18, sens_19, sens_20)
-ch_6 = Channel_Individual.Channel('Channel 6', sens_21, sens_22, sens_23, sens_24)
-ch_7 = Channel_Individual.Channel('Channel 7', sens_25, sens_26, sens_27, sens_28)
-ch_8 = Channel_Individual.Channel('Channel 8', sens_29, sens_30, sens_31, sens_32)
+ch_1 = Module_Individual.Module('Channel 1', sens_1, sens_2, sens_3, sens_4)
+ch_2 = Module_Individual.Module('Channel 2', sens_5, sens_6, sens_7, sens_8)
+ch_3 = Module_Individual.Module('Channel 3', sens_9, sens_10, sens_11, sens_12)
+ch_4 = Module_Individual.Module('Channel 4', sens_13, sens_14, sens_15, sens_16)
+ch_5 = Module_Individual.Module('Channel 5', sens_17, sens_18, sens_19, sens_20)
+ch_6 = Module_Individual.Module('Channel 6', sens_21, sens_22, sens_23, sens_24)
+ch_7 = Module_Individual.Module('Channel 7', sens_25, sens_26, sens_27, sens_28)
+ch_8 = Module_Individual.Module('Channel 8', sens_29, sens_30, sens_31, sens_32)
 channels_all = [ch_1, ch_2, ch_3, ch_4, ch_5, ch_6, ch_7, ch_8]  # Used to get channels easily (goes from 0 to 7)
 
 # ----------- CONFIGS ----------
@@ -79,11 +81,11 @@ daq_config = DAQ_Configuration.DAQconfigs()
 
 # setting_data_manager = set_dat_man.Setting_File_Manager(daq_con=daq_config)
 
-# testing purposes
+# TESTING purposes
 log = 1
-log_working = 1
+log_working = 0
 
-# some global bariables
+# some global variables
 daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
@@ -130,6 +132,7 @@ Done before Channel Selection.
 """
 def open_module_selection_window():
     mod_sel_win.show()
+
 
 """
     Opens Channel Information Window
@@ -256,6 +259,7 @@ def show_visualization_sensor_selector_window(plot: int):  # TODO
 
     # Pass info on who called me t know which plot to display.
     begin_visualization(plot)
+
 
 """
 Begins Visualization Analysis for user selected plots.
@@ -879,7 +883,7 @@ def save_sensor_info():
     sens_4 = sens.Sensor('NAME', 0)
 
     # Set channel sensors.
-    channel = chan.Channel('NAME', sens_1, sens_2, sens_3, sens_4)
+    channel = chan.Module('NAME', sens_1, sens_2, sens_3, sens_4)
 
 
 # ------------------------------------------------ VISUALIZATION ------------------------------------------------------
