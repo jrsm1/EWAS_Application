@@ -1,7 +1,7 @@
 sampling_rate,cutoff_frequency,signal_gain
-0,0,0
-test_name,test_ID,test_duration,test_type
-Test_b14fcc1715ff41b,Test_b14fc,15,0
+7,7,1
+test_name,test_ID,test_duration,test_type,test_start_delay
+Test_6953ffa6986b48d,Test_6953f,15,0,0
 visualize,store
 True,False
 loc_name,longitude,latitude,hour,minute,second

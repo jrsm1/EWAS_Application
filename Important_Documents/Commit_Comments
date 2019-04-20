@@ -44,3 +44,4 @@ $ [X] $ Bug DAQ_Config __init__ method does not store every default value.
 $ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable again.
     [X] Bug Second window opening when first is closed.
 $ [ ] Bug where Drop Downs look kindda squashed together.
+$ [ ] Bug Acquire GPS Dialog waits for ir to finish sync to display progressBar and Message.

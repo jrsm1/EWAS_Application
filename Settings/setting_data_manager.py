@@ -11,11 +11,11 @@ log = 0
 def verify_file_exists(filename: str):
     exists = path.isfile(filename)
     # if not exists: GUI_Handler.show_error('File Name Does not Exists')  # FIXME AttributeError: module 'GUI_Handler' has no attribute 'show_error'
-    return True
+    return exists
 
 class Setting_File_Manager:
-    def __init__(self, ch_con: Module_Individual, sens_con: Sensor_Individual, daq_con: DAQ_Configuration):
-        self.channel_config = ch_con
+    def __init__(self, mod_con: Module_Individual, sens_con: Sensor_Individual, daq_con: DAQ_Configuration):
+        self.channel_config = mod_con
         self.sensor_config = sens_con
         self.daq_config = daq_con
 
@@ -35,26 +35,32 @@ class Setting_File_Manager:
     """
     def store_daq_configs(self, filename: str):
         daq_file = 'Config/DAQ/' + filename
-        if verify_file_exists(daq_file):
-            with open(daq_file, 'w', newline='') as f:
-                writer = csv.writer(f)
 
-                writer.writerow(self.daq_config.signal_configs.keys())
-                writer.writerow(self.daq_config.signal_configs.values())
+        # Generate Test ID
+        self.daq_config.recording_configs["test_ID"] = DAQ_Configuration.generate_ID(self.daq_config.recording_configs['test_name'])
 
-                writer.writerow(self.daq_config.recording_configs.keys())
-                writer.writerow(self.daq_config.recording_configs.values())
+        # if verify_file_exists(daq_file):
+        with open(daq_file, 'w', newline='') as f:
+            writer = csv.writer(f)
 
-                writer.writerow(self.daq_config.data_handling_configs.keys())
-                writer.writerow(self.daq_config.data_handling_configs.values())
+            writer.writerow(self.daq_config.signal_configs.keys())
+            writer.writerow(self.daq_config.signal_configs.values())
 
-                writer.writerow(self.daq_config.location_configs.keys())
-                writer.writerow(self.daq_config.location_configs.values())
+            writer.writerow(self.daq_config.recording_configs.keys())
+            writer.writerow(self.daq_config.recording_configs.values())
 
-                writer.writerow(self.daq_config.specimen_location.keys())
-                writer.writerow(self.daq_config.specimen_location.values())
-        else:
-            if log: print('File Error')
+            writer.writerow(self.daq_config.data_handling_configs.keys())
+            writer.writerow(self.daq_config.data_handling_configs.values())
+
+            writer.writerow(self.daq_config.location_configs.keys())
+            writer.writerow(self.daq_config.location_configs.values())
+
+            writer.writerow(self.daq_config.specimen_location.keys())
+            writer.writerow(self.daq_config.specimen_location.values())
+
+            if log: print('Save Daq Configs : SUCCESSFUL')
+        # else:
+        #     if log: print('File Error')
 
     """
     Loads setting data from settings file. 
@@ -71,6 +77,8 @@ class Setting_File_Manager:
             self.daq_config.data_handling_configs = pd.read_csv(daq_file, header=4, nrows=1).to_dict('r')[0]
             self.daq_config.location_configs = pd.read_csv(daq_file, header=6, nrows=1).to_dict('r')[0]
             self.daq_config.specimen_location = pd.read_csv(daq_file, header=8, nrows=1).to_dict('r')[0]
+
+            if log: print('Load Daq Configs : SUCCESSFUL')
         else:
             if log: print('File Error')
 
@@ -104,6 +112,8 @@ class Setting_File_Manager:
 
                 writer.writerow(self.channel_config.channel_info['Sensor 4'].sensor_info.keys())
                 writer.writerow(self.channel_config.channel_info['Sensor 4'].sensor_info.values())
+
+                if log: print('Save Module Configs : SUCCESSFUL')
         else:
             if log: print('File Error')
 
@@ -124,6 +134,8 @@ class Setting_File_Manager:
 
             self.channel_config = Module_Individual.Module(name_dict['channel_name'], sensor_1, sensor_2, sensor_3, sensor_4)
 
+            if log: print('Load Module Configs : SUCCESSFUL')
+
         else:
             if log: print('File Error')
 
@@ -141,6 +153,8 @@ class Setting_File_Manager:
                 for sen in sensors:
                     writer.writerow(sen.sensor_info.keys())
                     writer.writerow(sen.sensor_info.values())
+
+                if log: print('Save Sensor Configs : SUCCESSFUL')
         else:
             if log: print('File Error')
 
@@ -149,6 +163,8 @@ class Setting_File_Manager:
         sensor_file = 'Config/Sensor/' + filename
         if verify_file_exists(sensor_file):
             self.sensor_config = pd.read_csv(sensor_file, header=0, nrows=1).to_dict('r')[0]
+
+            if log: print('Load Sensor Configs : SUCCESSFUL')
 
         else:
             if log: print('File Error')
@@ -206,24 +222,23 @@ sfm = Setting_File_Manager(cc, sc1, daq)
 # print(sfm.daq_config.testing_configs)
 # print(sfm.daq_config.data_handling_configs)
 
-filename = r'Default_Configuration.csv'  # USE WHEN RUNNING THIS SCRIPT
-# filename = r'Data/Channel_Settings.csv'  # USE WHEN RUNNING MAIN
+# filename = r'Default_Configuration.csv'  # Directory set in methods
 
 # sfm.daq_config.specimen_location['1'] = 'Something ELse'
 
 # sfm.store_daq_configs(filename)
-d = sfm.load_daq_configs(filename)
-print(len(d))
+# d = sfm.load_daq_configs(filename)
+# print(d)
 
 # for x in range(0, len(d), 1):
 #     print(d[x])
 # print('\n' + str(type(d[0])))
 
 # sfm.store_module_configs(filename)
-print(sfm.load_module_config(filename).channel_info)
+# print(sfm.load_module_config(filename).channel_info)
 # print(verify_file_exists(filename))
 
 
 # sfm.store_sensor_config(filename, [sc1, sc2, sc3, sc4, sc5, sc6, sc7, sc8, sc9, sc10, sc11, sc12, sc13, sc14, sc15, sc16,
 #                                    sc17,sc18,sc19,sc20,sc21,sc22,sc23,sc24,sc25,sc26,sc27,sc28,sc29,sc30,sc31,sc32])
-print(sfm.load_sensor_config(filename))
+# print(sfm.load_sensor_config(filename))

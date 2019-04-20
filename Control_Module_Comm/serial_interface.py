@@ -8,14 +8,22 @@ class serial_interface():
     global ser
 
     def __init__(self):
-        self.ser = serial.Serial(
-            port='COM6', \
-            baudrate=230400, \
-            parity=serial.PARITY_NONE, \
-            stopbits=serial.STOPBITS_ONE, \
-            bytesize=serial.EIGHTBITS, \
-            timeout=2)
-        print("connected to: " + self.ser.portstr)
+        # FIXME still crashes later on because:
+        #  line 79, in send_instruction
+        #  self.ser.write(bytes(byte))
+        #  AttributeError: 'serial_interface' object has no attribute 'ser'
+        try:
+            self.ser = serial.Serial(
+                port='COM6', \
+                baudrate=230400, \
+                parity=serial.PARITY_NONE, \
+                stopbits=serial.STOPBITS_ONE, \
+                bytesize=serial.EIGHTBITS, \
+                timeout=2)
+            print("connected to: " + self.ser.portstr)
+        except serial.SerialException:
+            print('This Error Handling block is so that the app does not crash.')
+            print('This Error has been handled in \'serialwin32.py\' on line 63.')
 
     """
     listen will block until it receives a tranmission ending with

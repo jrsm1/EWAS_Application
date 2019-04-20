@@ -48,7 +48,7 @@
 							<enum>Qt::LeftToRight</enum>
 						</property>
 						<property name="styleSheet">
-							<string notr="true">background-color:rgb(156, 209, 173);
+							<string notr="true">background-color: rgb(244, 221, 192);
 								color:rgb(0, 0, 0);
 							</string>
 						</property>
@@ -305,7 +305,7 @@
 															</size>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
@@ -331,7 +331,7 @@
 															</size>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
@@ -343,7 +343,7 @@
 												</item>
 											</layout>
 										</widget>
-										<widget class="QLabel" name="main_tab_RecordingSettings_durationLabel_2">
+										<widget class="QLabel" name="main_tab_RecordingSettings_delay_Label">
 											<property name="geometry">
 												<rect>
 													<x>279</x>
@@ -354,14 +354,14 @@
 											</property>
 											<property name="text">
 												<string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;
-													font-size:12pt;&quot;&gt;Start Time (s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+													font-size:12pt;&quot;&gt;Start Delay (s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 												</string>
 											</property>
 											<property name="buddy">
 												<cstring>main_tab_RecordingSettings_durationLineEdit</cstring>
 											</property>
 										</widget>
-										<widget class="QLineEdit" name="main_tab_RecordingSettings_durationLineEdit_2">
+										<widget class="QLineEdit" name="main_tab_RecordingSettings_delay_LineEdit">
 											<property name="geometry">
 												<rect>
 													<x>389</x>
@@ -453,7 +453,7 @@
 												<bool>false</bool>
 											</property>
 											<property name="styleSheet">
-												<string notr="true">background-color: rgb(209, 99, 65);
+												<string notr="true">background-color:rgb(204, 51, 0);
 													color: rgb(255, 255, 255);
 													font: 12pt &quot;MS Shell Dlg 2&quot;;
 												</string>
@@ -523,7 +523,7 @@
 															</size>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
@@ -549,7 +549,7 @@
 															</size>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
@@ -1442,7 +1442,7 @@
 															</size>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
@@ -1468,7 +1468,7 @@
 															</size>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
@@ -1523,7 +1523,7 @@
 															</size>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
@@ -1559,9 +1559,9 @@
 															<bool>false</bool>
 														</property>
 														<property name="styleSheet">
-															<string notr="true">background-color: rgb(209, 99, 65);
-																font: 85 14pt &quot;MS Shell Dlg 2&quot;;
+															<string notr="true">background-color:rgb(204, 51, 0);
 																color: rgb(255, 255, 255);
+																font: 12pt &quot;MS Shell Dlg 2&quot;;
 															</string>
 														</property>
 														<property name="text">
@@ -1594,7 +1594,7 @@
 										</property>
 										<property name="styleSheet">
 											<string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
-												alternate-background-color: rgb(142, 189, 157);
+												alternate-background-color: rgb(255, 255, 255);
 											</string>
 										</property>
 										<property name="sizeAdjustPolicy">
@@ -1893,7 +1893,7 @@
 										<item>
 											<widget class="QPushButton" name="visualize_tab_TIME_button">
 												<property name="styleSheet">
-													<string notr="true">background-color: rgb(209, 99, 65);
+													<string notr="true">background-color:rgb(204, 51, 0);
 														color: rgb(255, 255, 255);
 														font: 12pt &quot;MS Shell Dlg 2&quot;;
 													</string>
@@ -1906,7 +1906,7 @@
 										<item>
 											<widget class="QPushButton" name="visualize_tab_FFT_button">
 												<property name="styleSheet">
-													<string notr="true">background-color: rgb(209, 99, 65);
+													<string notr="true">background-color:rgb(204, 51, 0);
 														color: rgb(255, 255, 255);
 														font: 12pt &quot;MS Shell Dlg 2&quot;;
 													</string>
@@ -1919,7 +1919,7 @@
 										<item>
 											<widget class="QPushButton" name="visualize_tab_APS_button">
 												<property name="styleSheet">
-													<string notr="true">background-color: rgb(209, 99, 65);
+													<string notr="true">background-color:rgb(204, 51, 0);
 														color: rgb(255, 255, 255);
 														font: 12pt &quot;MS Shell Dlg 2&quot;;
 													</string>
@@ -1932,7 +1932,7 @@
 										<item>
 											<widget class="QPushButton" name="visualize_tab_XPS_button">
 												<property name="styleSheet">
-													<string notr="true">background-color: rgb(209, 99, 65);
+													<string notr="true">background-color:rgb(204, 51, 0);
 														color: rgb(255, 255, 255);
 														font: 12pt &quot;MS Shell Dlg 2&quot;;
 													</string>
@@ -1945,7 +1945,7 @@
 										<item>
 											<widget class="QPushButton" name="visualize_tab_PHASE_button">
 												<property name="styleSheet">
-													<string notr="true">background-color: rgb(209, 99, 65);
+													<string notr="true">background-color:rgb(204, 51, 0);
 														color: rgb(255, 255, 255);
 														font: 12pt &quot;MS Shell Dlg 2&quot;;
 													</string>
@@ -1958,7 +1958,7 @@
 										<item>
 											<widget class="QPushButton" name="visualize_tab_COHERE_button">
 												<property name="styleSheet">
-													<string notr="true">background-color: rgb(209, 99, 65);
+													<string notr="true">background-color:rgb(204, 51, 0);
 														color: rgb(255, 255, 255);
 														font: 12pt &quot;MS Shell Dlg 2&quot;;
 													</string>
