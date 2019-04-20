@@ -29,7 +29,6 @@ mod_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
-
 # Init Instances of all classes for reference
 sens_1 = Sensor_Individual.Sensor('Sensor 1', 0)
 sens_2 = Sensor_Individual.Sensor('Sensor 2', 0)
@@ -67,20 +66,21 @@ sensors_all = [sens_1, sens_2, sens_3, sens_4, sens_5, sens_6, sens_7, sens_8, s
                sens_11, sens_12, sens_13, sens_14, sens_15, sens_16, sens_17, sens_18, sens_19, sens_20,
                sens_21, sens_22, sens_23, sens_24, sens_25, sens_26, sens_27, sens_28, sens_29, sens_30,
                sens_31, sens_32]  # Used to get sensors easily (goes from 0 to 31)
-ch_1 = Module_Individual.Module('Channel 1', sens_1, sens_2, sens_3, sens_4)
-ch_2 = Module_Individual.Module('Channel 2', sens_5, sens_6, sens_7, sens_8)
-ch_3 = Module_Individual.Module('Channel 3', sens_9, sens_10, sens_11, sens_12)
-ch_4 = Module_Individual.Module('Channel 4', sens_13, sens_14, sens_15, sens_16)
-ch_5 = Module_Individual.Module('Channel 5', sens_17, sens_18, sens_19, sens_20)
-ch_6 = Module_Individual.Module('Channel 6', sens_21, sens_22, sens_23, sens_24)
-ch_7 = Module_Individual.Module('Channel 7', sens_25, sens_26, sens_27, sens_28)
-ch_8 = Module_Individual.Module('Channel 8', sens_29, sens_30, sens_31, sens_32)
-channels_all = [ch_1, ch_2, ch_3, ch_4, ch_5, ch_6, ch_7, ch_8]  # Used to get channels easily (goes from 0 to 7)
+mod_1 = Module_Individual.Module('Channel 1', sens_1, sens_2, sens_3, sens_4)
+mod_2 = Module_Individual.Module('Channel 2', sens_5, sens_6, sens_7, sens_8)
+mod_3 = Module_Individual.Module('Channel 3', sens_9, sens_10, sens_11, sens_12)
+mod_4 = Module_Individual.Module('Channel 4', sens_13, sens_14, sens_15, sens_16)
+mod_5 = Module_Individual.Module('Channel 5', sens_17, sens_18, sens_19, sens_20)
+mod_6 = Module_Individual.Module('Channel 6', sens_21, sens_22, sens_23, sens_24)
+mod_7 = Module_Individual.Module('Channel 7', sens_25, sens_26, sens_27, sens_28)
+mod_8 = Module_Individual.Module('Channel 8', sens_29, sens_30, sens_31, sens_32)
+channels_all = [mod_1, mod_2, mod_3, mod_4, mod_5, mod_6, mod_7,
+                mod_8]  # Used to get channels easily (goes from 0 to 7)
 
 # ----------- CONFIGS ----------
 daq_config = DAQ_Configuration.DAQconfigs()
 
-# setting_data_manager = set_dat_man.Setting_File_Manager(daq_con=daq_config)
+setting_data_manager = set_dat_man.Setting_File_Manager(daq_con=daq_config, mod_con=mod_1, sens_con=sens_1)
 
 # TESTING purposes
 log = 1
@@ -95,50 +95,51 @@ daq_exp_name = ""
 daq_exp_location = ""
 daq_start_delay = 0
 
-"""
-Displays Main Window on Computer's Screen.
-"""
+
 def show_main_window():
+    """
+    Displays Main Window on Computer's Screen.
+    """
     main_window.show()
 
 
-"""
-    Disables Input for every Widget inside Main Window.
-"""
 def disable_main_window():
+    """
+        Disables Input for every Widget inside Main Window.
+    """
     main_window.setEnabled(False)
 
 
-"""
-    Disables Input for every Widget inside Main Window.
-"""
 def enable_main_window():
+    """
+        Disables Input for every Widget inside Main Window.
+    """
     main_window.setEnabled(True)
 
 
-"""
-    Creates an Error Message dialog
-    
-    :param message: String - The Desired Message Output.
-"""
 def show_error(message: str):
+    """
+        Creates an Error Message dialog
+
+        :param message: String - The Desired Message Output.
+    """
     err_dlg = QtWidgets.QErrorMessage()
     err_dlg.showMessage(message)
     err_dlg.exec()
 
 
-"""
-Opens Module Selection Window.
-Done before Channel Selection.
-"""
 def open_module_selection_window():
+    """
+    Opens Module Selection Window.
+    Done before Channel Selection.
+    """
     mod_sel_win.show()
 
 
-"""
-    Opens Channel Information Window
-"""
 def show_channel_info_window(channel: int):
+    """
+        Opens Channel Information Window
+    """
     # TODO DECIDE SENSOR NAMES BASED ON CHANNEL.
     # TODO VERIFY IF THE SENSORS IN THE CHANNEL ARE CONNECTED.
     # TODO ENABLE MODULE SELECTION BUTTONS BASED ON CONNECTED SENSORS.
@@ -235,37 +236,43 @@ def show_channel_info_window(channel: int):
     channel_info_win.show()
 
 
-"""
-    Opens Sensor Selection Window for Recording
-"""
 def show_main_sens_sel_window():
-    disable_main_window()
+    """
+        Opens Sensor Selection Window for Recording
+    """
+    # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
+    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
     main_sensor_sel_win.show()
 
 
-"""
-Creates and Opens Progress Dialog.
-Default is to 'undetermined' infinite progress. 
-To change default behaviour use { void QProgressBar::setRange(int minimum, int maximum) }
-
-:param message : Custom message to show on Dialog.
-"""
 def show_progress_dialog(message: str):
+    """
+    Creates and Opens Progress Dialog.
+    Default is to 'undetermined' infinite progress.
+    To change default behaviour use { void QProgressBar::setRange(int minimum, int maximum) }
+
+    :param message : Custom message to show on Dialog.
+    """
     dlg_title.setText(message)
     prog_dlg.show()
 
 
 def show_visualization_sensor_selector_window(plot: int):  # TODO
+    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
     viz_sensor_sel_win.show()
 
-    # Pass info on who called me t know which plot to display.
+    # Pass info on who called me to know which plot to display.
     begin_visualization(plot)
 
 
-"""
-Begins Visualization Analysis for user selected plots.
-"""
+def show_filename_editor_window():
+    filename_input_win.show()
+
+# TODO get selected sensors.
 def begin_visualization(plot: int):
+    """
+    Begins Visualization Analysis for user selected plots.
+    """
     # Choose which Plot.
     if plot == 1:
         plot_time()
@@ -284,23 +291,23 @@ def begin_visualization(plot: int):
     show_progress_dialog('Plotting ' + 'What you wanna plot')
 
 
-"""
-Sets GPS information on current settings into GUI fields.
-"""
 def set_gps_into_gui():
+    """
+    Sets GPS information on current settings into GUI fields.
+    """
     loc_type_dropdown.setCurrentIndex(0)  # Set to GPS in Drop Down.
     main_window.main_tab_LocalizationSettings_Name_lineEdit.setText(daq_config.location_configs['loc_name'])
     main_window.main_tab_LocalizationSettings_longitudLineEdit.setText(daq_config.location_configs['longitude'])
     main_window.main_tab_LocalizationSettings_latitudLineEdit.setText(daq_config.location_configs['latitude'])
-    main_window.main_tab_LocalizationSettings_hourLineEdit.setText(daq_config.location_configs['hour'])
-    main_window.main_tab_LocalizationSettings_minutesLineEdit.setText(daq_config.location_configs['minute'])
-    main_window.main_tab_LocalizationSettings_secondsLineEdit.setText(daq_config.location_configs['second'])
+    main_window.main_tab_LocalizationSettings_hourLineEdit.setText(str(daq_config.location_configs['hour']))
+    main_window.main_tab_LocalizationSettings_minutesLineEdit.setText(str(daq_config.location_configs['minute']))
+    main_window.main_tab_LocalizationSettings_secondsLineEdit.setText(str(daq_config.location_configs['second']))
 
 
-"""
-Sets Specimen Location information on current settings into GUI fields.
-"""
 def set_specimen_location_into_gui():
+    """
+    Sets Specimen Location information on current settings into GUI fields.
+    """
     specimen_loc_1.setText(daq_config.specimen_location['1'])
     specimen_loc_2.setText(daq_config.specimen_location['2'])
     specimen_loc_3.setText(daq_config.specimen_location['3'])
@@ -311,13 +318,14 @@ def set_specimen_location_into_gui():
     specimen_loc_8.setText(daq_config.specimen_location['8'])
 
 
-"""
-Sets Recording settings to GUI Fields.
-"""
 def set_recording_into_gui():
+    """
+    Sets Recording settings to GUI Fields.
+    """
     rec_name_edit.setText(daq_config.recording_configs['test_name'])
     rec_id_edit.setText(daq_config.recording_configs['test_ID'])
-    rec_duration_edit.setText(str(daq_config.recording_configs['test_duration'])) # Convert int to String for compatibility.
+    rec_duration_edit.setText(
+        str(daq_config.recording_configs['test_duration']))  # Convert int to String for compatibility.
     rec_type_dropdown.setCurrentIndex(daq_config.recording_configs['test_type'])
 
     if daq_config.data_handling_configs['visualize']:
@@ -331,27 +339,62 @@ def set_recording_into_gui():
         rec_store_checkbox.setCheckState(0)  # Qt::Unchecked	0
 
 
-"""
-Sets Data Acquisition Parameters to GUI Fields.
-"""
 def set_daq_params_to_gui():
+    """
+    Sets Data Acquisition Parameters to GUI Fields.
+    """
     samfreq_dropdown.setCurrentIndex(daq_config.signal_configs['sampling_rate'])
     cutfreq_drodown.setCurrentIndex(daq_config.signal_configs['cutoff_frequency'])
     gain_dropdown.setCurrentIndex(daq_config.signal_configs['signal_gain'])
 
-
+ 
+ERROR_LIST = []
 def check_boxes(text_box: str, pattern: str):
     result = regex.match(pattern, text_box)
     return result
 
 
-"""
-Gets all the data from fields in Main Window
-"""
+def get_rec_setts_from_gui():
+    """
+    Gets information on GUI into DAQ Parameters Data Structures.
+    """
+    try:  # This should NEVER happen when velidating
+        daq_config.recording_configs['test_name'] = str(main_window.main_tab_RecordingSettings_name_LineEdit.text())
+        daq_config.recording_configs['test_duration'] = int(
+            main_window.main_tab_RecordingSettings_durationLineEdit.text())
+        daq_config.recording_configs['test_start_delay'] = int(
+            main_window.main_tab_RecordingSettings_delay_LineEdit.text())
+        daq_config.recording_configs['test_type'] = int(
+            main_window.main_tab_RecordingSettings_type_DropDown.currentIndex())
+        """
+        QCheckbox, needs checkState() to get the state.
+        There are two states.
+        2 = checked
+        0 = unchecked
+        """
+        daq_config.recording_configs[
+            'visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns BOOLEAN
+        daq_config.recording_configs[
+            'store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
+    except TypeError:
+        show_error('Please Verify all the parameters have the correct value.')
 
-ERROR_LIST = []
+    if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
 
+
+def get_daq_params_from_gui():
+    """
+    Gets information on GUI into DAQ Parameters Data Structures.
+    """
+    daq_config.signal_configs['sampling_rate'] = main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex()
+    daq_config.signal_configs['cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
+    daq_config.signal_configs['signal_gain'] = main_window.main_tab_DAQParams_gain_DropDown.currentIndex()
+
+    
 def snapshot_data():
+    """
+    Gets all the data from fields in Main Window
+    """
     # we have to change everything to string, because that's how it's going to get passed
     # main tab recording settings
     ERROR_LIST.clear()
@@ -364,7 +407,7 @@ def snapshot_data():
     validate_box = check_boxes(name, '^[0-9]+$')
     if not validate_box:
         ERROR_LIST.append("Error: Invalid Duration. Restricted to numbers only.")
-    start_delay = main_window.main_tab_RecordingSettings_durationLineEdit_2.text()
+    start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
     """
     QComboBox, which are the dropdown needs currentText()
     it has to be casted to string
@@ -497,14 +540,7 @@ def snapshot_data():
     # sensor4_scale = channel_info_win.channel_info_senson4_full_Scale_LineEdit.text()
     # sensor4_loc = channel_info_win.channel_info_sensor4_location_Edit.text()
     # sensor4_damp = channel_info_win.channel_info_sensor4_dampingLineEdit.text()
-
-    # if vis_bool == "2":
-    #     show_visualization_sensor_selector_window(-1)
-    # else:
-    #     ins = ins_man.instruction_manager()
-    #     ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
-    #                                   "0000", daq_exp_name, daq_exp_location)
-
+    
     if log_working:
         print("name=" + name)
         print("id=" + recording_name_id)
@@ -549,7 +585,7 @@ def get_module_and_sensors_selected():
         index += 1
         if i.checkState() == 2:
             count = count + 1
-            module = str(int((index - 1) / 4)+1)
+            module = str(int((index - 1) / 4) + 1)
             sensor = str(((index - 1) % 4) + 1)
             sensors_selected = module + sensor + sensors_selected
         if count > 2:
@@ -566,10 +602,11 @@ def get_module_and_sensors_selected():
         return sensors_selected
     return "0000"
 
-"""
-Begin Acquisition Process
-"""
+
 def start_acquisition():
+    """
+    Begin Acquisition Process
+    """
     # show_main_sens_sel_window()
     enable_start_connected_sensors()
     snapshot_data()
@@ -580,7 +617,8 @@ def sensor_sel_start():
     if log: print("sensors selected are ", sens)
     ins = ins_man.instruction_manager()
     main_sensor_sel_win.close()
-    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name, daq_exp_location)
+    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
+                                  daq_exp_location)
     if log: print("came back to sensor_sel_start")
     enable_main_window()
 
@@ -639,7 +677,8 @@ channel_info_win.channel_info_sensor4_TITLE
 
 # Visualize Sensor Selection
 viz_sensor_sel_win.sensor_selection_Save_Plot_Data_checkBox
-viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(lambda: show_progress_dialog('Plotting ' + 'What you wanna plot'))
+viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(
+    lambda: show_progress_dialog('Plotting ' + 'What you wanna plot'))
 viz_sensor_sel_win.sensor_select_MAX_Label
 viz_sensor_sel_win.Sensor_1
 viz_sensor_sel_win.Sensor_2
@@ -675,7 +714,8 @@ viz_sensor_sel_win.Sensor_31
 viz_sensor_sel_win.Sensor_32
 
 # Main Sensor Selection
-main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: action_Begin_Recording())  # Close() DONE in UI.
+main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
+    lambda: action_Begin_Recording())  # Close() DONE in UI.
 main_sensor_sel_win.sensor_select_MAX_Label
 win_sens_1 = main_sensor_sel_win.Sensor_1
 win_sens_2 = main_sensor_sel_win.Sensor_2
@@ -713,7 +753,8 @@ sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, win_sen
                          win_sens_9, win_sens_10, win_sens_11, win_sens_12, win_sens_13, win_sens_14, win_sens_15,
                          win_sens_15, win_sens_16, win_sens_17, win_sens_18, win_sens_19, win_sens_20, win_sens_21,
                          win_sens_22, win_sens_23, win_sens_24, win_sens_25, win_sens_26, win_sens_27, win_sens_28,
-                         win_sens_29, win_sens_30, win_sens_31, win_sens_32]  # Used to get values easily (goes from 0 to 31)
+                         win_sens_29, win_sens_30, win_sens_31,
+                         win_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Acquiring Something
 prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: action_cancel_everything())
@@ -737,8 +778,8 @@ file_sys_win.file_system_CANCEL_button
 
 # Main Tab Window
 # RECORDING  Settings
-main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button
-main_window.main_tab_RecordingSettings__SAVE_button
+main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: handle_loading_saving('load', 1))
+main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: handle_loading_saving('save', 1))
 rec_name_edit = main_window.main_tab_RecordingSettings_name_LineEdit
 rec_id_edit = main_window.main_tab_RecordingSettings_id_LineEdit
 rec_duration_edit = main_window.main_tab_RecordingSettings_durationLineEdit
@@ -750,8 +791,8 @@ main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lam
 loc_type_dropdown = main_window.main_tab_LocalizationSettings_type_DropBox
 loc_type_dropdown.currentIndexChanged.connect(lambda: load_local_settings_to_gui())
 main_window.main_tab_LocalizationSettings_Name_lineEdit
-main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button
-main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button
+main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button.clicked.connect(lambda: handle_loading_saving('load', 2))
+main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button.clicked.connect(lambda: handle_loading_saving('save', 2))
 main_window.main_tab_LocalizationSettings_longitudLineEdit
 main_window.main_tab_LocalizationSettings_latitudLineEdit
 main_window.main_tab_LocalizationSettings_hourLineEdit
@@ -769,8 +810,8 @@ specimen_loc_6 = main_window.main_tab_module_loc_LineEdit_6
 specimen_loc_7 = main_window.main_tab_module_loc_LineEdit_7
 specimen_loc_8 = main_window.main_tab_module_loc_LineEdit_8
 # Data Acquisition Settings
-main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: action_store_DAQ_Params())  # TODO
-main_window.main_tab_DAQParams_LOAD_PARAMS_button
+main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: handle_loading_saving('save', 3))  # TODO
+main_window.main_tab_DAQParams_LOAD_PARAMS_button.clicked.connect(lambda: handle_loading_saving('load', 3))
 # main_window.main_tab_DAQParams_ADC_Constant_Label
 samfreq_dropdown = main_window.main_tab_DAQParams_samplingRate_DropDown
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
@@ -780,12 +821,23 @@ main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_sel
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # Visualization
 main_window.visualize_tab_tableWidget
-main_window.visualize_tab_TIME_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot('PLOT'))  # TODO GET INFO FROM USER.
-main_window.visualize_tab_FFT_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_APS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_XPS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD('S1', 'S2', 100).show_plot('PLOT'))
-main_window.visualize_tab_PHASE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_COHERE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
+main_window.visualize_tab_TIME_button.clicked.connect(
+    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
+        'PLOT'))  # TODO GET INFO FROM USER.
+main_window.visualize_tab_FFT_button.clicked.connect(
+    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_APS_button.clicked.connect(
+    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_XPS_button.clicked.connect(
+    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD('S1', 'S2', 100).show_plot('PLOT'))
+main_window.visualize_tab_PHASE_button.clicked.connect(
+    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_COHERE_button.clicked.connect(
+    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
+# File Name
+fn_in = filename_input_win.filename_lineEdit
+fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_saving_loading_action())
+fn_CANCEL_bton = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
 """
@@ -812,6 +864,20 @@ def action_Begin_Recording():
 
 
 """
+Sends signal to Control Module to cancel all recording, storing, sending, synchronizing and/or
+any other process the system might be doing. 
+
+Called by user when CANCEL action is desired.
+"""
+
+
+def action_cancel_everything():
+    im = ins_man.instruction_manager()
+    im.send_cancel_request()
+    enable_main_window()
+
+
+"""
 Shows the Main Sensor Selection Window.
 
 CALL BEFORE SENDING REQUEST TO START.
@@ -823,58 +889,158 @@ def ask_for_sensors():
     show_main_sens_sel_window()
     # When Done pressed --> begin recording. | this is handled from UI.
 
+
 # ************** STORING / LOADING *******************
+load_save_instructions = {
+    'action': '',
+    'who_to_save': 0,
+    'who_to_load': 0
+}
+
+"""
+Prepares the logic that decides the desired loading/saving action. 
+This Method contains information gathered from the user button press. 
+"""
+
+
+def handle_loading_saving(what: str, who: int):
+    show_filename_editor_window()
+
+    load_save_instructions['action'] = what
+    if (who == 0) or (what == ''):
+        show_error('There has been an ERROR knowing what you want to do. Please Try Again.')
+        if log: print('Loading Error.')
+    else:
+        if what == 'save':
+            load_save_instructions['who_to_save'] = who
+        elif what == 'load':
+            load_save_instructions['who_to_load'] = who
+
+
+"""
+Function continues to correct method depending on saving/loading and option combinations.
+"""
+
+
+def do_saving_loading_action():
+    if load_save_instructions['action'] == 'save':
+        decide_who_to_save(load_save_instructions['who_to_save'])
+    elif load_save_instructions['action'] == 'load':
+        decide_who_to_load(load_save_instructions['who_to_load'])
+
+
+"""
+Based on Button Pressed, decides what to save.
+"""
+
+
+def decide_who_to_save(instruction: int):
+    if instruction == 1:  # Save Recording Settings
+        action_store_Rec_Setts()
+    elif instruction == 2:
+        action_store_Location()
+    elif instruction == 3:
+        action_store_DAQ_Params()
+
+
+"""
+Based on Button Pressed, decides what to load.
+"""
+
+
+def decide_who_to_load(instruction: int):
+    if instruction == 1:  # Save Recording Settings
+        action_load_Rec_Setts()
+    elif instruction == 2:
+        action_load_Location()
+    elif instruction == 3:
+        action_load_DAQ_Params()
+
+
 def action_store_DAQ_Params():
-    # TODO Implement
-    return
+    # TODO Make Sure Files are not empty.
+    # Get filename from User
+    filename = fn_in.text()
+    # Get info from GUI.
+    get_daq_params_from_gui()
+    # Save to File.
+    setting_data_manager.store_daq_configs(filename)
+    # Close Window
+    filename_input_win.close()
 
 
 def action_load_DAQ_Params():
     # Get filename from User
+    filename = fn_in.text()
     # Load Params from File
-    set_dat_man.Setting_File_Manager()
+    setting_data_manager.load_daq_configs(filename)
     # Set Params into GUI.
+    set_daq_params_to_gui()
+    # Close Window
+    filename_input_win.close()
 
 
 def action_store_Location():
-    # TODO Implement
-    return
+    # TODO Make Sure Files are not empty.
+    # Get filename from User
+    filename = fn_in.text()
+    # Get info from GUI.
+    get_location_from_gui()
+    # Save to File.
+    setting_data_manager.store_daq_configs(filename)
+    # Close Window
+    filename_input_win.close()
 
 
 def action_load_Location():
     # Get filename from User
+    filename = fn_in.text()
     # Load Params from File
-    set_dat_man.Setting_File_Manager()
+    setting_data_manager.load_daq_configs(filename)
     # Set Params into GUI.
+    load_local_settings_to_gui()
+    # Close Window
+    filename_input_win.close()
 
 
 def action_store_Rec_Setts():
-    # TODO Implement
-    return
+    # TODO Make Sure Files are not empty.
+    # Get filename from User
+    filename = fn_in.text()
+    # Get info from GUI.
+    get_rec_setts_from_gui()
+    # Save to File.
+    setting_data_manager.store_daq_configs(filename)
+    # Close Window
+    filename_input_win.close()
 
 
 def action_load_Rec_Setts():
     # Get filename from User
+    filename = fn_in.text()
     # Load Params from File
-    set_dat_man.Setting_File_Manager()
+    setting_data_manager.load_daq_configs(filename)
     # Set Params into GUI.
+    set_recording_into_gui()
+    # Close Window
+    filename_input_win.close()
 
 
 # ********************************************* LOCATION ***************************************************************
 def sync_gps():  # TODO TEST
-    disable_main_window()
+    # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     show_acquire_dialog('GPS Signal')
-    im = ins_man.instruction_manager()
-    im.send_gps_sync_request()
+    # im = ins_man.instruction_manager()
+    # im.send_gps_sync_request()
 
     timeout = 0
-    while im.send_request_status() != 1:
-    # while 1:
+    # while im.send_request_status() != 1:
+    while 1:
         if log: print('GPS Waiting....')
 
         sleep(0.500)  # Wait for half a second before asking again.
         timeout += 1
-        if timeout == 5 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
+        if timeout == 30 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
             show_error('GPS Failed to Synchronize.')
             break
 
@@ -882,12 +1048,13 @@ def sync_gps():  # TODO TEST
     set_gps_into_gui()
 
 
-"""
-Loads Settings already in the program to GUi components depending on location type selected by user.
-The fields for the types not selected will be disabled.
-"""
 def load_local_settings_to_gui():
+    """
+    Loads Settings already in the program to GUi components depending on location type selected by user.
+    The fields for the types not selected will be disabled.
+    """
     if log: print(loc_type_dropdown.currentIndex())
+
     if loc_type_dropdown.currentIndex() == 0:  # GPS
         loc_gps_frame.setEnabled(True)
         loc_specimen_frame.setEnabled(False)
@@ -911,12 +1078,14 @@ def load_local_settings_to_gui():
 #     channel =
 
 # ----------------------------------------------- ACQUIRE DIALOG -----------------------------------------------------
-"""
-Shows Dialog with 'Acquiring' as the title beginning.
 
-:param message : the desired dialog message.
-"""
+
 def show_acquire_dialog(message: str):
+    """
+    Shows Dialog with 'Acquiring' as the title beginning.
+
+    :param message : the desired dialog message.
+    """
     # Set progress is default to undetermined.
     # Show Dialog & Set Message
     show_progress_dialog('Acquiring ' + message)
@@ -925,23 +1094,13 @@ def show_acquire_dialog(message: str):
     enable_main_window()
 
 
-"""
-Sends signal to Control Module to cancel all recording, storing, sending, synchronizing and/or
-any other process the system might be doing. 
-
-Called by user when CANCEL action is desired.
-"""
-def action_cancel_everything():
-    im = ins_man.instruction_manager()
-    im.send_cancel_request()
-    enable_main_window()
-
-
 # ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
-"""
-Saves sensor data from UI into structure.
-"""
+
+
 def save_sensor_info():
+    """
+    Saves sensor data from UI into structure.
+    """
     # Get info from GUI.
     # Set info to correct Data Structure.
     # Set sensor info (4)
@@ -955,63 +1114,73 @@ def save_sensor_info():
 
 
 # ------------------------------------------------ VISUALIZATION ------------------------------------------------------
-"""
-[1]
-Creates and Opens Window with Time plot using user information from file.
-"""
+
+
 def plot_time(filename: str):
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot('RESPECT TO TIME')  # TODO SWITCH TO TEMP FILE.
+    """
+    [1]
+    Creates and Opens Window with Time plot using user information from file.
+    """
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
+        'RESPECT TO TIME')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[2]
-Creats and Opens Window with Time plot using user information from file.
-"""
 def plot_fft(filename: str, sensor: str, freq: int):
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot('FOURIER TRANSFORM')  # TODO SWITCH TO TEMP FILE.
+    """
+    [2]
+    Creats and Opens Window with Time plot using user information from file.
+    """
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot(
+        'FOURIER TRANSFORM')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[3]
-Creates and Opens Window with Time plot using user information from file.
-"""
 def plot_aps(filename: str, sensor: str, freq: int):
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot('AUTO-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
+    """
+    [3]
+    Creates and Opens Window with Time plot using user information from file.
+    """
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot(
+        'AUTO-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[4]
-Creates and Opens Window with Time plot using user information from file.
-"""
 def plot_cps(filename: str):
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD().show_plot('CROSS-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
+    """
+    [4]
+    Creates and Opens Window with Time plot using user information from file.
+    """
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD().show_plot(
+        'CROSS-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[5]
-Creates and Opens Window with Time plot using user information from file.
-"""
 def plot_phase(filename: str):
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase().show_plot('UNWRAPPED PHASE FUNCTION')  # TODO SWITCH TO TEMP FILE.
+    """
+    [5]
+    Creates and Opens Window with Time plot using user information from file.
+    """
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase().show_plot(
+        'UNWRAPPED PHASE FUNCTION')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[6]
-Creates and Opens Window with Time plot using user information from file.
-"""
 def plot_cohere(filename: str):
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot('COHERENCE')  # TODO SWITCH TO TEMP FILE.
+    """
+    [6]
+    Creates and Opens Window with Time plot using user information from file.
+    """
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot(
+        'COHERENCE')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-Beginning of the program.
-Main will redirect here for GUI setup. 
-"""
 def init():
+    """
+    Beginning of the program.
+    Main will redirect here for GUI setup.
+    """
     main_window.show()
     loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
 
     # --------- TESTING ------------
+    # get_rec_setts_from_gui()
+    # setting_data_manager.store_daq_configs('Testing_Configs.csv')
     # set_recording_into_gui()
     # set_daq_params_to_gui()
     # load_gps_into_gui()
