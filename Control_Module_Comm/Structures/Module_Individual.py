@@ -11,6 +11,15 @@ class Module:
             'Sensor 4': sensor_4
         }
 
+        self.connected = False
+
+    def set_Connected(self, connected: bool):
+        self.connected = connected
+        return connected
+
+    def get_Connected(self):
+        return self.connected
+
 
 # TESTING
 # ch = Channel('mTestChannel')

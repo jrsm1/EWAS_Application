@@ -74,8 +74,8 @@ mod_5 = Module_Individual.Module('Channel 5', sens_17, sens_18, sens_19, sens_20
 mod_6 = Module_Individual.Module('Channel 6', sens_21, sens_22, sens_23, sens_24)
 mod_7 = Module_Individual.Module('Channel 7', sens_25, sens_26, sens_27, sens_28)
 mod_8 = Module_Individual.Module('Channel 8', sens_29, sens_30, sens_31, sens_32)
-channels_all = [mod_1, mod_2, mod_3, mod_4, mod_5, mod_6, mod_7,
-                mod_8]  # Used to get channels easily (goes from 0 to 7)
+modules_all = [mod_1, mod_2, mod_3, mod_4, mod_5, mod_6, mod_7,
+               mod_8]  # Used to get channels easily (goes from 0 to 7)
 
 # ----------- CONFIGS ----------
 daq_config = DAQ_Configuration.DAQconfigs()
@@ -241,7 +241,7 @@ def show_main_sens_sel_window():
         Opens Sensor Selection Window for Recording
     """
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
-    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
+    enable_start_connected_sensors()
     main_sensor_sel_win.show()
 
 
@@ -402,11 +402,11 @@ def snapshot_data():
     validate_box = check_boxes(name, '^[a-zA-Z0-9]+$')
     if not validate_box:
         ERROR_LIST.append("Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.")
-    recording_name_id = main_window.main_tab_RecordingSettings_id_LineEdit.text()
     duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
-    validate_box = check_boxes(name, '^[0-9]+$')
+    validate_box = check_boxes(duration, '^[0-9]+$')
     if not validate_box:
         ERROR_LIST.append("Error: Invalid Duration. Restricted to numbers only.")
+
     start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
     """
     QComboBox, which are the dropdown needs currentText()
@@ -422,14 +422,13 @@ def snapshot_data():
     """
     vis_bool = str(main_window.main_tab_RecordingSettings_visualize_checkBox.checkState())
     store_bool = str(main_window.main_tab_RecordingSettings_store_checkBox.checkState())
-
     # main tab localization settings
     loc_type = str(main_window.main_tab_LocalizationSettings_type_DropBox.currentText())
+
     loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
     validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
     if not validate_box:
-        ERROR_LIST.append('Error: Invalid Location Name format. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
+        ERROR_LIST.append('Error: Invalid Location Name format. Restricted to numbers, '                     'uppercase and lowercase letters only.<br>')
     loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
     validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
     if not validate_box:
@@ -450,7 +449,6 @@ def snapshot_data():
     validate_box = check_boxes(loc_seconds, '^\d{2}$')
     if not validate_box:
         ERROR_LIST.append('Error: Invalid second q format. Restricted to two digits.<br>')
-
     # specimen by module
     module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
     validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
@@ -497,8 +495,7 @@ def snapshot_data():
     daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex())
     daq_cutoff = str(main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex())
     daq_gain = str(main_window.main_tab_DAQParams_gain_DropDown.currentIndex())
-    daq_exp_name = str(name)
-    daq_exp_location = str(loc_name)
+
     if log: print("delay start before is ", start_delay)
     if start_delay:
         daq_start_delay = str(start_delay)
@@ -543,7 +540,6 @@ def snapshot_data():
     
     if log_working:
         print("name=" + name)
-        print("id=" + recording_name_id)
         print("duration=" + duration)
         print("type=" + type)
         print("visualization=" + vis_bool)
@@ -567,7 +563,7 @@ def snapshot_data():
 
 def get_module_and_sensors_selected():
     if log: print("entered get_module_and_sensors_selected()")
-    count = 0;
+    count = 0
     sensors_sel = []
     if log: print("created empy sensor selected array")
     sensors_sel.append(main_sensor_sel_win.Sensor_1)
@@ -607,9 +603,8 @@ def start_acquisition():
     """
     Begin Acquisition Process
     """
-    # show_main_sens_sel_window()
-    enable_start_connected_sensors()
-    snapshot_data()
+    if snapshot_data():
+        show_main_sens_sel_window()
 
 
 def sensor_sel_start():
@@ -624,11 +619,14 @@ def sensor_sel_start():
 
 
 def enable_start_connected_sensors():
-    # Request Control Module for Connected sensors.
+    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
+    got = []
     if log: print("entered enable start")
-    for s in range(0, 32, 1):  # Go through 32 sensors.
-        if not sensors_all[s].connected:  # If sensor in not connected.
-            sensor_selection_list[s].setEnabled(False)
+    for m in range(0, 8, 1):  # Go through 32 sensors.
+        if got[m]:  # If module in not connected.
+            modules_all[m].set_Connected(True)
+            # TODO Enable in GUI.
+
     if log: print("got out of enable start connected sensors")
 
 
@@ -817,7 +815,6 @@ samfreq_dropdown = main_window.main_tab_DAQParams_samplingRate_DropDown
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
-# main_window.main_tab_START_button.clicked.connect(lambda: show_main_sens_sel_window()) #this was the one before
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # Visualization
 main_window.visualize_tab_tableWidget
@@ -846,13 +843,10 @@ Prepares GUI and sends request to control module for begin recording data.
 
 
 def action_Begin_Recording():
-    # snapshot_data()
-    # sensor_sel_start()
     instruc_man = ins_man.instruction_manager()
-    # Activate App Running Dialog.
     # Send Setting Information to Control Module.
     instruc_man.send_set_configuration('Configuration String.')
-    # Prepare Real-Time Plot to receive Data.
+    # TODO Prepare Real-Time Plot to receive Data.
     # Send Begin Recording FLAG to Control Module.
     instruc_man.send_request_start()
 
@@ -897,13 +891,12 @@ load_save_instructions = {
     'who_to_load': 0
 }
 
-"""
-Prepares the logic that decides the desired loading/saving action. 
-This Method contains information gathered from the user button press. 
-"""
-
 
 def handle_loading_saving(what: str, who: int):
+    """
+    Prepares the logic that decides the desired loading/saving action.
+    This Method contains information gathered from the user button press.
+    """
     show_filename_editor_window()
 
     load_save_instructions['action'] = what
@@ -1185,7 +1178,7 @@ def init():
     # set_daq_params_to_gui()
     # load_gps_into_gui()
     # load_local_settings_to_gui()
-    # show_progress_dialog('Message')
+    show_progress_dialog('Message')
     # sensor_sel.show()
     # mod_sel.show()
     # channel_info_win.show()
