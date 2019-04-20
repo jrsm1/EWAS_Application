@@ -94,62 +94,51 @@ daq_exp_name = ""
 daq_exp_location = ""
 daq_start_delay = 0
 
-"""
-Displays Main Window on Computer's Screen.
-"""
-
 
 def show_main_window():
+    """
+    Displays Main Window on Computer's Screen.
+    """
     main_window.show()
 
 
-"""
-    Disables Input for every Widget inside Main Window.
-"""
-
-
 def disable_main_window():
+    """
+        Disables Input for every Widget inside Main Window.
+    """
     main_window.setEnabled(False)
 
 
-"""
-    Disables Input for every Widget inside Main Window.
-"""
-
-
 def enable_main_window():
+    """
+        Disables Input for every Widget inside Main Window.
+    """
     main_window.setEnabled(True)
 
 
-"""
-    Creates an Error Message dialog
-    
-    :param message: String - The Desired Message Output.
-"""
-
-
 def show_error(message: str):
+    """
+        Creates an Error Message dialog
+
+        :param message: String - The Desired Message Output.
+    """
     err_dlg = QtWidgets.QErrorMessage()
     err_dlg.showMessage(message)
     err_dlg.exec()
 
 
-"""
-Opens Module Selection Window.
-Done before Channel Selection.
-"""
-
-
 def open_module_selection_window():
+    """
+    Opens Module Selection Window.
+    Done before Channel Selection.
+    """
     mod_sel_win.show()
 
 
-"""
-    Opens Channel Information Window
-"""
-
-
 def show_channel_info_window(channel: int):
+    """
+        Opens Channel Information Window
+    """
     # TODO DECIDE SENSOR NAMES BASED ON CHANNEL.
     # TODO VERIFY IF THE SENSORS IN THE CHANNEL ARE CONNECTED.
     # TODO ENABLE MODULE SELECTION BUTTONS BASED ON CONNECTED SENSORS.
@@ -246,27 +235,23 @@ def show_channel_info_window(channel: int):
     channel_info_win.show()
 
 
-"""
-    Opens Sensor Selection Window for Recording
-"""
-
-
 def show_main_sens_sel_window():
+    """
+        Opens Sensor Selection Window for Recording
+    """
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
     main_sensor_sel_win.show()
 
 
-"""
-Creates and Opens Progress Dialog.
-Default is to 'undetermined' infinite progress. 
-To change default behaviour use { void QProgressBar::setRange(int minimum, int maximum) }
-
-:param message : Custom message to show on Dialog.
-"""
-
-
 def show_progress_dialog(message: str):
+    """
+    Creates and Opens Progress Dialog.
+    Default is to 'undetermined' infinite progress.
+    To change default behaviour use { void QProgressBar::setRange(int minimum, int maximum) }
+
+    :param message : Custom message to show on Dialog.
+    """
     dlg_title.setText(message)
     prog_dlg.show()
 
@@ -282,13 +267,11 @@ def show_visualization_sensor_selector_window(plot: int):  # TODO
 def show_filename_editor_window():
     filename_input_win.show()
 
-
-"""
-Begins Visualization Analysis for user selected plots.
-"""
-
-
+# TODO get selected sensors.
 def begin_visualization(plot: int):
+    """
+    Begins Visualization Analysis for user selected plots.
+    """
     # Choose which Plot.
     if plot == 1:
         plot_time()
@@ -307,12 +290,10 @@ def begin_visualization(plot: int):
     show_progress_dialog('Plotting ' + 'What you wanna plot')
 
 
-"""
-Sets GPS information on current settings into GUI fields.
-"""
-
-
 def set_gps_into_gui():
+    """
+    Sets GPS information on current settings into GUI fields.
+    """
     loc_type_dropdown.setCurrentIndex(0)  # Set to GPS in Drop Down.
     main_window.main_tab_LocalizationSettings_Name_lineEdit.setText(daq_config.location_configs['loc_name'])
     main_window.main_tab_LocalizationSettings_longitudLineEdit.setText(daq_config.location_configs['longitude'])
@@ -322,12 +303,10 @@ def set_gps_into_gui():
     main_window.main_tab_LocalizationSettings_secondsLineEdit.setText(str(daq_config.location_configs['second']))
 
 
-"""
-Sets Specimen Location information on current settings into GUI fields.
-"""
-
-
 def set_specimen_location_into_gui():
+    """
+    Sets Specimen Location information on current settings into GUI fields.
+    """
     specimen_loc_1.setText(daq_config.specimen_location['1'])
     specimen_loc_2.setText(daq_config.specimen_location['2'])
     specimen_loc_3.setText(daq_config.specimen_location['3'])
@@ -336,8 +315,6 @@ def set_specimen_location_into_gui():
     specimen_loc_6.setText(daq_config.specimen_location['6'])
     specimen_loc_7.setText(daq_config.specimen_location['7'])
     specimen_loc_8.setText(daq_config.specimen_location['8'])
-
-
 
 
 def set_recording_into_gui():
@@ -361,8 +338,6 @@ def set_recording_into_gui():
         rec_store_checkbox.setCheckState(0)  # Qt::Unchecked	0
 
 
-
-
 def set_daq_params_to_gui():
     """
     Sets Data Acquisition Parameters to GUI Fields.
@@ -372,13 +347,11 @@ def set_daq_params_to_gui():
     gain_dropdown.setCurrentIndex(daq_config.signal_configs['signal_gain'])
 
 
-
-
 def get_rec_setts_from_gui():
     """
     Gets information on GUI into DAQ Parameters Data Structures.
     """
-    try:
+    try:  # This should NEVER happen when velidating
         daq_config.recording_configs['test_name'] = str(main_window.main_tab_RecordingSettings_name_LineEdit.text())
         daq_config.recording_configs['test_duration'] = int(
             main_window.main_tab_RecordingSettings_durationLineEdit.text())
@@ -407,8 +380,7 @@ def get_daq_params_from_gui():
     Gets information on GUI into DAQ Parameters Data Structures.
     """
     daq_config.signal_configs['sampling_rate'] = main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex()
-    daq_config.signal_configs[
-        'cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
+    daq_config.signal_configs['cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
     daq_config.signal_configs['signal_gain'] = main_window.main_tab_DAQParams_gain_DropDown.currentIndex()
 
 
@@ -573,12 +545,10 @@ def get_module_and_sensors_selected():
     return "0000"
 
 
-"""
-Begin Acquisition Process
-"""
-
-
 def start_acquisition():
+    """
+    Begin Acquisition Process
+    """
     # show_main_sens_sel_window()
     enable_start_connected_sensors()
     snapshot_data()
@@ -1020,13 +990,11 @@ def sync_gps():  # TODO TEST
     set_gps_into_gui()
 
 
-"""
-Loads Settings already in the program to GUi components depending on location type selected by user.
-The fields for the types not selected will be disabled.
-"""
-
-
 def load_local_settings_to_gui():
+    """
+    Loads Settings already in the program to GUi components depending on location type selected by user.
+    The fields for the types not selected will be disabled.
+    """
     if log: print(loc_type_dropdown.currentIndex())
 
     if loc_type_dropdown.currentIndex() == 0:  # GPS
@@ -1052,14 +1020,14 @@ def load_local_settings_to_gui():
 #     channel =
 
 # ----------------------------------------------- ACQUIRE DIALOG -----------------------------------------------------
-"""
-Shows Dialog with 'Acquiring' as the title beginning.
-
-:param message : the desired dialog message.
-"""
 
 
 def show_acquire_dialog(message: str):
+    """
+    Shows Dialog with 'Acquiring' as the title beginning.
+
+    :param message : the desired dialog message.
+    """
     # Set progress is default to undetermined.
     # Show Dialog & Set Message
     show_progress_dialog('Acquiring ' + message)
@@ -1069,12 +1037,12 @@ def show_acquire_dialog(message: str):
 
 
 # ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
-"""
-Saves sensor data from UI into structure.
-"""
 
 
 def save_sensor_info():
+    """
+    Saves sensor data from UI into structure.
+    """
     # Get info from GUI.
     # Set info to correct Data Structure.
     # Set sensor info (4)
@@ -1088,79 +1056,67 @@ def save_sensor_info():
 
 
 # ------------------------------------------------ VISUALIZATION ------------------------------------------------------
-"""
-[1]
-Creates and Opens Window with Time plot using user information from file.
-"""
 
 
 def plot_time(filename: str):
+    """
+    [1]
+    Creates and Opens Window with Time plot using user information from file.
+    """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
         'RESPECT TO TIME')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[2]
-Creats and Opens Window with Time plot using user information from file.
-"""
-
-
 def plot_fft(filename: str, sensor: str, freq: int):
+    """
+    [2]
+    Creats and Opens Window with Time plot using user information from file.
+    """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot(
         'FOURIER TRANSFORM')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[3]
-Creates and Opens Window with Time plot using user information from file.
-"""
-
-
 def plot_aps(filename: str, sensor: str, freq: int):
+    """
+    [3]
+    Creates and Opens Window with Time plot using user information from file.
+    """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot(
         'AUTO-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[4]
-Creates and Opens Window with Time plot using user information from file.
-"""
-
-
 def plot_cps(filename: str):
+    """
+    [4]
+    Creates and Opens Window with Time plot using user information from file.
+    """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD().show_plot(
         'CROSS-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[5]
-Creates and Opens Window with Time plot using user information from file.
-"""
-
-
 def plot_phase(filename: str):
+    """
+    [5]
+    Creates and Opens Window with Time plot using user information from file.
+    """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase().show_plot(
         'UNWRAPPED PHASE FUNCTION')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-[6]
-Creates and Opens Window with Time plot using user information from file.
-"""
-
-
 def plot_cohere(filename: str):
+    """
+    [6]
+    Creates and Opens Window with Time plot using user information from file.
+    """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot(
         'COHERENCE')  # TODO SWITCH TO TEMP FILE.
 
 
-"""
-Beginning of the program.
-Main will redirect here for GUI setup. 
-"""
-
-
 def init():
+    """
+    Beginning of the program.
+    Main will redirect here for GUI setup.
+    """
     main_window.show()
     loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
 
