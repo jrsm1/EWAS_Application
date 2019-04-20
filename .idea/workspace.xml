@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Settings/setting_data_manager.py" line="209" mnemonic="9" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/filename_editor_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="changed all window functionality to GUI_Handler script.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/EWAS_Application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EWAS_Application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Channel_Settings.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Channel_Settings.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Channel_Info_Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Channel_Info_Window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/setting_data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/setting_data_manager.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,177 +16,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="327">
+              <caret line="455" column="37" selection-start-line="455" selection-start-column="37" selection-end-line="455" selection-end-column="37" />
               <folding>
-                <element signature="e#2998#3322#0" />
-                <element signature="e#4328#4378#1" />
-                <element signature="e#4407#4425#0" />
-                <element signature="e#4428#4491#1" />
-                <element signature="e#4523#4552#0" />
-                <element signature="e#4555#4618#1" />
-                <element signature="e#4649#4677#0" />
-                <element signature="e#4680#4785#1" />
-                <element signature="e#4820#4907#0" />
-                <element signature="e#4910#4979#1" />
-                <element signature="e#5020#5038#0" />
-                <element signature="e#5040#5084#1" />
-                <element signature="e#5133#11402#0" />
-                <element signature="e#5133#5177#0" />
-                <element signature="e#5555#5574#0" />
-                <element signature="e#5654#6335#0" />
-                <element signature="e#6367#7048#0" />
-                <element signature="e#7080#7767#0" />
-                <element signature="e#7799#8489#0" />
-                <element signature="e#8521#9210#0" />
-                <element signature="e#9242#9931#0" />
-                <element signature="e#9963#10652#0" />
-                <element signature="e#10684#11373#0" />
-                <element signature="e#11405#11460#1" />
-                <element signature="e#11498#11550#0" />
-                <element signature="e#11553#11786#1" />
-                <element signature="e#11831#11877#0" />
-                <element signature="e#12112#12163#0" />
-                <element signature="e#11977#12039#1" />
-                <element signature="e#12080#12453#0" />
-                <element signature="e#12456#12521#1" />
-                <element signature="e#12550#13269#0" />
-                <element signature="e#13272#13351#1" />
-                <element signature="e#13394#13885#0" />
-                <element signature="e#13888#13934#1" />
-                <element signature="e#13969#14638#0" />
-                <element signature="e#14641#14696#1" />
-                <element signature="e#14730#14965#0" />
-                <element signature="e#14968#15020#1" />
-                <element signature="e#15046#21311#0" />
-                <element signature="e#15046#15131#0" />
-                <element signature="e#15401#15504#1" />
-                <element signature="e#15592#15733#1" />
-                <element signature="e#17469#17498#0" />
-                <element signature="e#20614#20793#0" />
-                <element signature="e#20069#21311#0" />
-                <element signature="e#21070#21158#0" />
-                <element signature="e#22111#25010#0" />
-                <element signature="e#22319#22361#0" />
-                <element signature="e#24464#24763#0" />
-                <element signature="e#24519#24699#0" />
-                <element signature="e#24734#24763#0" />
-                <element signature="e#24920#24992#0" />
-                <element signature="e#21314#21347#1" />
-                <element signature="e#21377#21461#0" />
-                <element signature="e#25190#25565#0" />
-                <element signature="e#25612#25904#0" />
-                <element signature="e#25724#25842#0" />
-                <element signature="e#21687#21725#1" />
-                <element signature="e#26457#26977#0" />
-                <element signature="e#28115#28132#0" />
-                <element signature="e#31942#32024#1" />
-                <element signature="e#36217#36701#0" />
-                <element signature="e#36217#36234#0" />
-                <element signature="e#36310#36340#0" />
-                <element signature="e#36459#36500#0" />
-                <element signature="e#32507#32593#1" />
-                <element signature="e#32623#32764#0" />
-                <element signature="e#32856#32883#0" />
-                <element signature="e#32920#33038#0" />
-                <element signature="e#32920#32944#0" />
-                <element signature="e#33074#33101#0" />
-                <element signature="e#33136#33254#0" />
-                <element signature="e#33136#33160#0" />
-                <element signature="e#33291#33318#0" />
-                <element signature="e#33354#33472#0" />
-                <element signature="e#33354#33378#0" />
-                <element signature="e#33629#34165#0" />
-                <element signature="e#33821#34116#0" />
-                <element signature="e#34058#34116#0" />
-                <element signature="e#34168#34332#1" />
-                <element signature="e#34371#34768#0" />
-                <element signature="e#34480#34582#0" />
-                <element signature="e#34652#34768#0" />
-                <element signature="e#34771#34891#0" />
-                <element signature="e#35184#35291#1" />
-                <element signature="e#35335#35557#0" />
-                <element signature="e#35335#35377#0" />
-                <element signature="e#35560#35755#1" />
-                <element signature="e#35792#35884#0" />
-                <element signature="e#36007#36056#1" />
-                <element signature="e#36085#36412#0" />
-                <element signature="e#36085#36105#0" />
-                <element signature="e#36535#36620#1" />
-                <element signature="e#36655#36776#0" />
-                <element signature="e#36779#36863#1" />
-                <element signature="e#36921#37053#0" />
-                <element signature="e#37056#37141#1" />
-                <element signature="e#37199#37332#0" />
-                <element signature="e#37335#37420#1" />
-                <element signature="e#37454#37579#0" />
-                <element signature="e#37582#37667#1" />
-                <element signature="e#37703#37835#0" />
-                <element signature="e#37838#37923#1" />
-                <element signature="e#37960#38081#0" />
-                <element signature="e#38084#38157#1" />
-                <element signature="e#38174#38676#0" />
-                <element signature="e#38271#38303#0" />
+                <element signature="e#15#47#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="180" column="7" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="7" />
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
               <folding>
-                <element signature="e#732#770#1" />
-                <element signature="e#821#1173#0" />
-                <element signature="e#990#1156#0" />
-                <element signature="e#1179#1237#1" />
-                <element signature="e#1280#1532#0" />
-                <element signature="e#1449#1515#0" />
-                <element signature="e#1542#1661#1" />
-                <element signature="e#1723#2137#0" />
-                <element signature="e#1892#2120#0" />
+                <element signature="e#111#394#0" />
+                <element signature="e#400#583#1" />
+                <element signature="e#615#883#0" />
+                <element signature="e#736#778#0" />
+                <element signature="e#889#988#1" />
+                <element signature="e#1033#1143#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py">
+        <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="3888">
+              <caret line="147" selection-start-line="147" selection-end-line="147" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="648">
+              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="228" column="37" selection-start-line="228" selection-start-column="37" selection-end-line="228" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#93#1" />
-                <element signature="e#381#481#0" />
-                <element signature="e#489#500#1" />
-                <element signature="e#534#582#0" />
-                <element signature="e#690#701#1" />
-                <element signature="e#1197#2176#0" />
-                <element signature="e#1438#1581#1" />
-                <element signature="e#2337#3153#0" />
-                <element signature="e#2470#2982#0" />
-                <element signature="e#2151#2342#0" />
-                <element signature="e#3305#5030#0" />
-                <element signature="e#4942#5728#0" />
-                <element signature="e#5183#5903#0" />
-                <element signature="e#4166#4233#1" />
-                <element signature="e#6139#6515#0" />
-                <element signature="e#6520#6755#0" />
-              </folding>
+            <state relative-caret-position="3483">
+              <caret line="132" column="51" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -251,7 +166,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="GUUI_functionality" />
+        <entry key="$PROJECT_DIR$" value="Field_Parsing" />
       </map>
     </option>
   </component>
@@ -301,42 +216,45 @@
         <option value="$PROJECT_DIR$/GUI/module_selection_window.ui" />
         <option value="$PROJECT_DIR$/GUI/channel_info_window.ui" />
         <option value="$PROJECT_DIR$/Important_Documents/Commit_Comments" />
+        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
         <option value="$PROJECT_DIR$/GUI/GUI_Handler.py" />
         <option value="$PROJECT_DIR$/GUI/main_window.ui" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py" />
-        <option value="$PROJECT_DIR$/GUI/filename_editor_window.ui" />
         <option value="$PROJECT_DIR$/GUI_Handler.py" />
-        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="100" />
     <option name="width" value="1750" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="GUI" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Control_Module_Comm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Control_Module_Comm" type="462c0819:PsiDirectoryNode" />
-              <item name="Structures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
@@ -351,56 +269,12 @@
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
               <item name="Important_Documents" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
               <item name="Testers" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="DAQ" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Module" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Sensor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -412,7 +286,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/GUI" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/GUI_Handler.py" />
   </component>
   <component name="RecentsManager">
@@ -444,13 +318,118 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="Plot_Data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Data_Processing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sensor_Individual" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Control_Module_Comm/Structures" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setting_data_manager" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Settings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tester" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Control_Module_Comm" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Control_Module_Comm/tester.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.setting_data_manager" />
         <item itemvalue="Python.tester" />
+        <item itemvalue="Python.setting_data_manager" />
         <item itemvalue="Python.Sensor_Individual" />
         <item itemvalue="Python.Plot_Data" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -664,14 +643,7 @@
       <option name="project" value="LOCAL" />
       <updated>1555705738270</updated>
     </task>
-    <task id="LOCAL-00029" summary="Merge Juan and Eggie&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;GUI/GUI_Handler.py&#10;#&#9;GUI/__init__.py&#10;#&#9;main.py">
-      <created>1555711727401</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1555711727401</updated>
-    </task>
-    <option name="localTasksCounter" value="30" />
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -684,11 +656,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1858" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49690402" visible="true" weight="0.16043957" />
-      <window_info id="Structure" order="1" sideWeight="0.503096" side_tool="true" weight="0.16043957" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49709302" visible="true" weight="0.1621984" />
+      <window_info id="Structure" order="1" sideWeight="0.502907" side_tool="true" weight="0.16043957" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49835163" weight="0.3281471" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28556594" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989011" weight="0.23052959" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49945053" weight="0.32917964" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50164837" side_tool="true" visible="true" weight="0.3281471" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917964" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498452" visible="true" weight="0.16043957" />
+      <window_info id="Structure" order="1" sideWeight="0.501548" side_tool="true" visible="true" weight="0.16043957" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
@@ -704,7 +694,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -747,6 +737,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Created GUI Handling Error Dialog from given button for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Created Data Visialization Class and Dummy Data for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
     <MESSAGE value="# Done&#10;- [x] Plotting Time and Coherence in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
@@ -771,8 +762,7 @@
     <MESSAGE value="* [X] Store Chanel config with sensors ready." />
     <MESSAGE value="main window change" />
     <MESSAGE value="DELETE OR REVERT BEFORE" />
-    <MESSAGE value="Merge Juan and Eggie&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;GUI/GUI_Handler.py&#10;#&#9;GUI/__init__.py&#10;#&#9;main.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge Juan and Eggie&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;GUI/GUI_Handler.py&#10;#&#9;GUI/__init__.py&#10;#&#9;main.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="DELETE OR REVERT BEFORE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -789,7 +779,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>71</line>
+          <line>69</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -801,16 +791,6 @@
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
           <line>799</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>302</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -845,6 +825,16 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Data/Random_Dummy_Data_v2.csv" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PyQt5/uic/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="225" selection-start-line="225" selection-end-line="225" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/main_tab_layout.ui" />
     <entry file="file://$PROJECT_DIR$/GUI/sensor_selection_matrix.ui">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -903,6 +893,13 @@
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/xml/etree/ElementTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="586" selection-start-line="586" selection-end-line="586" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Testers/instruction_manager_tester.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -917,67 +914,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
+    <entry file="file://$PROJECT_DIR$/GUI/Channel_Info_Window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        <state>
+          <caret column="96" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Plot Data.py" />
     <entry file="file://$PROJECT_DIR$/Data_Processing/__init__.py" />
     <entry file="file://$PROJECT_DIR$/google/Plot Data.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/io/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="1852" selection-start-line="1852" selection-end-line="1852" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/io/parsers.py" />
     <entry file="file://$PROJECT_DIR$/GUI/EWAS_Logo_1.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Invenio_Logo.svg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding>
-            <element signature="e#111#394#0" />
-            <element signature="e#400#583#1" />
-            <element signature="e#615#883#0" />
-            <element signature="e#736#778#0" />
-            <element signature="e#889#988#1" />
-            <element signature="e#1033#1143#0" />
-            <element signature="e#1149#1263#1" />
-            <element signature="e#1304#1401#0" />
-            <element signature="e#1407#1487#1" />
-            <element signature="e#1535#1650#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/main_tab_layout_V2.ui">
       <provider selected="true" editor-type-id="text-editor">
@@ -990,19 +942,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/serialwin32.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/serialwin32.py" />
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        <state relative-caret-position="1176">
+          <caret line="180" column="45" selection-start-line="180" selection-start-column="45" selection-end-line="180" selection-end-column="45" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#732#770#1" />
+            <element signature="e#821#1173#0" />
+            <element signature="e#990#1156#0" />
+            <element signature="e#1179#1237#1" />
+            <element signature="e#1280#1532#0" />
+            <element signature="e#1449#1515#0" />
+            <element signature="e#1542#1661#1" />
+            <element signature="e#1723#2137#0" />
+            <element signature="e#1892#2120#0" />
           </folding>
         </state>
       </provider>
@@ -1047,13 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="35" column="72" lean-forward="true" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/CSV_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1061,6 +1008,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Data/default_settings.csv" />
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Channel_Settings.csv" />
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1068,245 +1024,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py">
+    <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/main_window.ui">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="754" column="19" lean-forward="true" selection-start-line="754" selection-start-column="19" selection-end-line="754" selection-end-column="19" />
+        <state relative-caret-position="-29056">
+          <caret line="363" column="117" selection-start-line="363" selection-start-column="72" selection-end-line="363" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="455" column="37" selection-start-line="455" selection-start-column="37" selection-end-line="455" selection-end-column="37" />
           <folding>
             <element signature="e#15#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Channel_Info_Window.py">
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="96" selection-end-line="1" />
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+          <folding>
+            <element signature="e#111#394#0" />
+            <element signature="e#400#583#1" />
+            <element signature="e#615#883#0" />
+            <element signature="e#736#778#0" />
+            <element signature="e#889#988#1" />
+            <element signature="e#1033#1143#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/filename_editor_window.ui">
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3888">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+    <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="180" column="7" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="7" />
-          <folding>
-            <element signature="e#732#770#1" />
-            <element signature="e#821#1173#0" />
-            <element signature="e#990#1156#0" />
-            <element signature="e#1179#1237#1" />
-            <element signature="e#1280#1532#0" />
-            <element signature="e#1449#1515#0" />
-            <element signature="e#1542#1661#1" />
-            <element signature="e#1723#2137#0" />
-            <element signature="e#1892#2120#0" />
-          </folding>
+        <state relative-caret-position="324">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="27">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/xml/etree/ElementTree.py">
+    <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="586" selection-start-line="586" selection-end-line="586" />
+        <state relative-caret-position="108">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#2998#3322#0" />
-            <element signature="e#4328#4378#1" />
-            <element signature="e#4407#4425#0" />
-            <element signature="e#4428#4491#1" />
-            <element signature="e#4523#4552#0" />
-            <element signature="e#4555#4618#1" />
-            <element signature="e#4649#4677#0" />
-            <element signature="e#4680#4785#1" />
-            <element signature="e#4820#4907#0" />
-            <element signature="e#4910#4979#1" />
-            <element signature="e#5020#5038#0" />
-            <element signature="e#5040#5084#1" />
-            <element signature="e#5133#11402#0" />
-            <element signature="e#5133#5177#0" />
-            <element signature="e#5555#5574#0" />
-            <element signature="e#5654#6335#0" />
-            <element signature="e#6367#7048#0" />
-            <element signature="e#7080#7767#0" />
-            <element signature="e#7799#8489#0" />
-            <element signature="e#8521#9210#0" />
-            <element signature="e#9242#9931#0" />
-            <element signature="e#9963#10652#0" />
-            <element signature="e#10684#11373#0" />
-            <element signature="e#11405#11460#1" />
-            <element signature="e#11498#11550#0" />
-            <element signature="e#11553#11786#1" />
-            <element signature="e#11831#11877#0" />
-            <element signature="e#12112#12163#0" />
-            <element signature="e#11977#12039#1" />
-            <element signature="e#12080#12453#0" />
-            <element signature="e#12456#12521#1" />
-            <element signature="e#12550#13269#0" />
-            <element signature="e#13272#13351#1" />
-            <element signature="e#13394#13885#0" />
-            <element signature="e#13888#13934#1" />
-            <element signature="e#13969#14638#0" />
-            <element signature="e#14641#14696#1" />
-            <element signature="e#14730#14965#0" />
-            <element signature="e#14968#15020#1" />
-            <element signature="e#15046#21311#0" />
-            <element signature="e#15046#15131#0" />
-            <element signature="e#15401#15504#1" />
-            <element signature="e#15592#15733#1" />
-            <element signature="e#17469#17498#0" />
-            <element signature="e#20614#20793#0" />
-            <element signature="e#20069#21311#0" />
-            <element signature="e#21070#21158#0" />
-            <element signature="e#22111#25010#0" />
-            <element signature="e#22319#22361#0" />
-            <element signature="e#24464#24763#0" />
-            <element signature="e#24519#24699#0" />
-            <element signature="e#24734#24763#0" />
-            <element signature="e#24920#24992#0" />
-            <element signature="e#21314#21347#1" />
-            <element signature="e#21377#21461#0" />
-            <element signature="e#25190#25565#0" />
-            <element signature="e#25612#25904#0" />
-            <element signature="e#25724#25842#0" />
-            <element signature="e#21687#21725#1" />
-            <element signature="e#26457#26977#0" />
-            <element signature="e#28115#28132#0" />
-            <element signature="e#31942#32024#1" />
-            <element signature="e#36217#36701#0" />
-            <element signature="e#36217#36234#0" />
-            <element signature="e#36310#36340#0" />
-            <element signature="e#36459#36500#0" />
-            <element signature="e#32507#32593#1" />
-            <element signature="e#32623#32764#0" />
-            <element signature="e#32856#32883#0" />
-            <element signature="e#32920#33038#0" />
-            <element signature="e#32920#32944#0" />
-            <element signature="e#33074#33101#0" />
-            <element signature="e#33136#33254#0" />
-            <element signature="e#33136#33160#0" />
-            <element signature="e#33291#33318#0" />
-            <element signature="e#33354#33472#0" />
-            <element signature="e#33354#33378#0" />
-            <element signature="e#33629#34165#0" />
-            <element signature="e#33821#34116#0" />
-            <element signature="e#34058#34116#0" />
-            <element signature="e#34168#34332#1" />
-            <element signature="e#34371#34768#0" />
-            <element signature="e#34480#34582#0" />
-            <element signature="e#34652#34768#0" />
-            <element signature="e#34771#34891#0" />
-            <element signature="e#35184#35291#1" />
-            <element signature="e#35335#35557#0" />
-            <element signature="e#35335#35377#0" />
-            <element signature="e#35560#35755#1" />
-            <element signature="e#35792#35884#0" />
-            <element signature="e#36007#36056#1" />
-            <element signature="e#36085#36412#0" />
-            <element signature="e#36085#36105#0" />
-            <element signature="e#36535#36620#1" />
-            <element signature="e#36655#36776#0" />
-            <element signature="e#36779#36863#1" />
-            <element signature="e#36921#37053#0" />
-            <element signature="e#37056#37141#1" />
-            <element signature="e#37199#37332#0" />
-            <element signature="e#37335#37420#1" />
-            <element signature="e#37454#37579#0" />
-            <element signature="e#37582#37667#1" />
-            <element signature="e#37703#37835#0" />
-            <element signature="e#37838#37923#1" />
-            <element signature="e#37960#38081#0" />
-            <element signature="e#38084#38157#1" />
-            <element signature="e#38174#38676#0" />
-            <element signature="e#38271#38303#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/main_window.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
-          <caret line="309" column="72" lean-forward="true" selection-start-line="309" selection-start-column="72" selection-end-line="309" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Channel_Settings.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/default_settings.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/Module/Default_Configuration.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/DAQ/Default_Configuration.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/Sensor/Default_Configuration.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-458">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="228" column="37" selection-start-line="228" selection-start-column="37" selection-end-line="228" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#93#1" />
-            <element signature="e#381#481#0" />
-            <element signature="e#489#500#1" />
-            <element signature="e#534#582#0" />
-            <element signature="e#690#701#1" />
-            <element signature="e#1197#2176#0" />
-            <element signature="e#1438#1581#1" />
-            <element signature="e#2337#3153#0" />
-            <element signature="e#2470#2982#0" />
-            <element signature="e#2151#2342#0" />
-            <element signature="e#3305#5030#0" />
-            <element signature="e#4942#5728#0" />
-            <element signature="e#5183#5903#0" />
-            <element signature="e#4166#4233#1" />
-            <element signature="e#6139#6515#0" />
-            <element signature="e#6520#6755#0" />
-          </folding>
+        <state relative-caret-position="3483">
+          <caret line="132" column="51" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
         </state>
       </provider>
     </entry>

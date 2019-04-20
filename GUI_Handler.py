@@ -453,7 +453,7 @@ def snapshot_data():
               ", 4:" + module_loc4 + ", 5:" + module_loc5 + ", 6:" + module_loc6 +
               ", 7:" + module_loc7 + ", 8:" + module_loc8)
         print("DAQ parameters")
-        print("adc constant=" + daq_adc + ", sampling rate=" + daq_sample_rate + ", cutoff=" + daq_cutoff +
+        print("sampling rate=" + daq_sample_rate + ", cutoff=" + daq_cutoff +
               ", gain=" + daq_gain)
         print("sensor info:")
         # print("name="+sensor1_name+", type="+sensor1_type+", sensitivity="+sensor1_sensitivity
