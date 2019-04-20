@@ -19,6 +19,7 @@
 * [X] Setting Recording data to Display in GUI.
 * [x] Logic for channel info ALMOST ready.
 - [X] Imported all GUI Object variables.
+* [X] Loading and storing data in Config Directories containing Default Config Files.
 
 # To-Do
 * [ ] Initialize Widgets.

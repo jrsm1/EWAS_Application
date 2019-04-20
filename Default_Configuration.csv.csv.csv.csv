@@ -1,0 +1,10 @@
+sampling_rate,cutoff_frequency,signal_gain
+0,0,0
+test_name,test_ID,test_duration,test_type
+Test_02c2000ed4fa406,Test_02c20,15,0
+visualize,store
+True,False
+loc_name,longitude,latitude,hour,minute,second
+No Name,0:00:0000,0:00:0000,00,00,00
+1,2,3,4,5,6,7,8
+Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used

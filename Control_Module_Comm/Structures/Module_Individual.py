@@ -1,6 +1,6 @@
 from Control_Module_Comm.Structures import Sensor_Individual as sens
 
-class Channel:
+class Module:
     def __init__(self, channel_name: str, sensor_1: sens, sensor_2: sens, sensor_3: sens, sensor_4: sens):
 
         self.channel_info = {

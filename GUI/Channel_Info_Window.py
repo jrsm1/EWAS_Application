@@ -1,4 +1,4 @@
-from Control_Module_Comm.Structures import Channel_Individual as chan, Sensor_Individual as sens
+from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
 
 
 def save_info():
@@ -11,4 +11,4 @@ def save_info():
     sens_4 = sens.Sensor('NAME', 'Sensor_4 description', 'sensitivity', 'where am i?')
 
     # Set channel sensors.
-    channel = chan.Channel('NAME', sens_1, sens_2, sens_3, sens_4)
+    channel = chan.Module('NAME', sens_1, sens_2, sens_3, sens_4)
