@@ -124,6 +124,7 @@ def show_error(message: str):
         :param message: String - The Desired Message Output.
     """
     err_dlg = QtWidgets.QErrorMessage()
+    err_dlg.setWindowIcon(QIcon('GUI/cancel'))
     font = QFont()
     font.setFamily("Arial")
     font.setPointSize(12)
@@ -145,7 +146,6 @@ def show_channel_info_window(channel: int):
     """
         Opens Channel Information Window
     """
-    # TODO DECIDE SENSOR NAMES BASED ON CHANNEL.
     # TODO VERIFY IF THE SENSORS IN THE CHANNEL ARE CONNECTED.
     # TODO ENABLE MODULE SELECTION BUTTONS BASED ON CONNECTED SENSORS.
     # LATER TODO SAVE CORRECT VALUES FOR CHANNEL.
@@ -303,8 +303,8 @@ def set_gps_into_gui():
     """
     loc_type_dropdown.setCurrentIndex(0)  # Set to GPS in Drop Down.
     main_window.main_tab_LocalizationSettings_Name_lineEdit.setText(daq_config.location_configs['loc_name'])
-    main_window.main_tab_LocalizationSettings_longitudLineEdit.setText(daq_config.location_configs['longitude'])
-    main_window.main_tab_LocalizationSettings_latitudLineEdit.setText(daq_config.location_configs['latitude'])
+    main_window.main_tab_LocalizationSettings_longitudLineEdit.setText(str(daq_config.location_configs['longitude']))
+    main_window.main_tab_LocalizationSettings_latitudLineEdit.setText(str(daq_config.location_configs['latitude']))
     main_window.main_tab_LocalizationSettings_hourLineEdit.setText(str(daq_config.location_configs['hour']))
     main_window.main_tab_LocalizationSettings_minutesLineEdit.setText(str(daq_config.location_configs['minute']))
     main_window.main_tab_LocalizationSettings_secondsLineEdit.setText(str(daq_config.location_configs['second']))
@@ -332,7 +332,8 @@ def set_recording_into_gui():
     rec_id_edit.setText(daq_config.recording_configs['test_ID'])
     rec_duration_edit.setText(
         str(daq_config.recording_configs['test_duration']))  # Convert int to String for compatibility.
-    rec_type_dropdown.setCurrentIndex(daq_config.recording_configs['test_type'])
+    rec_type_dropdown.setCurrentText(daq_config.recording_configs['test_type'])
+    delay_edit.setText(str(daq_config.recording_configs['test_start_delay']))
 
     if daq_config.data_handling_configs['visualize']:
         rec_viz_checkbox.setCheckState(2)  # Qt::Checked	2
@@ -691,12 +692,13 @@ def sensor_sel_start():
 
 def enable_start_connected_sensors():
     # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
-    got = []
-    if log: print("entered enable start")
-    for m in range(0, 8, 1):  # Go through 32 sensors.
-        if got[m]:  # If module in not connected.
-            modules_all[m].set_Connected(True)
-            # TODO Enable in GUI.
+    connected_module_list = []
+    if connected_module_list: print("entered enable start")
+    if connected_module_list[0]:
+        win_sens_1.setEnabled(True)
+    if connected_module_list[1]:
+        win_sens_5.setEnabled(True)
+
 
     if log: print("got out of enable start connected sensors")
 
@@ -855,6 +857,7 @@ rec_duration_edit = main_window.main_tab_RecordingSettings_durationLineEdit
 rec_type_dropdown = main_window.main_tab_RecordingSettings_type_DropDown
 rec_viz_checkbox = main_window.main_tab_RecordingSettings_visualize_checkBox
 rec_store_checkbox = main_window.main_tab_RecordingSettings_store_checkBox
+delay_edit = main_window.main_tab_RecordingSettings_delay_LineEdit
 # Localization Settings
 main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: sync_gps())
 loc_type_dropdown = main_window.main_tab_LocalizationSettings_type_DropBox

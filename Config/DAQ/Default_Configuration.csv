@@ -1,10 +1,10 @@
 sampling_rate,cutoff_frequency,signal_gain
 7,7,1
 test_name,test_ID,test_duration,test_type,test_start_delay
-Test_6953ffa6986b48d,Test_6953f,15,0,0
+Test4e98c4caf7934336,Test4_fdql,15,Free-Field,0
 visualize,store
 True,False
 loc_name,longitude,latitude,hour,minute,second
-No Name,0:00:0000,0:00:0000,00,00,00
+No Name,-0000.0000,+0000.0000,00,00,00
 1,2,3,4,5,6,7,8
 Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used

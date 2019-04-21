@@ -11,6 +11,10 @@ class Module:
             'Sensor 4': sensor_4
         }
 
+        self.channel_gui_checkboxes = {
+
+        }
+
         self.connected = False
 
     def set_Connected(self, connected: bool):

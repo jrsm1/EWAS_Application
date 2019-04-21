@@ -23,11 +23,10 @@ class Plot_Data():
         matplotlib.rcParams["figure.facecolor"] = '0.85'
 
     # TODO Use a sensor List parameter to get column titles from file.
-    """
-    Plots raw data with respect to timestamp from file.
-    """
-
     def plt_time(self):
+        """
+        Plots raw data with respect to timestamp from file.
+        """
         # Multiple Plots.
         columns = self.data_read.columns.tolist()  # TODO Change to range(1, len(columns), 1) for timestamp in First Row
         for sen in range(0, len(columns) - 1, 1):

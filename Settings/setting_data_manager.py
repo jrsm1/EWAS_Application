@@ -5,6 +5,7 @@ from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration,
 import csv
 from os import path
 import pandas as pd
+import GUI_Handler
 
 log = 0
 
@@ -158,7 +159,8 @@ class Setting_File_Manager:
         else:
             if log: print('File Error')
 
-    # TODO IMPLEMENT WITH 32 SESORS.
+    # TODO VERIFY IF NECESSARY
+    # TODO IMPLEMENT WITH 32 SENSORS.
     def load_sensor_config(self, filename: str):
         sensor_file = 'Config/Sensor/' + filename
         if verify_file_exists(sensor_file):
@@ -222,11 +224,11 @@ sfm = Setting_File_Manager(cc, sc1, daq)
 # print(sfm.daq_config.testing_configs)
 # print(sfm.daq_config.data_handling_configs)
 
-# filename = r'Default_Configuration.csv'  # Directory set in methods
+filename = r'Default_Configuration.csv'  # Directory set in methods
 
 # sfm.daq_config.specimen_location['1'] = 'Something ELse'
 
-# sfm.store_daq_configs(filename)
+sfm.store_daq_configs(filename)
 # d = sfm.load_daq_configs(filename)
 # print(d)
 
