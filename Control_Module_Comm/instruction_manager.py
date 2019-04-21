@@ -153,12 +153,21 @@ class instruction_manager():
         self.serial_interface.send_instruction(b'\x83')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
+        status = [0, 0, 0]
         if line == b'\x83':
             if log: print("diagnose request successful")
             line = self.serial_interface.listen()
             line = line.strip(b'\r\n')
+            line = str(line)
+            line = line.strip("b'")
             if log: print("line is", line)
-            return line
+            line = line.split("\\x")
+            if log: print("line split gives = ", line)
+            status[0] = int(line[1])
+            status[1] = int(line[2])
+            status[2] = int(line[3])
+            if log: print("instruction status = " + str(status))
+            return status
         return 0
         
     def send_request_configuration_validity(self):

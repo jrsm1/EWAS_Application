@@ -3,6 +3,8 @@ from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
 from PyQt5.QtGui import QFont
 from time import sleep
+import sys
+
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
 from Data_Processing import Plot_Data
@@ -94,6 +96,13 @@ duration = 0
 daq_exp_name = ""
 daq_exp_location = ""
 daq_start_delay = 0
+
+# status global variables
+recorded = 0
+stored = 0
+gps_synched = 0
+keep_alive = True
+
 
 
 def show_main_window():
@@ -417,7 +426,7 @@ def get_location_from_gui():
     daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
     daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
 
-    
+
 def snapshot_data():
     """
     Gets all the data from fields in Main Window
@@ -609,7 +618,7 @@ def snapshot_data():
     #     ins = ins_man.instruction_manager()
     #     ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
     #                                   "0000", daq_exp_name, daq_exp_location)
-    
+
     if log_working:
         print("name=" + name)
         print("duration=" + duration)
@@ -736,6 +745,21 @@ def enable_main_start_connected_sensors():
         win_sens_32.setEnabled(True)
     if log: print("got out of enable start connected sensors")
 
+def check_status(self):
+    ins = ins_man.instruction_manager()
+    status = ins.send_request_status()
+    recorded = status[0]
+    stored = status[1]
+    gps_synched = status[2]
+    if log:
+        print("status = " + str(status))
+    return status
+
+# trying a close event function
+def close_event(event):
+    if log: print("entered main window close")
+    if log: print("final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_synched))
+    main_window.close()
 
 """
 Add default functionality here
@@ -904,6 +928,9 @@ main_window.main_tab_LocalizationSettings_latitudLineEdit
 main_window.main_tab_LocalizationSettings_hourLineEdit
 main_window.main_tab_LocalizationSettings_minutesLineEdit
 main_window.main_tab_LocalizationSettings_secondsLineEdit
+#connecting close event
+main_window.closeEvent = close_event
+
 loc_gps_frame = main_window.main_tab_location_gps_frame
 loc_specimen_frame = main_window.specimen_location_frame
 ### Module Loc. Settings
@@ -1306,4 +1333,5 @@ def init():
     # show_acquire_dialog('SOMETHING')
     # show_main_sens_sel_window()
     # show_visualization_sensor_selector_window()
-    app.exec()
+
+    sys.exit(app.exec_())
