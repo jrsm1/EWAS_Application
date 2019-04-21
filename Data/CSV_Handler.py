@@ -1,9 +1,7 @@
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Control_Module_Comm import instruction_manager as ins_man
-# from GUI_Handler import show_error
 import serial
 import csv
-from os import path
 import pandas as pd
 
 log = 1
@@ -25,7 +23,7 @@ class Data_Handler():
 
         :return: CSV file with metadata header and data body.
         """
-        datapath = r'../Data/' + filename
+        datapath = r'Data/' + filename
 
         with open(datapath, 'w', newline='') as f:
             writer = csv.writer(f)

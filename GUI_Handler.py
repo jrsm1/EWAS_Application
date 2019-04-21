@@ -1320,8 +1320,6 @@ def show_acquire_dialog(message: str):
 
 
 # ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
-
-
 def save_sensor_info():
     """
     Saves sensor data from UI into structure.
