@@ -7,7 +7,7 @@ log = 0
 class serial_interface():
     global ser
 
-    def __init__(self):
+    def __init__(self, port):
         """
         :exception : Throws serial.serialutil.SerialException when not connected.
         """
@@ -15,8 +15,9 @@ class serial_interface():
         #  line 79, in send_instruction
         #  self.ser.write(bytes(byte))
         #  AttributeError: 'serial_interface' object has no attribute 'ser'
+        self.port = port
         self.ser = serial.Serial(
-            port='COM6',
+            port=self.port,
             baudrate=230400,
             parity=serial.PARITY_NONE,
             stopbits=serial.STOPBITS_ONE,
