@@ -415,7 +415,6 @@ def get_location_from_gui():
     daq_config.location_configs['hour'] = str(main_window.main_tab_LocalizationSettings_hourLineEdit.text())
     daq_config.location_configs['minute'] = str(main_window.main_tab_LocalizationSettings_minutesLineEdit.text())
     daq_config.location_configs['second'] = str(main_window.main_tab_LocalizationSettings_secondsLineEdit.text())
-
     daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
     daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
     daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
@@ -426,6 +425,151 @@ def get_location_from_gui():
     daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
 
 
+def get_gps_location_from_gui():
+    daq_config.location_configs['loc_name'] = str(main_window.main_tab_LocalizationSettings_Name_lineEdit.text())
+    daq_config.location_configs['longitude'] = str(main_window.main_tab_LocalizationSettings_longitudLineEdit.text())
+    daq_config.location_configs['latitude'] = str(main_window.main_tab_LocalizationSettings_latitudLineEdit.text())
+    daq_config.location_configs['hour'] = str(main_window.main_tab_LocalizationSettings_hourLineEdit.text())
+    daq_config.location_configs['minute'] = str(main_window.main_tab_LocalizationSettings_minutesLineEdit.text())
+    daq_config.location_configs['second'] = str(main_window.main_tab_LocalizationSettings_secondsLineEdit.text())
+
+
+def get_modules_location_from_gui():
+    daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
+    daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
+    daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
+    daq_config.specimen_location['4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
+    daq_config.specimen_location['5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
+    daq_config.specimen_location['6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
+    daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
+    daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
+
+
+def validate_rec_settings():
+    there_is_no_error = True
+    error_string = ""
+    name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
+    validate_box = check_boxes(name, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.<br>'
+        there_is_no_error = False
+    test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    validate_box = check_boxes(test_duration, '^[0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Duration. Restricted to numbers only.<br>'
+        there_is_no_error = False
+    start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
+    validate_box = check_boxes(start_delay, '^\d+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+        there_is_no_error = False
+    if there_is_no_error:
+        get_rec_setts_from_gui()
+        return error_string
+    else:
+        return error_string
+
+
+def validate_gps_location_settings():
+    there_is_no_error = True
+    error_string = ""
+    loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
+    validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Name format. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
+    validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
+    if not validate_box:
+        error_string += 'Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>'
+        there_is_no_error = False
+    loc_latitude = main_window.main_tab_LocalizationSettings_latitudLineEdit.text()
+    validate_box = check_boxes(loc_latitude, '^(\+|-)?\d{4}.\d{5}$')
+    if not validate_box:
+        error_string += 'Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>'
+        there_is_no_error = False
+    loc_hour = main_window.main_tab_LocalizationSettings_hourLineEdit.text()
+    validate_box = check_boxes(loc_hour, '^\d{2}$')
+    if not validate_box:
+        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        there_is_no_error = False
+    loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
+    validate_box = check_boxes(loc_minutes, '^\d{2}$')
+    if not validate_box:
+        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        there_is_no_error = False
+    loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
+    validate_box = check_boxes(loc_seconds, '^\d{2}$')
+    if not validate_box:
+        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        there_is_no_error = False
+    if there_is_no_error:
+        get_gps_location_from_gui()
+        return error_string
+    else:
+        return error_string
+
+
+def validate_module_location_settings():
+    there_is_no_error = True
+    error_string = ""
+    module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
+    validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 1. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
+    validate_box = check_boxes(module_loc2, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 2. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+
+    module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
+    validate_box = check_boxes(module_loc3, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 3. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc4 = main_window.main_tab_module_loc_LineEdit_4.text()
+    validate_box = check_boxes(module_loc4, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 4. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc5 = main_window.main_tab_module_loc_LineEdit_5.text()
+    validate_box = check_boxes(module_loc5, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 5. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc6 = main_window.main_tab_module_loc_LineEdit_6.text()
+    validate_box = check_boxes(module_loc6, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 6. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
+    validate_box = check_boxes(module_loc7, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 7. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
+    validate_box = check_boxes(module_loc8, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 8. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    if there_is_no_error:
+        get_modules_location_from_gui()
+        return error_string
+    else:
+        return error_string
+
+
 def snapshot_data():
     """
     Gets all the data from fields in Main Window
@@ -434,20 +578,8 @@ def snapshot_data():
     # main tab recording settings
     there_is_no_error = True
     error_string = ""
-    name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
-    validate_box = check_boxes(name, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_string += 'Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.<br>'
-        there_is_no_error = False
-    duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
-    validate_box = check_boxes(duration, '^[0-9]+$')
-    if not validate_box:
-        error_string+='Error: Invalid Duration. Restricted to numbers only.<br>'
-        there_is_no_error = False
-    start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
-    validate_box = check_boxes(start_delay, '^\d+$')
-    if not validate_box:
-        error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+    if not validate_rec_settings() == '':
+        error_string += validate_rec_settings()
         there_is_no_error = False
     """
     QComboBox, which are the dropdown needs currentText()
@@ -465,89 +597,14 @@ def snapshot_data():
     store_bool = str(main_window.main_tab_RecordingSettings_store_checkBox.checkState())
     # main tab localization settings
     loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
-
     if not loc_type:
-        loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
-        validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Name format. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
-        validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
-        if not validate_box:
-            error_string += 'Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>'
-            there_is_no_error = False
-        loc_latitude = main_window.main_tab_LocalizationSettings_latitudLineEdit.text()
-        validate_box = check_boxes(loc_latitude, '^(\+|-)?\d{4}.\d{5}$')
-        if not validate_box:
-            error_string += 'Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>'
-            there_is_no_error = False
-        loc_hour = main_window.main_tab_LocalizationSettings_hourLineEdit.text()
-        validate_box = check_boxes(loc_hour, '^\d{2}$')
-        if not validate_box:
-            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
-            there_is_no_error = False
-        loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
-        validate_box = check_boxes(loc_minutes, '^\d{2}$')
-        if not validate_box:
-            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
-            there_is_no_error = False
-        loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
-        validate_box = check_boxes(loc_seconds, '^\d{2}$')
-        if not validate_box:
-            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        if not validate_gps_location_settings() == '':
+            error_string += validate_gps_location_settings()
             there_is_no_error = False
     else:
         # specimen by module
-        module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
-        validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 1. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
-        validate_box = check_boxes(module_loc2, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 2. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-
-        module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
-        validate_box = check_boxes(module_loc3, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 3. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc4 = main_window.main_tab_module_loc_LineEdit_4.text()
-        validate_box = check_boxes(module_loc4, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 4. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc5 = main_window.main_tab_module_loc_LineEdit_5.text()
-        validate_box = check_boxes(module_loc5, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 5. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc6 = main_window.main_tab_module_loc_LineEdit_6.text()
-        validate_box = check_boxes(module_loc6, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 6. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
-        validate_box = check_boxes(module_loc7, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 7. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
-        validate_box = check_boxes(module_loc8, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 8. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
+        if not validate_module_location_settings() == '':
+            error_string += validate_module_location_settings()
             there_is_no_error = False
 
     # daq parameters
@@ -615,30 +672,8 @@ def snapshot_data():
     #     show_visualization_sensor_selector_window(-1)
     # else:
     #
-    #     instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
+    # instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
     #                                   "0000", daq_exp_name, daq_exp_location)
-
-    if log_working:
-        print("name=" + name)
-        print("duration=" + duration)
-        print("type=" + type)
-        print("visualization=" + vis_bool)
-        print("store_bool=" + store_bool)
-        print("localization:")
-        print("localization type:" + loc_type + ", name:" + loc_name + ", localization longitude:" + loc_longitude
-              + ", localization latitude:" + loc_latitude + ", localization hour" + loc_hour
-              + ", minutes:" + loc_minutes + ", seconds:" + loc_seconds)
-        print("specimen by module:")
-        print("1:" + module_loc1 + ", 2:" + module_loc2 + ", 3:" + module_loc3 +
-              ", 4:" + module_loc4 + ", 5:" + module_loc5 + ", 6:" + module_loc6 +
-              ", 7:" + module_loc7 + ", 8:" + module_loc8)
-        print("DAQ parameters")
-        print("sampling rate=" + daq_sample_rate + ", cutoff=" + daq_cutoff +
-              ", gain=" + daq_gain)
-        print("sensor info:")
-        # print("name="+sensor1_name+", type="+sensor1_type+", sensitivity="+sensor1_sensitivity
-        #       +", bandwidth="+sensor1_bandwidth+", fullscale="+sensor1_scale+", damping="+sensor1_damp
-        #       +", localization="+sensor1_loc)
 
 
 def get_module_and_sensors_selected():

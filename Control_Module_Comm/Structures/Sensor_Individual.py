@@ -14,6 +14,7 @@ class Sensor:
             'localization': sensor_localization
         }
         self.connected = False  # False by default because most of the time 32 sensors are not connected.
+        # self.checkmark = False
 
     def set_Connected(self, connected: bool):
         self.connected = connected
@@ -21,6 +22,13 @@ class Sensor:
 
     def get_Connected(self):
         return self.connected
+
+    # def set_checkmark(self, checkmark: bool):
+    #     self.checkmark = checkmark
+    #     return  checkmark
+    #
+    # def is_checkmark(self):
+    #     return self.checkmark
 
 
 # TESTING
