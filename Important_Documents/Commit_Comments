@@ -23,11 +23,10 @@
 * [X] Loading and storing data in Config Directories containing Default Config Files.
 
 # To-Do
-* [ ] Initialize Widgets.
+* [x] Initialize Widgets.
 * [ ] Code Basic Functionality to GUI Widgets and Components.
 * [ ] Link GUI components to Control Module Communication Classes.
 * [ ] Use real data to verify plots.
-* [ ] Embed plots in Qt widget.
 * [ ] setting_data_manager - Change/Create Filename method to save in proper path
 * [ ] Handle Better Test Names.
 * [ ] Change __init__ method in DAQ_Config to remove 'default' parameter.

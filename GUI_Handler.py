@@ -128,7 +128,7 @@ def show_error(message: str):
     font.setFamily("Arial")
     font.setPointSize(12)
     err_dlg.setFont(font)
-    err_dlg.setMinimumSize(800, 280)
+    err_dlg.setMinimumSize(800, 350)
     err_dlg.showMessage(message)
     err_dlg.exec()
 
@@ -424,7 +424,6 @@ def snapshot_data():
     # we have to change everything to string, because that's how it's going to get passed
     # main tab recording settings
     there_is_no_error = True
-    error_list = []
     error_string = ""
     name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
     validate_box = check_boxes(name, '^[a-zA-Z0-9]+$')
