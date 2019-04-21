@@ -99,10 +99,10 @@ log = 1
 log_working = 0
 
 # some global variables
-try:
-    instruction_manager = ins_man.instruction_manager()
-except serial.SerialException:
-    show_error('Device Not Connected. Please try again.')
+# try:
+#     instruction_manager = ins_man.instruction_manager()
+# except serial.SerialException:
+#     show_error('Device Not Connected. Please try again.')
 
 daq_sample_rate = 0
 daq_cutoff = 0
@@ -118,7 +118,8 @@ stored = 0
 gps_synched = 0
 keep_alive = True
 
-
+# port where instuction manager will connect
+instruction_manager_port = 'COM-1'
 
 def show_main_window():
     """
@@ -727,15 +728,34 @@ def sensor_sel_start():
     if log: print("sensors selected are ", sens)
 
     main_sensor_sel_win.close()
-    instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
+    ins = ins_man.instruction_manager(instruction_manager_port)
+    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
                                   daq_exp_location)
     if log: print("came back to sensor_sel_start")
     enable_main_window()
 
+def save_port():
+    port = 'COM'
+    for i in range(1, 20, 1):
+        try:
+            port = port[0:3] + str(i)
+            if log: print("before port = ", port)
+            ins = ins_man.instruction_manager(port)
+            if log: print("port = ", port)
+            del ins
+            break
+        except serial.serialutil.SerialException:
+            port = 'COM-1'
+            continue
+    port = port.strip(' ')
+    instruction_manager_port = port
+    if log: print("com port connected is = "+ instruction_manager_port)
+
 
 def enable_main_start_connected_sensors():
     # TODO TEST
-    connected_module_list = instruction_manager.send_request_number_of_mods_connected()
+    ins = ins_man.instruction_manager(instruction_manager_port)
+    connected_module_list = ins.send_request_number_of_mods_connected()
     if log: print("entered enable start")
     if connected_module_list[0]:
         win_sens_1.setEnabled(True)
@@ -780,7 +800,8 @@ def enable_main_start_connected_sensors():
     if log: print("got out of enable start connected sensors")
 
 def check_status(self):
-    status = instruction_manager.send_request_status()
+    ins = ins_man.instruction_manager(instruction_manager_port)
+    status = ins.send_request_status()
     recorded = status[0]
     stored = status[1]
     gps_synched = status[2]
@@ -1017,10 +1038,11 @@ Prepares GUI and sends request to control module for begin recording data.
 
 def action_Begin_Recording():
     # Send Setting Information to Control Module.
-    instruction_manager.send_set_configuration('Configuration String.')
+    ins = ins_man.instruction_manager(instruction_manager_port)
+    ins.send_set_configuration('Configuration String.')
     # TODO Prepare Real-Time Plot to receive Data.
     # Send Begin Recording FLAG to Control Module.
-    instruction_manager.send_request_start()
+    ins.send_request_start()
 
     # Close Window
     main_sensor_sel_win.close()
@@ -1038,7 +1060,8 @@ Called by user when CANCEL action is desired.
 
 
 def action_cancel_everything():
-    instruction_manager.send_cancel_request()
+    ins = ins_man.instruction_manager(instruction_manager_port)
+    ins.send_cancel_request()
     enable_main_window()
 
 
@@ -1211,9 +1234,10 @@ def sync_gps():  # TODO TEST
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
 
+    ins = ins_man.instruction_manager(instruction_manager_port)
     # Request Sync GPS.
     try:
-        instruction_manager.send_gps_sync_request()
+        ins.send_gps_sync_request()
     except serial.SerialException:
         show_error('Device Not Connected. Please try again.')
     except NameError:
@@ -1222,7 +1246,7 @@ def sync_gps():  # TODO TEST
     timeout = 0
     synched = True  # Used to not request data if synched==False.
     try:
-        while instruction_manager.send_request_status()[2] != 1:  # Status[2] --> gps_synched
+        while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
             if log: print('GPS Waiting....')
             sleep(0.500)  # Wait for half a second before asking again.
             timeout += 1
@@ -1234,7 +1258,7 @@ def sync_gps():  # TODO TEST
 
         # If synched Succesfull --> Request GPS data.
         if synched:
-            instruction_manager.send_gps_data_request()
+            ins.send_gps_data_request()
             set_gps_into_gui()
 
     except serial.SerialException:
@@ -1385,6 +1409,11 @@ def init():
     """
     main_window.show()
     loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
+    save_port()
+    if instruction_manager_port == 'COM-1':
+        show_error('Device Not Connected. Please try again.')
+        sleep(2.0)
+        sys.exit()
     sync_gps()
 
     # --------- TESTING ------------
