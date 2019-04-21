@@ -497,12 +497,12 @@ def validate_gps_location_settings():
     loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
     validate_box = check_boxes(loc_minutes, '^\d{2}$')
     if not validate_box:
-        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        error_string += 'Error: Invalid minute format. Restricted to two digits.<br>'
         there_is_no_error = False
     loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
     validate_box = check_boxes(loc_seconds, '^\d{2}$')
     if not validate_box:
-        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        error_string += 'Error: Invalid second format. Restricted to two digits.<br>'
         there_is_no_error = False
     if there_is_no_error:
         get_gps_location_from_gui()
@@ -1155,11 +1155,24 @@ def action_store_Location():
     # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
-    get_location_from_gui()
-    # Save to File.
-    setting_data_manager.store_daq_configs(filename)
-    # Close Window
-    filename_input_win.close()
+    # get_location_from_gui()
+    loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
+    if not loc_type:
+        if not validate_gps_location_settings():
+            # Save to File.
+            setting_data_manager.store_daq_configs(filename)
+            # Close Window
+            filename_input_win.close()
+        else:
+            show_error(validate_gps_location_settings())
+    else:
+        if not validate_module_location_settings():
+            # Save to File.
+            setting_data_manager.store_daq_configs(filename)
+            # Close Window
+            filename_input_win.close()
+        else:
+            show_error(validate_module_location_settings())
 
 
 def action_load_Location():
@@ -1179,11 +1192,14 @@ def action_store_Rec_Setts():
     # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
-    get_rec_setts_from_gui()
-    # Save to File.
-    setting_data_manager.store_daq_configs(filename)
-    # Close Window
-    filename_input_win.close()
+    # get_rec_setts_from_gui()
+    if not validate_rec_settings():
+        # Save to File.
+        setting_data_manager.store_daq_configs(filename)
+        # Close Window
+        filename_input_win.close()
+    else:
+        show_error(validate_rec_settings())
 
 
 def action_load_Rec_Setts():
