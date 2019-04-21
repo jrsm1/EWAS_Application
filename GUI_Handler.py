@@ -21,25 +21,28 @@ def show_error(message: str):
     """
     QtWidgets.QMessageBox().critical(main_window, 'WARNING', message)
 
+if 0:
+    main_window = uic.loadUi("main_window.ui")
 
-app = QtWidgets.QApplication([])
-main_window = uic.loadUi("GUI/main_window.ui")
-channel_info_win = uic.loadUi("GUI/channel_info_window.ui")
-prog_dlg = uic.loadUi("GUI/progress_dialog_v1.ui")
-viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
-main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
-mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
-file_sys_win = uic.loadUi('GUI/file_system_window.ui')
-filename_input_win = uic.loadUi('GUI/filename_editor_window.ui')
+else:
+    app = QtWidgets.QApplication([])
+    main_window = uic.loadUi("GUI/main_window.ui")
+    channel_info_win = uic.loadUi("GUI/channel_info_window.ui")
+    prog_dlg = uic.loadUi("GUI/progress_dialog_v1.ui")
+    viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
+    main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
+    mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
+    file_sys_win = uic.loadUi('GUI/file_system_window.ui')
+    filename_input_win = uic.loadUi('GUI/filename_editor_window.ui')
 
-main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-channel_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-prog_dlg.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-main_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-mod_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    channel_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    prog_dlg.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    main_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    mod_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+    filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
 # Init Instances of all classes for reference
 sens_1 = Sensor_Individual.Sensor('Sensor 1', 0)
@@ -734,45 +737,52 @@ def sensor_sel_start():
 
 
 def enable_main_start_connected_sensors():
-    # TODO TEST
     connected_module_list = instruction_manager.send_request_number_of_mods_connected()
     if log: print("entered enable start")
     if connected_module_list[0]:
+        mod_1.set_Connected(True)
         win_sens_1.setEnabled(True)
         win_sens_2.setEnabled(True)
         win_sens_3.setEnabled(True)
         win_sens_4.setEnabled(True)
     if connected_module_list[1]:
+        mod_2.set_Connected(True)
         win_sens_5.setEnabled(True)
         win_sens_6.setEnabled(True)
         win_sens_7.setEnabled(True)
         win_sens_8.setEnabled(True)
     if connected_module_list[2]:
+        mod_3.set_Connected(True)
         win_sens_9.setEnabled(True)
         win_sens_10.setEnabled(True)
         win_sens_11.setEnabled(True)
         win_sens_12.setEnabled(True)
     if connected_module_list[3]:
+        mod_4.set_Connected(True)
         win_sens_13.setEnabled(True)
         win_sens_14.setEnabled(True)
         win_sens_15.setEnabled(True)
         win_sens_16.setEnabled(True)
     if connected_module_list[4]:
+        mod_5.set_Connected(True)
         win_sens_17.setEnabled(True)
         win_sens_18.setEnabled(True)
         win_sens_19.setEnabled(True)
         win_sens_20.setEnabled(True)
     if connected_module_list[5]:
+        mod_6.set_Connected(True)
         win_sens_21.setEnabled(True)
         win_sens_22.setEnabled(True)
         win_sens_23.setEnabled(True)
         win_sens_24.setEnabled(True)
     if connected_module_list[6]:
+        mod_7.set_Connected(True)
         win_sens_25.setEnabled(True)
         win_sens_26.setEnabled(True)
         win_sens_27.setEnabled(True)
         win_sens_28.setEnabled(True)
     if connected_module_list[7]:
+        mod_8.set_Connected(True)
         win_sens_29.setEnabled(True)
         win_sens_30.setEnabled(True)
         win_sens_31.setEnabled(True)
@@ -1245,7 +1255,6 @@ def sync_gps():  # TODO TEST
     prog_dlg.close()
 
 
-
 def load_local_settings_to_gui():
     """
     Loads Settings already in the program to GUi components depending on location type selected by user.
@@ -1262,6 +1271,7 @@ def load_local_settings_to_gui():
         loc_gps_frame.setEnabled(False)
         loc_specimen_frame.setEnabled(True)
         set_specimen_location_into_gui()
+
 
 def change_local_allowed():
     if log: print(loc_type_dropdown.currentIndex())
@@ -1298,13 +1308,11 @@ def show_acquire_dialog(message: str):
     # Show Dialog & Set Message
     show_progress_dialog('Acquiring ' + message)
 
-    # Enable Main Window when done.  # FIXME Change to correct function.
+    # Enable Main Window when done.
     enable_main_window()
 
 
 # ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
-
-
 def save_sensor_info():
     """
     Saves sensor data from UI into structure.

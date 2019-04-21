@@ -1,8 +1,12 @@
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
+from Control_Module_Comm import instruction_manager as ins_man
+# from GUI_Handler import show_error
+import serial
 import csv
 from os import path
 import pandas as pd
 
+log = 1
 class Data_Handler():
     """
     Class in charge of handling data files.
@@ -21,13 +25,16 @@ class Data_Handler():
 
         :return: CSV file with metadata header and data body.
         """
-        datapath = r'Data/' + filename
+        datapath = r'../Data/' + filename
 
         with open(datapath, 'w', newline='') as f:
             writer = csv.writer(f)
 
             # Test ID
-            writer.writerow(DAQ_Configuration.generate_ID(self.daq_config.recording_configs['test_name']))
+            # Marroneo -  Store values in temp dict so that it will be stored like a word in csv.
+            temp_dict = {'Test ID:': DAQ_Configuration.generate_ID(self.daq_config.recording_configs['test_name'])}
+            writer.writerow(temp_dict.keys())
+            writer.writerow(temp_dict.values())
 
             # DAQ Configs
             writer.writerow(self.daq_config.recording_configs.keys())
@@ -61,10 +68,15 @@ class Data_Handler():
                 writer.writerow(module.channel_info['Sensor 4'].sensor_info.keys())
                 writer.writerow(module.channel_info['Sensor 4'].sensor_info.values())
 
+            # Empty Rows to separate Header from Data.
+            writer.writerow('')
+            writer.writerow('')
+
+            f.close()
+
+        with open(datapath, 'a', newline='') as f:
             dataFrame = self.string_to_dataframe(data)
-            # dataFrame.to_csv(datapath)
-
-
+            dataFrame.to_csv(datapath, mode='a')
         f.close()
 
 
@@ -78,8 +90,44 @@ class Data_Handler():
         :return: Pandas DataFrame with the data from the input string.
         """
 
-        return pd.DataFrame([x.split(',') for x in string.split(';')])
+        # Select Column Based on Selected Sensors.
+        columns = select_data_columns()
+        return pd.DataFrame([x.split(',') for x in string.split(';')]) # , columns=columns)
 
+def select_data_columns():
+    """
+    Selects Connected Sensors
+
+    :return: List of connected Sensors.
+    """
+    connected_module_list = [0, 0, 0, 0, 0, 0, 0, 0]
+    try:
+        connected_module_list = ins_man.instruction_manager().send_request_number_of_mods_connected()
+    except serial.SerialException:
+        # show_error('')
+        print('Serial Error.')
+
+    sensor_list = ['Timestamp']
+    if log: print("CSV_Handler - entered Select sensor Headers")
+    if connected_module_list[0]:
+        sensor_list.append(['Sensor 1', 'Sensor 2', 'Sensor 3', 'Sensor 4'])
+    if connected_module_list[1]:
+        sensor_list.append(['Sensor 5', 'Sensor 6', 'Sensor 7', 'Sensor 8'])
+    if connected_module_list[2]:
+        sensor_list.append(['Sensor 9', 'Sensor 10', 'Sensor 11', 'Sensor 12'])
+    if connected_module_list[3]:
+        sensor_list.append(['Sensor 13', 'Sensor 14', 'Sensor 15', 'Sensor 16'])
+    if connected_module_list[4]:
+        sensor_list.append(['Sensor 17', 'Sensor 18', 'Sensor 19', 'Sensor 20'])
+    if connected_module_list[5]:
+        sensor_list.append(['Sensor 20', 'Sensor 21', 'Sensor 22', 'Sensor 23'])
+    if connected_module_list[6]:
+        sensor_list.append(['Sensor 25', 'Sensor 26', 'Sensor 27', 'Sensor 28'])
+    if connected_module_list[7]:
+        sensor_list.append(['Sensor 29', 'Sensor 2', 'Sensor 3', 'Sensor 4'])
+    if log: print("CSV_Handler - got out of Select sensor Headers")
+
+    return sensor_list
 
 # TESTING
 sc1 = Sensor_Individual.Sensor('S1', 0)
