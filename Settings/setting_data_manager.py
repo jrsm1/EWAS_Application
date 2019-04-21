@@ -37,8 +37,10 @@ class Setting_File_Manager:
         """
         daq_file = 'Config/DAQ/' + filename
 
-        # Generate Test ID
-        self.daq_config.recording_configs["test_ID"] = DAQ_Configuration.generate_ID(self.daq_config.recording_configs['test_name'])
+        # # Generate Test ID
+        # if not self.daq_config.recording_configs["test_ID"]:
+        #     self.daq_config.recording_configs["test_ID"] = DAQ_Configuration.generate_ID(
+        #         self.daq_config.recording_configs['test_name'])
 
         # if verify_file_exists(daq_file):
         with open(daq_file, 'w', newline='') as f:

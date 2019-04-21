@@ -337,7 +337,7 @@ def set_recording_into_gui():
     Sets Recording settings to GUI Fields.
     """
     rec_name_edit.setText(str(daq_config.recording_configs['test_name']))
-    rec_id_edit.setText(daq_config.recording_configs['test_ID'])
+    # rec_id_edit.setText(daq_config.recording_configs['test_ID'])
     rec_duration_edit.setText(
         str(daq_config.recording_configs['test_duration']))  # Convert int to String for compatibility.
     rec_type_dropdown.setCurrentText(str(daq_config.recording_configs['test_type']))
