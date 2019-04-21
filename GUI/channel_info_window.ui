@@ -153,6 +153,11 @@
                <string>Velocity</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="4" column="1">
@@ -493,6 +498,11 @@
                <string>Velocity</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="3" column="0" colspan="2">
@@ -820,6 +830,11 @@
                <string>Velocity</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="4" column="1">
@@ -1142,6 +1157,11 @@
              <item>
               <property name="text">
                <string>Velocity</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
               </property>
              </item>
             </widget>

@@ -1,4 +1,4 @@
-SENSOR_TYPES = ['Acceleration', 'Geophone', 'Velocity']
+SENSOR_TYPES = ['Acceleration', 'Geophone', 'Velocity', 'Temperature']
 
 
 class Sensor:

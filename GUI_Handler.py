@@ -619,6 +619,9 @@ def snapshot_data():
    #     daq_start_delay = "0000"
 
     if there_is_no_error:
+        get_rec_setts_from_gui()
+        get_location_from_gui()
+        get_daq_params_from_gui()
         return True
     else:
         show_error(error_string)
@@ -692,7 +695,7 @@ def get_module_and_sensors_selected():
     sensors_selected = "0000"
     correct = 1
     index = 0
-    for i in sensor_selection_list:
+    for i in main_sensor_selection_list:
         index += 1
         if i.checkState() == 2:
             count = count + 1
@@ -705,7 +708,7 @@ def get_module_and_sensors_selected():
 
     if log: print("sensors selected are: ", sensors_selected)
 
-    for i in sensor_selection_list:
+    for i in main_sensor_selection_list:
         i.setCheckState(False)
 
     if correct:
@@ -874,6 +877,12 @@ viz_sens_29 = viz_sensor_sel_win.Sensor_29
 viz_sens_30 = viz_sensor_sel_win.Sensor_30
 viz_sens_31 = viz_sensor_sel_win.Sensor_31
 viz_sens_32 = viz_sensor_sel_win.Sensor_32
+visualization_sensor_selection_list = [viz_sens_1, viz_sens_2, viz_sens_3, viz_sens_4, viz_sens_5, viz_sens_6, viz_sens_7, viz_sens_8,
+                              viz_sens_9, viz_sens_10, viz_sens_11, viz_sens_12, viz_sens_13, viz_sens_14, viz_sens_15,
+                              viz_sens_15, viz_sens_16, viz_sens_17, viz_sens_18, viz_sens_19, viz_sens_20, viz_sens_21,
+                              viz_sens_22, viz_sens_23, viz_sens_24, viz_sens_25, viz_sens_26, viz_sens_27, viz_sens_28,
+                              viz_sens_29, viz_sens_30, viz_sens_31,
+                              viz_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
@@ -911,12 +920,12 @@ win_sens_29 = main_sensor_sel_win.Sensor_29
 win_sens_30 = main_sensor_sel_win.Sensor_30
 win_sens_31 = main_sensor_sel_win.Sensor_31
 win_sens_32 = main_sensor_sel_win.Sensor_32
-sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, win_sens_5, win_sens_6, win_sens_7, win_sens_8,
-                         win_sens_9, win_sens_10, win_sens_11, win_sens_12, win_sens_13, win_sens_14, win_sens_15,
-                         win_sens_15, win_sens_16, win_sens_17, win_sens_18, win_sens_19, win_sens_20, win_sens_21,
-                         win_sens_22, win_sens_23, win_sens_24, win_sens_25, win_sens_26, win_sens_27, win_sens_28,
-                         win_sens_29, win_sens_30, win_sens_31,
-                         win_sens_32]  # Used to get values easily (goes from 0 to 31)
+main_sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, win_sens_5, win_sens_6, win_sens_7, win_sens_8,
+                              win_sens_9, win_sens_10, win_sens_11, win_sens_12, win_sens_13, win_sens_14, win_sens_15,
+                              win_sens_15, win_sens_16, win_sens_17, win_sens_18, win_sens_19, win_sens_20, win_sens_21,
+                              win_sens_22, win_sens_23, win_sens_24, win_sens_25, win_sens_26, win_sens_27, win_sens_28,
+                              win_sens_29, win_sens_30, win_sens_31,
+                              win_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Acquiring Something
 prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: action_cancel_everything())
@@ -1191,22 +1200,27 @@ def action_load_Rec_Setts():
 # ********************************************* LOCATION ***************************************************************
 def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
+    # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
 
+    # Request Sync GPS.
     instruction_manager.send_gps_sync_request()
 
     timeout = 0
-    # while im.send_request_status() != 1:
-    while 1:
+    synched = True  # Used to not request data if synched==False.
+    while instruction_manager.send_request_status()[2] != 1:  # Status[2] --> gps_synched
         if log: print('GPS Waiting....')
-
         sleep(0.500)  # Wait for half a second before asking again.
         timeout += 1
         if timeout == 30 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
             show_error('GPS Failed to Synchronize.')
+            synched = False
             break
 
-    enable_main_window()
+    # If synched Succesfull --> Request GPS data.
+    if synched:
+        instruction_manager.send_gps_data_request()
+    # enable_main_window()
     set_gps_into_gui()
 
 

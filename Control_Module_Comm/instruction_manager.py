@@ -171,9 +171,9 @@ class instruction_manager():
             if log: print("line is", line)
             line = line.split("\\x")
             if log: print("line split gives = ", line)
-            status[0] = int(line[1])
-            status[1] = int(line[2])
-            status[2] = int(line[3])
+            status[0] = int(line[1])  # Recorded
+            status[1] = int(line[2])  # Stored
+            status[2] = int(line[3])  # gps_synched
             if log: print("instruction status = " + str(status))
             return status
         return 0

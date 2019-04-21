@@ -20,21 +20,21 @@ class Setting_File_Manager:
         self.sensor_config = sens_con
         self.daq_config = daq_con
 
-    """
-    Sets an Object File Name for dealing with multiple loads and saves at a time. 
-    
-    :param filename :  The path of the desired file.
-    """
     def set_filename(self, filename: str):
+        """
+        Sets an Object File Name for dealing with multiple loads and saves at a time.
+
+        :param filename :  The path of the desired file.
+        """
         self.filename = filename
         return filename
 
-    """
-    Stores Test Recording Configuration in specified File Name.
-    
-    :param filename : The The path of the desired file.
-    """
     def store_daq_configs(self, filename: str):
+        """
+        Stores Test Recording Configuration in specified File Name.
+
+        :param filename : The The path of the desired file.
+        """
         daq_file = 'Config/DAQ/' + filename
 
         # Generate Test ID
