@@ -1031,12 +1031,12 @@ fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_sav
 fn_CANCEL_bton = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
-"""
-Prepares GUI and sends request to control module for begin recording data.
-"""
 
 
 def action_Begin_Recording():
+    """
+    Prepares GUI and sends request to control module for begin recording data.
+    """
     # Send Setting Information to Control Module.
     ins = ins_man.instruction_manager(instruction_manager_port)
     ins.send_set_configuration('Configuration String.')
@@ -1051,28 +1051,24 @@ def action_Begin_Recording():
     show_progress_dialog('Data')
 
 
-"""
-Sends signal to Control Module to cancel all recording, storing, sending, synchronizing and/or
-any other process the system might be doing. 
-
-Called by user when CANCEL action is desired.
-"""
-
-
 def action_cancel_everything():
+    """
+    Sends signal to Control Module to cancel all recording, storing, sending, synchronizing and/or
+    any other process the system might be doing.
+
+    Called by user when CANCEL action is desired.
+    """
     ins = ins_man.instruction_manager(instruction_manager_port)
     ins.send_cancel_request()
     enable_main_window()
 
 
-"""
-Shows the Main Sensor Selection Window.
-
-CALL BEFORE SENDING REQUEST TO START.
-"""
-
-
 def ask_for_sensors():
+    """
+    Shows the Main Sensor Selection Window.
+
+    CALL BEFORE SENDING REQUEST TO START.
+    """
     # User Select which sensors it wants.
     show_main_sens_sel_window()
     # When Done pressed --> begin recording. | this is handled from UI.
@@ -1104,12 +1100,10 @@ def handle_loading_saving(what: str, who: int):
             load_save_instructions['who_to_load'] = who
 
 
-"""
-Function continues to correct method depending on saving/loading and option combinations.
-"""
-
-
 def do_saving_loading_action():
+    """
+    Function continues to correct method depending on saving/loading and option combinations.
+    """
     filename_input_win.close()
     if load_save_instructions['action'] == 'save':
         decide_who_to_save(load_save_instructions['who_to_save'])
@@ -1117,12 +1111,10 @@ def do_saving_loading_action():
         decide_who_to_load(load_save_instructions['who_to_load'])
 
 
-"""
-Based on Button Pressed, decides what to save.
-"""
-
-
 def decide_who_to_save(instruction: int):
+    """
+    Based on Button Pressed, decides what to save.
+    """
     if instruction == 1:  # Save Recording Settings
         action_store_Rec_Setts()
     elif instruction == 2:
@@ -1142,6 +1134,7 @@ def decide_who_to_load(instruction: int):
     elif instruction == 3:
         action_load_DAQ_Params()
 
+# ****** ACTIONS STORE/LOAD **********
 
 def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
@@ -1269,7 +1262,6 @@ def sync_gps():  # TODO TEST
     prog_dlg.close()
 
 
-
 def load_local_settings_to_gui():
     """
     Loads Settings already in the program to GUi components depending on location type selected by user.
@@ -1286,6 +1278,7 @@ def load_local_settings_to_gui():
         loc_gps_frame.setEnabled(False)
         loc_specimen_frame.setEnabled(True)
         set_specimen_location_into_gui()
+
 
 def change_local_allowed():
     if log: print(loc_type_dropdown.currentIndex())
@@ -1413,7 +1406,7 @@ def init():
     if instruction_manager_port == 'COM-1':
         show_error('Device Not Connected. Please try again.')
         sleep(2.0)
-        sys.exit()
+        # sys.exit()  # FIXME Why Exit?
     sync_gps()
 
     # --------- TESTING ------------
