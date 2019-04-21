@@ -5,7 +5,6 @@ from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration,
 import csv
 from os import path
 import pandas as pd
-import GUI_Handler
 
 log = 0
 
@@ -20,25 +19,27 @@ class Setting_File_Manager:
         self.sensor_config = sens_con
         self.daq_config = daq_con
 
-    """
-    Sets an Object File Name for dealing with multiple loads and saves at a time. 
-    
-    :param filename :  The path of the desired file.
-    """
     def set_filename(self, filename: str):
+        """
+        Sets an Object File Name for dealing with multiple loads and saves at a time.
+
+        :param filename :  The path of the desired file.
+        """
         self.filename = filename
         return filename
 
-    """
-    Stores Test Recording Configuration in specified File Name.
-    
-    :param filename : The The path of the desired file.
-    """
     def store_daq_configs(self, filename: str):
+        """
+        Stores Test Recording Configuration in specified File Name.
+
+        :param filename : The The path of the desired file.
+        """
         daq_file = 'Config/DAQ/' + filename
 
-        # Generate Test ID
-        self.daq_config.recording_configs["test_ID"] = DAQ_Configuration.generate_ID(self.daq_config.recording_configs['test_name'])
+        # # Generate Test ID
+        # if not self.daq_config.recording_configs["test_ID"]:
+        #     self.daq_config.recording_configs["test_ID"] = DAQ_Configuration.generate_ID(
+        #         self.daq_config.recording_configs['test_name'])
 
         # if verify_file_exists(daq_file):
         with open(daq_file, 'w', newline='') as f:
@@ -63,20 +64,25 @@ class Setting_File_Manager:
         # else:
         #     if log: print('File Error')
 
-    """
-    Loads setting data from settings file. 
+        f.close()
 
-    :param filename : the path and name of the file.
-
-    :return list of DAQ Configs 
-    """
     def load_daq_configs(self, filename: str):
+        """
+        Loads setting data from settings file.
+
+        :param filename : the path and name of the file.
+
+        :return list of DAQ Configs
+        """
         daq_file = 'Config/DAQ/' + filename
         if verify_file_exists(daq_file):
             self.daq_config.signal_configs = pd.read_csv(daq_file, header=0, nrows=1).to_dict('r')[0]
             self.daq_config.recording_configs = pd.read_csv(daq_file, header=2, nrows=1).to_dict('r')[0]
             self.daq_config.data_handling_configs = pd.read_csv(daq_file, header=4, nrows=1).to_dict('r')[0]
-            self.daq_config.location_configs = pd.read_csv(daq_file, header=6, nrows=1).to_dict('r')[0]
+            self.daq_config.location_configs = \
+                pd.read_csv(daq_file, header=6, nrows=1, dtype={'longitude': str, 'latitude': str,
+                                                                'hour': str, 'minute': str,
+                                                                'second': str}).to_dict('r')[0]
             self.daq_config.specimen_location = pd.read_csv(daq_file, header=8, nrows=1).to_dict('r')[0]
 
             if log: print('Load Daq Configs : SUCCESSFUL')
@@ -118,6 +124,8 @@ class Setting_File_Manager:
         else:
             if log: print('File Error')
 
+        f.close()
+
     def load_module_config(self, filename: str):
         module_file = 'Config/Module/' + filename
         if verify_file_exists(module_file):
@@ -142,10 +150,10 @@ class Setting_File_Manager:
 
         return self.channel_config
 
-    """
-    Stores all sensor configurations in a single file. 
-    """
     def store_sensor_config(self, filename: str, sensors: []):
+        """
+        Stores all sensor configurations in a single file.
+        """
         sensor_file = 'Config/Sensor/' + filename
         if verify_file_exists(sensor_file):
             with open(sensor_file, 'w+', newline='') as f:
@@ -158,6 +166,8 @@ class Setting_File_Manager:
                 if log: print('Save Sensor Configs : SUCCESSFUL')
         else:
             if log: print('File Error')
+
+        f.close()
 
     # TODO VERIFY IF NECESSARY
     # TODO IMPLEMENT WITH 32 SENSORS.
@@ -228,7 +238,7 @@ filename = r'Default_Configuration.csv'  # Directory set in methods
 
 # sfm.daq_config.specimen_location['1'] = 'Something ELse'
 
-sfm.store_daq_configs(filename)
+# sfm.store_daq_configs(filename)
 # d = sfm.load_daq_configs(filename)
 # print(d)
 

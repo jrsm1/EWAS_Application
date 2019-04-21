@@ -1,9 +1,9 @@
 # import PyQt5
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtGui import QIcon
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QIcon, QFont
 from time import sleep
 import sys
+import serial
 
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
@@ -11,6 +11,16 @@ from Data_Processing import Plot_Data
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Settings import setting_data_manager as set_dat_man
 from regex import regex
+
+
+def show_error(message: str):
+    """
+        Creates an Error Message dialog
+
+        :param message: String - The Desired Message Output.
+    """
+    QtWidgets.QMessageBox().critical(main_window, 'WARNING', message)
+
 
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/main_window.ui")
@@ -89,6 +99,11 @@ log = 1
 log_working = 0
 
 # some global variables
+try:
+    instruction_manager = ins_man.instruction_manager()
+except serial.SerialException:
+    show_error('Device Not Connected. Please try again.')
+
 daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
@@ -126,23 +141,6 @@ def enable_main_window():
     main_window.setEnabled(True)
 
 
-def show_error(message: str):
-    """
-        Creates an Error Message dialog
-
-        :param message: String - The Desired Message Output.
-    """
-    err_dlg = QtWidgets.QErrorMessage()
-    err_dlg.setWindowIcon(QIcon('GUI/cancel'))
-    font = QFont()
-    font.setFamily("Arial")
-    font.setPointSize(12)
-    err_dlg.setFont(font)
-    err_dlg.setMinimumSize(800, 350)
-    err_dlg.showMessage(message)
-    err_dlg.exec()
-
-
 def open_module_selection_window():
     """
     Opens Module Selection Window.
@@ -163,8 +161,6 @@ def show_channel_info_window(channel: int):
     mod_sel_win.close()
 
     chan_mod_name.setTextFormat(1)  # Qt::RichText	1
-    # TODO Format Texts
-
     # Decide which Module the user has selected.
     if channel == 0:
         chan_mod_name.setText('Module 1')
@@ -323,25 +319,25 @@ def set_specimen_location_into_gui():
     """
     Sets Specimen Location information on current settings into GUI fields.
     """
-    specimen_loc_1.setText(daq_config.specimen_location['1'])
-    specimen_loc_2.setText(daq_config.specimen_location['2'])
-    specimen_loc_3.setText(daq_config.specimen_location['3'])
-    specimen_loc_4.setText(daq_config.specimen_location['4'])
-    specimen_loc_5.setText(daq_config.specimen_location['5'])
-    specimen_loc_6.setText(daq_config.specimen_location['6'])
-    specimen_loc_7.setText(daq_config.specimen_location['7'])
-    specimen_loc_8.setText(daq_config.specimen_location['8'])
+    specimen_loc_1.setText(daq_config.specimen_location['Specimen 1'])
+    specimen_loc_2.setText(daq_config.specimen_location['Specimen 2'])
+    specimen_loc_3.setText(daq_config.specimen_location['Specimen 3'])
+    specimen_loc_4.setText(daq_config.specimen_location['Specimen 4'])
+    specimen_loc_5.setText(daq_config.specimen_location['Specimen 5'])
+    specimen_loc_6.setText(daq_config.specimen_location['Specimen 6'])
+    specimen_loc_7.setText(daq_config.specimen_location['Specimen 7'])
+    specimen_loc_8.setText(daq_config.specimen_location['Specimen 8'])
 
 
 def set_recording_into_gui():
     """
     Sets Recording settings to GUI Fields.
     """
-    rec_name_edit.setText(daq_config.recording_configs['test_name'])
-    rec_id_edit.setText(daq_config.recording_configs['test_ID'])
+    rec_name_edit.setText(str(daq_config.recording_configs['test_name']))
+    # rec_id_edit.setText(daq_config.recording_configs['test_ID'])
     rec_duration_edit.setText(
         str(daq_config.recording_configs['test_duration']))  # Convert int to String for compatibility.
-    rec_type_dropdown.setCurrentText(daq_config.recording_configs['test_type'])
+    rec_type_dropdown.setCurrentText(str(daq_config.recording_configs['test_type']))
     delay_edit.setText(str(daq_config.recording_configs['test_start_delay']))
 
     if daq_config.data_handling_configs['visualize']:
@@ -416,7 +412,6 @@ def get_location_from_gui():
     daq_config.location_configs['hour'] = str(main_window.main_tab_LocalizationSettings_hourLineEdit.text())
     daq_config.location_configs['minute'] = str(main_window.main_tab_LocalizationSettings_minutesLineEdit.text())
     daq_config.location_configs['second'] = str(main_window.main_tab_LocalizationSettings_secondsLineEdit.text())
-
     daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
     daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
     daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
@@ -427,6 +422,151 @@ def get_location_from_gui():
     daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
 
 
+def get_gps_location_from_gui():
+    daq_config.location_configs['loc_name'] = str(main_window.main_tab_LocalizationSettings_Name_lineEdit.text())
+    daq_config.location_configs['longitude'] = str(main_window.main_tab_LocalizationSettings_longitudLineEdit.text())
+    daq_config.location_configs['latitude'] = str(main_window.main_tab_LocalizationSettings_latitudLineEdit.text())
+    daq_config.location_configs['hour'] = str(main_window.main_tab_LocalizationSettings_hourLineEdit.text())
+    daq_config.location_configs['minute'] = str(main_window.main_tab_LocalizationSettings_minutesLineEdit.text())
+    daq_config.location_configs['second'] = str(main_window.main_tab_LocalizationSettings_secondsLineEdit.text())
+
+
+def get_modules_location_from_gui():
+    daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
+    daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
+    daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
+    daq_config.specimen_location['4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
+    daq_config.specimen_location['5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
+    daq_config.specimen_location['6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
+    daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
+    daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
+
+
+def validate_rec_settings():
+    there_is_no_error = True
+    error_string = ""
+    name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
+    validate_box = check_boxes(name, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.<br>'
+        there_is_no_error = False
+    test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    validate_box = check_boxes(test_duration, '^[0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Duration. Restricted to numbers only.<br>'
+        there_is_no_error = False
+    start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
+    validate_box = check_boxes(start_delay, '^\d+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+        there_is_no_error = False
+    if there_is_no_error:
+        get_rec_setts_from_gui()
+        return error_string
+    else:
+        return error_string
+
+
+def validate_gps_location_settings():
+    there_is_no_error = True
+    error_string = ""
+    loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
+    validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Name format. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
+    validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
+    if not validate_box:
+        error_string += 'Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>'
+        there_is_no_error = False
+    loc_latitude = main_window.main_tab_LocalizationSettings_latitudLineEdit.text()
+    validate_box = check_boxes(loc_latitude, '^(\+|-)?\d{4}.\d{5}$')
+    if not validate_box:
+        error_string += 'Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>'
+        there_is_no_error = False
+    loc_hour = main_window.main_tab_LocalizationSettings_hourLineEdit.text()
+    validate_box = check_boxes(loc_hour, '^\d{2}$')
+    if not validate_box:
+        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        there_is_no_error = False
+    loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
+    validate_box = check_boxes(loc_minutes, '^\d{2}$')
+    if not validate_box:
+        error_string += 'Error: Invalid minute format. Restricted to two digits.<br>'
+        there_is_no_error = False
+    loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
+    validate_box = check_boxes(loc_seconds, '^\d{2}$')
+    if not validate_box:
+        error_string += 'Error: Invalid second format. Restricted to two digits.<br>'
+        there_is_no_error = False
+    if there_is_no_error:
+        get_gps_location_from_gui()
+        return error_string
+    else:
+        return error_string
+
+
+def validate_module_location_settings():
+    there_is_no_error = True
+    error_string = ""
+    module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
+    validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 1. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
+    validate_box = check_boxes(module_loc2, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 2. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+
+    module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
+    validate_box = check_boxes(module_loc3, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 3. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc4 = main_window.main_tab_module_loc_LineEdit_4.text()
+    validate_box = check_boxes(module_loc4, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 4. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc5 = main_window.main_tab_module_loc_LineEdit_5.text()
+    validate_box = check_boxes(module_loc5, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 5. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc6 = main_window.main_tab_module_loc_LineEdit_6.text()
+    validate_box = check_boxes(module_loc6, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 6. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
+    validate_box = check_boxes(module_loc7, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 7. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
+    validate_box = check_boxes(module_loc8, '^[a-zA-Z0-9]+$')
+    if not validate_box:
+        error_string += 'Error: Invalid Location Specimen 8. Restricted to numbers, ' \
+                        'uppercase and lowercase letters only.<br>'
+        there_is_no_error = False
+    if there_is_no_error:
+        get_modules_location_from_gui()
+        return error_string
+    else:
+        return error_string
+
+
 def snapshot_data():
     """
     Gets all the data from fields in Main Window
@@ -435,20 +575,8 @@ def snapshot_data():
     # main tab recording settings
     there_is_no_error = True
     error_string = ""
-    name = main_window.main_tab_RecordingSettings_name_LineEdit.text()
-    validate_box = check_boxes(name, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_string += 'Error: Invalid Name. Restricted to uppercase and lowercase letters, and numbers only.<br>'
-        there_is_no_error = False
-    duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
-    validate_box = check_boxes(duration, '^[0-9]+$')
-    if not validate_box:
-        error_string+='Error: Invalid Duration. Restricted to numbers only.<br>'
-        there_is_no_error = False
-    start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
-    validate_box = check_boxes(start_delay, '^\d+$')
-    if not validate_box:
-        error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+    if not validate_rec_settings() == '':
+        error_string += validate_rec_settings()
         there_is_no_error = False
     """
     QComboBox, which are the dropdown needs currentText()
@@ -466,89 +594,14 @@ def snapshot_data():
     store_bool = str(main_window.main_tab_RecordingSettings_store_checkBox.checkState())
     # main tab localization settings
     loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
-
     if not loc_type:
-        loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
-        validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Name format. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
-        validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
-        if not validate_box:
-            error_string += 'Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>'
-            there_is_no_error = False
-        loc_latitude = main_window.main_tab_LocalizationSettings_latitudLineEdit.text()
-        validate_box = check_boxes(loc_latitude, '^(\+|-)?\d{4}.\d{5}$')
-        if not validate_box:
-            error_string += 'Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>'
-            there_is_no_error = False
-        loc_hour = main_window.main_tab_LocalizationSettings_hourLineEdit.text()
-        validate_box = check_boxes(loc_hour, '^\d{2}$')
-        if not validate_box:
-            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
-            there_is_no_error = False
-        loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
-        validate_box = check_boxes(loc_minutes, '^\d{2}$')
-        if not validate_box:
-            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
-            there_is_no_error = False
-        loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
-        validate_box = check_boxes(loc_seconds, '^\d{2}$')
-        if not validate_box:
-            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+        if not validate_gps_location_settings() == '':
+            error_string += validate_gps_location_settings()
             there_is_no_error = False
     else:
         # specimen by module
-        module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
-        validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 1. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
-        validate_box = check_boxes(module_loc2, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 2. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-
-        module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
-        validate_box = check_boxes(module_loc3, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 3. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc4 = main_window.main_tab_module_loc_LineEdit_4.text()
-        validate_box = check_boxes(module_loc4, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 4. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc5 = main_window.main_tab_module_loc_LineEdit_5.text()
-        validate_box = check_boxes(module_loc5, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 5. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc6 = main_window.main_tab_module_loc_LineEdit_6.text()
-        validate_box = check_boxes(module_loc6, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 6. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
-        validate_box = check_boxes(module_loc7, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 7. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
-            there_is_no_error = False
-        module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
-        validate_box = check_boxes(module_loc8, '^[a-zA-Z0-9]+$')
-        if not validate_box:
-            error_string += 'Error: Invalid Location Specimen 8. Restricted to numbers, ' \
-                            'uppercase and lowercase letters only.<br>'
+        if not validate_module_location_settings() == '':
+            error_string += validate_module_location_settings()
             there_is_no_error = False
 
     # daq parameters
@@ -563,6 +616,9 @@ def snapshot_data():
    #     daq_start_delay = "0000"
 
     if there_is_no_error:
+        get_rec_setts_from_gui()
+        get_location_from_gui()
+        get_daq_params_from_gui()
         return True
     else:
         show_error(error_string)
@@ -615,31 +671,9 @@ def snapshot_data():
     # if vis_bool == "2":
     #     show_visualization_sensor_selector_window(-1)
     # else:
-    #     ins = ins_man.instruction_manager()
-    #     ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
+    #
+    # instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
     #                                   "0000", daq_exp_name, daq_exp_location)
-
-    if log_working:
-        print("name=" + name)
-        print("duration=" + duration)
-        print("type=" + type)
-        print("visualization=" + vis_bool)
-        print("store_bool=" + store_bool)
-        print("localization:")
-        print("localization type:" + loc_type + ", name:" + loc_name + ", localization longitude:" + loc_longitude
-              + ", localization latitude:" + loc_latitude + ", localization hour" + loc_hour
-              + ", minutes:" + loc_minutes + ", seconds:" + loc_seconds)
-        print("specimen by module:")
-        print("1:" + module_loc1 + ", 2:" + module_loc2 + ", 3:" + module_loc3 +
-              ", 4:" + module_loc4 + ", 5:" + module_loc5 + ", 6:" + module_loc6 +
-              ", 7:" + module_loc7 + ", 8:" + module_loc8)
-        print("DAQ parameters")
-        print("sampling rate=" + daq_sample_rate + ", cutoff=" + daq_cutoff +
-              ", gain=" + daq_gain)
-        print("sensor info:")
-        # print("name="+sensor1_name+", type="+sensor1_type+", sensitivity="+sensor1_sensitivity
-        #       +", bandwidth="+sensor1_bandwidth+", fullscale="+sensor1_scale+", damping="+sensor1_damp
-        #       +", localization="+sensor1_loc)
 
 
 def get_module_and_sensors_selected():
@@ -658,7 +692,7 @@ def get_module_and_sensors_selected():
     sensors_selected = "0000"
     correct = 1
     index = 0
-    for i in sensor_selection_list:
+    for i in main_sensor_selection_list:
         index += 1
         if i.checkState() == 2:
             count = count + 1
@@ -671,7 +705,7 @@ def get_module_and_sensors_selected():
 
     if log: print("sensors selected are: ", sensors_selected)
 
-    for i in sensor_selection_list:
+    for i in main_sensor_selection_list:
         i.setCheckState(False)
 
     if correct:
@@ -691,17 +725,17 @@ def start_acquisition():
 def sensor_sel_start():
     sens = get_module_and_sensors_selected()
     if log: print("sensors selected are ", sens)
-    ins = ins_man.instruction_manager()
+
     main_sensor_sel_win.close()
-    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
+    instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
                                   daq_exp_location)
     if log: print("came back to sensor_sel_start")
     enable_main_window()
 
 
 def enable_main_start_connected_sensors():
-    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
-    connected_module_list = [0, 1, 0, 1, 0, 0, 0, 0]
+    # TODO TEST
+    connected_module_list = instruction_manager.send_request_number_of_mods_connected()
     if log: print("entered enable start")
     if connected_module_list[0]:
         win_sens_1.setEnabled(True)
@@ -746,8 +780,7 @@ def enable_main_start_connected_sensors():
     if log: print("got out of enable start connected sensors")
 
 def check_status(self):
-    ins = ins_man.instruction_manager()
-    status = ins.send_request_status()
+    status = instruction_manager.send_request_status()
     recorded = status[0]
     stored = status[1]
     gps_synched = status[2]
@@ -809,38 +842,44 @@ viz_sensor_sel_win.sensor_selection_Save_Plot_Data_checkBox
 viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(
     lambda: show_progress_dialog('Plotting ' + 'What you wanna plot'))
 viz_sensor_sel_win.sensor_select_MAX_Label
-viz_sensor_sel_win.Sensor_1
-viz_sensor_sel_win.Sensor_2
-viz_sensor_sel_win.Sensor_3
-viz_sensor_sel_win.Sensor_4
-viz_sensor_sel_win.Sensor_5
-viz_sensor_sel_win.Sensor_6
-viz_sensor_sel_win.Sensor_7
-viz_sensor_sel_win.Sensor_8
-viz_sensor_sel_win.Sensor_9
-viz_sensor_sel_win.Sensor_10
-viz_sensor_sel_win.Sensor_11
-viz_sensor_sel_win.Sensor_12
-viz_sensor_sel_win.Sensor_13
-viz_sensor_sel_win.Sensor_14
-viz_sensor_sel_win.Sensor_15
-viz_sensor_sel_win.Sensor_16
-viz_sensor_sel_win.Sensor_17
-viz_sensor_sel_win.Sensor_18
-viz_sensor_sel_win.Sensor_19
-viz_sensor_sel_win.Sensor_20
-viz_sensor_sel_win.Sensor_21
-viz_sensor_sel_win.Sensor_22
-viz_sensor_sel_win.Sensor_23
-viz_sensor_sel_win.Sensor_24
-viz_sensor_sel_win.Sensor_25
-viz_sensor_sel_win.Sensor_26
-viz_sensor_sel_win.Sensor_27
-viz_sensor_sel_win.Sensor_28
-viz_sensor_sel_win.Sensor_29
-viz_sensor_sel_win.Sensor_30
-viz_sensor_sel_win.Sensor_31
-viz_sensor_sel_win.Sensor_32
+viz_sens_1 = viz_sensor_sel_win.Sensor_1
+viz_sens_2 = viz_sensor_sel_win.Sensor_2
+viz_sens_3 = viz_sensor_sel_win.Sensor_3
+viz_sens_4 = viz_sensor_sel_win.Sensor_4
+viz_sens_5 = viz_sensor_sel_win.Sensor_5
+viz_sens_6 = viz_sensor_sel_win.Sensor_6
+viz_sens_7 = viz_sensor_sel_win.Sensor_7
+viz_sens_8 = viz_sensor_sel_win.Sensor_8
+viz_sens_9 = viz_sensor_sel_win.Sensor_9
+viz_sens_10 = viz_sensor_sel_win.Sensor_10
+viz_sens_11 = viz_sensor_sel_win.Sensor_11
+viz_sens_12 = viz_sensor_sel_win.Sensor_12
+viz_sens_13 = viz_sensor_sel_win.Sensor_13
+viz_sens_14 = viz_sensor_sel_win.Sensor_14
+viz_sens_15 = viz_sensor_sel_win.Sensor_15
+viz_sens_16 = viz_sensor_sel_win.Sensor_16
+viz_sens_17 = viz_sensor_sel_win.Sensor_17
+viz_sens_18 = viz_sensor_sel_win.Sensor_18
+viz_sens_19 = viz_sensor_sel_win.Sensor_19
+viz_sens_20 = viz_sensor_sel_win.Sensor_20
+viz_sens_21 = viz_sensor_sel_win.Sensor_21
+viz_sens_22 = viz_sensor_sel_win.Sensor_22
+viz_sens_23 = viz_sensor_sel_win.Sensor_23
+viz_sens_24 = viz_sensor_sel_win.Sensor_24
+viz_sens_25 = viz_sensor_sel_win.Sensor_25
+viz_sens_26 = viz_sensor_sel_win.Sensor_26
+viz_sens_27 = viz_sensor_sel_win.Sensor_27
+viz_sens_28 = viz_sensor_sel_win.Sensor_28
+viz_sens_29 = viz_sensor_sel_win.Sensor_29
+viz_sens_30 = viz_sensor_sel_win.Sensor_30
+viz_sens_31 = viz_sensor_sel_win.Sensor_31
+viz_sens_32 = viz_sensor_sel_win.Sensor_32
+visualization_sensor_selection_list = [viz_sens_1, viz_sens_2, viz_sens_3, viz_sens_4, viz_sens_5, viz_sens_6, viz_sens_7, viz_sens_8,
+                              viz_sens_9, viz_sens_10, viz_sens_11, viz_sens_12, viz_sens_13, viz_sens_14, viz_sens_15,
+                              viz_sens_15, viz_sens_16, viz_sens_17, viz_sens_18, viz_sens_19, viz_sens_20, viz_sens_21,
+                              viz_sens_22, viz_sens_23, viz_sens_24, viz_sens_25, viz_sens_26, viz_sens_27, viz_sens_28,
+                              viz_sens_29, viz_sens_30, viz_sens_31,
+                              viz_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
@@ -878,12 +917,12 @@ win_sens_29 = main_sensor_sel_win.Sensor_29
 win_sens_30 = main_sensor_sel_win.Sensor_30
 win_sens_31 = main_sensor_sel_win.Sensor_31
 win_sens_32 = main_sensor_sel_win.Sensor_32
-sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, win_sens_5, win_sens_6, win_sens_7, win_sens_8,
-                         win_sens_9, win_sens_10, win_sens_11, win_sens_12, win_sens_13, win_sens_14, win_sens_15,
-                         win_sens_15, win_sens_16, win_sens_17, win_sens_18, win_sens_19, win_sens_20, win_sens_21,
-                         win_sens_22, win_sens_23, win_sens_24, win_sens_25, win_sens_26, win_sens_27, win_sens_28,
-                         win_sens_29, win_sens_30, win_sens_31,
-                         win_sens_32]  # Used to get values easily (goes from 0 to 31)
+main_sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, win_sens_5, win_sens_6, win_sens_7, win_sens_8,
+                              win_sens_9, win_sens_10, win_sens_11, win_sens_12, win_sens_13, win_sens_14, win_sens_15,
+                              win_sens_15, win_sens_16, win_sens_17, win_sens_18, win_sens_19, win_sens_20, win_sens_21,
+                              win_sens_22, win_sens_23, win_sens_24, win_sens_25, win_sens_26, win_sens_27, win_sens_28,
+                              win_sens_29, win_sens_30, win_sens_31,
+                              win_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Acquiring Something
 prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: action_cancel_everything())
@@ -910,7 +949,6 @@ file_sys_win.file_system_CANCEL_button
 main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: handle_loading_saving('load', 1))
 main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: handle_loading_saving('save', 1))
 rec_name_edit = main_window.main_tab_RecordingSettings_name_LineEdit
-rec_id_edit = main_window.main_tab_RecordingSettings_id_LineEdit
 rec_duration_edit = main_window.main_tab_RecordingSettings_durationLineEdit
 rec_type_dropdown = main_window.main_tab_RecordingSettings_type_DropDown
 rec_viz_checkbox = main_window.main_tab_RecordingSettings_visualize_checkBox
@@ -978,12 +1016,11 @@ Prepares GUI and sends request to control module for begin recording data.
 
 
 def action_Begin_Recording():
-    instruc_man = ins_man.instruction_manager()
     # Send Setting Information to Control Module.
-    instruc_man.send_set_configuration('Configuration String.')
+    instruction_manager.send_set_configuration('Configuration String.')
     # TODO Prepare Real-Time Plot to receive Data.
     # Send Begin Recording FLAG to Control Module.
-    instruc_man.send_request_start()
+    instruction_manager.send_request_start()
 
     # Close Window
     main_sensor_sel_win.close()
@@ -1001,8 +1038,7 @@ Called by user when CANCEL action is desired.
 
 
 def action_cancel_everything():
-    im = ins_man.instruction_manager()
-    im.send_cancel_request()
+    instruction_manager.send_cancel_request()
     enable_main_window()
 
 
@@ -1051,6 +1087,7 @@ Function continues to correct method depending on saving/loading and option comb
 
 
 def do_saving_loading_action():
+    filename_input_win.close()
     if load_save_instructions['action'] == 'save':
         decide_who_to_save(load_save_instructions['who_to_save'])
     elif load_save_instructions['action'] == 'load':
@@ -1071,12 +1108,10 @@ def decide_who_to_save(instruction: int):
         action_store_DAQ_Params()
 
 
-"""
-Based on Button Pressed, decides what to load.
-"""
-
-
 def decide_who_to_load(instruction: int):
+    """
+    Based on Button Pressed, decides what to load.
+    """
     if instruction == 1:  # Save Recording Settings
         action_load_Rec_Setts()
     elif instruction == 2:
@@ -1088,7 +1123,6 @@ def decide_who_to_load(instruction: int):
 def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
     get_daq_params_from_gui()
@@ -1112,14 +1146,26 @@ def action_load_DAQ_Params():
 def action_store_Location():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
-    get_location_from_gui()
-    # Save to File.
-    setting_data_manager.store_daq_configs(filename)
-    # Close Window
-    filename_input_win.close()
+    # get_location_from_gui()
+    loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
+    if not loc_type:
+        if not validate_gps_location_settings():
+            # Save to File.
+            setting_data_manager.store_daq_configs(filename)
+            # Close Window
+            filename_input_win.close()
+        else:
+            show_error(validate_gps_location_settings())
+    else:
+        if not validate_module_location_settings():
+            # Save to File.
+            setting_data_manager.store_daq_configs(filename)
+            # Close Window
+            filename_input_win.close()
+        else:
+            show_error(validate_module_location_settings())
 
 
 def action_load_Location():
@@ -1136,14 +1182,16 @@ def action_load_Location():
 def action_store_Rec_Setts():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
-    get_rec_setts_from_gui()
-    # Save to File.
-    setting_data_manager.store_daq_configs(filename)
-    # Close Window
-    filename_input_win.close()
+    # get_rec_setts_from_gui()
+    if not validate_rec_settings():
+        # Save to File.
+        setting_data_manager.store_daq_configs(filename)
+        # Close Window
+        filename_input_win.close()
+    else:
+        show_error(validate_rec_settings())
 
 
 def action_load_Rec_Setts():
@@ -1160,23 +1208,42 @@ def action_load_Rec_Setts():
 # ********************************************* LOCATION ***************************************************************
 def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
+    # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
-    # im = ins_man.instruction_manager()
-    # im.send_gps_sync_request()
+
+    # Request Sync GPS.
+    try:
+        instruction_manager.send_gps_sync_request()
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
+    except NameError:
+        show_error('NAME ERROR. Please try again.')
 
     timeout = 0
-    # while im.send_request_status() != 1:
-    while 1:
-        if log: print('GPS Waiting....')
+    synched = True  # Used to not request data if synched==False.
+    try:
+        while instruction_manager.send_request_status()[2] != 1:  # Status[2] --> gps_synched
+            if log: print('GPS Waiting....')
+            sleep(0.500)  # Wait for half a second before asking again.
+            timeout += 1
+            if timeout == 2 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
+                prog_dlg.close()
+                show_error('GPS Failed to Synchronize.')
+                synched = False
+                break
 
-        sleep(0.500)  # Wait for half a second before asking again.
-        timeout += 1
-        if timeout == 30 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
-            show_error('GPS Failed to Synchronize.')
-            break
+        # If synched Succesfull --> Request GPS data.
+        if synched:
+            instruction_manager.send_gps_data_request()
+            set_gps_into_gui()
 
-    enable_main_window()
-    set_gps_into_gui()
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
+    except NameError:
+        show_error('Device Not Connected. Please try again.')
+    # enable_main_window()
+    prog_dlg.close()
+
 
 
 def load_local_settings_to_gui():
@@ -1318,6 +1385,7 @@ def init():
     """
     main_window.show()
     loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
+    sync_gps()
 
     # --------- TESTING ------------
     # get_rec_setts_from_gui()

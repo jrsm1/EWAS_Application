@@ -1,10 +1,10 @@
 sampling_rate,cutoff_frequency,signal_gain
 7,7,1
-test_name,test_ID,test_duration,test_type,test_start_delay
-Test260156920c014160,Test2_qdwd,15,Free-Field,0
+test_name,test_duration,test_type,test_start_delay,visualize,store
+Test611f470fac124c6d,15,0,0,True,False
 visualize,store
 True,False
 loc_name,longitude,latitude,hour,minute,second
-No Name,-0000.0000,+0000.0000,00,00,00
+Yamero,-00000.00000,0000.00000,00,00,00
 1,2,3,4,5,6,7,8
 Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used

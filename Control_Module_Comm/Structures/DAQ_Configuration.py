@@ -24,7 +24,7 @@ class DAQconfigs:
 
         self.recording_configs = {
             "test_name": str,
-            "test_ID": str,
+            # "test_ID": str,
             "test_duration": int,  # In Seconds
             "test_type": str,  # get from list. Should be same as position in drop-down.
             'test_start_delay': int  # Number in Seconds.
@@ -39,9 +39,9 @@ class DAQconfigs:
             'loc_name': str,
             'longitude': str,
             'latitude': str,
-            'hour': int,
-            'minute': int,
-            'second': int,
+            'hour': str,
+            'minute': str,
+            'second': str,
         }
 
         self.specimen_location = {
@@ -58,12 +58,14 @@ class DAQconfigs:
         if len(test_name) > NAME_LIMIT:
             test_name = test_name[0: NAME_LIMIT]
 
+        self.test_id = {'Test ID': generate_ID(test_name) }
+
         self.signal_configs["sampling_rate"] = sampling_rate
         self.signal_configs["cutoff_frequency"] = cutoff_frequency
         self.signal_configs["signal_gain"] = signal_gain
 
         self.recording_configs["test_name"] = test_name
-        self.recording_configs["test_ID"] = generate_ID(test_name)
+        # self.recording_configs["test_ID"] = generate_ID(test_name)
         self.recording_configs["test_duration"] = test_duration
         self.recording_configs["test_type"] = TEST_TYPES[record_type]
         self.recording_configs['test_start_delay'] = test_delay
@@ -75,14 +77,14 @@ class DAQconfigs:
         self.location_configs['minute'] = minute
         self.location_configs['second'] = second
 
-        self.specimen_location['1'] = specimen_1
-        self.specimen_location['2'] = specimen_2
-        self.specimen_location['3'] = specimen_3
-        self.specimen_location['4'] = specimen_4
-        self.specimen_location['5'] = specimen_5
-        self.specimen_location['6'] = specimen_6
-        self.specimen_location['7'] = specimen_7
-        self.specimen_location['8'] = specimen_8
+        self.specimen_location['Specimen 1'] = specimen_1
+        self.specimen_location['Specimen 2'] = specimen_2
+        self.specimen_location['Specimen 3'] = specimen_3
+        self.specimen_location['Specimen 4'] = specimen_4
+        self.specimen_location['Specimen 5'] = specimen_5
+        self.specimen_location['Specimen 6'] = specimen_6
+        self.specimen_location['Specimen 7'] = specimen_7
+        self.specimen_location['Specimen 8'] = specimen_8
 
         self.data_handling_configs["visualize"] = visualize
         self.data_handling_configs["store"] = store
@@ -95,6 +97,16 @@ class DAQconfigs:
         #     test_name_default = str(time.localtime(time.time())) + '-' + str(uuid.uuid4().hex)
         #
         # self.recording_configs["test_name"] = test_name_default
+
+
+    def get_test_ID(self):
+        """
+        Getter Method for Test_ID.
+
+        :return: Test ID String.
+        """
+        return self.test_id
+
 
     """
     Generates Test ID from Test Name

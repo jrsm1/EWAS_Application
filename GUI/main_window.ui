@@ -101,9 +101,9 @@
           <widget class="QWidget" name="formLayoutWidget_2">
            <property name="geometry">
             <rect>
-             <x>640</x>
+             <x>290</x>
              <y>20</y>
-             <width>340</width>
+             <width>347</width>
              <height>161</height>
             </rect>
            </property>
@@ -140,37 +140,6 @@
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="main_tab_Localization_latitudLabel_2">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;ID&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-															</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_RecordingSettings_id_LineEdit</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="main_tab_RecordingSettings_id_LineEdit">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0)
-															</string>
-              </property>
-              <property name="maxLength">
-               <number>10</number>
-              </property>
-              <property name="placeholderText">
-               <string>Auto-Generated</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
              <widget class="QLabel" name="main_tab_RecordingSettings_durationLabel">
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -183,7 +152,7 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
+            <item row="1" column="1">
              <widget class="QLineEdit" name="main_tab_RecordingSettings_durationLineEdit">
               <property name="styleSheet">
                <string notr="true">background-color: rgb(255, 255, 255);
@@ -199,7 +168,7 @@
               </property>
              </widget>
             </item>
-            <item row="3" column="0">
+            <item row="4" column="0">
              <widget class="QLabel" name="main_tab_longitud_Label_3">
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span
@@ -211,7 +180,7 @@
               </property>
              </widget>
             </item>
-            <item row="3" column="1">
+            <item row="4" column="1">
              <widget class="QComboBox" name="main_tab_RecordingSettings_type_DropDown">
               <property name="styleSheet">
                <string notr="true">background-color: rgb(255, 255, 255);
@@ -239,7 +208,7 @@
               </item>
              </widget>
             </item>
-            <item row="4" column="1">
+            <item row="5" column="1">
              <layout class="QHBoxLayout" name="main_tab_visualize_store_horizontalLayout">
               <property name="spacing">
                <number>15</number>
@@ -268,6 +237,34 @@
                </widget>
               </item>
              </layout>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="main_tab_RecordingSettings_delay_LineEdit">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);
+													font: 12pt &quot;MS Shell Dlg 2&quot;;
+													color: rgb(0, 0, 0)
+												</string>
+              </property>
+              <property name="maxLength">
+               <number>4</number>
+              </property>
+              <property name="placeholderText">
+               <string>1800</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="main_tab_RecordingSettings_delay_Label">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;
+													font-size:12pt;&quot;&gt;Start Delay (s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+												</string>
+              </property>
+              <property name="buddy">
+               <cstring>main_tab_RecordingSettings_durationLineEdit</cstring>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -338,46 +335,6 @@
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QLabel" name="main_tab_RecordingSettings_delay_Label">
-           <property name="geometry">
-            <rect>
-             <x>279</x>
-             <y>80</y>
-             <width>101</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;
-													font-size:12pt;&quot;&gt;Start Delay (s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-												</string>
-           </property>
-           <property name="buddy">
-            <cstring>main_tab_RecordingSettings_durationLineEdit</cstring>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="main_tab_RecordingSettings_delay_LineEdit">
-           <property name="geometry">
-            <rect>
-             <x>389</x>
-             <y>80</y>
-             <width>221</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);
-													font: 12pt &quot;MS Shell Dlg 2&quot;;
-													color: rgb(0, 0, 0)
-												</string>
-           </property>
-           <property name="maxLength">
-            <number>4</number>
-           </property>
-           <property name="placeholderText">
-            <string>1800</string>
-           </property>
           </widget>
          </widget>
         </item>
@@ -2038,7 +1995,6 @@
  <tabstops>
   <tabstop>main_tab_LAYOUT</tabstop>
   <tabstop>main_tab_RecordingSettings_name_LineEdit</tabstop>
-  <tabstop>main_tab_RecordingSettings_id_LineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_durationLineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_type_DropDown</tabstop>
   <tabstop>main_tab_RecordingSettings_visualize_checkBox</tabstop>
