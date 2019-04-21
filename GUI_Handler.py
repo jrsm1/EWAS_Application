@@ -2,6 +2,9 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
 from time import sleep
+from threading import Timer
+import queue
+import sys
 
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Channel_Individual as chan, Sensor_Individual as sens
@@ -83,7 +86,7 @@ daq_config = DAQ_Configuration.DAQconfigs()
 log = 1
 log_working = 1
 
-# some global bariables
+# some global variables
 daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
@@ -91,6 +94,13 @@ duration = 0
 daq_exp_name = ""
 daq_exp_location = ""
 daq_start_delay = 0
+
+# status global variables
+recorded = 0
+stored = 0
+gps_synched = 0
+keep_alive = True
+
 
 """
 Displays Main Window on Computer's Screen.
@@ -449,7 +459,7 @@ def snapshot_data():
               ", 4:" + module_loc4 + ", 5:" + module_loc5 + ", 6:" + module_loc6 +
               ", 7:" + module_loc7 + ", 8:" + module_loc8)
         print("DAQ parameters")
-        print("adc constant=" + daq_adc + ", sampling rate=" + daq_sample_rate + ", cutoff=" + daq_cutoff +
+        print("sampling rate=" + daq_sample_rate + ", cutoff=" + daq_cutoff +
               ", gain=" + daq_gain)
         print("sensor info:")
         # print("name="+sensor1_name+", type="+sensor1_type+", sensitivity="+sensor1_sensitivity
@@ -521,6 +531,21 @@ def enable_start_connected_sensors():
             sensor_selection_list[s].setEnabled(False)
     if log: print("got out of enable start connected sensors")
 
+def check_status(self):
+    ins = ins_man.instruction_manager()
+    status = ins.send_request_status()
+    recorded = status[0]
+    stored = status[1]
+    gps_synched = status[2]
+    if log:
+        print("status = " + str(status))
+    return status
+
+# trying a close event function
+def close_event(event):
+    if log: print("entered main window close")
+    if log: print("final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_synched))
+    main_window.close()
 
 """
 Add default functionality here
@@ -685,6 +710,9 @@ main_window.main_tab_LocalizationSettings_latitudLineEdit
 main_window.main_tab_LocalizationSettings_hourLineEdit
 main_window.main_tab_LocalizationSettings_minutesLineEdit
 main_window.main_tab_LocalizationSettings_secondsLineEdit
+#connecting close event
+main_window.closeEvent = close_event
+
 loc_gps_frame = main_window.main_tab_location_gps_frame
 loc_specimen_frame = main_window.specimen_location_frame
 ### Module Loc. Settings
@@ -951,4 +979,5 @@ def init():
     # show_acquire_dialog('SOMETHING')
     # show_main_sens_sel_window()
     # show_visualization_sensor_selector_window()
-    app.exec()
+
+    sys.exit(app.exec_())
