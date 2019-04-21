@@ -30,7 +30,7 @@ class DAQconfigs:
             "test_name": uuid,  # Random at first FIXME --> Now doing in __init__ method.
             "test_ID": time,  # TODO AUTO-GENERATE ID.
             "test_duration": int,  # In Seconds
-            "test_type": int,  # Number in list. Should be same as position in drop-down.
+            "test_type": str,  # get from list. Should be same as position in drop-down.
             'test_start_delay': int  # Number in Seconds.
         }
 
@@ -70,7 +70,7 @@ class DAQconfigs:
         self.recording_configs["test_name"] = test_name
         self.recording_configs["test_ID"] = generate_ID(test_name)
         self.recording_configs["test_duration"] = test_duration
-        self.recording_configs["test_type"] = record_type
+        self.recording_configs["test_type"] = TEST_TYPES[record_type]
         self.recording_configs['test_start_delay'] = test_delay
 
         self.location_configs['loc_name'] = loc_name

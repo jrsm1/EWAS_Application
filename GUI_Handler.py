@@ -389,6 +389,27 @@ def get_daq_params_from_gui():
     daq_config.signal_configs['cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
     daq_config.signal_configs['signal_gain'] = main_window.main_tab_DAQParams_gain_DropDown.currentIndex()
 
+
+def get_location_from_gui():
+    """
+    Gets information on GUI into Location Data Structures.
+    """
+    daq_config.location_configs['loc_name'] = str(main_window.main_tab_LocalizationSettings_Name_lineEdit.text())
+    daq_config.location_configs['longitude'] = str(main_window.main_tab_LocalizationSettings_longitudLineEdit.text())
+    daq_config.location_configs['latitude'] = str(main_window.main_tab_LocalizationSettings_latitudLineEdit.text())
+    daq_config.location_configs['hour'] = str(main_window.main_tab_LocalizationSettings_hourLineEdit.text())
+    daq_config.location_configs['minute'] = str(main_window.main_tab_LocalizationSettings_minutesLineEdit.text())
+    daq_config.location_configs['second'] = str(main_window.main_tab_LocalizationSettings_secondsLineEdit.text())
+
+    daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
+    daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
+    daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
+    daq_config.specimen_location['4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
+    daq_config.specimen_location['5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
+    daq_config.specimen_location['6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
+    daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
+    daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
+
     
 def snapshot_data():
     """
@@ -855,7 +876,7 @@ rec_store_checkbox = main_window.main_tab_RecordingSettings_store_checkBox
 # Localization Settings
 main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: sync_gps())
 loc_type_dropdown = main_window.main_tab_LocalizationSettings_type_DropBox
-loc_type_dropdown.currentIndexChanged.connect(lambda: load_local_settings_to_gui())
+loc_type_dropdown.currentIndexChanged.connect(lambda: change_local_allowed())
 main_window.main_tab_LocalizationSettings_Name_lineEdit
 main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button.clicked.connect(lambda: handle_loading_saving('load', 2))
 main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button.clicked.connect(lambda: handle_loading_saving('save', 2))
@@ -1021,6 +1042,7 @@ def decide_who_to_load(instruction: int):
 def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
     # Get filename from User
+    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
     get_daq_params_from_gui()
@@ -1044,6 +1066,7 @@ def action_load_DAQ_Params():
 def action_store_Location():
     # TODO Make Sure Files are not empty.
     # Get filename from User
+    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
     get_location_from_gui()
@@ -1067,6 +1090,7 @@ def action_load_Location():
 def action_store_Rec_Setts():
     # TODO Make Sure Files are not empty.
     # Get filename from User
+    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
     get_rec_setts_from_gui()
@@ -1126,6 +1150,16 @@ def load_local_settings_to_gui():
         loc_specimen_frame.setEnabled(True)
         set_specimen_location_into_gui()
 
+def change_local_allowed():
+    if log: print(loc_type_dropdown.currentIndex())
+
+    if loc_type_dropdown.currentIndex() == 0:  # GPS
+        loc_gps_frame.setEnabled(True)
+        loc_specimen_frame.setEnabled(False)
+
+    elif loc_type_dropdown.currentIndex() == 1:  # Specimen
+        loc_gps_frame.setEnabled(False)
+        loc_specimen_frame.setEnabled(True)
 
 # ---------------------------------------------- CHANNEL INFORMATION----------------------------------------------------
 # """
