@@ -14,7 +14,8 @@
 			<string>MainWindow</string>
 		</property>
 		<property name="styleSheet">
-			<string notr="true">background-color:rgb(156, 209, 173);
+			<string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+				background-color: rgb(244, 221, 192);
 				color:rgb(0, 0, 0);
 			</string>
 		</property>
@@ -50,7 +51,7 @@
 									</size>
 								</property>
 								<property name="styleSheet">
-									<string notr="true">background-color: rgb(209, 99, 65);
+									<string notr="true">background-color:rgb(204, 51, 0);
 										color: rgb(255, 255, 255);
 										font: 12pt &quot;MS Shell Dlg 2&quot;;
 									</string>
@@ -75,7 +76,7 @@
 									</size>
 								</property>
 								<property name="styleSheet">
-									<string notr="true">background-color: rgb(209, 99, 65);
+									<string notr="true">background-color:rgb(204, 51, 0);
 										color: rgb(255, 255, 255);
 										font: 12pt &quot;MS Shell Dlg 2&quot;;
 									</string>

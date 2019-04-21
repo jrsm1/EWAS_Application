@@ -11,6 +11,7 @@
     [X] Coherence
 - [X] Creates Handler for saving and loading setting profile.
 - [X] Correctly Improving performance on rendering plots.
+- [X] Imported all GUI Object variables.
 - [X] Visualize Buttons shows Plots.
 * [X] Change Main method --> fixed double window bug.
 * [X] Fixed some spelling.
@@ -18,34 +19,28 @@
 * [X] Logic for GPS sync and display info to GUI.
 * [X] Setting Recording data to Display in GUI.
 * [x] Logic for channel info ALMOST ready.
+- [X] Imported all GUI Object variables.
+* [X] Loading and storing data in Config Directories containing Default Config Files.
 
 # To-Do
-[X] Initialize Widgets.
-[ ] Code Basic Functionality to GUI Widgets and Components.
-[ ] Link GUI components to Control Module Communication Classes.
-* [X] Use real data to verify plots.
-* [ ] Test with Real Data.
-[ ] Embed plots in Qt widget.
-[ ] setting_data_manager - Change/Create Filename method to save in proper path
-[ ] Handle Better Test Names.
-[ ] Change __init__ method in DAQ_Config to remove 'default' parameter.
-[ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
-[ ] Make Plots Pretty.
-[ ] Get Sampling Frequency from file.
-[ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
-[ ] call 'show_plot' method to within each plot method to simplify code.
-[ ] change 'show_plot' method to use a list of titles for multiple plot situation.
-[ ] Set GUI Window Icon to EWAS Logo.
-[ ] Create and import App Running Dialog.
-[ ] Create Setting Data Structure to send to Control Module.
-[ ] Set Correct Flow when visualize.
-* [ ] GPS Sync Request timeout.
-* [ ] Error Dialog when sync times out.
-* [ ] Finish Channel Info Logic.
-
+* [x] Initialize Widgets.
+* [ ] Code Basic Functionality to GUI Widgets and Components.
+* [ ] Link GUI components to Control Module Communication Classes.
+* [ ] Use real data to verify plots.
+* [ ] setting_data_manager - Change/Create Filename method to save in proper path
+* [ ] Handle Better Test Names.
+* [ ] Change __init__ method in DAQ_Config to remove 'default' parameter.
+* [ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
+* [ ] Make Plots Pretty.
+* [ ] Get Sampling Frequency from file.
+* [ ] Remove 'special values' from {testing_configs} in DAQ_Config --> set normal.
+* [ ] call 'show_plot' method to within each plot method to simplify code.
+* [ ] change 'show_plot' method to use a list of titles for multiple plot situation.
+* [X] Set GUI Window Icon to EWAS Logo.
 
 # Bugs
 $ [X] $ Bug DAQ_Config __init__ method does not store every default value.
 $ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable again.
     [X] Bug Second window opening when first is closed.
 $ [ ] Bug where Drop Downs look kindda squashed together.
+$ [ ] Bug Acquire GPS Dialog waits for it to finish sync to display progressBar and Message.

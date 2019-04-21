@@ -7,7 +7,7 @@
 				<x>0</x>
 				<y>0</y>
 				<width>1077</width>
-				<height>290</height>
+				<height>313</height>
 			</rect>
 		</property>
 		<property name="sizePolicy">
@@ -19,9 +19,15 @@
 		<property name="windowTitle">
 			<string>Sensor Selection Window</string>
 		</property>
+		<property name="windowIcon">
+			<iconset>
+				<normaloff>../../../Media_Resources/EWAS_Logo/EWAS_Logo_1.svg</normaloff>
+				../../../Media_Resources/EWAS_Logo/EWAS_Logo_1.svg
+			</iconset>
+		</property>
 		<property name="styleSheet">
 			<string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
-				background-color:rgb(156, 209, 173);
+				background-color: rgb(244, 221, 192);
 				color:rgb(0, 0, 0);
 			</string>
 		</property>
@@ -37,7 +43,7 @@
 		<widget class="QWidget" name="centralwidget">
 			<layout class="QVBoxLayout" name="verticalLayout_3">
 				<item alignment="Qt::AlignHCenter">
-					<widget class="QLabel" name="sensor_select_MAX_Label">
+					<widget class="QLabel" name="label">
 						<property name="text">
 							<string>Select x Sensors</string>
 						</property>
@@ -685,7 +691,7 @@
 							<item>
 								<widget class="QPushButton" name="sensor_selection_NEXT_Bbutton">
 									<property name="styleSheet">
-										<string notr="true">background-color: rgb(209, 99, 65);
+										<string notr="true">background-color:rgb(204, 51, 0);
 											color: rgb(255, 255, 255);
 											font: 12pt &quot;MS Shell Dlg 2&quot;;
 										</string>

@@ -21,7 +21,7 @@
 		</property>
 		<property name="styleSheet">
 			<string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
-				background-color:rgb(156, 209, 173);
+				background-color: rgb(244, 221, 192);
 				color:rgb(0, 0, 0);
 			</string>
 		</property>
