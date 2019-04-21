@@ -1,6 +1,7 @@
 # import PyQt5
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QFont
 from time import sleep
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
@@ -123,6 +124,11 @@ def show_error(message: str):
         :param message: String - The Desired Message Output.
     """
     err_dlg = QtWidgets.QErrorMessage()
+    font = QFont()
+    font.setFamily("Arial")
+    font.setPointSize(12)
+    err_dlg.setFont(font)
+    err_dlg.setMinimumSize(800, 280)
     err_dlg.showMessage(message)
     err_dlg.exec()
 
@@ -440,7 +446,8 @@ def snapshot_data():
         if not validate_box:
             error_list.append('Error: Invalid Location Name format. Restricted to numbers, '
                               'uppercase and lowercase letters only.<br>')
-            error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+            error_string += 'Error: Invalid Location Name format. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
             there_is_no_error = False
         loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
         validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
@@ -1248,7 +1255,7 @@ def init():
     # set_daq_params_to_gui()
     # load_gps_into_gui()
     # load_local_settings_to_gui()
-    show_progress_dialog('Message')
+    # show_progress_dialog('Message')
     # sensor_sel.show()
     # mod_sel.show()
     # channel_info_win.show()
