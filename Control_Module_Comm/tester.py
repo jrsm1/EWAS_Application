@@ -55,6 +55,7 @@ def test_request_number_of_modules_connected():
     tester = instruction_manager.instruction_manager()
     # tester.init(1)
     line = tester.send_request_number_of_mods_connected()
+    print("type of them are" + str(type(line[0])))
     if line:
         print("request number of modules successful")
         print("modules connected: " + str(line))
@@ -159,7 +160,7 @@ def test_wrong_instruction_acknowledge():
 # test_send_configuration()
 # test_request_configuration()
 # test_request_start()
-# test_request_number_of_modules_connected()
+test_request_number_of_modules_connected()
 # test_request_live_bytes()
 # test_send_cancel()
 # test_request_all_data()

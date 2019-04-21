@@ -59,6 +59,10 @@ class instruction_manager():
             line = str(line)
             line = line[4:len(line)-5]
             line = line.split("\\x")
+            count = 0
+            for i in line:
+                line[count] = int(i)
+                count = count + 1
             return line
         return 0
 
