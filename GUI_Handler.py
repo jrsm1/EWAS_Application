@@ -246,7 +246,7 @@ def show_main_sens_sel_window():
         Opens Sensor Selection Window for Recording
     """
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
-    enable_start_connected_sensors()
+    enable_main_start_connected_sensors()
     main_sensor_sel_win.show()
 
 
@@ -690,16 +690,50 @@ def sensor_sel_start():
     enable_main_window()
 
 
-def enable_start_connected_sensors():
+def enable_main_start_connected_sensors():
     # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
-    connected_module_list = []
-    if connected_module_list: print("entered enable start")
+    connected_module_list = [0, 1, 0, 1, 0, 0, 0, 0]
+    if log: print("entered enable start")
     if connected_module_list[0]:
         win_sens_1.setEnabled(True)
+        win_sens_2.setEnabled(True)
+        win_sens_3.setEnabled(True)
+        win_sens_4.setEnabled(True)
     if connected_module_list[1]:
         win_sens_5.setEnabled(True)
-
-
+        win_sens_6.setEnabled(True)
+        win_sens_7.setEnabled(True)
+        win_sens_8.setEnabled(True)
+    if connected_module_list[2]:
+        win_sens_9.setEnabled(True)
+        win_sens_10.setEnabled(True)
+        win_sens_11.setEnabled(True)
+        win_sens_12.setEnabled(True)
+    if connected_module_list[3]:
+        win_sens_13.setEnabled(True)
+        win_sens_14.setEnabled(True)
+        win_sens_15.setEnabled(True)
+        win_sens_16.setEnabled(True)
+    if connected_module_list[4]:
+        win_sens_17.setEnabled(True)
+        win_sens_18.setEnabled(True)
+        win_sens_19.setEnabled(True)
+        win_sens_20.setEnabled(True)
+    if connected_module_list[5]:
+        win_sens_21.setEnabled(True)
+        win_sens_22.setEnabled(True)
+        win_sens_23.setEnabled(True)
+        win_sens_24.setEnabled(True)
+    if connected_module_list[6]:
+        win_sens_25.setEnabled(True)
+        win_sens_26.setEnabled(True)
+        win_sens_27.setEnabled(True)
+        win_sens_28.setEnabled(True)
+    if connected_module_list[7]:
+        win_sens_29.setEnabled(True)
+        win_sens_30.setEnabled(True)
+        win_sens_31.setEnabled(True)
+        win_sens_32.setEnabled(True)
     if log: print("got out of enable start connected sensors")
 
 
