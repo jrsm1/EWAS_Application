@@ -53,7 +53,13 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>175</height>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>200</height>
            </size>
           </property>
           <property name="frameShape">
@@ -335,46 +341,6 @@
             </item>
            </layout>
           </widget>
-          <widget class="QPushButton" name="main_tab_START_button">
-           <property name="geometry">
-            <rect>
-             <x>790</x>
-             <y>40</y>
-             <width>100</width>
-             <height>50</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="baseSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(209, 99, 65);
-															font: 85 14pt &quot;MS Shell Dlg 2&quot;;
-															color: rgb(255, 255, 255);
-														</string>
-           </property>
-           <property name="text">
-            <string>START</string>
-           </property>
-          </widget>
          </widget>
         </item>
         <item>
@@ -395,7 +361,7 @@
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>16777215</height>
+            <height>230</height>
            </size>
           </property>
           <property name="frameShape">
@@ -462,7 +428,7 @@
              <x>300</x>
              <y>60</y>
              <width>301</width>
-             <height>182</height>
+             <height>363</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="main_tab_localization_Form">
@@ -980,7 +946,7 @@
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>175</height>
+            <height>180</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -1396,6 +1362,95 @@
             </item>
            </layout>
           </widget>
+          <widget class="QFrame" name="main_tab_Buttons_Frame">
+           <property name="geometry">
+            <rect>
+             <x>700</x>
+             <y>40</y>
+             <width>311</width>
+             <height>100</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="main_tab_CHANNEL_INFO_button">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(209, 99, 65);
+															color: rgb(255, 255, 255);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+              </property>
+              <property name="text">
+               <string>Channel Information</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="main_tab_START_button">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="baseSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(209, 99, 65);
+															font: 85 14pt &quot;MS Shell Dlg 2&quot;;
+															color: rgb(255, 255, 255);
+														</string>
+              </property>
+              <property name="text">
+               <string>START</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
         <item>
@@ -1403,57 +1458,6 @@
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QFrame" name="main_tab_Buttons_Frame">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="QPushButton" name="main_tab_CHANNEL_INFO_button">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(209, 99, 65);
-															color: rgb(255, 255, 255);
-															font: 12pt &quot;MS Shell Dlg 2&quot;;
-														</string>
-             </property>
-             <property name="text">
-              <string>Channel
-															Information
-														</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
          </widget>
         </item>
        </layout>
@@ -1973,7 +1977,6 @@
   <tabstop>main_tab_DAQParams_gain_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_LOAD_PARAMS_button</tabstop>
   <tabstop>main_tab_DAQParams_SAVE_PARAMS_button</tabstop>
-  <tabstop>main_tab_CHANNEL_INFO_button</tabstop>
   <tabstop>visualize_tab_tableWidget</tabstop>
   <tabstop>visualize_tab_TIME_button</tabstop>
   <tabstop>visualize_tab_FFT_button</tabstop>
