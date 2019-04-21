@@ -89,6 +89,7 @@ log = 1
 log_working = 0
 
 # some global variables
+instruction_manager = ins_man.instruction_manager()
 daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
@@ -163,8 +164,6 @@ def show_channel_info_window(channel: int):
     mod_sel_win.close()
 
     chan_mod_name.setTextFormat(1)  # Qt::RichText	1
-    # TODO Format Texts
-
     # Decide which Module the user has selected.
     if channel == 0:
         chan_mod_name.setText('Module 1')
@@ -615,8 +614,8 @@ def snapshot_data():
     # if vis_bool == "2":
     #     show_visualization_sensor_selector_window(-1)
     # else:
-    #     ins = ins_man.instruction_manager()
-    #     ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
+    #
+    #     instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
     #                                   "0000", daq_exp_name, daq_exp_location)
 
     if log_working:
@@ -691,17 +690,17 @@ def start_acquisition():
 def sensor_sel_start():
     sens = get_module_and_sensors_selected()
     if log: print("sensors selected are ", sens)
-    ins = ins_man.instruction_manager()
+
     main_sensor_sel_win.close()
-    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
+    instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
                                   daq_exp_location)
     if log: print("came back to sensor_sel_start")
     enable_main_window()
 
 
 def enable_main_start_connected_sensors():
-    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
-    connected_module_list = [0, 1, 0, 1, 0, 0, 0, 0]
+    # TODO TEST
+    connected_module_list = instruction_manager.send_request_number_of_mods_connected()
     if log: print("entered enable start")
     if connected_module_list[0]:
         win_sens_1.setEnabled(True)
@@ -746,8 +745,7 @@ def enable_main_start_connected_sensors():
     if log: print("got out of enable start connected sensors")
 
 def check_status(self):
-    ins = ins_man.instruction_manager()
-    status = ins.send_request_status()
+    status = instruction_manager.send_request_status()
     recorded = status[0]
     stored = status[1]
     gps_synched = status[2]
@@ -809,38 +807,38 @@ viz_sensor_sel_win.sensor_selection_Save_Plot_Data_checkBox
 viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(
     lambda: show_progress_dialog('Plotting ' + 'What you wanna plot'))
 viz_sensor_sel_win.sensor_select_MAX_Label
-viz_sensor_sel_win.Sensor_1
-viz_sensor_sel_win.Sensor_2
-viz_sensor_sel_win.Sensor_3
-viz_sensor_sel_win.Sensor_4
-viz_sensor_sel_win.Sensor_5
-viz_sensor_sel_win.Sensor_6
-viz_sensor_sel_win.Sensor_7
-viz_sensor_sel_win.Sensor_8
-viz_sensor_sel_win.Sensor_9
-viz_sensor_sel_win.Sensor_10
-viz_sensor_sel_win.Sensor_11
-viz_sensor_sel_win.Sensor_12
-viz_sensor_sel_win.Sensor_13
-viz_sensor_sel_win.Sensor_14
-viz_sensor_sel_win.Sensor_15
-viz_sensor_sel_win.Sensor_16
-viz_sensor_sel_win.Sensor_17
-viz_sensor_sel_win.Sensor_18
-viz_sensor_sel_win.Sensor_19
-viz_sensor_sel_win.Sensor_20
-viz_sensor_sel_win.Sensor_21
-viz_sensor_sel_win.Sensor_22
-viz_sensor_sel_win.Sensor_23
-viz_sensor_sel_win.Sensor_24
-viz_sensor_sel_win.Sensor_25
-viz_sensor_sel_win.Sensor_26
-viz_sensor_sel_win.Sensor_27
-viz_sensor_sel_win.Sensor_28
-viz_sensor_sel_win.Sensor_29
-viz_sensor_sel_win.Sensor_30
-viz_sensor_sel_win.Sensor_31
-viz_sensor_sel_win.Sensor_32
+viz_sens_1 = viz_sensor_sel_win.Sensor_1
+viz_sens_2 = viz_sensor_sel_win.Sensor_2
+viz_sens_3 = viz_sensor_sel_win.Sensor_3
+viz_sens_4 = viz_sensor_sel_win.Sensor_4
+viz_sens_5 = viz_sensor_sel_win.Sensor_5
+viz_sens_6 = viz_sensor_sel_win.Sensor_6
+viz_sens_7 = viz_sensor_sel_win.Sensor_7
+viz_sens_8 = viz_sensor_sel_win.Sensor_8
+viz_sens_9 = viz_sensor_sel_win.Sensor_9
+viz_sens_10 = viz_sensor_sel_win.Sensor_10
+viz_sens_11 = viz_sensor_sel_win.Sensor_11
+viz_sens_12 = viz_sensor_sel_win.Sensor_12
+viz_sens_13 = viz_sensor_sel_win.Sensor_13
+viz_sens_14 = viz_sensor_sel_win.Sensor_14
+viz_sens_15 = viz_sensor_sel_win.Sensor_15
+viz_sens_16 = viz_sensor_sel_win.Sensor_16
+viz_sens_17 = viz_sensor_sel_win.Sensor_17
+viz_sens_18 = viz_sensor_sel_win.Sensor_18
+viz_sens_19 = viz_sensor_sel_win.Sensor_19
+viz_sens_20 = viz_sensor_sel_win.Sensor_20
+viz_sens_21 = viz_sensor_sel_win.Sensor_21
+viz_sens_22 = viz_sensor_sel_win.Sensor_22
+viz_sens_23 = viz_sensor_sel_win.Sensor_23
+viz_sens_24 = viz_sensor_sel_win.Sensor_24
+viz_sens_25 = viz_sensor_sel_win.Sensor_25
+viz_sens_26 = viz_sensor_sel_win.Sensor_26
+viz_sens_27 = viz_sensor_sel_win.Sensor_27
+viz_sens_28 = viz_sensor_sel_win.Sensor_28
+viz_sens_29 = viz_sensor_sel_win.Sensor_29
+viz_sens_30 = viz_sensor_sel_win.Sensor_30
+viz_sens_31 = viz_sensor_sel_win.Sensor_31
+viz_sens_32 = viz_sensor_sel_win.Sensor_32
 
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
@@ -978,12 +976,11 @@ Prepares GUI and sends request to control module for begin recording data.
 
 
 def action_Begin_Recording():
-    instruc_man = ins_man.instruction_manager()
     # Send Setting Information to Control Module.
-    instruc_man.send_set_configuration('Configuration String.')
+    instruction_manager.send_set_configuration('Configuration String.')
     # TODO Prepare Real-Time Plot to receive Data.
     # Send Begin Recording FLAG to Control Module.
-    instruc_man.send_request_start()
+    instruction_manager.send_request_start()
 
     # Close Window
     main_sensor_sel_win.close()
@@ -1001,8 +998,7 @@ Called by user when CANCEL action is desired.
 
 
 def action_cancel_everything():
-    im = ins_man.instruction_manager()
-    im.send_cancel_request()
+    instruction_manager.send_cancel_request()
     enable_main_window()
 
 
@@ -1161,8 +1157,8 @@ def action_load_Rec_Setts():
 def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     show_acquire_dialog('GPS Signal')
-    # im = ins_man.instruction_manager()
-    # im.send_gps_sync_request()
+
+    instruction_manager.send_gps_sync_request()
 
     timeout = 0
     # while im.send_request_status() != 1:
