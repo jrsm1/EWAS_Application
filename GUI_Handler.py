@@ -1,9 +1,9 @@
 # import PyQt5
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtGui import QIcon
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QIcon, QFont
 from time import sleep
 import sys
+import serial
 
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
@@ -11,6 +11,24 @@ from Data_Processing import Plot_Data
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Settings import setting_data_manager as set_dat_man
 from regex import regex
+
+
+def show_error(message: str):
+    """
+        Creates an Error Message dialog
+
+        :param message: String - The Desired Message Output.
+    """
+    err_dlg = QtWidgets.QErrorMessage()
+    err_dlg.setWindowIcon(QIcon('GUI/cancel'))
+    font = QFont()
+    font.setFamily("Arial")
+    font.setPointSize(12)
+    err_dlg.setFont(font)
+    err_dlg.setMinimumSize(800, 350)
+    err_dlg.showMessage(message)
+    err_dlg.exec()
+
 
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/main_window.ui")
@@ -89,7 +107,11 @@ log = 1
 log_working = 0
 
 # some global variables
-instruction_manager = ins_man.instruction_manager()
+try:
+    instruction_manager = ins_man.instruction_manager()
+except serial.SerialException:
+    show_error('Device Not Connected. Please try again.')
+
 daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
@@ -125,23 +147,6 @@ def enable_main_window():
         Disables Input for every Widget inside Main Window.
     """
     main_window.setEnabled(True)
-
-
-def show_error(message: str):
-    """
-        Creates an Error Message dialog
-
-        :param message: String - The Desired Message Output.
-    """
-    err_dlg = QtWidgets.QErrorMessage()
-    err_dlg.setWindowIcon(QIcon('GUI/cancel'))
-    font = QFont()
-    font.setFamily("Arial")
-    font.setPointSize(12)
-    err_dlg.setFont(font)
-    err_dlg.setMinimumSize(800, 350)
-    err_dlg.showMessage(message)
-    err_dlg.exec()
 
 
 def open_module_selection_window():
@@ -322,14 +327,14 @@ def set_specimen_location_into_gui():
     """
     Sets Specimen Location information on current settings into GUI fields.
     """
-    specimen_loc_1.setText(daq_config.specimen_location['1'])
-    specimen_loc_2.setText(daq_config.specimen_location['2'])
-    specimen_loc_3.setText(daq_config.specimen_location['3'])
-    specimen_loc_4.setText(daq_config.specimen_location['4'])
-    specimen_loc_5.setText(daq_config.specimen_location['5'])
-    specimen_loc_6.setText(daq_config.specimen_location['6'])
-    specimen_loc_7.setText(daq_config.specimen_location['7'])
-    specimen_loc_8.setText(daq_config.specimen_location['8'])
+    specimen_loc_1.setText(daq_config.specimen_location['Specimen 1'])
+    specimen_loc_2.setText(daq_config.specimen_location['Specimen 2'])
+    specimen_loc_3.setText(daq_config.specimen_location['Specimen 3'])
+    specimen_loc_4.setText(daq_config.specimen_location['Specimen 4'])
+    specimen_loc_5.setText(daq_config.specimen_location['Specimen 5'])
+    specimen_loc_6.setText(daq_config.specimen_location['Specimen 6'])
+    specimen_loc_7.setText(daq_config.specimen_location['Specimen 7'])
+    specimen_loc_8.setText(daq_config.specimen_location['Specimen 8'])
 
 
 def set_recording_into_gui():
@@ -952,7 +957,6 @@ file_sys_win.file_system_CANCEL_button
 main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: handle_loading_saving('load', 1))
 main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: handle_loading_saving('save', 1))
 rec_name_edit = main_window.main_tab_RecordingSettings_name_LineEdit
-rec_id_edit = main_window.main_tab_RecordingSettings_id_LineEdit
 rec_duration_edit = main_window.main_tab_RecordingSettings_durationLineEdit
 rec_type_dropdown = main_window.main_tab_RecordingSettings_type_DropDown
 rec_viz_checkbox = main_window.main_tab_RecordingSettings_visualize_checkBox
@@ -1091,6 +1095,7 @@ Function continues to correct method depending on saving/loading and option comb
 
 
 def do_saving_loading_action():
+    filename_input_win.close()
     if load_save_instructions['action'] == 'save':
         decide_who_to_save(load_save_instructions['who_to_save'])
     elif load_save_instructions['action'] == 'load':
@@ -1111,12 +1116,10 @@ def decide_who_to_save(instruction: int):
         action_store_DAQ_Params()
 
 
-"""
-Based on Button Pressed, decides what to load.
-"""
-
-
 def decide_who_to_load(instruction: int):
+    """
+    Based on Button Pressed, decides what to load.
+    """
     if instruction == 1:  # Save Recording Settings
         action_load_Rec_Setts()
     elif instruction == 2:
@@ -1128,7 +1131,6 @@ def decide_who_to_load(instruction: int):
 def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
     get_daq_params_from_gui()
@@ -1152,7 +1154,6 @@ def action_load_DAQ_Params():
 def action_store_Location():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
     # get_location_from_gui()
@@ -1189,7 +1190,6 @@ def action_load_Location():
 def action_store_Rec_Setts():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    # TODO VALIDATE INFO.
     filename = fn_in.text()
     # Get info from GUI.
     # get_rec_setts_from_gui()
@@ -1220,24 +1220,37 @@ def sync_gps():  # TODO TEST
     show_acquire_dialog('GPS Signal')
 
     # Request Sync GPS.
-    instruction_manager.send_gps_sync_request()
+    try:
+        instruction_manager.send_gps_sync_request()
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
+    except NameError:
+        show_error('NAME ERROR. Please try again.')
 
     timeout = 0
     synched = True  # Used to not request data if synched==False.
-    while instruction_manager.send_request_status()[2] != 1:  # Status[2] --> gps_synched
-        if log: print('GPS Waiting....')
-        sleep(0.500)  # Wait for half a second before asking again.
-        timeout += 1
-        if timeout == 30 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
-            show_error('GPS Failed to Synchronize.')
-            synched = False
-            break
+    try:
+        while instruction_manager.send_request_status()[2] != 1:  # Status[2] --> gps_synched
+            if log: print('GPS Waiting....')
+            sleep(0.500)  # Wait for half a second before asking again.
+            timeout += 1
+            if timeout == 2 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
+                prog_dlg.close()
+                show_error('GPS Failed to Synchronize.')
+                synched = False
+                break
 
-    # If synched Succesfull --> Request GPS data.
-    if synched:
-        instruction_manager.send_gps_data_request()
+        # If synched Succesfull --> Request GPS data.
+        if synched:
+            instruction_manager.send_gps_data_request()
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
+    except NameError:
+        show_error('Device Not Connected. Please try again.')
     # enable_main_window()
     set_gps_into_gui()
+    prog_dlg.close()
+
 
 
 def load_local_settings_to_gui():
@@ -1379,6 +1392,7 @@ def init():
     """
     main_window.show()
     loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
+    sync_gps()
 
     # --------- TESTING ------------
     # get_rec_setts_from_gui()

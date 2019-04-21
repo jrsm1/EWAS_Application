@@ -151,7 +151,7 @@ def test_wrong_instruction_acknowledge():
     
     
 # if __name__ == "__main__":
-# test_listen()
+test_listen()
 # test_send()
 # test_send_byte()
 # test_compare_byte()
