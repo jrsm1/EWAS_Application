@@ -453,111 +453,113 @@ def snapshot_data():
     vis_bool = str(main_window.main_tab_RecordingSettings_visualize_checkBox.checkState())
     store_bool = str(main_window.main_tab_RecordingSettings_store_checkBox.checkState())
     # main tab localization settings
-    loc_type = str(main_window.main_tab_LocalizationSettings_type_DropBox.currentText())
+    loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
 
-    loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
-    validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Name format. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
-        there_is_no_error = False
-    loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
-    validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
-    if not validate_box:
-        error_list.append('Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>')
-        error_string += 'Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>'
-        there_is_no_error = False
-    loc_latitude = main_window.main_tab_LocalizationSettings_latitudLineEdit.text()
-    validate_box = check_boxes(loc_latitude, '^(\+|-)?\d{4}.\d{5}$')
-    if not validate_box:
-        error_list.append('Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>')
-        error_string += 'Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>'
-        there_is_no_error = False
-    loc_hour = main_window.main_tab_LocalizationSettings_hourLineEdit.text()
-    validate_box = check_boxes(loc_hour, '^\d{2}$')
-    if not validate_box:
-        error_list.append('Error: Invalid hour format. Restricted to two digits.<br>')
-        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
-        there_is_no_error = False
-    loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
-    validate_box = check_boxes(loc_minutes, '^\d{2}$')
-    if not validate_box:
-        error_list.append('Error: Invalid minute format. Restricted to two digits.<br>')
-        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
-        there_is_no_error = False
-    loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
-    validate_box = check_boxes(loc_seconds, '^\d{2}$')
-    if not validate_box:
-        error_list.append('Error: Invalid second q format. Restricted to two digits.<br>')
-        error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
-        there_is_no_error = False
-    # specimen by module
-    module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
-    validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 1. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
-    module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
-    validate_box = check_boxes(module_loc2, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 2. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 2. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
+    if not loc_type:
+        loc_name = main_window.main_tab_LocalizationSettings_Name_lineEdit.text()
+        validate_box = check_boxes(loc_name, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Name format. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Start Delay. Restricted to numbers only.<br>'
+            there_is_no_error = False
+        loc_longitude = main_window.main_tab_LocalizationSettings_longitudLineEdit.text()
+        validate_box = check_boxes(loc_longitude, '^(\+|-)?\d{5}.\d{5}$')
+        if not validate_box:
+            error_list.append('Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>')
+            error_string += 'Error: Invalid Longitude format. Restricted to +/-Dddmm.mmmmm.<br>'
+            there_is_no_error = False
+        loc_latitude = main_window.main_tab_LocalizationSettings_latitudLineEdit.text()
+        validate_box = check_boxes(loc_latitude, '^(\+|-)?\d{4}.\d{5}$')
+        if not validate_box:
+            error_list.append('Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>')
+            error_string += 'Error: Invalid Latitude format. Restricted to +/-ddmm.mmmmm.<br>'
+            there_is_no_error = False
+        loc_hour = main_window.main_tab_LocalizationSettings_hourLineEdit.text()
+        validate_box = check_boxes(loc_hour, '^\d{2}$')
+        if not validate_box:
+            error_list.append('Error: Invalid hour format. Restricted to two digits.<br>')
+            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+            there_is_no_error = False
+        loc_minutes = main_window.main_tab_LocalizationSettings_minutesLineEdit.text()
+        validate_box = check_boxes(loc_minutes, '^\d{2}$')
+        if not validate_box:
+            error_list.append('Error: Invalid minute format. Restricted to two digits.<br>')
+            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+            there_is_no_error = False
+        loc_seconds = main_window.main_tab_LocalizationSettings_secondsLineEdit.text()
+        validate_box = check_boxes(loc_seconds, '^\d{2}$')
+        if not validate_box:
+            error_list.append('Error: Invalid second q format. Restricted to two digits.<br>')
+            error_string += 'Error: Invalid hour format. Restricted to two digits.<br>'
+            there_is_no_error = False
+    else:
+        # specimen by module
+        module_loc1 = main_window.main_tab_module_loc_LineEdit_1.text()
+        validate_box = check_boxes(module_loc1, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 1. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 1. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
+        module_loc2 = main_window.main_tab_module_loc_LineEdit_2.text()
+        validate_box = check_boxes(module_loc2, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 2. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 2. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
 
-    module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
-    validate_box = check_boxes(module_loc3, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 3. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 3. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
-    module_loc4 = main_window.main_tab_module_loc_LineEdit_4.text()
-    validate_box = check_boxes(module_loc4, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 4. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 4. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
-    module_loc5 = main_window.main_tab_module_loc_LineEdit_5.text()
-    validate_box = check_boxes(module_loc5, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 5. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 5. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
-    module_loc6 = main_window.main_tab_module_loc_LineEdit_6.text()
-    validate_box = check_boxes(module_loc6, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 6. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 6. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
-    module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
-    validate_box = check_boxes(module_loc7, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 7. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 7. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
-    module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
-    validate_box = check_boxes(module_loc8, '^[a-zA-Z0-9]+$')
-    if not validate_box:
-        error_list.append('Error: Invalid Location Specimen 8. Restricted to numbers, '
-                          'uppercase and lowercase letters only.<br>')
-        error_string += 'Error: Invalid Location Specimen 8. Restricted to numbers, ' \
-                        'uppercase and lowercase letters only.<br>'
-        there_is_no_error = False
+        module_loc3 = main_window.main_tab_module_loc_LineEdit_3.text()
+        validate_box = check_boxes(module_loc3, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 3. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 3. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
+        module_loc4 = main_window.main_tab_module_loc_LineEdit_4.text()
+        validate_box = check_boxes(module_loc4, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 4. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 4. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
+        module_loc5 = main_window.main_tab_module_loc_LineEdit_5.text()
+        validate_box = check_boxes(module_loc5, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 5. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 5. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
+        module_loc6 = main_window.main_tab_module_loc_LineEdit_6.text()
+        validate_box = check_boxes(module_loc6, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 6. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 6. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
+        module_loc7 = main_window.main_tab_module_loc_LineEdit_7.text()
+        validate_box = check_boxes(module_loc7, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 7. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 7. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
+        module_loc8 = main_window.main_tab_module_loc_LineEdit_8.text()
+        validate_box = check_boxes(module_loc8, '^[a-zA-Z0-9]+$')
+        if not validate_box:
+            error_list.append('Error: Invalid Location Specimen 8. Restricted to numbers, '
+                              'uppercase and lowercase letters only.<br>')
+            error_string += 'Error: Invalid Location Specimen 8. Restricted to numbers, ' \
+                            'uppercase and lowercase letters only.<br>'
+            there_is_no_error = False
 
     # daq parameters
     daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex())
