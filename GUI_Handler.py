@@ -19,15 +19,7 @@ def show_error(message: str):
 
         :param message: String - The Desired Message Output.
     """
-    err_dlg = QtWidgets.QErrorMessage()
-    err_dlg.setWindowIcon(QIcon('GUI/cancel'))
-    font = QFont()
-    font.setFamily("Arial")
-    font.setPointSize(12)
-    err_dlg.setFont(font)
-    err_dlg.setMinimumSize(800, 350)
-    err_dlg.showMessage(message)
-    err_dlg.exec()
+    QtWidgets.QMessageBox().critical(main_window, 'WARNING', message)
 
 
 app = QtWidgets.QApplication([])
@@ -1243,12 +1235,13 @@ def sync_gps():  # TODO TEST
         # If synched Succesfull --> Request GPS data.
         if synched:
             instruction_manager.send_gps_data_request()
+            set_gps_into_gui()
+
     except serial.SerialException:
         show_error('Device Not Connected. Please try again.')
     except NameError:
         show_error('Device Not Connected. Please try again.')
     # enable_main_window()
-    set_gps_into_gui()
     prog_dlg.close()
 
 

@@ -39,9 +39,9 @@ class DAQconfigs:
             'loc_name': str,
             'longitude': str,
             'latitude': str,
-            'hour': int,
-            'minute': int,
-            'second': int,
+            'hour': str,
+            'minute': str,
+            'second': str,
         }
 
         self.specimen_location = {

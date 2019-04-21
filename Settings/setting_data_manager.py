@@ -79,7 +79,10 @@ class Setting_File_Manager:
             self.daq_config.signal_configs = pd.read_csv(daq_file, header=0, nrows=1).to_dict('r')[0]
             self.daq_config.recording_configs = pd.read_csv(daq_file, header=2, nrows=1).to_dict('r')[0]
             self.daq_config.data_handling_configs = pd.read_csv(daq_file, header=4, nrows=1).to_dict('r')[0]
-            self.daq_config.location_configs = pd.read_csv(daq_file, header=6, nrows=1).to_dict('r')[0]
+            self.daq_config.location_configs = \
+                pd.read_csv(daq_file, header=6, nrows=1, dtype={'longitude': str, 'latitude': str,
+                                                                'hour': str, 'minute': str,
+                                                                'second': str}).to_dict('r')[0]
             self.daq_config.specimen_location = pd.read_csv(daq_file, header=8, nrows=1).to_dict('r')[0]
 
             if log: print('Load Daq Configs : SUCCESSFUL')

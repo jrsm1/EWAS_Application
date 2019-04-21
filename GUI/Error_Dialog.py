@@ -5,7 +5,7 @@ from PyQt5.QtGui import QIcon, QFont
 
 class Error_Dialog():
     def __init__(self, message: str):
-        err_dlg = QtWidgets.QErrorMessage()
+        err_dlg = QtWidgets.QMessageBox.warning()
         err_dlg.setWindowIcon(QIcon('GUI/cancel'))
         font = QFont()
         font.setFamily("Arial")
@@ -14,6 +14,7 @@ class Error_Dialog():
         err_dlg.setMinimumSize(800, 350)
         err_dlg.showMessage(message)
         err_dlg.exec()
+        # err_dlg.
 
 #TESTING
 err = Error_Dialog('Some Error')
