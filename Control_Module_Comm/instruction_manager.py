@@ -7,8 +7,6 @@ log = 1
 class instruction_manager():
     def __init__(self, port):
         self.serial_interface = serial_interface.serial_interface(port)
-        # except serial.serialutil.SerialException:
-        # GUI_Handler.show_error('The Device is not Connected. Please try again.')
 
     """
     function to set configuration.
