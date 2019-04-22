@@ -21,6 +21,7 @@
 * [x] Logic for channel info ALMOST ready.
 - [X] Imported all GUI Object variables.
 * [X] Loading and storing data in Config Directories containing Default Config Files.
+* [X] Sampling Frequency Suggestion
 
 # To-Do
 * [x] Initialize Widgets.
@@ -44,3 +45,5 @@ $ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable
     [X] Bug Second window opening when first is closed.
 $ [ ] Bug where Drop Downs look kindda squashed together.
 $ [ ] Bug Acquire GPS Dialog waits for it to finish sync to display progressBar and Message.
+$ [X] $ Bug where Main Selection Matrix shows when not connected.
+

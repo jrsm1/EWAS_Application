@@ -241,8 +241,8 @@ def show_main_sens_sel_window():
         Opens Sensor Selection Window for Recording
     """
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
-    enable_main_start_connected_sensors()
-    main_sensor_sel_win.show()
+    if enable_main_start_connected_sensors():
+        main_sensor_sel_win.show()
 
 
 def show_progress_dialog(message: str):
@@ -658,6 +658,7 @@ def save_port():
 
 def enable_main_start_connected_sensors():
     # TODO TEST
+    continuar = True
     try:
         ins = ins_man.instruction_manager(ins_port)
         connected_module_list = ins.send_request_number_of_mods_connected()
@@ -703,11 +704,15 @@ def enable_main_start_connected_sensors():
             win_sens_31.setEnabled(True)
             win_sens_32.setEnabled(True)
         if log: print("got out of enable start connected sensors")
+        # If not Connected to not continue.
     except serial.SerialException:
+        continuar = False
         show_error('Device Not Connected. Please try again.')
 
+    return continuar
 
-def check_status(self):
+
+def check_status():
     global recorded, stored, gps_sync
     try:
         ins = ins_man.instruction_manager(ins_port)
@@ -726,7 +731,7 @@ def check_status(self):
 # trying a close event function
 def close_event(event):
     if log: print("entered main window close")
-    if log: print("final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_synched))
+    if log: print("final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_sync))
     main_window.close()
 
 """
@@ -818,7 +823,7 @@ visualization_sensor_selection_list = [viz_sens_1, viz_sens_2, viz_sens_3, viz_s
 
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
-    lambda: action_Begin_Recording())  # Close() DONE in UI.
+    lambda: action_begin_recording())  # Close() DONE in UI.
 main_sensor_sel_win.sensor_select_MAX_Label
 win_sens_1 = main_sensor_sel_win.Sensor_1
 win_sens_2 = main_sensor_sel_win.Sensor_2
@@ -921,6 +926,7 @@ main_window.main_tab_DAQParams_LOAD_PARAMS_button.clicked.connect(lambda: handle
 # main_window.main_tab_DAQParams_ADC_Constant_Label
 samfreq_dropdown = main_window.main_tab_DAQParams_samplingRate_DropDown
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
+cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
@@ -941,13 +947,15 @@ main_window.visualize_tab_COHERE_button.clicked.connect(
     lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
 # File Name
 fn_in = filename_input_win.filename_lineEdit
+# fn_in.returnPressed(lambda: do_saving_loading_action())  # FIXME - TypeError: native Qt signal is not callable
 fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_saving_loading_action())
 fn_CANCEL_bton = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
+def suggest_sampling_freq():
+    samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
-
-def action_Begin_Recording():
+def action_begin_recording():
     """
     Prepares GUI and sends request to control module for begin recording data.
     """
@@ -964,7 +972,6 @@ def action_Begin_Recording():
         show_progress_dialog('Data')
     except serial.SerialException:
         show_error('Device Not Connected. Please try again.')
-
 
 
 def action_cancel_everything():
