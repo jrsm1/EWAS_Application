@@ -100,7 +100,7 @@ class Data_Handler():
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
         filename = r'../Data/' + filename
-        data_read = pd.read_csv(filename, header=90, index_col=0)
+        data_read = pd.read_csv(filename, header=90, index_col='Timestamp')
 
         return data_read
 
@@ -209,7 +209,7 @@ cc = Module_Individual.Module('mName', sc1, sc2, sc3, sc4)
 dh = Data_Handler([cc,cc,cc,cc,cc,cc,cc,cc], dc)
 
 data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
-dh.store_data('Testing.csv', data)
+# dh.store_data('Testing.csv', data)
 print(dh.data_to_string('Testing.csv'))
 
 
