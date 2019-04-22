@@ -713,7 +713,6 @@ def check_status():
         show_not_connected_error()
         return False
 
-
 # trying a close event function
 def close_event(event):
     if log: print("entered main window close")
@@ -1239,8 +1238,6 @@ def show_acquire_dialog(message: str):
 
 
 # ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
-
-
 def save_sensor_info():
     """
     Saves sensor data from UI into structure.

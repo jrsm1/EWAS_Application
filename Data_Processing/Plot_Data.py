@@ -3,13 +3,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 
+# Testing
+log = 1
 
 # TODO Make Plots Pretty.
 class Plot_Data():
     # TODO get sampling frequency from file.
-    def __init__(self, file_path):
-        file_path = r''+file_path
-        self.data_read = pd.read_csv(file_path, header=12, index_col=0)
+    def __init__(self, filename):
+        filename = r'../Data/' + filename
+        self.data_read = pd.read_csv(filename, header=90, index_col=0)
+        if log: print(self.data_read)
 
         # Open in New Qt5 Interactive Window
         matplotlib.use('Qt5Agg')
@@ -34,15 +37,14 @@ class Plot_Data():
 
         return self  # Return Instance so that it can be linearly written in code.
 
-    """
-    Plot Fourier Transform using Numpy .fft algorithm.
-    
-    :param sensor : The sensor name which should be the name of the column which contains desired sensor information.
-    
-    :return Return Instance so that it can be linearly written in code. 
-    """
-
     def plot_fft(self, sensor: str, sampling_rate):
+        """
+        Plot Fourier Transform using Numpy .fft algorithm.
+
+        :param sensor : The sensor name which should be the name of the column which contains desired sensor information.
+
+        :return Return Instance so that it can be linearly written in code.
+        """
         #  Get Sensor columns values in a Series.
         fourier = np.fft.fft(self.data_read[sensor])
 
@@ -55,62 +57,60 @@ class Plot_Data():
         return self  # Return Instance so that it can be linearly written in code.
 
     # TODO finish with values from paper.
-    """
-    
-    
-    :param sensor_x : The value of the column name from the loaded files where the desired information is. [SENSOR NAME]
-    :param sampling_freq : The signal sampling frequency.
-    
-    :return Return Instance so that it can be linearly written in code.
-    """
-
     def plot_CSD(self, sensor_1: str, sensor_2: str, sampling_freq):
+        """
+        Plots Cross Power Spectrum
+
+        :param sensor_1: The value of the column name from the loaded files where the desired information is. [SENSOR 1 NAME]
+        :param sensor_2: The value of the column name from the loaded files where the desired information is. [SENSOR 2 NAME]
+        :param sampling_freq: The signal sampling frequency.
+
+        :return: Instance so that it can be linearly written in code.
+        """
         plt.csd(self.data_read[sensor_1], self.data_read[sensor_2], Fs=sampling_freq)
 
         return self  # Return Instance so that it can be linearly written in code.
 
     # TODO finish with values from paper.
-    """
-    Plots  
-    
-    :param sensor_x : The value of the column name from the loaded files where the desired information is. [SENSOR NAME]
-    :param sampling_freq : The signal sampling frequency.
-    
-    :return Return Instance so that it can be linearly written in code.
-    """
+    def plot_PSD(self, sensor: str, sampling_freq):
+        """
+        Plots Auto Power Spectrum
 
-    def plot_PSD(self, sensor_1: str, sampling_freq):
-        plt.psd(self.data_read[sensor_1], Fs=sampling_freq)
+        :param sensor: The value of the column name from the loaded files where the desired information is. [SENSOR NAME]
+        :param sampling_freq: The signal sampling frequency.
+
+        :return: Instance so that it can be linearly written in code.
+        """
+        plt.psd(self.data_read[sensor], Fs=sampling_freq)
 
         return self  # Return Instance so that it can be linearly written in code.
 
-    """
-    Plots Phase Spectrum of a single sensor.
-
-    :param sensor : The value of the column name from the loaded files where the desired information is. [SENSOR NAME]
-    :param sampling_freq : The signal sampling frequency.
-
-    :return Return Instance so that it can be linearly written in code.
-    """
-
     def plot_Phase(self, sensor: str, sampling_freq):
+        """
+        Plots Phase Spectrum of a single sensor.
+
+        :param sensor: The value of the column name from the loaded files where the desired information is. [SENSOR NAME]
+        :param sampling_freq: The signal sampling frequency.
+
+        :return Return Instance so that it can be linearly written in code.
+        """
         # sampling_freq = 1 / 0.1
 
         plt.phase_spectrum(x=self.data_read[sensor], Fs=sampling_freq)
 
         return self  # Return Instance so that it can be linearly written in code.
 
-    """
+    def plot_coherence(self, sensor_1: str, sensor_2: str, sampling_freq):
+        """
         Plot Coherence between two sensors.
 
-        :param sensor_x : The value of the column name from the loaded files where the desired information is. [SENSOR NAME]
+        :param sensor_1: The value of the column name from the loaded files where the desired information is. [SENSOR 1 NAME]
+        :param sensor_2: The value of the column name from the loaded files where the desired information is. [SENSOR 2 NAME]
         :param sampling_freq : The signal sampling frequency.
 
         :return Return Instance so that it can be linearly written in code.
         """
-
-    def plot_coherence(self, sensor_1: str, sensor_2: str, sampling_freq):
-        # Get Colums as Series.
+        # Get Columns as Series.
         s1 = self.data_read[sensor_1]  # each row is a list
         s2 = self.data_read[sensor_2]  # each row is a list
 
@@ -120,22 +120,21 @@ class Plot_Data():
 
     # TODO change and implement with param title as List of Titles for more than one plot situation.
     # TODO call within each plot method to simplify code.
-    """
-    Creates necessary Qt Windows with interactive plots.
-    Use with a plot method return to setup plots. 
-
-    :param title : plot title. 
-    """
-
     @staticmethod
     def show_plot(title: str):
+        """
+        Creates necessary Qt Windows with interactive plots.
+        Use with a plot method return to setup plots.
+
+        :param title: Plot title.
+        """
         plt.title(title)
         plt.legend()
         plt.show()
 
 
 # TESTING.
-# pdata = Plot_Data('../Data/Random_dummy_data_v2.csv')
+pdata = Plot_Data('Testing.csv')
 # pdata.plt_time().show_plot('Sensor Plots')
 # pdata.plot_coherence('S1', 'S2', 1000).show_plot('Coherence')
 # pdata.plot_fft('S1', 1).show_plot('Fast Fourier Transform')

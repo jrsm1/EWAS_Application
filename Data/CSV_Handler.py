@@ -1,9 +1,7 @@
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Control_Module_Comm import instruction_manager as ins_man
-# from GUI_Handler import show_error
 import serial
 import csv
-from os import path
 import pandas as pd
 
 log = 1
@@ -25,6 +23,7 @@ class Data_Handler():
 
         :return: CSV file with metadata header and data body.
         """
+
         datapath = r'../Data/' + filename
 
         with open(datapath, 'w', newline='') as f:
@@ -79,7 +78,6 @@ class Data_Handler():
             dataFrame.to_csv(datapath, mode='a', index=False)
         f.close()
 
-
     def string_to_dataframe(self, string: str):
         """
         Converts Comma delimited string into pandas DataFrame.
@@ -92,6 +90,19 @@ class Data_Handler():
         # Select Column Based on Selected Sensors.
         columns = select_data_columns()
         return pd.DataFrame([x.split(',') for x in string.split(';')], columns=columns)
+
+    def read_data(self, filename: str):
+        """
+        Reads Data from Data File in CSV format into a Pandas DataFrame.
+
+        :param filename: The desired File Name.
+
+        :return: Pandas DataFrame containing Sensor Names and Data.
+        """
+        filename = r'Data/' + filename
+        data_read = pd.read_csv(filename, header=90, index_col=0)
+
+        return data_read
 
 def select_data_columns():
     """
