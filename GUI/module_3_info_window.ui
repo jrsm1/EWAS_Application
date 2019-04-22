@@ -1,0 +1,1411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>899</width>
+    <height>822</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(244, 221, 192);
+color:rgb(0, 0, 0);
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="channel_info_module_name">
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;MODULE 3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="main_tab_sens1_verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="channel_info_sensor1_TITLE_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Sensor 9&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_11">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="main_tab_sens1_formLayout_2">
+           <property name="rowWrapPolicy">
+            <enum>QFormLayout::WrapAllRows</enum>
+           </property>
+           <property name="verticalSpacing">
+            <number>4</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="QLabel" name="channel_info_sensor1_nameLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <spacer name="horizontalSpacer_31">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="channel_info_sensor1_type_Label_3">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="channel_info_sensor1_type_DropDown_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+															color: rgb(0, 0, 0);
+														</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Acceleration</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Geophone</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Velocity</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="channel_info_sensor1_Sensitivity_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Sensitivity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor1_Sensitivity_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>(mV/g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <spacer name="horizontalSpacer_32">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="channel_info_sensor1_frequency_Bandwidth_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Frequency Bandwidth&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor1_frequency_Bandwidth_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Hz</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <spacer name="horizontalSpacer_33">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="channel_info_sensor1_full_Scale_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Full Scale&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor1_full_Scale_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>V</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0" colspan="2">
+            <spacer name="horizontalSpacer_34">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="channel_info_sensor1_dampingLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Damping&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor1_dampingLineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>mV</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0" colspan="2">
+            <spacer name="horizontalSpacer_35">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="13" column="0">
+            <widget class="QLabel" name="channel_info_sensor1_locationLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Localization&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <widget class="QTextEdit" name="channel_info_sensor1_location_Edit_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Where is the Sensor Located?</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor1_nameLineEdit_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Sensor_1</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>538</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="Line" name="line_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="main_tab_sens2_verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="channel_info_sensor2_TITLE_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Sensor 10&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_12">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="main_tab_sens2_formLayout_2">
+           <property name="rowWrapPolicy">
+            <enum>QFormLayout::WrapAllRows</enum>
+           </property>
+           <property name="verticalSpacing">
+            <number>4</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="channel_info_sensor2_nameLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor2_nameLineEdit_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Sensor_2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="channel_info_sensor2_type_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="channel_info_sensor2_type_DropDown_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+															color: rgb(0, 0, 0);
+														</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Acceleration</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Geophone</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Velocity</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <spacer name="horizontalSpacer_36">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="channel_info_sensor2_Sensitivity_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Sensitivity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor2_Sensitivity_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>(mV/g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <spacer name="horizontalSpacer_37">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLabel" name="channel_info_sensor2_frequency_Bandwidth_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Frequency Bandwidth&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor2_frequency_Bandwidth_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Hz</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <spacer name="horizontalSpacer_38">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="channel_info_sensor2_full_Scale_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Full Scale&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor2_full_Scale_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>V</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <spacer name="horizontalSpacer_39">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="channel_info_sensor2_dampingLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Damping&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor2_dampingLineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>mV</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="1">
+            <spacer name="horizontalSpacer_40">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="13" column="0">
+            <widget class="QLabel" name="channel_info_sensor2_location_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Localization&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <widget class="QTextEdit" name="channel_info_sensor2_location_Edit_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Where is the Sensor Located?</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>538</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="Line" name="line_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="main_tab_sens3_verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="channel_info_sensor3_TITLE_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Sensor 11&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_13">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="main_tab_sens3_formLayout_2">
+           <property name="rowWrapPolicy">
+            <enum>QFormLayout::WrapAllRows</enum>
+           </property>
+           <property name="labelAlignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="formAlignment">
+            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+           </property>
+           <property name="verticalSpacing">
+            <number>4</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="QLabel" name="channel_info_sensor3_nameLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor3_nameLineEdit_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Sensor_3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <spacer name="horizontalSpacer_41">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="channel_info_sensor3_type_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="channel_info_sensor3_type_DropDown_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+															color: rgb(0, 0, 0);
+														</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Acceleration</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Geophone</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Velocity</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <spacer name="horizontalSpacer_42">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="channel_info_sensor3_Sensitivity_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Sensitivity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor3_Sensitivity_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>(mV/g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <spacer name="horizontalSpacer_43">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLabel" name="channel_info_sensor3_frequency_Bandwidth_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Frequency Bandwidth&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor3_frequency_Bandwidth_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Hz</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <spacer name="horizontalSpacer_44">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="channel_info_sensor3_full_Scale_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Full Scale&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor3_full_scale_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>V</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <spacer name="horizontalSpacer_45">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="12" column="0">
+            <widget class="QLabel" name="channel_info_sensor3_dampingLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Damping&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor3_dampingLineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>mV</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <spacer name="horizontalSpacer_46">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="14" column="0">
+            <widget class="QLabel" name="channel_info_sensor3_location_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Localization&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="1">
+            <widget class="QTextEdit" name="channel_info_sensor3_location_Edit_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Where is the Sensor Located?</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>538</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="Line" name="line_14">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="main_tab_sens4_verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="channel_info_sensor4_TITLE_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Sensor 12&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_15">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="main_tab_sens4_formLayout_2">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
+           <property name="rowWrapPolicy">
+            <enum>QFormLayout::WrapAllRows</enum>
+           </property>
+           <property name="verticalSpacing">
+            <number>4</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="QLabel" name="channel_info_sensor4_nameLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt; Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor4_nameLineEdit_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Sensor_4</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <spacer name="horizontalSpacer_47">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="channel_info_sensor4_type_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="channel_info_sensor4_type_DropDown_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+															color: rgb(0, 0, 0);
+														</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Acceleration</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Geophone</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Velocity</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Temperature</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <spacer name="horizontalSpacer_48">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="channel_info_sensor4_Sensitivity_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Sensitivity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor4_Sensitivity_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>(mV/g)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="2">
+            <spacer name="horizontalSpacer_49">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="channel_info_sensor4_frequency_Bandwidth_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Frequency Bandwidth&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor4_frequency_Bandwidth_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Hz</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <spacer name="horizontalSpacer_50">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="channel_info_sensor4_full_Scale_Label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Full Scale&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLineEdit" name="channel_info_senson4_full_Scale_LineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>V</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <spacer name="horizontalSpacer_51">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="1">
+            <widget class="QLabel" name="channel_info_sensor4_dampingLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Damping&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="1">
+            <widget class="QLineEdit" name="channel_info_sensor4_dampingLineEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>mV</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <spacer name="horizontalSpacer_52">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="14" column="0">
+            <widget class="QLabel" name="channel_info_ensor4_LocalizationLabel_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
+															style=&quot; font-size:12pt;&quot;&gt;Localization&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+														</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="1">
+            <widget class="QPlainTextEdit" name="channel_info_sensor4_location_Edit_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+															color: rgb(0, 0, 0);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="placeholderText">
+              <string>Where is the Sensor Located?</string>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="1">
+            <spacer name="horizontalSpacer_53">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="17" column="1">
+            <spacer name="horizontalSpacer_54">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="18" column="1">
+            <widget class="QPushButton" name="channel_info_SAVE_Button_2">
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(204, 51, 0);
+															color: rgb(255, 255, 255);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
+             </property>
+             <property name="text">
+              <string>Save Module Information</string>
+             </property>
+            </widget>
+           </item>
+           <item row="16" column="1">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="Line" name="line_16">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

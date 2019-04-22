@@ -190,32 +190,34 @@ def disable_module_selection_buttons(connected_modules: []):
                                                   'font: 12pt "MS Shell Dlg 2";')
 
 
-def show_channel_info_window(channel: int):
+def show_channel_info_window(module: int):
     """
-        Opens Channel Information Window
+    Opens Channel Information Window based on module selection button press.
+
+    :param module: The module list index [MODULE NAME - 1]
     """
-    # TODO ENABLE MODULE SELECTION BUTTONS BASED ON CONNECTED SENSORS.
+
     # LATER TODO SAVE CORRECT VALUES FOR CHANNEL.
 
     # Close Mosule Selection Window now as it will not do anything. --> Open after module settings are saved.
     mod_sel_win.close()
 
     # Decide which Module the user has selected.
-    if channel == 0:
+    if module == 0:
         module_1_info_win.show()
-    elif channel == 1:
+    elif module == 1:
         module_2_info_win.show()
-    elif channel == 2:
+    elif module == 2:
         module_3_info_win.show()
-    elif channel == 3:
+    elif module == 3:
         module_4_info_win.show()
-    elif channel == 4:
+    elif module == 4:
         module_5_info_win.show()
-    elif channel == 5:
+    elif module == 5:
         module_6_info_win.show()
-    elif channel == 6:
+    elif module == 6:
         module_7_info_win.show()
-    elif channel == 7:
+    elif module == 7:
         module_8_info_win.show()
 
 
@@ -1208,7 +1210,7 @@ def change_local_allowed():
         loc_specimen_frame.setEnabled(True)
 
 
-# ---------------------------------------------- CHANNEL INFORMATION----------------------------------------------------
+# ---------------------------------------------- MODULE INFORMATION----------------------------------------------------
 # """
 # Loads fields from Channel info data structure into GUI.
 # """
