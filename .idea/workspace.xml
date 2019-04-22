@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="Cleaned up gGUI_Handler a bit. made serial verification more robust">
-      <change beforePath="$PROJECT_DIR$/.idea/EWAS_Application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EWAS_Application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/filename_editor_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/filename_editor_window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/Channel_Info_Window.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/channel_info_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/channel_info_window.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="731" column="23" selection-start-line="731" selection-start-column="23" selection-end-line="731" selection-end-column="23" />
+            <state relative-caret-position="577">
+              <caret line="187" column="68" selection-start-line="187" selection-start-column="68" selection-end-line="187" selection-end-column="83" />
               <folding>
                 <element signature="e#540#723#0" />
                 <element signature="e#540#653#1" />
@@ -32,19 +31,8 @@
                 <element signature="e#5147#5218#1" />
                 <element signature="e#5285#5389#0" />
                 <element signature="e#5285#5356#1" />
-                <element signature="e#5432#5536#0" />
                 <element signature="e#5432#5513#1" />
-                <element signature="e#5587#11776#0" />
                 <element signature="e#5587#5639#1" />
-                <element signature="e#5644#5710#0" />
-                <element signature="e#6028#6709#0" />
-                <element signature="e#6741#7422#0" />
-                <element signature="e#7454#8141#0" />
-                <element signature="e#8173#8863#0" />
-                <element signature="e#8895#9584#0" />
-                <element signature="e#9616#10305#0" />
-                <element signature="e#10337#11026#0" />
-                <element signature="e#11058#11747#0" />
                 <element signature="e#11816#12048#0" />
                 <element signature="e#11816#11879#1" />
                 <element signature="e#12095#12398#0" />
@@ -120,10 +108,12 @@
                 <element signature="e#28900#28972#0" />
                 <element signature="e#29022#29123#0" />
                 <element signature="e#29022#29063#1" />
-                <element signature="e#29154#29710#0" />
+                <element signature="e#30500#31029#0" />
                 <element signature="e#29294#29613#0" />
                 <element signature="e#29734#29973#0" />
                 <element signature="e#29884#29937#0" />
+                <element signature="e#30023#32101#0" />
+                <element signature="e#30081#31956#0" />
                 <element signature="e#30267#30414#0" />
                 <element signature="e#30464#30611#0" />
                 <element signature="e#30661#30811#0" />
@@ -132,20 +122,20 @@
                 <element signature="e#31263#31414#0" />
                 <element signature="e#31464#31615#0" />
                 <element signature="e#31665#31816#0" />
-                <element signature="e#32011#32434#0" />
+                <element signature="e#33311#33363#0" />
+                <element signature="e#33412#33835#0" />
                 <element signature="e#32062#32316#0" />
-                <element signature="e#32360#32434#0" />
+                <element signature="e#33761#33835#0" />
                 <element signature="e#32497#32689#0" />
                 <element signature="e#32691#32729#1" />
                 <element signature="e#36338#36908#0" />
                 <element signature="e#38573#39143#0" />
-                <element signature="e#40281#40298#0" />
                 <element signature="e#44768#44832#0" />
-                <element signature="e#44694#45322#0" />
+                <element signature="e#46392#46993#0" />
                 <element signature="e#44694#44784#1" />
                 <element signature="e#44852#45225#0" />
                 <element signature="e#44964#45010#0" />
-                <element signature="e#45362#45793#0" />
+                <element signature="e#47032#47436#0" />
                 <element signature="e#45362#45572#1" />
                 <element signature="e#45590#45696#0" />
                 <element signature="e#45823#46067#0" />
@@ -231,6 +221,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
@@ -284,9 +283,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main_tab_DAQParams_Cutoff_Frequency_LineEdit</find>
-      <find>daq_adc</find>
-      <find>disable_main_window</find>
       <find>filename</find>
       <find>filenam</find>
       <find>sensor_selection_DONE_Bbutton</find>
@@ -314,6 +310,9 @@
       <find>cutoff</find>
       <find>dropdown</find>
       <find>filename_input</find>
+      <find>exce</find>
+      <find>show_not_connected_error</find>
+      <find>send_request_number_of_mods_connected</find>
     </findStrings>
     <replaceStrings>
       <replace>config</replace>
@@ -377,7 +376,6 @@
         <option value="$PROJECT_DIR$/GUI/filename_editor_window.ui" />
         <option value="$PROJECT_DIR$/GUI/main_window.ui" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/serialwin32.py" />
-        <option value="$PROJECT_DIR$/Important_Documents/Commit_Comments" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
         <option value="$PROJECT_DIR$/GUI/Error_Dialog.py" />
         <option value="$PROJECT_DIR$/Settings/Store Settings.ipynb" />
@@ -386,6 +384,7 @@
         <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
         <option value="$PROJECT_DIR$/Config/DAQ/Default_Configuration.csv" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
+        <option value="$PROJECT_DIR$/Important_Documents/Commit_Comments" />
         <option value="$PROJECT_DIR$/GUI_Handler.py" />
       </list>
     </option>
@@ -942,7 +941,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555870171250</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="* [X] Sampling Frequency Suggestion&#10;&#10;$ [X] $ Bug where Main Selection Matrix shows when not connected.">
+      <created>1555901968195</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1555901968195</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView">
@@ -963,8 +969,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3281412" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" weight="0.21079959" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.26272067" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.21079959" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.26272067" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24918744" />
@@ -1039,7 +1045,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- [X] Reformatted Some Code.&#10;- [X] Changes Plot methods to correct size and color.&#10;- [X] Correctly Improving performance on rendering plots." />
     <MESSAGE value="- [X] Reformatted Some Code.&#10;- [X] Added .ui Windows&#10;- [X] imported objects for most windows( EXCLUDING main window)" />
     <MESSAGE value="- [X] Added .ui Windows&#10;- [X] imported objects for all windows" />
     <MESSAGE value="Commit_Comments Update" />
@@ -1064,16 +1069,12 @@
     <MESSAGE value="Removed calls to test_ID" />
     <MESSAGE value="Fixed bug that cropped latitude and longitude" />
     <MESSAGE value="Cleaned up gGUI_Handler a bit. made serial verification more robust" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up gGUI_Handler a bit. made serial verification more robust" />
+    <MESSAGE value="* [X] Sampling Frequency Suggestion&#10;&#10;$ [X] $ Bug where Main Selection Matrix shows when not connected." />
+    <option name="LAST_COMMIT_MESSAGE" value="* [X] Sampling Frequency Suggestion&#10;&#10;$ [X] $ Bug where Main Selection Matrix shows when not connected." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/Channel_Info_Window.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Data_Processing/Plot_Data.py</url>
           <line>46</line>
@@ -1086,12 +1087,12 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1119</line>
+          <line>1122</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1125</line>
+          <line>1128</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -1106,13 +1107,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>243</line>
+          <line>226</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>660</line>
+          <line>644</line>
           <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
+          <line>200</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
+          <line>186</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1579,13 +1590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1703,10 +1707,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="731" column="23" selection-start-line="731" selection-start-column="23" selection-end-line="731" selection-end-column="23" />
+        <state relative-caret-position="577">
+          <caret line="187" column="68" selection-start-line="187" selection-start-column="68" selection-end-line="187" selection-end-column="83" />
           <folding>
             <element signature="e#540#723#0" />
             <element signature="e#540#653#1" />
@@ -1718,19 +1729,8 @@
             <element signature="e#5147#5218#1" />
             <element signature="e#5285#5389#0" />
             <element signature="e#5285#5356#1" />
-            <element signature="e#5432#5536#0" />
             <element signature="e#5432#5513#1" />
-            <element signature="e#5587#11776#0" />
             <element signature="e#5587#5639#1" />
-            <element signature="e#5644#5710#0" />
-            <element signature="e#6028#6709#0" />
-            <element signature="e#6741#7422#0" />
-            <element signature="e#7454#8141#0" />
-            <element signature="e#8173#8863#0" />
-            <element signature="e#8895#9584#0" />
-            <element signature="e#9616#10305#0" />
-            <element signature="e#10337#11026#0" />
-            <element signature="e#11058#11747#0" />
             <element signature="e#11816#12048#0" />
             <element signature="e#11816#11879#1" />
             <element signature="e#12095#12398#0" />
@@ -1806,10 +1806,12 @@
             <element signature="e#28900#28972#0" />
             <element signature="e#29022#29123#0" />
             <element signature="e#29022#29063#1" />
-            <element signature="e#29154#29710#0" />
+            <element signature="e#30500#31029#0" />
             <element signature="e#29294#29613#0" />
             <element signature="e#29734#29973#0" />
             <element signature="e#29884#29937#0" />
+            <element signature="e#30023#32101#0" />
+            <element signature="e#30081#31956#0" />
             <element signature="e#30267#30414#0" />
             <element signature="e#30464#30611#0" />
             <element signature="e#30661#30811#0" />
@@ -1818,20 +1820,20 @@
             <element signature="e#31263#31414#0" />
             <element signature="e#31464#31615#0" />
             <element signature="e#31665#31816#0" />
-            <element signature="e#32011#32434#0" />
+            <element signature="e#33311#33363#0" />
+            <element signature="e#33412#33835#0" />
             <element signature="e#32062#32316#0" />
-            <element signature="e#32360#32434#0" />
+            <element signature="e#33761#33835#0" />
             <element signature="e#32497#32689#0" />
             <element signature="e#32691#32729#1" />
             <element signature="e#36338#36908#0" />
             <element signature="e#38573#39143#0" />
-            <element signature="e#40281#40298#0" />
             <element signature="e#44768#44832#0" />
-            <element signature="e#44694#45322#0" />
+            <element signature="e#46392#46993#0" />
             <element signature="e#44694#44784#1" />
             <element signature="e#44852#45225#0" />
             <element signature="e#44964#45010#0" />
-            <element signature="e#45362#45793#0" />
+            <element signature="e#47032#47436#0" />
             <element signature="e#45362#45572#1" />
             <element signature="e#45590#45696#0" />
             <element signature="e#45823#46067#0" />

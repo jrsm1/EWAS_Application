@@ -22,24 +22,42 @@ def show_error(message: str):
     QtWidgets.QMessageBox().critical(main_window, 'WARNING', message)
 
 
+def show_not_connected_error():
+    show_error(not_connected_error_string)
+
+
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/main_window.ui")
-channel_info_win = uic.loadUi("GUI/channel_info_window.ui")
 prog_dlg = uic.loadUi("GUI/progress_dialog_v1.ui")
 viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
 main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
 mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
 file_sys_win = uic.loadUi('GUI/file_system_window.ui')
 filename_input_win = uic.loadUi('GUI/filename_editor_window.ui')
+module_1_info_win = uic.loadUi("GUI/module_1_info_window.ui")
+module_2_info_win = uic.loadUi("GUI/module_2_info_window.ui")
+module_3_info_win = uic.loadUi("GUI/module_3_info_window.ui")
+module_4_info_win = uic.loadUi("GUI/module_4_info_window.ui")
+module_5_info_win = uic.loadUi("GUI/module_5_info_window.ui")
+module_6_info_win = uic.loadUi("GUI/module_6_info_window.ui")
+module_7_info_win = uic.loadUi("GUI/module_7_info_window.ui")
+module_8_info_win = uic.loadUi("GUI/module_8_info_window.ui")
 
 main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-channel_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 prog_dlg.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 main_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 mod_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_1_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_2_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_3_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_4_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_5_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_6_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_7_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_8_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
 # Init Instances of all classes for reference
 sens_1 = Sensor_Individual.Sensor('Sensor 1', 0)
@@ -97,12 +115,15 @@ setting_data_manager = set_dat_man.Setting_File_Manager(daq_con=daq_config, mod_
 # TESTING purposes
 log = 1
 log_working = 0
+
+# Global Variables.
+not_connected_error_string = 'Device is not Connected. <br> Please Try Again.'
 daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
 duration = 0
-daq_exp_name = ""
-daq_exp_location = ""
+daq_exp_name = ''
+daq_exp_location = ''
 daq_start_delay = 0
 # status global variables
 recorded = 0
@@ -110,6 +131,7 @@ stored = 0
 gps_sync = 0
 keep_alive = True
 ins_port = 'COM-1'
+
 
 def show_main_window():
     """
@@ -137,7 +159,35 @@ def open_module_selection_window():
     Opens Module Selection Window.
     Done before Channel Selection.
     """
+
+    # Diable not connected modules.
+    connected_modules = [0, 0, 0, 0, 0, 0, 0, 0]
+    try:
+        im = ins_man.instruction_manager(ins_port)
+        connected_modules = im.send_request_number_of_mods_connected()
+        disable_module_selection_buttons(connected_modules)
+        mod_sel_win.show()
+    except serial.SerialException:
+        show_not_connected_error()
+
+    disable_module_selection_buttons(connected_modules)
+
     mod_sel_win.show()
+
+
+def disable_module_selection_buttons(connected_modules: []):
+    """
+    Disales not connected sensor buttons from Module Selection Window.
+
+    :param connected_modules: List Containing each module state.
+    """
+
+    for val in range(8):
+        if not connected_modules[val]:
+            module_button_list[val].setEnabled(False)
+            module_button_list[val].setStyleSheet('background-color:rgb(244, 166, 142);'
+                                                  'color: rgb(255, 255, 255);'
+                                                  'font: 12pt "MS Shell Dlg 2";')
 
 
 def show_channel_info_window(channel: int):
@@ -150,90 +200,23 @@ def show_channel_info_window(channel: int):
     # Close Mosule Selection Window now as it will not do anything. --> Open after module settings are saved.
     mod_sel_win.close()
 
-    chan_mod_name.setTextFormat(1)  # Qt::RichText	1
     # Decide which Module the user has selected.
     if channel == 0:
-        chan_mod_name.setText('Module 1')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 1')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_1')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 2')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_2')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 3')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_3')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 4')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_4')
+        module_1_info_win.show()
     elif channel == 1:
-        chan_mod_name.setText('Module 2')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 5')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_5')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 6')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_6')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 7')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_7')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 8')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_8')
+        module_2_info_win.show()
     elif channel == 2:
-        chan_mod_name.setText('Module 3')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 9')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_9')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 10')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_10')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 11')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_11')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 12')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_12')
+        module_3_info_win.show()
     elif channel == 3:
-        chan_mod_name.setText('Module 4')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 13')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_13')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 14 ')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_14')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 15')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_15')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 16')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_16')
+        module_4_info_win.show()
     elif channel == 4:
-        chan_mod_name.setText('Module 5')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 17')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_17')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 18')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_18')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 19')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_19')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 20')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_20')
+        module_5_info_win.show()
     elif channel == 5:
-        chan_mod_name.setText('Module 6')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 21')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_21')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 22')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_22')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 23')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_23')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 24')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_24')
+        module_6_info_win.show()
     elif channel == 6:
-        chan_mod_name.setText('Module 7')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 25')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_25')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 26')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_26')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 27')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_27')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 28')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_28')
+        module_7_info_win.show()
     elif channel == 7:
-        chan_mod_name.setText('Module 8')
-        channel_info_win.channel_info_sensor1_TITLE.setText('Sensor 29')
-        channel_info_win.channel_info_sensor1_nameLineEdit.setPlaceholderText('Sensor_29')
-        channel_info_win.channel_info_sensor2_TITLE.setText('Sensor 30')
-        channel_info_win.channel_info_sensor2_nameLineEdit.setPlaceholderText('Sensor_30')
-        channel_info_win.channel_info_sensor3_TITLE.setText('Sensor 31')
-        channel_info_win.channel_info_sensor3_nameLineEdit.setPlaceholderText('Sensor_31')
-        channel_info_win.channel_info_sensor4_TITLE.setText('Sensor 32')
-        channel_info_win.channel_info_sensor4_nameLineEdit.setPlaceholderText('Sensor_32')
-
-    channel_info_win.show()
+        module_8_info_win.show()
 
 
 def show_main_sens_sel_window():
@@ -385,7 +368,8 @@ def get_daq_params_from_gui():
     Gets information on GUI into DAQ Parameters Data Structures.
     """
     daq_config.signal_configs['sampling_rate'] = main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex()
-    daq_config.signal_configs['cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
+    daq_config.signal_configs[
+        'cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
     daq_config.signal_configs['signal_gain'] = main_window.main_tab_DAQParams_gain_DropDown.currentIndex()
 
 
@@ -640,7 +624,7 @@ def sensor_sel_start():
         if log:
             print("came back to sensor_sel_start")
     except serial.SerialException:
-        show_error('Device Not Connected. Please try again.')
+        show_not_connected_error()
 
 
 def save_port():
@@ -707,7 +691,7 @@ def enable_main_start_connected_sensors():
         # If not Connected to not continue.
     except serial.SerialException:
         continuar = False
-        show_error('Device Not Connected. Please try again.')
+        show_not_connected_error()
 
     return continuar
 
@@ -724,58 +708,60 @@ def check_status():
             print("status = " + str(status))
         return status
     except serial.SerialException:
-        show_error('Device Not Connected. Please try again.')
+        show_not_connected_error()
         return False
 
 
 # trying a close event function
 def close_event(event):
     if log: print("entered main window close")
-    if log: print("final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_sync))
+    if log: print(
+        "final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_sync))
     main_window.close()
+
 
 """
 Add default functionality here
 """
 # Channel Info Window.
-channel_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info())
-chan_mod_name = channel_info_win.channel_info_module_name
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info())
+chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
-channel_info_win.channel_info_sensor1_Sensitivity_LineEdit
-channel_info_win.channel_info_sensor1_dampingLineEdit
-channel_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
-channel_info_win.channel_info_sensor1_full_Scale_LineEdit
-channel_info_win.channel_info_sensor1_location_Edit
-channel_info_win.channel_info_sensor1_nameLineEdit
-channel_info_win.channel_info_sensor1_TITLE
-channel_info_win.channel_info_sensor1_type_DropDown
+module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_1_info_win.channel_info_sensor1_location_Edit
+module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_1_info_win.channel_info_sensor1_type_DropDown
 # Ch 2
-channel_info_win.channel_info_sensor2_dampingLineEdit
-channel_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
-channel_info_win.channel_info_sensor2_Sensitivity_LineEdit
-channel_info_win.channel_info_sensor2_nameLineEdit
-channel_info_win.channel_info_sensor2_type_DropDown
-channel_info_win.channel_info_sensor2_TITLE
-channel_info_win.channel_info_sensor2_location_Edit
-channel_info_win.channel_info_sensor2_full_Scale_LineEdit
+module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_1_info_win.channel_info_sensor2_nameLineEdit
+module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_1_info_win.channel_info_sensor2_location_Edit
+module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
 # Ch 3
-channel_info_win.channel_info_sensor3_nameLineEdit
-channel_info_win.channel_info_sensor3_type_DropDown
-channel_info_win.channel_info_sensor3_Sensitivity_LineEdit
-channel_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
-channel_info_win.channel_info_sensor3_full_scale_LineEdit
-channel_info_win.channel_info_sensor3_dampingLineEdit
-channel_info_win.channel_info_sensor3_location_Edit
-channel_info_win.channel_info_sensor3_TITLE
+module_1_info_win.channel_info_sensor3_nameLineEdit
+module_1_info_win.channel_info_sensor3_type_DropDown
+module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
 # Ch 4
-channel_info_win.channel_info_sensor4_nameLineEdit
-channel_info_win.channel_info_sensor4_type_DropDown
-channel_info_win.channel_info_sensor4_Sensitivity_LineEdit
-channel_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
-channel_info_win.channel_info_senson4_full_Scale_LineEdit
-channel_info_win.channel_info_sensor4_location_Edit
-channel_info_win.channel_info_sensor4_dampingLineEdit
-channel_info_win.channel_info_sensor4_TITLE
+module_1_info_win.channel_info_sensor4_nameLineEdit
+module_1_info_win.channel_info_sensor4_type_DropDown
+module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_1_info_win.channel_info_sensor4_location_Edit
+module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
 
 # Visualize Sensor Selection
 viz_sensor_sel_win.sensor_selection_Save_Plot_Data_checkBox
@@ -814,12 +800,16 @@ viz_sens_29 = viz_sensor_sel_win.Sensor_29
 viz_sens_30 = viz_sensor_sel_win.Sensor_30
 viz_sens_31 = viz_sensor_sel_win.Sensor_31
 viz_sens_32 = viz_sensor_sel_win.Sensor_32
-visualization_sensor_selection_list = [viz_sens_1, viz_sens_2, viz_sens_3, viz_sens_4, viz_sens_5, viz_sens_6, viz_sens_7, viz_sens_8,
-                              viz_sens_9, viz_sens_10, viz_sens_11, viz_sens_12, viz_sens_13, viz_sens_14, viz_sens_15,
-                              viz_sens_15, viz_sens_16, viz_sens_17, viz_sens_18, viz_sens_19, viz_sens_20, viz_sens_21,
-                              viz_sens_22, viz_sens_23, viz_sens_24, viz_sens_25, viz_sens_26, viz_sens_27, viz_sens_28,
-                              viz_sens_29, viz_sens_30, viz_sens_31,
-                              viz_sens_32]  # Used to get values easily (goes from 0 to 31)
+visualization_sensor_selection_list = [viz_sens_1, viz_sens_2, viz_sens_3, viz_sens_4, viz_sens_5, viz_sens_6,
+                                       viz_sens_7, viz_sens_8,
+                                       viz_sens_9, viz_sens_10, viz_sens_11, viz_sens_12, viz_sens_13, viz_sens_14,
+                                       viz_sens_15,
+                                       viz_sens_15, viz_sens_16, viz_sens_17, viz_sens_18, viz_sens_19, viz_sens_20,
+                                       viz_sens_21,
+                                       viz_sens_22, viz_sens_23, viz_sens_24, viz_sens_25, viz_sens_26, viz_sens_27,
+                                       viz_sens_28,
+                                       viz_sens_29, viz_sens_30, viz_sens_31,
+                                       viz_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
@@ -857,7 +847,8 @@ win_sens_29 = main_sensor_sel_win.Sensor_29
 win_sens_30 = main_sensor_sel_win.Sensor_30
 win_sens_31 = main_sensor_sel_win.Sensor_31
 win_sens_32 = main_sensor_sel_win.Sensor_32
-main_sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, win_sens_5, win_sens_6, win_sens_7, win_sens_8,
+main_sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, win_sens_5, win_sens_6, win_sens_7,
+                              win_sens_8,
                               win_sens_9, win_sens_10, win_sens_11, win_sens_12, win_sens_13, win_sens_14, win_sens_15,
                               win_sens_15, win_sens_16, win_sens_17, win_sens_18, win_sens_19, win_sens_20, win_sens_21,
                               win_sens_22, win_sens_23, win_sens_24, win_sens_25, win_sens_26, win_sens_27, win_sens_28,
@@ -870,15 +861,24 @@ dlg_prog_bar = prog_dlg.progress_dialog_progressBar
 dlg_title = prog_dlg.progress_dialog_title
 
 # Select Module for Channel Info.
-mod_sel_win.module_selection_Module1.clicked.connect(lambda: show_channel_info_window(0))
-mod_sel_win.module_selection_Module2.clicked.connect(lambda: show_channel_info_window(1))
-mod_sel_win.module_selection_Module3.clicked.connect(lambda: show_channel_info_window(2))
-mod_sel_win.module_selection_Module4.clicked.connect(lambda: show_channel_info_window(3))
-mod_sel_win.module_selection_Module5.clicked.connect(lambda: show_channel_info_window(4))
-mod_sel_win.module_selection_Module6.clicked.connect(lambda: show_channel_info_window(5))
-mod_sel_win.module_selection_Module7.clicked.connect(lambda: show_channel_info_window(6))
-mod_sel_win.module_selection_Module8.clicked.connect(lambda: show_channel_info_window(7))
-
+mod_1_button = mod_sel_win.module_selection_Module1
+mod_1_button.clicked.connect(lambda: show_channel_info_window(0))
+mod_2_button = mod_sel_win.module_selection_Module2
+mod_2_button.clicked.connect(lambda: show_channel_info_window(1))
+mod_3_button = mod_sel_win.module_selection_Module3
+mod_3_button.clicked.connect(lambda: show_channel_info_window(2))
+mod_4_button = mod_sel_win.module_selection_Module4
+mod_4_button.clicked.connect(lambda: show_channel_info_window(3))
+mod_5_button = mod_sel_win.module_selection_Module5
+mod_5_button.clicked.connect(lambda: show_channel_info_window(4))
+mod_6_button = mod_sel_win.module_selection_Module6
+mod_6_button.clicked.connect(lambda: show_channel_info_window(5))
+mod_7_button = mod_sel_win.module_selection_Module7
+mod_7_button.clicked.connect(lambda: show_channel_info_window(6))
+mod_8_button = mod_sel_win.module_selection_Module8
+mod_8_button.clicked.connect(lambda: show_channel_info_window(7))
+module_button_list = [mod_1_button, mod_2_button, mod_3_button, mod_4_button, mod_5_button, mod_6_button,
+                      mod_7_button, mod_8_button]
 # File System
 file_sys_win.file_system_treeView
 file_sys_win.file_system_OPEN_button
@@ -906,7 +906,7 @@ main_window.main_tab_LocalizationSettings_latitudLineEdit
 main_window.main_tab_LocalizationSettings_hourLineEdit
 main_window.main_tab_LocalizationSettings_minutesLineEdit
 main_window.main_tab_LocalizationSettings_secondsLineEdit
-#connecting close event
+# connecting close event
 main_window.closeEvent = close_event
 
 loc_gps_frame = main_window.main_tab_location_gps_frame
@@ -947,13 +947,15 @@ main_window.visualize_tab_COHERE_button.clicked.connect(
     lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
 # File Name
 fn_in = filename_input_win.filename_lineEdit
-# fn_in.returnPressed(lambda: do_saving_loading_action())  # FIXME - TypeError: native Qt signal is not callable
+fn_in.returnPressed.connect(lambda: do_saving_loading_action())  # FIXME - TypeError: native Qt signal is not callable
 fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_saving_loading_action())
 fn_CANCEL_bton = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
+
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
 def suggest_sampling_freq():
     samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
+
 
 def action_begin_recording():
     """
@@ -971,7 +973,7 @@ def action_begin_recording():
         # Show Progress Dialog
         show_progress_dialog('Data')
     except serial.SerialException:
-        show_error('Device Not Connected. Please try again.')
+        show_not_connected_error()
 
 
 def action_cancel_everything():
@@ -986,7 +988,7 @@ def action_cancel_everything():
         ins.send_cancel_request()
         enable_main_window()
     except serial.SerialException:
-        show_error('Device Not Connected. Please try again.')
+        show_not_connected_error()
 
 
 def ask_for_sensors():
@@ -1059,6 +1061,7 @@ def decide_who_to_load(instruction: int):
         action_load_Location()
     elif instruction == 3:
         action_load_DAQ_Params()
+
 
 # ****** ACTIONS STORE/LOAD **********
 
@@ -1171,7 +1174,7 @@ def sync_gps():  # TODO TEST
             ins.send_gps_data_request()
             set_gps_into_gui()
     except serial.SerialException:
-        show_error('Device Not Connected. Please try again.')
+        show_not_connected_error()
     prog_dlg.close()
 
 
@@ -1203,6 +1206,7 @@ def change_local_allowed():
     elif loc_type_dropdown.currentIndex() == 1:  # Specimen
         loc_gps_frame.setEnabled(False)
         loc_specimen_frame.setEnabled(True)
+
 
 # ---------------------------------------------- CHANNEL INFORMATION----------------------------------------------------
 # """
@@ -1306,6 +1310,7 @@ def plot_cohere(filename: str):
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot(
         'COHERENCE')  # TODO SWITCH TO TEMP FILE.
+
 
 def init():
     """
