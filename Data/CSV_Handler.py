@@ -99,10 +99,26 @@ class Data_Handler():
 
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
-        filename = r'Data/' + filename
+        filename = r'../Data/' + filename
         data_read = pd.read_csv(filename, header=90, index_col=0)
 
         return data_read
+
+    def data_to_string(self, filename):
+        """
+        Reads Data from CSV file and converts it to comma and semi-colon separated STRING
+
+        :param filename: The desired File Name to read from.
+
+        :return: comma and semi-colon separated STRING
+        """
+        string = self.read_data(filename).head().to_string().split('\n')
+
+        result = ''
+        for x in [','.join(ele.split()) for ele in string]:
+            result += x + ';'
+
+        return result
 
 def select_data_columns():
     """
@@ -120,45 +136,45 @@ def select_data_columns():
     sensor_list = ['Timestamp']
     if log: print("CSV_Handler - entered Select sensor Headers")
     if connected_module_list[0]:
-        sensor_list.append('Sensor 1')
-        sensor_list.append('Sensor 2')
-        sensor_list.append('Sensor 3')
-        sensor_list.append('Sensor 4')
+        sensor_list.append('Sensor_1')
+        sensor_list.append('Sensor_2')
+        sensor_list.append('Sensor_3')
+        sensor_list.append('Sensor_4')
     if connected_module_list[1]:
-        sensor_list.append('Sensor 5')
-        sensor_list.append('Sensor 6')
-        sensor_list.append('Sensor 7')
-        sensor_list.append('Sensor 8')
+        sensor_list.append('Sensor_5')
+        sensor_list.append('Sensor_6')
+        sensor_list.append('Sensor_7')
+        sensor_list.append('Sensor_8')
     if connected_module_list[2]:
-        sensor_list.append('Sensor 9')
-        sensor_list.append('Sensor 10')
-        sensor_list.append('Sensor 11')
-        sensor_list.append('Sensor 12')
+        sensor_list.append('sensor_9')
+        sensor_list.append('sensor_10')
+        sensor_list.append('sensor_11')
+        sensor_list.append('sensor_12')
     if connected_module_list[3]:
-        sensor_list.append('Sensor 13')
-        sensor_list.append('Sensor 14')
-        sensor_list.append('Sensor 15')
-        sensor_list.append('Sensor 16')
+        sensor_list.append('sensor_13')
+        sensor_list.append('sensor_14')
+        sensor_list.append('sensor_15')
+        sensor_list.append('sensor_16')
     if connected_module_list[4]:
-        sensor_list.append('Sensor 17')
-        sensor_list.append('Sensor 18')
-        sensor_list.append('Sensor 19')
-        sensor_list.append('Sensor 20')
+        sensor_list.append('sensor_17')
+        sensor_list.append('sensor_18')
+        sensor_list.append('sensor_19')
+        sensor_list.append('sensor_20')
     if connected_module_list[5]:
-        sensor_list.append('Sensor 21')
-        sensor_list.append('Sensor 22')
-        sensor_list.append('Sensor 23')
-        sensor_list.append('Sensor 24')
+        sensor_list.append('sensor_21')
+        sensor_list.append('sensor_22')
+        sensor_list.append('sensor_23')
+        sensor_list.append('sensor_24')
     if connected_module_list[6]:
-        sensor_list.append('Sensor 25')
-        sensor_list.append('Sensor 26')
-        sensor_list.append('Sensor 27')
-        sensor_list.append('Sensor 28')
+        sensor_list.append('sensor_25')
+        sensor_list.append('sensor_26')
+        sensor_list.append('sensor_27')
+        sensor_list.append('sensor_28')
     if connected_module_list[7]:
-        sensor_list.append('Sensor 29')
-        sensor_list.append('Sensor 30')
-        sensor_list.append('Sensor 31')
-        sensor_list.append('Sensor 32')
+        sensor_list.append('sensor_29')
+        sensor_list.append('sensor_30')
+        sensor_list.append('sensor_31')
+        sensor_list.append('sensor_32')
     if log: print("CSV_Handler - got out of Select sensor Headers")
 
     return sensor_list
@@ -194,3 +210,6 @@ dh = Data_Handler([cc,cc,cc,cc,cc,cc,cc,cc], dc)
 
 data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
 dh.store_data('Testing.csv', data)
+print(dh.data_to_string('Testing.csv'))
+
+
