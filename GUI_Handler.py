@@ -1,6 +1,7 @@
 # import PyQt5
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QFileDialog
 from time import sleep
 import sys
 import serial
@@ -27,37 +28,37 @@ def show_not_connected_error():
 
 
 app = QtWidgets.QApplication([])
-main_window = uic.loadUi("GUI/main_window.ui")
+main_window = uic.loadUi("GUI/Qt_Files/main_window.ui")
 prog_dlg = uic.loadUi("GUI/progress_dialog_v1.ui")
 viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
-main_sensor_sel_win = uic.loadUi('GUI/main_sensor_selection_matrix.ui')
+main_sensor_sel_win = uic.loadUi('GUI/Qt_Files/main_sensor_selection_matrix.ui')
 mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
-file_sys_win = uic.loadUi('GUI/file_system_window.ui')
-filename_input_win = uic.loadUi('GUI/filename_editor_window.ui')
-module_1_info_win = uic.loadUi("GUI/module_1_info_window.ui")
-module_2_info_win = uic.loadUi("GUI/module_2_info_window.ui")
-module_3_info_win = uic.loadUi("GUI/module_3_info_window.ui")
-module_4_info_win = uic.loadUi("GUI/module_4_info_window.ui")
-module_5_info_win = uic.loadUi("GUI/module_5_info_window.ui")
-module_6_info_win = uic.loadUi("GUI/module_6_info_window.ui")
-module_7_info_win = uic.loadUi("GUI/module_7_info_window.ui")
-module_8_info_win = uic.loadUi("GUI/module_8_info_window.ui")
+file_sys_win = uic.loadUi('GUI/Qt_Files/file_system_window.ui')
+filename_input_win = uic.loadUi('GUI/Qt_Files/filename_editor_window.ui')
+module_1_info_win = uic.loadUi("GUI/Qt_Files/module_1_info_window.ui")
+module_2_info_win = uic.loadUi("GUI/Qt_Files/module_2_info_window.ui")
+module_3_info_win = uic.loadUi("GUI/Qt_Files/module_3_info_window.ui")
+module_4_info_win = uic.loadUi("GUI/Qt_Files/module_4_info_window.ui")
+module_5_info_win = uic.loadUi("GUI/Qt_Files/module_5_info_window.ui")
+module_6_info_win = uic.loadUi("GUI/Qt_Files/module_6_info_window.ui")
+module_7_info_win = uic.loadUi("GUI/Qt_Files/module_7_info_window.ui")
+module_8_info_win = uic.loadUi("GUI/Qt_Files/module_8_info_window.ui")
 
-main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-prog_dlg.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-main_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-mod_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_1_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_2_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_3_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_4_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_5_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_6_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_7_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_8_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+main_window.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+prog_dlg.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+viz_sensor_sel_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+main_sensor_sel_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+mod_sel_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+file_sys_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+filename_input_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_1_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_2_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_3_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_4_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_5_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_6_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_7_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+module_8_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
 
 # Init Instances of all classes for reference
 sens_1 = Sensor_Individual.Sensor('Sensor 1', 0)
@@ -720,6 +721,11 @@ def close_event(event):
         "final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_sync))
     main_window.close()
 
+def file_choose():
+    filename_input_win.filename_lineEdit.setText(str(QFileDialog.getOpenFileName()[0]))
+
+
+
 
 """
 Add default functionality here
@@ -951,6 +957,7 @@ fn_in = filename_input_win.filename_lineEdit
 fn_in.returnPressed.connect(lambda: do_saving_loading_action())  # FIXME - TypeError: native Qt signal is not callable
 fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_saving_loading_action())
 fn_CANCEL_bton = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
+filename_input_win.pushButton.clicked.connect(file_choose)
 
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
