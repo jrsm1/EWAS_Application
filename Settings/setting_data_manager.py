@@ -5,12 +5,14 @@ from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration,
 import csv
 from os import path
 import pandas as pd
-
+from PyQt5 import QtWidgets
+import GUI_Handler
 log = 0
 
 def verify_file_exists(filename: str):
     exists = path.isfile(filename)
-    # if not exists: GUI_Handler.show_error('File Name Does not Exists')  # FIXME AttributeError: module 'GUI_Handler' has no attribute 'show_error'
+    if not exists:
+        QtWidgets.QMessageBox().critical(GUI_Handler.main_window, 'WARNING', 'File does not exist')
     return exists
 
 class Setting_File_Manager:

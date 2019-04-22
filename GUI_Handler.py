@@ -1,6 +1,6 @@
 # import PyQt5
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtGui import QIcon, QFont
+from PyQt5.QtGui import QIcon
 from time import sleep
 import sys
 import serial
@@ -97,13 +97,6 @@ setting_data_manager = set_dat_man.Setting_File_Manager(daq_con=daq_config, mod_
 # TESTING purposes
 log = 1
 log_working = 0
-
-# some global variables
-# try:
-#     instruction_manager = ins_man.instruction_manager()
-# except serial.SerialException:
-#     show_error('Device Not Connected. Please try again.')
-
 daq_sample_rate = 0
 daq_cutoff = 0
 daq_gain = 0
@@ -111,15 +104,12 @@ duration = 0
 daq_exp_name = ""
 daq_exp_location = ""
 daq_start_delay = 0
-
 # status global variables
 recorded = 0
 stored = 0
-gps_synched = 0
+gps_sync = 0
 keep_alive = True
-
-# port where instuction manager will connect
-instruction_manager_port = 'COM-1'
+ins_port = 'COM-1'
 
 def show_main_window():
     """
@@ -154,7 +144,6 @@ def show_channel_info_window(channel: int):
     """
         Opens Channel Information Window
     """
-    # TODO VERIFY IF THE SENSORS IN THE CHANNEL ARE CONNECTED.
     # TODO ENABLE MODULE SELECTION BUTTONS BASED ON CONNECTED SENSORS.
     # LATER TODO SAVE CORRECT VALUES FOR CHANNEL.
 
@@ -271,7 +260,6 @@ def show_progress_dialog(message: str):
 def show_visualization_sensor_selector_window(plot: int):  # TODO
     # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
     viz_sensor_sel_win.show()
-
     # Pass info on who called me to know which plot to display.
     begin_visualization(plot)
 
@@ -385,12 +373,10 @@ def get_rec_setts_from_gui():
     0 = unchecked
     """
     daq_config.recording_configs[
-        'visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns BOOLEAN
+        'visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
+    # BOOLEAN
     daq_config.recording_configs[
         'store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
-    # except TypeError:
-        #show_error('Please Verify all the parameters have the correct value.')
-
     if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
 
 
@@ -579,20 +565,6 @@ def snapshot_data():
     if not validate_rec_settings() == '':
         error_string += validate_rec_settings()
         there_is_no_error = False
-    """
-    QComboBox, which are the dropdown needs currentText()
-    it has to be casted to string
-    """
-    type = str(main_window.main_tab_RecordingSettings_type_DropDown.currentText())
-    """
-    QCheckbox, needs checkState() to get the state.
-    there are two states.
-    2 = checked
-    0 = unchecked
-    it has to be 
-    """
-    vis_bool = str(main_window.main_tab_RecordingSettings_visualize_checkBox.checkState())
-    store_bool = str(main_window.main_tab_RecordingSettings_store_checkBox.checkState())
     # main tab localization settings
     loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
     if not loc_type:
@@ -605,17 +577,6 @@ def snapshot_data():
             error_string += validate_module_location_settings()
             there_is_no_error = False
 
-    # daq parameters
-    daq_sample_rate = str(main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex())
-    daq_cutoff = str(main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex())
-    daq_gain = str(main_window.main_tab_DAQParams_gain_DropDown.currentIndex())
-
-   # if log: print("delay start before is ", start_delay)
-   # if start_delay:
-   #     daq_start_delay = str(start_delay)
-   # else:
-   #     daq_start_delay = "0000"
-
     if there_is_no_error:
         get_rec_setts_from_gui()
         get_location_from_gui()
@@ -625,57 +586,6 @@ def snapshot_data():
         show_error(error_string)
         return False
 
-    # daq_exp_name = str(name)
-    # daq_exp_location = str(loc_name)
-    # if log: print("delay start before is ", start_delay)
-    # if start_delay:
-    #     daq_start_delay = str(start_delay)
-    # else:
-    #     daq_start_delay = "0000"
-    #
-    # if log: print("delay start is ", daq_start_delay)
-
-    # sensor info has to be fixed
-    # sensor info
-    # sensor1_name = channel_info_win.channel_info_sensor1_nameLineEdit.text()
-    # sensor1_type = str(channel_info_win.channel_info_sensor1_type_DropDown.currentText())
-    # sensor1_sensitivity = channel_info_win.channel_info_sensor1_Sensitivity_LineEdit.text()
-    # sensor1_bandwidth = channel_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit.text()
-    # sensor1_scale = channel_info_win.channel_info_senson1_full_Scale_LineEdit.text()
-    # sensor1_loc = channel_info_win.channel_info_sensor1_location_Edit.text()
-    # sensor1_damp = channel_info_win.channel_info_sensor1_dampingLineEdit.text()
-    #
-    # sensor2_name = channel_info_win.channel_info_sensor2_nameLineEdit.text()
-    # sensor2_type = str(channel_info_win.channel_info_sensor2_type_DropDown.currentText())
-    # sensor2_sensitivity = channel_info_win.channel_info_sensor2_Sensitivity_LineEdit.text()
-    # sensor2_bandwidth = channel_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit.text()
-    # sensor2_scale = channel_info_win.channel_info_senson2_full_Scale_LineEdit.text()
-    # sensor2_loc = channel_info_win.channel_info_sensor2_location_Edit.text()
-    # sensor2_damp = channel_info_win.channel_info_sensor2_dampingLineEdit.text()
-    #
-    # sensor3_name = channel_info_win.channel_info_sensor3_nameLineEdit.text()
-    # sensor3_type = str(channel_info_win.channel_info_sensor3_type_DropDown.currentText())
-    # sensor3_sensitivity = channel_info_win.channel_info_sensor3_Sensitivity_LineEdit.text()
-    # sensor3_bandwidth = channel_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit.text()
-    # sensor3_scale = channel_info_win.channel_info_senson3_full_Scale_LineEdit.text()
-    # sensor3_loc = channel_info_win.channel_info_sensor3_location_Edit.text()
-    # sensor3_damp = channel_info_win.channel_info_sensor3_dampingLineEdit.text()
-    #
-    # sensor4_name = channel_info_win.channel_info_sensor4_nameLineEdit.text()
-    # sensor4_type = str(channel_info_win.channel_info_sensor4_type_DropDown.currentText())
-    # sensor4_sensitivity = channel_info_win.channel_info_sensor4_Sensitivity_LineEdit.text()
-    # sensor4_bandwidth = channel_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit.text()
-    # sensor4_scale = channel_info_win.channel_info_senson4_full_Scale_LineEdit.text()
-    # sensor4_loc = channel_info_win.channel_info_sensor4_location_Edit.text()
-    # sensor4_damp = channel_info_win.channel_info_sensor4_dampingLineEdit.text()
-
-    # if vis_bool == "2":
-    #     show_visualization_sensor_selector_window(-1)
-    # else:
-    #
-    # instruction_manager.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
-    #                                   "0000", daq_exp_name, daq_exp_location)
-
 
 def get_module_and_sensors_selected():
     if log: print("entered get_module_and_sensors_selected()")
@@ -683,13 +593,8 @@ def get_module_and_sensors_selected():
     sensors_sel = []
     if log: print("created empy sensor selected array")
     sensors_sel.append(main_sensor_sel_win.Sensor_1)
-    # test = int(main_sensor_sel_win.Sensor_1)
-    # if log:
-    #     print("added the first sensor to the list")
-    #     print("tester prints ", test)
-    #     print("sensor sel is ", str(sensors_sel))
-
-    if log: print("print sensors array created correctly")
+    if log:
+        print("print sensors array created correctly")
     sensors_selected = "0000"
     correct = 1
     index = 0
@@ -708,7 +613,6 @@ def get_module_and_sensors_selected():
 
     for i in main_sensor_selection_list:
         i.setCheckState(False)
-
     if correct:
         sensors_selected = sensors_selected[0:4]
         return sensors_selected
@@ -728,86 +632,96 @@ def sensor_sel_start():
     if log: print("sensors selected are ", sens)
 
     main_sensor_sel_win.close()
-    ins = ins_man.instruction_manager(instruction_manager_port)
-    ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay, sens, daq_exp_name,
-                                  daq_exp_location)
-    if log: print("came back to sensor_sel_start")
-    enable_main_window()
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
+                                      sens, daq_exp_name, daq_exp_location)
+        enable_main_window()
+        if log:
+            print("came back to sensor_sel_start")
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
+
 
 def save_port():
-    port = 'COM'
-    for i in range(1, 20, 1):
-        try:
-            port = port[0:3] + str(i)
-            if log: print("before port = ", port)
-            ins = ins_man.instruction_manager(port)
-            if log: print("port = ", port)
-            del ins
-            break
-        except serial.serialutil.SerialException:
-            port = 'COM-1'
-            continue
-    port = port.strip(' ')
-    instruction_manager_port = port
-    if log: print("com port connected is = "+ instruction_manager_port)
+    port = 'COM-1'
+    global ins_port
+    pid = "0403"
+    hid = "6001"
+    ports = list(serial.tools.list_ports.comports())
+    for p in ports:
+        if pid and hid in p.hwid:
+            port = p.device
+    ins_port = port
+    return port
 
 
 def enable_main_start_connected_sensors():
     # TODO TEST
-    ins = ins_man.instruction_manager(instruction_manager_port)
-    connected_module_list = ins.send_request_number_of_mods_connected()
-    if log: print("entered enable start")
-    if connected_module_list[0]:
-        win_sens_1.setEnabled(True)
-        win_sens_2.setEnabled(True)
-        win_sens_3.setEnabled(True)
-        win_sens_4.setEnabled(True)
-    if connected_module_list[1]:
-        win_sens_5.setEnabled(True)
-        win_sens_6.setEnabled(True)
-        win_sens_7.setEnabled(True)
-        win_sens_8.setEnabled(True)
-    if connected_module_list[2]:
-        win_sens_9.setEnabled(True)
-        win_sens_10.setEnabled(True)
-        win_sens_11.setEnabled(True)
-        win_sens_12.setEnabled(True)
-    if connected_module_list[3]:
-        win_sens_13.setEnabled(True)
-        win_sens_14.setEnabled(True)
-        win_sens_15.setEnabled(True)
-        win_sens_16.setEnabled(True)
-    if connected_module_list[4]:
-        win_sens_17.setEnabled(True)
-        win_sens_18.setEnabled(True)
-        win_sens_19.setEnabled(True)
-        win_sens_20.setEnabled(True)
-    if connected_module_list[5]:
-        win_sens_21.setEnabled(True)
-        win_sens_22.setEnabled(True)
-        win_sens_23.setEnabled(True)
-        win_sens_24.setEnabled(True)
-    if connected_module_list[6]:
-        win_sens_25.setEnabled(True)
-        win_sens_26.setEnabled(True)
-        win_sens_27.setEnabled(True)
-        win_sens_28.setEnabled(True)
-    if connected_module_list[7]:
-        win_sens_29.setEnabled(True)
-        win_sens_30.setEnabled(True)
-        win_sens_31.setEnabled(True)
-        win_sens_32.setEnabled(True)
-    if log: print("got out of enable start connected sensors")
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        connected_module_list = ins.send_request_number_of_mods_connected()
+        if log: print("entered enable start")
+        if connected_module_list[0]:
+            win_sens_1.setEnabled(True)
+            win_sens_2.setEnabled(True)
+            win_sens_3.setEnabled(True)
+            win_sens_4.setEnabled(True)
+        if connected_module_list[1]:
+            win_sens_5.setEnabled(True)
+            win_sens_6.setEnabled(True)
+            win_sens_7.setEnabled(True)
+            win_sens_8.setEnabled(True)
+        if connected_module_list[2]:
+            win_sens_9.setEnabled(True)
+            win_sens_10.setEnabled(True)
+            win_sens_11.setEnabled(True)
+            win_sens_12.setEnabled(True)
+        if connected_module_list[3]:
+            win_sens_13.setEnabled(True)
+            win_sens_14.setEnabled(True)
+            win_sens_15.setEnabled(True)
+            win_sens_16.setEnabled(True)
+        if connected_module_list[4]:
+            win_sens_17.setEnabled(True)
+            win_sens_18.setEnabled(True)
+            win_sens_19.setEnabled(True)
+            win_sens_20.setEnabled(True)
+        if connected_module_list[5]:
+            win_sens_21.setEnabled(True)
+            win_sens_22.setEnabled(True)
+            win_sens_23.setEnabled(True)
+            win_sens_24.setEnabled(True)
+        if connected_module_list[6]:
+            win_sens_25.setEnabled(True)
+            win_sens_26.setEnabled(True)
+            win_sens_27.setEnabled(True)
+            win_sens_28.setEnabled(True)
+        if connected_module_list[7]:
+            win_sens_29.setEnabled(True)
+            win_sens_30.setEnabled(True)
+            win_sens_31.setEnabled(True)
+            win_sens_32.setEnabled(True)
+        if log: print("got out of enable start connected sensors")
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
+
 
 def check_status(self):
-    ins = ins_man.instruction_manager(instruction_manager_port)
-    status = ins.send_request_status()
-    recorded = status[0]
-    stored = status[1]
-    gps_synched = status[2]
-    if log:
-        print("status = " + str(status))
-    return status
+    global recorded, stored, gps_sync
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        status = ins.send_request_status()
+        recorded = status[0]
+        stored = status[1]
+        gps_sync = status[2]
+        if log:
+            print("status = " + str(status))
+        return status
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
+        return False
+
 
 # trying a close event function
 def close_event(event):
@@ -1038,17 +952,19 @@ def action_Begin_Recording():
     Prepares GUI and sends request to control module for begin recording data.
     """
     # Send Setting Information to Control Module.
-    ins = ins_man.instruction_manager(instruction_manager_port)
-    ins.send_set_configuration('Configuration String.')
-    # TODO Prepare Real-Time Plot to receive Data.
-    # Send Begin Recording FLAG to Control Module.
-    ins.send_request_start()
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        ins.send_set_configuration('Configuration String.')
+        # TODO Prepare Real-Time Plot to receive Data.
+        # Send Begin Recording FLAG to Control Module.
+        ins.send_request_start()
+        # Close Window
+        main_sensor_sel_win.close()
+        # Show Progress Dialog
+        show_progress_dialog('Data')
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
 
-    # Close Window
-    main_sensor_sel_win.close()
-
-    # Show Progress Dialog
-    show_progress_dialog('Data')
 
 
 def action_cancel_everything():
@@ -1058,9 +974,12 @@ def action_cancel_everything():
 
     Called by user when CANCEL action is desired.
     """
-    ins = ins_man.instruction_manager(instruction_manager_port)
-    ins.send_cancel_request()
-    enable_main_window()
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        ins.send_cancel_request()
+        enable_main_window()
+    except serial.SerialException:
+        show_error('Device Not Connected. Please try again.')
 
 
 def ask_for_sensors():
@@ -1226,19 +1145,11 @@ def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
-
-    ins = ins_man.instruction_manager(instruction_manager_port)
-    # Request Sync GPS.
     try:
+        ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
-    except serial.SerialException:
-        show_error('Device Not Connected. Please try again.')
-    except NameError:
-        show_error('NAME ERROR. Please try again.')
-
-    timeout = 0
-    synched = True  # Used to not request data if synched==False.
-    try:
+        timeout = 0
+        synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
             if log: print('GPS Waiting....')
             sleep(0.500)  # Wait for half a second before asking again.
@@ -1248,17 +1159,12 @@ def sync_gps():  # TODO TEST
                 show_error('GPS Failed to Synchronize.')
                 synched = False
                 break
-
         # If synched Succesfull --> Request GPS data.
         if synched:
             ins.send_gps_data_request()
             set_gps_into_gui()
-
     except serial.SerialException:
         show_error('Device Not Connected. Please try again.')
-    except NameError:
-        show_error('Device Not Connected. Please try again.')
-    # enable_main_window()
     prog_dlg.close()
 
 
@@ -1394,20 +1300,22 @@ def plot_cohere(filename: str):
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot(
         'COHERENCE')  # TODO SWITCH TO TEMP FILE.
 
-
 def init():
     """
     Beginning of the program.
     Main will redirect here for GUI setup.
     """
+    global ins_port
     main_window.show()
     loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
-    save_port()
-    if instruction_manager_port == 'COM-1':
+    ins_port = save_port()
+
+    if ins_port == 'COM-1':
         show_error('Device Not Connected. Please try again.')
         sleep(2.0)
-        # sys.exit()  # FIXME Why Exit?
-    sync_gps()
+        # sys.exit()
+    else:
+        sync_gps()
 
     # --------- TESTING ------------
     # get_rec_setts_from_gui()

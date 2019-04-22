@@ -1,8 +1,6 @@
-import serial
-import time
+import serial.tools.list_ports
 
 log = 0
-
 
 class serial_interface():
     global ser
@@ -84,3 +82,5 @@ class serial_interface():
         except AttributeError:
             print('The Root Error was Already Handled.')
             print('This error is caused by handling the Serial Failed to Connect Error.')
+
+
