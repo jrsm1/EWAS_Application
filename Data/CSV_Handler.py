@@ -24,7 +24,7 @@ class Data_Handler():
         :return: CSV file with metadata header and data body.
         """
 
-        datapath = r'Data/' + filename
+        datapath = r'../Data/' + filename
 
         with open(datapath, 'w', newline='') as f:
             writer = csv.writer(f)
