@@ -9,9 +9,9 @@ from PyQt5 import QtWidgets
 import GUI_Handler
 log = 1
 
-def verify_file_exists(filename: str):
-    exists = path.isfile(filename)
-    if not exists:
+def verify_file_exists(path:str, filename: str):
+    exists = path.isfile(path + filename)
+    if not exists and (filename != ''):
         QtWidgets.QMessageBox().critical(GUI_Handler.main_window, 'WARNING', 'File does not exist')
     return exists
 
@@ -309,7 +309,6 @@ class Setting_File_Manager:
     #         if log: print('File Error')
     #
     #     return self.sensor_config
-
 
 # TESTING
 sc1 = Sensor_Individual.Sensor('S1', 0)

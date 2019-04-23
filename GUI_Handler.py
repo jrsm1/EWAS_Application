@@ -740,8 +740,8 @@ def close_event(event):
         "final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_sync))
     main_window.close()
 
-def file_choose():
-    filename_input_win.filename_lineEdit.setText(str(QFileDialog.getOpenFileName(None, 'Open CSV File', 'Config/', 'CSV Files (*.csv)')[0]))
+def file_choose(rootPath: str):
+    return str(QFileDialog.getOpenFileName(None, 'Open CSV File', rootPath, 'CSV Files (*.csv)')[0])
 
 
 
@@ -888,22 +888,33 @@ dlg_title = prog_dlg.progress_dialog_title
 # Select Module for Channel Info.
 mod_1_button = mod_sel_win.module_selection_Module1
 mod_1_button.clicked.connect(lambda: show_channel_info_window(0))
+
 mod_2_button = mod_sel_win.module_selection_Module2
 mod_2_button.clicked.connect(lambda: show_channel_info_window(1))
+
 mod_3_button = mod_sel_win.module_selection_Module3
 mod_3_button.clicked.connect(lambda: show_channel_info_window(2))
+
 mod_4_button = mod_sel_win.module_selection_Module4
 mod_4_button.clicked.connect(lambda: show_channel_info_window(3))
+
 mod_5_button = mod_sel_win.module_selection_Module5
 mod_5_button.clicked.connect(lambda: show_channel_info_window(4))
+
 mod_6_button = mod_sel_win.module_selection_Module6
 mod_6_button.clicked.connect(lambda: show_channel_info_window(5))
+
 mod_7_button = mod_sel_win.module_selection_Module7
 mod_7_button.clicked.connect(lambda: show_channel_info_window(6))
+
 mod_8_button = mod_sel_win.module_selection_Module8
 mod_8_button.clicked.connect(lambda: show_channel_info_window(7))
+
 module_button_list = [mod_1_button, mod_2_button, mod_3_button, mod_4_button, mod_5_button, mod_6_button,
                       mod_7_button, mod_8_button]
+
+
+
 # File System
 file_sys_win.file_system_treeView
 file_sys_win.file_system_OPEN_button
@@ -1045,7 +1056,7 @@ def handle_loading_saving(what: str, who: int):
     This Method contains information gathered from the user button press.
     """
     # show_filename_editor_window()
-    file_choose()
+    # file_choose()
 
     load_save_instructions['action'] = what
     if (who == 0) or (what == ''):
@@ -1056,6 +1067,8 @@ def handle_loading_saving(what: str, who: int):
             load_save_instructions['who_to_save'] = who
         elif what == 'load':
             load_save_instructions['who_to_load'] = who
+
+    do_saving_loading_action()
 
 
 def do_saving_loading_action():
@@ -1113,6 +1126,7 @@ def validate_filename(filename: str):
 def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
     # Get filename from User
+    show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
         # Get info from GUI.
@@ -1124,21 +1138,23 @@ def action_store_DAQ_Params():
 
 
 def action_load_DAQ_Params():
+    relative_path = 'Config/DAQ/Signal'
     # Get filename from User
-    filename = fn_in.text()
-    if validate_filename(filename):
-        # Load Params from File
-        setting_data_manager.load_signal_params(filename)
-        if set_dat_man.verify_file_exists('Config/DAQ/Signal/' + filename):
-            # Set Params into GUI.
-            set_daq_params_to_gui()
-            # Close Window
-            filename_input_win.close()
+    filename = file_choose(relative_path)
+    # Load Params from File
+    setting_data_manager.load_signal_params(filename)
+
+    if set_dat_man.verify_file_exists(relative_path + filename):
+        # Set Params into GUI.
+        set_daq_params_to_gui()
+        # Close Window
+        filename_input_win.close()
 
 
 def action_store_Location():
     # TODO Make Sure Files are not empty.
     # Get filename from User
+    show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
         # Get info from GUI.
@@ -1163,15 +1179,15 @@ def action_store_Location():
 
 
 def action_load_Location():
+    relative_path = 'Config/DAQ/Location'
     # Get filename from User
-    filename = fn_in.text()
-    if validate_filename(filename):
-        # Load Params from File
-        setting_data_manager.load_location_configs(filename)
+    filename = file_choose(relative_path)
+    # Load Params from File
+    setting_data_manager.load_location_configs(filename)
 
-        if set_dat_man.verify_file_exists('Config/DAQ/Location/' + filename):
-            # Set Params into GUI.
-            load_local_settings_to_gui()
+    if set_dat_man.verify_file_exists(relative_path + filename):
+        # Set Params into GUI.
+        load_local_settings_to_gui()
         # Close Window
         filename_input_win.close()
 
@@ -1179,6 +1195,7 @@ def action_load_Location():
 def action_store_Rec_Setts():
     # TODO Make Sure Files are not empty.
     # Get filename from User
+    show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
         if not validate_rec_settings(): # Validation calls get_rec_setts_from_gui()
@@ -1191,14 +1208,15 @@ def action_store_Rec_Setts():
 
 
 def action_load_Rec_Setts():
+    relative_path = 'Config/DAQ/Recording'
     # Get filename from User
-    filename = fn_in.text()
-    if validate_filename(filename):
-        # Load Params from File
-        setting_data_manager.load_recording_configs(filename)
-        if set_dat_man.verify_file_exists('Config/DAQ/Recording/' + filename):
-            # Set Params into GUI.
-            set_recording_into_gui()
+    filename = file_choose(relative_path)
+
+    # Load Params from File
+    setting_data_manager.load_recording_configs(filename)
+    if set_dat_man.verify_file_exists(relative_path + filename):
+        # Set Params into GUI.
+        set_recording_into_gui()
         # Close Window
         filename_input_win.close()
 
