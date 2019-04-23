@@ -1,16 +1,14 @@
 # import PyQt5
-from PyQt5 import QtWidgets, uic, QtCore
+from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QFileDialog
-import _thread
+from PyQt5.QtWidgets import QFileDialog, QFileSystemModel
 from time import sleep
 import sys
 import serial
-import threading
 
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
-# from Data_Processing import Plot_Data
+from Data_Processing import Plot_Data
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Settings import setting_data_manager as set_dat_man
 from regex import regex
@@ -164,7 +162,7 @@ def open_module_selection_window():
     """
 
     # Diable not connected modules.
-    connected_modules = [0, 0, 0, 0, 0, 0, 0, 0]
+    connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
     try:
         im = ins_man.instruction_manager(ins_port)
         connected_modules = im.send_request_number_of_mods_connected()
@@ -243,6 +241,7 @@ def show_progress_dialog(message: str):
     """
     dlg_title.setText(message)
     prog_dlg.show()
+
 
 def show_visualization_sensor_selector_window(plot: int):  # TODO
     # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
@@ -593,7 +592,7 @@ def get_module_and_sensors_selected():
             module = str(int((index - 1) / 4) + 1)
             sensor = str(((index - 1) % 4) + 1)
             sensors_selected = module + sensor + sensors_selected
-        if count > 2:
+        if count > 2: #limit
             correct = 0
             break
 
@@ -605,6 +604,24 @@ def get_module_and_sensors_selected():
         sensors_selected = sensors_selected[0:4]
         return sensors_selected
     return "0000"
+
+def get_sensor_enable():
+
+    sensors = []
+    if log: print("entered get_module_and_sensors_selected()")
+    count = 0
+    sensors_sel = []
+    if log: print("created empy sensor selected array")
+    sensors_sel.append(main_sensor_sel_win.Sensor_1)
+    if log:
+        print("print sensors array created correctly")
+    sensors_selected = "0000"
+    correct = 1
+    index = 0
+    for i in main_sensor_selection_list:
+        sensors[index] = int(i.checkState())
+
+    return sensors
 
 
 def start_acquisition():
@@ -618,12 +635,13 @@ def start_acquisition():
 def sensor_sel_start():
     sens = get_module_and_sensors_selected()
     if log: print("sensors selected are ", sens)
+    sensor_enable = get_sensor_enable()
 
     main_sensor_sel_win.close()
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
-                                      sens, daq_exp_name, daq_exp_location)
+                                      sens, sensor_enable, daq_exp_name, daq_exp_location)
         enable_main_window()
         if log:
             print("came back to sensor_sel_start")
@@ -863,7 +881,7 @@ main_sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, wi
                               win_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Acquiring Something
-prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: close_event())
+prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: action_cancel_everything())
 dlg_prog_bar = prog_dlg.progress_dialog_progressBar
 dlg_title = prog_dlg.progress_dialog_title
 
@@ -890,6 +908,10 @@ module_button_list = [mod_1_button, mod_2_button, mod_3_button, mod_4_button, mo
 file_sys_win.file_system_treeView
 file_sys_win.file_system_OPEN_button
 file_sys_win.file_system_CANCEL_button
+viz_file_sys = main_window.visualization_treeView
+model = QFileSystemModel()
+model.setRootPath(r'C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data')
+viz_file_sys.setModel(model)
 
 # Main Tab Window
 # RECORDING  Settings
@@ -938,7 +960,6 @@ gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # Visualization
-main_window.visualize_tab_tableWidget
 main_window.visualize_tab_TIME_button.clicked.connect(
     lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
         'PLOT'))  # TODO GET INFO FROM USER.
@@ -1023,7 +1044,8 @@ def handle_loading_saving(what: str, who: int):
     Prepares the logic that decides the desired loading/saving action.
     This Method contains information gathered from the user button press.
     """
-    show_filename_editor_window()
+    # show_filename_editor_window()
+    file_choose()
 
     load_save_instructions['action'] = what
     if (who == 0) or (what == ''):
@@ -1182,7 +1204,6 @@ def action_load_Rec_Setts():
 
 
 # ********************************************* LOCATION ***************************************************************
-
 def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # Show Progress Dialog.
@@ -1212,7 +1233,7 @@ def sync_gps():  # TODO TEST
             set_gps_into_gui()
     except serial.SerialException:
         show_not_connected_error()
-    prog_dlg.close()
+        prog_dlg.close()
 
 
 def load_local_settings_to_gui():

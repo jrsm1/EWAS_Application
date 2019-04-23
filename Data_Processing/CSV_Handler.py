@@ -5,6 +5,8 @@ import csv
 import pandas as pd
 
 log = 1
+
+
 class Data_Handler():
     """
     Class in charge of handling data files.
@@ -120,6 +122,7 @@ class Data_Handler():
 
         return result
 
+
 def select_data_columns():
     """
     Selects Connected Sensors
@@ -211,5 +214,3 @@ def get_port():
 # data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
 # # dh.store_data('Testing.csv', data)
 # print(dh.data_to_string('Testing.csv'))
-
-

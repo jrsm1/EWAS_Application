@@ -202,7 +202,7 @@ class instruction_manager():
     duration
     """
 
-    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, sensors_selected, name,
+    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, sensors_selected, sensor_enable, name,
                                   location):
         if log: print("entered send recording parameters")
         self.serial_interface.send_byte(b'\x85')
@@ -233,6 +233,9 @@ class instruction_manager():
         self.serial_interface.send_byte(bytes([int(sensors_selected[1])]))
         self.serial_interface.send_byte(bytes([int(sensors_selected[2])]))
         self.serial_interface.send_byte(bytes([int(sensors_selected[3])]))
+        # send sensor enable
+        for i in sensor_enable:
+            self.serial_interface.send_byte(bytes([i]))
         # send name
         for a in name:
             self.serial_interface.send_string_bytes(a)

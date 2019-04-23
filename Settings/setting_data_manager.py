@@ -169,9 +169,8 @@ class Setting_File_Manager:
         loc_file = 'Config/DAQ/Location/' + filename
 
         if verify_file_exists(loc_file):
-            self.daq_config.location_configs = pd.read_csv(loc_file, header=0, nrows=1).to_dict('r')[0]
-            self.daq_config.location_configs = pd.read_csv(loc_file, header=2, nrows=1).to_dict('r')[0]
-
+            self.daq_config.location_configs = pd.read_csv(loc_file, header=0, nrows=1, dtype=str).to_dict('r')[0]
+            self.daq_config.specimen_location = pd.read_csv(loc_file, header=2, nrows=1, dtype=str).to_dict('r')[0]
 
             if log: print('Load Location Configuration Successful')
         else:
@@ -208,7 +207,7 @@ class Setting_File_Manager:
 
         :return Signal Parameter Dictionary
         """
-        sig_file = 'Config/DAQ/Signal' + filename
+        sig_file = 'Config/DAQ/Signal/' + filename
 
         if verify_file_exists(sig_file):
             self.daq_config.signal_configs = pd.read_csv(sig_file).to_dict('r')[0]
