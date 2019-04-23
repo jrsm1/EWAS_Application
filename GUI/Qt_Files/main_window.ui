@@ -1189,6 +1189,25 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
              <property name="formAlignment">
               <set>Qt::AlignHCenter|Qt::AlignTop</set>
              </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="main_tab_ADC_Constant_Label">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;ADC Constant &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="main_tab_DAQParams_ADC_Constant_Label">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+																style=&quot; font-size:12pt;&quot;&gt;298nV&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+															</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
              <item row="1" column="0">
               <widget class="QLabel" name="main_tab_samplingRateLabel">
                <property name="text">
@@ -1319,90 +1338,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
-              <widget class="QComboBox" name="main_tab_DAQParams_gain_DropDown">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0)
-															</string>
-               </property>
-               <property name="currentIndex">
-                <number>10</number>
-               </property>
-               <property name="maxVisibleItems">
-                <number>10</number>
-               </property>
-               <item>
-                <property name="text">
-                 <string>0.2 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>1 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>10 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>20 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>30 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>40 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>60V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>80 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>120 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>157 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Please Select</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="main_tab_ADC_Constant_Label">
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;ADC Constant &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
              <item row="2" column="1">
               <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
                <property name="styleSheet">
@@ -1496,16 +1431,81 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </item>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="main_tab_DAQParams_ADC_Constant_Label">
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;298nV&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+             <item row="3" column="1">
+              <widget class="QComboBox" name="main_tab_DAQParams_gain_DropDown">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																color: rgb(0, 0, 0)
 															</string>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
+               <property name="currentIndex">
+                <number>10</number>
                </property>
+               <property name="maxVisibleItems">
+                <number>10</number>
+               </property>
+               <item>
+                <property name="text">
+                 <string>0.2 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>40 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>60V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>80 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>120 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>157 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Please Select</string>
+                </property>
+               </item>
               </widget>
              </item>
             </layout>
@@ -1531,31 +1531,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
-              <item row="0" column="0">
-               <widget class="QPushButton" name="main_tab_CHANNEL_INFO_button">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>130</width>
-                  <height>16777200</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color:rgb(204, 51, 0);
-color: rgb(255, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-                </property>
-                <property name="text">
-                 <string>Module 
- Information</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="1">
                <widget class="QPushButton" name="main_tab_START_button">
                 <property name="minimumSize">
@@ -1586,6 +1561,31 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                 </property>
                 <property name="text">
                  <string>START</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="main_tab_CHANNEL_INFO_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>130</width>
+                  <height>16777200</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Module 
+ Information</string>
                 </property>
                </widget>
               </item>

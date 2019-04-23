@@ -1,14 +1,16 @@
 # import PyQt5
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QFileDialog
+import _thread
 from time import sleep
 import sys
 import serial
+import threading
 
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
-from Data_Processing import Plot_Data
+# from Data_Processing import Plot_Data
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Settings import setting_data_manager as set_dat_man
 from regex import regex
@@ -241,7 +243,6 @@ def show_progress_dialog(message: str):
     """
     dlg_title.setText(message)
     prog_dlg.show()
-
 
 def show_visualization_sensor_selector_window(plot: int):  # TODO
     # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
@@ -862,7 +863,7 @@ main_sensor_selection_list = [win_sens_1, win_sens_2, win_sens_3, win_sens_4, wi
                               win_sens_32]  # Used to get values easily (goes from 0 to 31)
 
 # Acquiring Something
-prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: action_cancel_everything())
+prog_dlg.progress_dialog_STOP_button.clicked.connect(lambda: close_event())
 dlg_prog_bar = prog_dlg.progress_dialog_progressBar
 dlg_title = prog_dlg.progress_dialog_title
 
@@ -1181,21 +1182,27 @@ def action_load_Rec_Setts():
 
 
 # ********************************************* LOCATION ***************************************************************
+
 def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
+    prog_dlg.progress_dialog_progressBar.setMaximum(100)
+    # prog_dlg.progress_dialog_progressBar.setValue(-1)
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
         timeout = 0
+        time_to_sleep = 0.5
         synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
             if log: print('GPS Waiting....')
-            sleep(0.500)  # Wait for half a second before asking again.
+            sleep(time_to_sleep)  # Wait for half a second before asking again.
             timeout += 1
-            if timeout == 2 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
-                prog_dlg.close()
+            prog_dlg.progress_dialog_progressBar.setValue(timeout*(10/time_to_sleep))
+            app.processEvents()
+            if timeout == 10 * (10/time_to_sleep):  # = [desired timeout in seconds] * [1/(sleep value)]
+                # prog_dlg.close()
                 show_error('GPS Failed to Synchronize.')
                 synched = False
                 break
@@ -1263,7 +1270,7 @@ def show_acquire_dialog(message: str):
     show_progress_dialog('Acquiring ' + message)
 
     # Enable Main Window when done.  # FIXME Change to correct function.
-    enable_main_window()
+    # enable_main_window()
 
 
 # ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
