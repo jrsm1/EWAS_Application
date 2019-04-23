@@ -13,15 +13,18 @@
 - [X] Correctly Improving performance on rendering plots.
 - [X] Imported all GUI Object variables.
 - [X] Visualize Buttons shows Plots.
-* [X] Change Main method --> fixed double window bug.
-* [X] Fixed some spelling.
-* [X] Logic for loading and enabling location parameters.
-* [X] Logic for GPS sync and display info to GUI.
-* [X] Setting Recording data to Display in GUI.
-* [x] Logic for channel info ALMOST ready.
+- [X] Change Main method --> fixed double window bug.
+- [X] Fixed some spelling.
+- [X] Logic for loading and enabling location parameters.
+- [X] Logic for GPS sync and display info to GUI.
+- [X] Setting Recording data to Display in GUI.
+- [x] Logic for channel info ALMOST ready.
 - [X] Imported all GUI Object variables.
-* [X] Loading and storing data in Config Directories containing Default Config Files.
-* [X] Sampling Frequency Suggestion
+- [X] Loading and storing data in Config Directories containing Default Config Files.
+- [X] Sampling Frequency Suggestion
+* [X] Filename Extension Validated.
+* [X] Directory View Only Allows CSV Files.
+* [X] Directory View Defaults to Config Directory.
 
 # To-Do
 * [x] Initialize Widgets.

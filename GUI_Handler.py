@@ -1069,6 +1069,21 @@ def decide_who_to_load(instruction: int):
     elif instruction == 3:
         action_load_DAQ_Params()
 
+def validate_filename(filename: str):
+    """
+    Validates filename has a CSV File Extension.
+
+    :param filename: The User Input filename to validate.
+
+    :return: True if the file extension is '.csv'
+    """
+    validated = filename.lower().endswith('.csv')
+
+    if not validated:
+        show_error('The File must have a *.csv file extension.')
+        if log: print('File Extension Validation: FAILED')
+
+    return validated
 
 # ****** ACTIONS STORE/LOAD **********
 
@@ -1076,89 +1091,93 @@ def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
     # Get filename from User
     filename = fn_in.text()
-    # Get info from GUI.
-    get_daq_params_from_gui()
-    # Save to File.
-    setting_data_manager.store_signal_params(filename)
-    # Close Window
-    filename_input_win.close()
+    if validate_filename(filename):
+        # Get info from GUI.
+        get_daq_params_from_gui()
+        # Save to File.
+        setting_data_manager.store_signal_params(filename)
+        # Close Window
+        filename_input_win.close()
 
 
 def action_load_DAQ_Params():
     # Get filename from User
     filename = fn_in.text()
-    # Load Params from File
-    setting_data_manager.load_signal_params(filename)
-    if set_dat_man.verify_file_exists('Config/DAQ/Signal/' + filename):
-        # Set Params into GUI.
-        set_daq_params_to_gui()
-    # Close Window
-    filename_input_win.close()
+    if validate_filename(filename):
+        # Load Params from File
+        setting_data_manager.load_signal_params(filename)
+        if set_dat_man.verify_file_exists('Config/DAQ/Signal/' + filename):
+            # Set Params into GUI.
+            set_daq_params_to_gui()
+            # Close Window
+            filename_input_win.close()
 
 
 def action_store_Location():
     # TODO Make Sure Files are not empty.
     # Get filename from User
     filename = fn_in.text()
-    # Get info from GUI.
-    # get_location_from_gui()
-    loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
-    if not loc_type: # FIXME ESTE IF NO HACE NADA.
-        if not validate_gps_location_settings():
-            # Save to File.
-            setting_data_manager.store_location_configs(filename)
-            # Close Window
-            filename_input_win.close()
+    if validate_filename(filename):
+        # Get info from GUI.
+        # get_location_from_gui()
+        loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
+        if not loc_type: # FIXME ESTE IF NO HACE NADA.
+            if not validate_gps_location_settings():
+                # Save to File.
+                setting_data_manager.store_location_configs(filename)
+                # Close Window
+                filename_input_win.close()
+            else:
+                show_error(validate_gps_location_settings())
         else:
-            show_error(validate_gps_location_settings())
-    else:
-        if not validate_module_location_settings():
-            # Save to File.
-            setting_data_manager.store_location_configs(filename)
-            # Close Window
-            filename_input_win.close()
-        else:
-            show_error(validate_module_location_settings())
+            if not validate_module_location_settings():
+                # Save to File.
+                setting_data_manager.store_location_configs(filename)
+                # Close Window
+                filename_input_win.close()
+            else:
+                show_error(validate_module_location_settings())
 
 
 def action_load_Location():
     # Get filename from User
     filename = fn_in.text()
-    # Load Params from File
-    setting_data_manager.load_location_configs(filename)
+    if validate_filename(filename):
+        # Load Params from File
+        setting_data_manager.load_location_configs(filename)
 
-    if set_dat_man.verify_file_exists('Config/DAQ/Location/' + filename):
-        # Set Params into GUI.
-        load_local_settings_to_gui()
-    # Close Window
-    filename_input_win.close()
+        if set_dat_man.verify_file_exists('Config/DAQ/Location/' + filename):
+            # Set Params into GUI.
+            load_local_settings_to_gui()
+        # Close Window
+        filename_input_win.close()
 
 
 def action_store_Rec_Setts():
     # TODO Make Sure Files are not empty.
     # Get filename from User
     filename = fn_in.text()
-    # Get info from GUI.
-    # get_rec_setts_from_gui()
-    if not validate_rec_settings():
-        # Save to File.
-        setting_data_manager.store_recording_configs(filename)
-        # Close Window
-        filename_input_win.close()
-    else:
-        show_error(validate_rec_settings())
+    if validate_filename(filename):
+        if not validate_rec_settings(): # Validation calls get_rec_setts_from_gui()
+            # Save to File.
+            setting_data_manager.store_recording_configs(filename)
+            # Close Window
+            filename_input_win.close()
+        else:
+            show_error(validate_rec_settings())
 
 
 def action_load_Rec_Setts():
     # Get filename from User
     filename = fn_in.text()
-    # Load Params from File
-    setting_data_manager.load_recording_configs(filename)
-    if set_dat_man.verify_file_exists('Config/DAQ/Recording/' + filename):
-        # Set Params into GUI.
-        set_recording_into_gui()
-    # Close Window
-    filename_input_win.close()
+    if validate_filename(filename):
+        # Load Params from File
+        setting_data_manager.load_recording_configs(filename)
+        if set_dat_man.verify_file_exists('Config/DAQ/Recording/' + filename):
+            # Set Params into GUI.
+            set_recording_into_gui()
+        # Close Window
+        filename_input_win.close()
 
 
 # ********************************************* LOCATION ***************************************************************
