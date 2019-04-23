@@ -722,8 +722,7 @@ def close_event(event):
     main_window.close()
 
 def file_choose():
-    filename_input_win.filename_lineEdit.setText(str(QFileDialog.getOpenFileName()[0]))
-
+    filename_input_win.filename_lineEdit.setText(str(QFileDialog.getOpenFileName(None, 'Open CSV File', 'Config/', 'CSV Files (*.csv)')[0]))
 
 
 
