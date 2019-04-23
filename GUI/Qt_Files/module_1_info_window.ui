@@ -1020,6 +1020,46 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
+           <item row="16" column="1">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="17" column="1">
+            <widget class="QPushButton" name="module_info_load_Button">
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Load Module Information</string>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="1">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
           </layout>
          </item>
         </layout>
@@ -1362,7 +1402,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="17" column="1">
+           <item row="16" column="1">
             <spacer name="horizontalSpacer_30">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1375,31 +1415,18 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="18" column="1">
+           <item row="17" column="1">
             <widget class="QPushButton" name="channel_info_SAVE_Button">
              <property name="styleSheet">
               <string notr="true">background-color:rgb(204, 51, 0);
-															color: rgb(255, 255, 255);
-															font: 12pt &quot;MS Shell Dlg 2&quot;;
-														</string>
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+</string>
              </property>
              <property name="text">
-              <string>Save Module Information</string>
+              <string>Store Module Information</string>
              </property>
             </widget>
-           </item>
-           <item row="16" column="1">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </item>

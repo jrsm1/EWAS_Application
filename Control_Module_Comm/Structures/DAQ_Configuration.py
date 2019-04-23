@@ -3,9 +3,15 @@ import time
 import uuid
 import random
 
+SAMPLING_RATES = ['2 Hz', '4 Hz', '8 Hz', '16 Hz', '32 Hz', '64 Hz', '128 Hz', '256 Hz', '512 Hz',
+                  '1024 Hz', '2048 Hz', '4096 Hz', '8192 Hz', '16384 Hz', '20000 Hz']
+CUTOFF_FREQUENCIES = ['1 Hz', '2 Hz', '4 Hz', '8 Hz', '16 Hz', '32 Hz', '64 Hz', '128 Hz', '256 Hz', '512 Hz',
+                      '1024 Hz', '2048 Hz', '4096 Hz', '8192 Hz', '10000 Hz']
+GAINS = ['0.2 V/V', '1 V/V', '10 V/V', '20 V/V', '30 V/V', '40 V/V', '60 V/V', '80 V/V', '120 V/V', '157 V/V']
 TEST_TYPES = ['Free-Field', 'Laboratory', 'Building']
 ID_LIMIT = 10
 NAME_LIMIT = 20
+
 
 class DAQconfigs:
     def __init__(self,
@@ -15,11 +21,10 @@ class DAQconfigs:
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
                  visualize=True, store=False):
-
         self.signal_configs = {
-            'sampling_rate': int,
-            'cutoff_frequency': int,
-            'signal_gain': int
+            'sampling_rate': str,
+            'cutoff_frequency': str,
+            'signal_gain': str
         }
 
         self.recording_configs = {
@@ -58,14 +63,13 @@ class DAQconfigs:
         if len(test_name) > NAME_LIMIT:
             test_name = test_name[0: NAME_LIMIT]
 
-        self.test_id = {'Test ID': generate_ID(test_name) }
+        self.test_id = {'Test ID': generate_ID(test_name)}
 
-        self.signal_configs["sampling_rate"] = sampling_rate
-        self.signal_configs["cutoff_frequency"] = cutoff_frequency
-        self.signal_configs["signal_gain"] = signal_gain
+        self.signal_configs["sampling_rate"] = SAMPLING_RATES[sampling_rate]
+        self.signal_configs["cutoff_frequency"] = CUTOFF_FREQUENCIES[cutoff_frequency]
+        self.signal_configs["signal_gain"] = GAINS[signal_gain]
 
         self.recording_configs["test_name"] = test_name
-        # self.recording_configs["test_ID"] = generate_ID(test_name)
         self.recording_configs["test_duration"] = test_duration
         self.recording_configs["test_type"] = TEST_TYPES[record_type]
         self.recording_configs['test_start_delay'] = test_delay
@@ -98,7 +102,6 @@ class DAQconfigs:
         #
         # self.recording_configs["test_name"] = test_name_default
 
-
     def get_test_ID(self):
         """
         Getter Method for Test_ID.
@@ -107,19 +110,20 @@ class DAQconfigs:
         """
         return self.test_id
 
-
     """
     Generates Test ID from Test Name
     
     :param name : Test Name to generate ID from.
     """
+
+
 def generate_ID(name: str):
-    answer = name[0: int(ID_LIMIT/2)]
+    answer = name[0: int(ID_LIMIT / 2)]
 
     answer = answer + '_'
     stop = len(answer)
     letters = string.ascii_lowercase
-    for i in range(10-stop):
+    for i in range(10 - stop):
         answer = answer + random.choice(letters)
 
     return answer
@@ -132,5 +136,3 @@ def generate_ID(name: str):
 # print(dq.recording_configs)
 # print(dq.location_configs)
 # print(dq.specimen_location)
-
-

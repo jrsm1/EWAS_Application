@@ -7,13 +7,14 @@ from os import path
 import pandas as pd
 from PyQt5 import QtWidgets
 import GUI_Handler
-log = 0
+log = 1
 
 def verify_file_exists(filename: str):
     exists = path.isfile(filename)
     if not exists:
         QtWidgets.QMessageBox().critical(GUI_Handler.main_window, 'WARNING', 'File does not exist')
     return exists
+
 
 class Setting_File_Manager:
     def __init__(self, mod_con: Module_Individual, sens_con: Sensor_Individual, daq_con: DAQ_Configuration):
@@ -94,6 +95,131 @@ class Setting_File_Manager:
         return [self.daq_config.signal_configs, self.daq_config.recording_configs, self.daq_config.data_handling_configs,
                 self.daq_config.location_configs, self.daq_config.specimen_location]
 
+    def store_recording_configs(self, filename: str):
+        """
+        Store Only data for Recording.
+
+        :param filename : the path and name of the file.
+        """
+        rec_file = 'Config/DAQ/Recording/' + filename
+
+        # if verify_file_exists(rec_file):
+
+        with open(rec_file, 'w', newline='') as f:
+            writer = csv.writer(f)
+
+            writer.writerow(self.daq_config.recording_configs.keys())
+            writer.writerow(self.daq_config.recording_configs.values())
+
+            writer.writerow(self.daq_config.data_handling_configs.keys())
+            writer.writerow(self.daq_config.data_handling_configs.values())
+
+            if log: print('store Recording Config Successful')
+
+        f.close()
+
+        # else:
+        #     if log: print('Storing Recording Configuration FAILED')
+
+    def load_recording_configs(self, filename: str):
+        rec_file = 'Config/DAQ/Recording/' + filename
+
+        if verify_file_exists(rec_file):
+            self.daq_config.recording_configs = pd.read_csv(rec_file, header=0, nrows=1).to_dict('r')[0]
+            self.daq_config.data_handling_configs = pd.read_csv(rec_file, header=2, nrows=1).to_dict('r')[0]
+
+            if log: print('Load Recording Settings Successful')
+        else:
+            if log: print('Load Recording Configuration FILE DOES NOT EXISTS')
+
+        return self.daq_config.recording_configs
+
+    def store_location_configs(self, filename: str):
+        """
+        Store Only data for Location.
+
+        :param filename : the path and name of the file.
+        """
+        loc_file = 'Config/DAQ/Location/' + filename
+
+        if verify_file_exists(loc_file):
+            with open(loc_file, 'w', newline='') as f:
+                writer = csv.writer(f)
+
+                writer.writerow(self.daq_config.location_configs.keys())
+                writer.writerow(self.daq_config.location_configs.values())
+
+                writer.writerow(self.daq_config.specimen_location.keys())
+                writer.writerow(self.daq_config.specimen_location.values())
+
+                if log: print('Storing Location Configuration Successful')
+
+            f.close()
+        else:
+            if log: print('Storing Location Configuration FAILED')
+
+    def load_location_configs(self, filename: str):
+        """
+        Loads Location Configuration from settings file.
+
+        :param filename : the path and name of the file.
+
+        :return Location Configuration Dictionary
+        """
+        loc_file = 'Config/DAQ/Location/' + filename
+
+        if verify_file_exists(loc_file):
+            self.daq_config.location_configs = pd.read_csv(loc_file, header=0, nrows=1).to_dict('r')[0]
+            self.daq_config.location_configs = pd.read_csv(loc_file, header=2, nrows=1).to_dict('r')[0]
+
+
+            if log: print('Load Location Configuration Successful')
+        else:
+            if log: print('Load Location Configuration FILE DOES NOT EXISTS')
+
+        return [self.daq_config.location_configs, self.daq_config.specimen_location]
+
+    def store_signal_params(self, filename):
+        """
+        Store Only Signal Parameters in CSV File.
+
+        :param filename: The desires File Name.
+        """
+        sig_file = 'Config/DAQ/Signal/' + filename
+
+        if verify_file_exists(sig_file):
+            with open(sig_file, 'w', newline='') as f:
+                writer = csv.writer(f)
+
+                writer.writerow(self.daq_config.signal_configs.keys())
+                writer.writerow(self.daq_config.signal_configs.values())
+
+                if log: print('Storing Signal Configuration Successful')
+
+            f.close()
+        else:
+            if log: print('Storing Location Configuration FAILED')
+
+    def load_signal_params(self, filename):
+        """
+        Loads Signal Parameters from settings file.
+
+        :param filename : the path and name of the file.
+
+        :return Signal Parameter Dictionary
+        """
+        sig_file = 'Config/DAQ/Signal' + filename
+
+        if verify_file_exists(sig_file):
+            self.daq_config.signal_configs = pd.read_csv(sig_file).to_dict('r')[0]
+
+            if log:
+                print('Load Location Configuration Successful')
+        else:
+            if log: print('Load Signal Parameters FILE DOES NOT EXISTS')
+
+        return self.daq_config.signal_configs
+
     def store_module_configs(self, filename: str):
         module_file = 'Config/Module/' + filename
         if verify_file_exists(module_file):
@@ -152,40 +278,38 @@ class Setting_File_Manager:
 
         return self.channel_config
 
-    def store_sensor_config(self, filename: str, sensors: []):
-        """
-        Stores all sensor configurations in a single file.
-        """
-        sensor_file = 'Config/Sensor/' + filename
-        if verify_file_exists(sensor_file):
-            with open(sensor_file, 'w+', newline='') as f:
-                writer = csv.writer(f)
-
-                for sen in sensors:
-                    writer.writerow(sen.sensor_info.keys())
-                    writer.writerow(sen.sensor_info.values())
-
-                if log: print('Save Sensor Configs : SUCCESSFUL')
-        else:
-            if log: print('File Error')
-
-        f.close()
-
-    # TODO VERIFY IF NECESSARY
-    # TODO IMPLEMENT WITH 32 SENSORS.
-    def load_sensor_config(self, filename: str):
-        sensor_file = 'Config/Sensor/' + filename
-        if verify_file_exists(sensor_file):
-            self.sensor_config = pd.read_csv(sensor_file, header=0, nrows=1).to_dict('r')[0]
-
-            if log: print('Load Sensor Configs : SUCCESSFUL')
-
-        else:
-            if log: print('File Error')
-
-        return self.sensor_config
-
-    # def store_ALL_channels(self, filename): # TODO Implement store all sensor data in columns.
+    # def store_sensor_config(self, filename: str, sensors: []):
+    #     """
+    #     Stores all sensor configurations in a single file.
+    #     Should only store 4 and load as necessary in each module window.
+    #     """
+    #     sensor_file = 'Config/Sensor/' + filename
+    #     if verify_file_exists(sensor_file):
+    #         with open(sensor_file, 'w+', newline='') as f:
+    #             writer = csv.writer(f)
+    #
+    #             for sen in sensors:
+    #                 writer.writerow(sen.sensor_info.keys())
+    #                 writer.writerow(sen.sensor_info.values())
+    #
+    #             if log: print('Save Sensor Configs : SUCCESSFUL')
+    #     else:
+    #         if log: print('File Error')
+    #
+    #     f.close()
+    #
+    # # TODO IMPLEMENT WITH 4 SENSORS.
+    # def load_sensor_config(self, filename: str):
+    #     sensor_file = 'Config/Sensor/' + filename
+    #     if verify_file_exists(sensor_file):
+    #         self.sensor_config = pd.read_csv(sensor_file, header=0, nrows=1).to_dict('r')[0]
+    #
+    #         if log: print('Load Sensor Configs : SUCCESSFUL')
+    #
+    #     else:
+    #         if log: print('File Error')
+    #
+    #     return self.sensor_config
 
 
 # TESTING

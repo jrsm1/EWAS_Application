@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>820</height>
+    <width>1150</width>
+    <height>950</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,14 +21,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1100</width>
-    <height>820</height>
+    <width>1150</width>
+    <height>950</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1100</width>
-    <height>820</height>
+    <width>1150</width>
+    <height>950</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -83,259 +83,307 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="main_tab_RecordingSettings_Label">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>20</y>
-             <width>221</width>
-             <height>16</height>
-            </rect>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="rightMargin">
+            <number>200</number>
            </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;
-													font-size:12pt; font-weight:600;&quot;&gt;RECORDING SETTINGS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-												</string>
-           </property>
-          </widget>
-          <widget class="QWidget" name="formLayoutWidget_2">
-           <property name="geometry">
-            <rect>
-             <x>290</x>
-             <y>20</y>
-             <width>347</width>
-             <height>161</height>
-            </rect>
-           </property>
-           <layout class="QFormLayout" name="main_tab_Recording_Settings_Form">
-            <item row="0" column="0">
-             <widget class="QLabel" name="main_tab_RecordingSettings_name_Label">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_10">
+             <item>
+              <widget class="QLabel" name="main_tab_RecordingSettings_Label">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;RECORDING SETTINGS&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <property name="spacing">
+                <number>10</number>
+               </property>
+               <property name="sizeConstraint">
+                <enum>QLayout::SetFixedSize</enum>
+               </property>
+               <property name="leftMargin">
+                <number>50</number>
+               </property>
+               <property name="bottomMargin">
+                <number>10</number>
+               </property>
+               <item alignment="Qt::AlignLeft">
+                <widget class="QPushButton" name="main_tab_RecordingSettings_LOAD_SETTINGS_Button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(204, 51, 0);
+																color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
 															</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_RecordingSettings_name_LineEdit</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="main_tab_RecordingSettings_name_LineEdit">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
+                 </property>
+                 <property name="text">
+                  <string>Load Settings</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignLeft">
+                <widget class="QPushButton" name="main_tab_RecordingSettings__SAVE_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(204, 51, 0);
+																color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
+															</string>
+                 </property>
+                 <property name="text">
+                  <string>Save Settings</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout">
+             <property name="topMargin">
+              <number>50</number>
+             </property>
+             <item row="4" column="1">
+              <layout class="QHBoxLayout" name="main_tab_visualize_store_horizontalLayout">
+               <property name="spacing">
+                <number>15</number>
+               </property>
+               <item>
+                <widget class="QCheckBox" name="main_tab_RecordingSettings_visualize_checkBox">
+                 <property name="styleSheet">
+                  <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Visualize Data</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="main_tab_RecordingSettings_store_checkBox">
+                 <property name="styleSheet">
+                  <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Store Data</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="main_tab_RecordingSettings_name_LineEdit">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0)
 															</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="maxLength">
-               <number>20</number>
-              </property>
-              <property name="placeholderText">
-               <string>TestName</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="main_tab_RecordingSettings_durationLabel">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;Duration (s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-															</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_RecordingSettings_durationLineEdit
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="maxLength">
+                <number>20</number>
+               </property>
+               <property name="placeholderText">
+                <string>TestName</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="main_tab_RecordingSettings_name_Label">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Name &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_RecordingSettings_name_LineEdit</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="main_tab_RecordingSettings_durationLabel">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Duration&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_RecordingSettings_durationLineEdit
 															</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="main_tab_RecordingSettings_durationLineEdit">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0)
-															</string>
-              </property>
-              <property name="maxLength">
-               <number>4</number>
-              </property>
-              <property name="placeholderText">
-               <string>1800</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="main_tab_longitud_Label_3">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-															</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_RecordingSettings_type_DropDown</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QComboBox" name="main_tab_RecordingSettings_type_DropDown">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0)
-															</string>
-              </property>
-              <property name="maxCount">
-               <number>10</number>
-              </property>
-              <item>
-               <property name="text">
-                <string>Free-Field</string>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Laboratory</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Building</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <layout class="QHBoxLayout" name="main_tab_visualize_store_horizontalLayout">
-              <property name="spacing">
-               <number>15</number>
-              </property>
-              <item>
-               <widget class="QCheckBox" name="main_tab_RecordingSettings_visualize_checkBox">
-                <property name="styleSheet">
-                 <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-                </property>
-                <property name="text">
-                 <string>Visualize Data</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="main_tab_RecordingSettings_store_checkBox">
-                <property name="styleSheet">
-                 <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-                </property>
-                <property name="text">
-                 <string>Store Data</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="main_tab_RecordingSettings_delay_LineEdit">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="main_tab_RecordingSettings_delay_LineEdit">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
 													font: 12pt &quot;MS Shell Dlg 2&quot;;
 													color: rgb(0, 0, 0)
 												</string>
-              </property>
-              <property name="maxLength">
-               <number>4</number>
-              </property>
-              <property name="placeholderText">
-               <string>1800</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="main_tab_RecordingSettings_delay_Label">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;
-													font-size:12pt;&quot;&gt;Start Delay (s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-												</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_RecordingSettings_durationLineEdit</cstring>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="verticalLayoutWidget_2">
-           <property name="geometry">
-            <rect>
-             <x>40</x>
-             <y>100</y>
-             <width>152</width>
-             <height>71</height>
-            </rect>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <property name="spacing">
-             <number>10</number>
-            </property>
-            <property name="sizeConstraint">
-             <enum>QLayout::SetFixedSize</enum>
-            </property>
-            <item>
-             <widget class="QPushButton" name="main_tab_RecordingSettings_LOAD_SETTINGS_Button">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
+               </property>
+               <property name="maxLength">
+                <number>4</number>
+               </property>
+               <property name="placeholderText">
+                <string>1800</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="main_tab_RecordingSettings_type_DropDown">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
+																color: rgb(0, 0, 0)
 															</string>
-              </property>
-              <property name="text">
-               <string>Load Settings</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="main_tab_RecordingSettings__SAVE_button">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
+               </property>
+               <property name="maxCount">
+                <number>10</number>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Free-Field</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Laboratory</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Building</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="main_tab_RecordingSettings_durationLineEdit">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
 																font: 12pt &quot;MS Shell Dlg 2&quot;;
+																color: rgb(0, 0, 0)
 															</string>
-              </property>
-              <property name="text">
-               <string>Save Settings</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
+               </property>
+               <property name="maxLength">
+                <number>4</number>
+               </property>
+               <property name="placeholderText">
+                <string>1800</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="main_tab_RecordingSettings_delay_Label">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Start Delay&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_RecordingSettings_durationLineEdit</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="main_tab_longitud_Label_3">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Type &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_RecordingSettings_type_DropDown</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;(s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;(s)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
@@ -365,619 +413,663 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="main_tab_LocalizationSettings_Label">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>20</y>
-             <width>221</width>
-             <height>16</height>
-            </rect>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="spacing">
+            <number>50</number>
            </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;
-													font-size:12pt; font-weight:600;&quot;&gt;LOCALIZATION SETTINGS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-												</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="main_tab_LocalizationSettings_acquire_GPS_Button">
-           <property name="geometry">
-            <rect>
-             <x>450</x>
-             <y>30</y>
-             <width>91</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color:rgb(204, 51, 0);
-													color: rgb(255, 255, 255);
-													font: 12pt &quot;MS Shell Dlg 2&quot;;
-												</string>
-           </property>
-           <property name="text">
-            <string>Sync GPS</string>
-           </property>
-          </widget>
-          <widget class="QComboBox" name="main_tab_LocalizationSettings_type_DropBox">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>60</y>
-             <width>211</width>
-             <height>22</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);
-													font: 12pt &quot;MS Shell Dlg 2&quot;;
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_11">
+             <item>
+              <widget class="QLabel" name="main_tab_LocalizationSettings_Label">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;LOCALIZATION SETTINGS&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="main_tab_LocalizationSettings_type_DropBox">
+               <property name="maximumSize">
+                <size>
+                 <width>250</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+													font: 14pt &quot;MS Shell Dlg 2&quot;;
 													color: rgb(0, 0, 0)
 												</string>
-           </property>
-           <property name="currentText">
-            <string>GPS Location</string>
-           </property>
-           <property name="currentIndex">
-            <number>0</number>
-           </property>
-           <item>
-            <property name="text">
-             <string>GPS Location</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Specimen Location</string>
-            </property>
-           </item>
-          </widget>
-          <widget class="QWidget" name="verticalLayoutWidget_3">
-           <property name="geometry">
-            <rect>
-             <x>50</x>
-             <y>160</y>
-             <width>152</width>
-             <height>80</height>
-            </rect>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
-            <property name="spacing">
-             <number>10</number>
-            </property>
-            <item>
-             <widget class="QPushButton" name="main_tab_LocalizationSettings_LOAD_LOCATION_button">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-															</string>
-              </property>
-              <property name="text">
-               <string>Load Location</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="main_tab_LocalizationSettings_SAVE_LOCATION_button">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-															</string>
-              </property>
-              <property name="text">
-               <string>Save Location</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QFrame" name="main_tab_location_gps_frame">
-           <property name="geometry">
-            <rect>
-             <x>289</x>
-             <y>60</y>
-             <width>331</width>
-             <height>202</height>
-            </rect>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
-             <layout class="QFormLayout" name="main_tab_location_gps_layout">
-              <property name="labelAlignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-              <item row="0" column="0">
-               <widget class="QLabel" name="main_tab_longitud_Label">
+               </property>
+               <property name="currentText">
+                <string>GPS Location</string>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <item>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p
-																		align=&quot;right&quot;&gt;&lt;span style=&quot;
-																		font-size:12pt;&quot;&gt;Location Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																	</string>
+                 <string>GPS Location</string>
                 </property>
-                <property name="buddy">
-                 <cstring>
-																		main_tab_LocalizationSettings_Name_lineEdit
-																	</cstring>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Specimen Location</string>
                 </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="main_tab_LocalizationSettings_Name_lineEdit">
-                <property name="maximumSize">
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_10">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_12">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_11">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_8">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <property name="spacing">
+                <number>10</number>
+               </property>
+               <property name="leftMargin">
+                <number>50</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="main_tab_LocalizationSettings_LOAD_LOCATION_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(204, 51, 0);
+																color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
+															</string>
+                 </property>
+                 <property name="text">
+                  <string>Load Location</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="main_tab_LocalizationSettings_SAVE_LOCATION_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+															</string>
+                 </property>
+                 <property name="text">
+                  <string>Save Location</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QFrame" name="main_tab_location_gps_frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="topMargin">
+               <number>40</number>
+              </property>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="main_tab_LocalizationSettings_acquire_GPS_Button">
+                <property name="minimumSize">
                  <size>
-                  <width>500</width>
-                  <height>16777215</height>
+                  <width>0</width>
+                  <height>25</height>
                  </size>
                 </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255,
-																		255);
-																		font: 12pt &quot;MS Shell Dlg 2&quot;;
-																		color: rgb(0, 0, 0)
-																	</string>
+                 <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                 </property>
-                <property name="maxLength">
-                 <number>20</number>
-                </property>
-                <property name="placeholderText">
-                 <string>Please enter a name</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="main_tab_Localization_longitudLabel">
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Longitude&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="buddy">
-                 <cstring>
-																		main_tab_LocalizationSettings_longitudLineEdit
-																	</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="main_tab_LocalizationSettings_longitudLineEdit">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255,
-																		255);
-																		font: 12pt &quot;MS Shell Dlg 2&quot;;
-																		color: rgb(0, 0, 0)
-																	</string>
-                </property>
-                <property name="maxLength">
-                 <number>12</number>
-                </property>
-                <property name="placeholderText">
-                 <string>+1234.12345</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="main_tab_Localization_latitudLabel">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Latitude&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="buddy">
-                 <cstring>
-																		main_tab_LocalizationSettings_latitudLineEdit
-																	</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QLineEdit" name="main_tab_LocalizationSettings_latitudLineEdit">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255,
-																		255);
-																		font: 12pt &quot;MS Shell Dlg 2&quot;;
-																		color: rgb(0, 0, 0)
-																	</string>
-                </property>
-                <property name="maxLength">
-                 <number>11</number>
-                </property>
-                <property name="placeholderText">
-                 <string>-12345.12345</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="main_tab_Localization_hourLabel">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p
-																		align=&quot;right&quot;&gt;&lt;span style=&quot;
-																		font-size:12pt;&quot;&gt;Hour&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																	</string>
-                </property>
-                <property name="buddy">
-                 <cstring>
-																		main_tab_LocalizationSettings_hourLineEdit
-																	</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QLineEdit" name="main_tab_LocalizationSettings_hourLineEdit">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255,
-																		255);
-																		font: 12pt &quot;MS Shell Dlg 2&quot;;
-																		color: rgb(0, 0, 0)
-																	</string>
-                </property>
-                <property name="maxLength">
-                 <number>2</number>
-                </property>
-                <property name="placeholderText">
-                 <string>23</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="main_tab_Localization_minutesLabel">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																		style=&quot; font-size:12pt;&quot;&gt;Minutes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																	</string>
-                </property>
-                <property name="buddy">
-                 <cstring>
-																		main_tab_LocalizationSettings_minutesLineEdit
-																	</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QLineEdit" name="main_tab_LocalizationSettings_minutesLineEdit">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255,
-																		255);
-																		font: 12pt &quot;MS Shell Dlg 2&quot;;
-																		color: rgb(0, 0, 0)
-																	</string>
-                </property>
-                <property name="maxLength">
-                 <number>2</number>
-                </property>
-                <property name="placeholderText">
-                 <string>09</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="main_tab_Localization_secondsLabel">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																		style=&quot; font-size:12pt;&quot;&gt;Seconds&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																	</string>
-                </property>
-                <property name="buddy">
-                 <cstring>
-																		main_tab_LocalizationSettings_secondsLineEdit
-																	</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QLineEdit" name="main_tab_LocalizationSettings_secondsLineEdit">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255,
-																		255);
-																		font: 12pt &quot;MS Shell Dlg 2&quot;;
-																		color: rgb(0, 0, 0)
-																	</string>
-                </property>
-                <property name="maxLength">
-                 <number>2</number>
-                </property>
-                <property name="placeholderText">
-                 <string>00</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QFrame" name="specimen_location_frame">
-           <property name="geometry">
-            <rect>
-             <x>670</x>
-             <y>0</y>
-             <width>371</width>
-             <height>291</height>
-            </rect>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <item>
-             <layout class="QVBoxLayout" name="specimen_location_layout">
-              <item alignment="Qt::AlignHCenter">
-               <widget class="QLabel" name="label">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Location Description by Module&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>Sync GPS</string>
                 </property>
                </widget>
               </item>
               <item>
-               <layout class="QFormLayout" name="formLayout">
+               <layout class="QFormLayout" name="main_tab_location_gps_layout">
+                <property name="labelAlignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_1">
+                 <widget class="QLabel" name="main_tab_longitud_Label">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Location Name &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_1
-																			</cstring>
+                   <cstring>
+																		main_tab_LocalizationSettings_Name_lineEdit
+																	</cstring>
                   </property>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_1">
+                 <widget class="QLineEdit" name="main_tab_LocalizationSettings_Name_lineEdit">
+                  <property name="maximumSize">
+                   <size>
+                    <width>500</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
+                   <string notr="true">background-color: rgb(255, 255,
+																		255);
+																		font: 12pt &quot;MS Shell Dlg 2&quot;;
+																		color: rgb(0, 0, 0)
+																	</string>
                   </property>
                   <property name="maxLength">
-                   <number>30</number>
+                   <number>20</number>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Please enter a name</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_2">
+                 <widget class="QLabel" name="main_tab_Localization_longitudLabel">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Longitude&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_2
-																			</cstring>
+                   <cstring>
+																		main_tab_LocalizationSettings_longitudLineEdit
+																	</cstring>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_2">
+                 <widget class="QLineEdit" name="main_tab_LocalizationSettings_longitudLineEdit">
                   <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
+                   <string notr="true">background-color: rgb(255, 255,
+																		255);
+																		font: 12pt &quot;MS Shell Dlg 2&quot;;
+																		color: rgb(0, 0, 0)
+																	</string>
                   </property>
                   <property name="maxLength">
-                   <number>30</number>
+                   <number>12</number>
+                  </property>
+                  <property name="placeholderText">
+                   <string>+1234.12345</string>
                   </property>
                  </widget>
                 </item>
                 <item row="2" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_3">
+                 <widget class="QLabel" name="main_tab_Localization_latitudLabel">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Latitude&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_3
-																			</cstring>
+                   <cstring>
+																		main_tab_LocalizationSettings_latitudLineEdit
+																	</cstring>
                   </property>
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_3">
+                 <widget class="QLineEdit" name="main_tab_LocalizationSettings_latitudLineEdit">
                   <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
+                   <string notr="true">background-color: rgb(255, 255,
+																		255);
+																		font: 12pt &quot;MS Shell Dlg 2&quot;;
+																		color: rgb(0, 0, 0)
+																	</string>
                   </property>
                   <property name="maxLength">
-                   <number>30</number>
+                   <number>11</number>
+                  </property>
+                  <property name="placeholderText">
+                   <string>-12345.12345</string>
                   </property>
                  </widget>
                 </item>
                 <item row="3" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_4">
+                 <widget class="QLabel" name="main_tab_Localization_hourLabel">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Hour &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_4
-																			</cstring>
+                   <cstring>
+																		main_tab_LocalizationSettings_hourLineEdit
+																	</cstring>
                   </property>
                  </widget>
                 </item>
                 <item row="3" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_4">
+                 <widget class="QLineEdit" name="main_tab_LocalizationSettings_hourLineEdit">
                   <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
+                   <string notr="true">background-color: rgb(255, 255,
+																		255);
+																		font: 12pt &quot;MS Shell Dlg 2&quot;;
+																		color: rgb(0, 0, 0)
+																	</string>
                   </property>
                   <property name="maxLength">
-                   <number>30</number>
+                   <number>2</number>
+                  </property>
+                  <property name="placeholderText">
+                   <string>23</string>
                   </property>
                  </widget>
                 </item>
                 <item row="4" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_5">
+                 <widget class="QLabel" name="main_tab_Localization_minutesLabel">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Minutes &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_5
-																			</cstring>
+                   <cstring>
+																		main_tab_LocalizationSettings_minutesLineEdit
+																	</cstring>
                   </property>
                  </widget>
                 </item>
                 <item row="4" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_5">
+                 <widget class="QLineEdit" name="main_tab_LocalizationSettings_minutesLineEdit">
                   <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
+                   <string notr="true">background-color: rgb(255, 255,
+																		255);
+																		font: 12pt &quot;MS Shell Dlg 2&quot;;
+																		color: rgb(0, 0, 0)
+																	</string>
                   </property>
                   <property name="maxLength">
-                   <number>30</number>
+                   <number>2</number>
+                  </property>
+                  <property name="placeholderText">
+                   <string>09</string>
                   </property>
                  </widget>
                 </item>
                 <item row="5" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_6">
+                 <widget class="QLabel" name="main_tab_Localization_secondsLabel">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;6&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Seconds &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_6
-																			</cstring>
+                   <cstring>
+																		main_tab_LocalizationSettings_secondsLineEdit
+																	</cstring>
                   </property>
                  </widget>
                 </item>
                 <item row="5" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_6">
+                 <widget class="QLineEdit" name="main_tab_LocalizationSettings_secondsLineEdit">
                   <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
+                   <string notr="true">background-color: rgb(255, 255,
+																		255);
+																		font: 12pt &quot;MS Shell Dlg 2&quot;;
+																		color: rgb(0, 0, 0)
+																	</string>
                   </property>
                   <property name="maxLength">
-                   <number>30</number>
+                   <number>2</number>
                   </property>
-                 </widget>
-                </item>
-                <item row="6" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_7">
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;7&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
-                  </property>
-                  <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_7
-																			</cstring>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_7">
-                  <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0">
-                 <widget class="QLabel" name="main_tab_module_loc_Label_8">
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																				style=&quot; font-size:12pt;&quot;&gt;8&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-																			</string>
-                  </property>
-                  <property name="buddy">
-                   <cstring>main_tab_module_loc_LineEdit_8
-																			</cstring>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="1">
-                 <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_8">
-                  <property name="styleSheet">
-                   <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>30</number>
+                  <property name="placeholderText">
+                   <string>00</string>
                   </property>
                  </widget>
                 </item>
                </layout>
               </item>
              </layout>
-            </item>
-           </layout>
-          </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="specimen_location_frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="bottomMargin">
+               <number>20</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" name="specimen_location_layout">
+                <item alignment="Qt::AlignHCenter">
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Location Description by Module&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QFormLayout" name="formLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_1">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;1 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_1
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_1">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_2">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;2 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_2
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_2">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_3">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;3 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_3
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_3">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_4">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;4 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_4
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_4">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_5">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;5 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_5
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_5">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_6">
+                    <property name="styleSheet">
+                     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;6 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_6
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_6">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_7">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;7 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_7
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_7">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="0">
+                   <widget class="QLabel" name="main_tab_module_loc_Label_8">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;8 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>main_tab_module_loc_LineEdit_8
+																			</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="1">
+                   <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_8">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:
+																				rgb(255, 255, 255);
+																				font: 12pt &quot;MS Shell Dlg 2&quot;;
+																				color: rgb(0, 0, 0)
+																			</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
@@ -992,7 +1084,7 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>175</height>
+            <height>200</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -1010,496 +1102,497 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QWidget" name="formLayoutWidget">
-           <property name="geometry">
-            <rect>
-             <x>290</x>
-             <y>40</y>
-             <width>350</width>
-             <height>114</height>
-            </rect>
-           </property>
-           <layout class="QFormLayout" name="main_tab_DAQParams_Form">
-            <property name="labelAlignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-            <property name="formAlignment">
-             <set>Qt::AlignHCenter|Qt::AlignTop</set>
-            </property>
-            <item row="1" column="0">
-             <widget class="QLabel" name="main_tab_samplingRateLabel">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;Sampling Rate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-															</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_DAQParams_samplingRate_DropDown</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QComboBox" name="main_tab_DAQParams_samplingRate_DropDown">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_12">
+             <item>
+              <widget class="QLabel" name="main_tab_DAQSettings_Label">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;DATA ACQUISITION PARAMETERS&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <property name="spacing">
+                <number>10</number>
+               </property>
+               <property name="leftMargin">
+                <number>50</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="main_tab_DAQParams_LOAD_PARAMS_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Load Parameters</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="main_tab_DAQParams_SAVE_PARAMS_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Save Parameters</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="main_tab_DAQParams_Form">
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="formAlignment">
+              <set>Qt::AlignHCenter|Qt::AlignTop</set>
+             </property>
+             <item row="1" column="0">
+              <widget class="QLabel" name="main_tab_samplingRateLabel">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Sampling Rate &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_DAQParams_samplingRate_DropDown</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="main_tab_DAQParams_samplingRate_DropDown">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0);
 															</string>
-              </property>
-              <item>
-               <property name="text">
-                <string>2 Hz</string>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>4 Hz</string>
+               <property name="currentIndex">
+                <number>15</number>
                </property>
-              </item>
-              <item>
+               <item>
+                <property name="text">
+                 <string>2 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>16 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>32 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>64 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>128 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>256 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>512 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1024 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2048 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4096 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8192 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>16384 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20000 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Plase Select</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="main_tab_Cutoff_FrequencyLabel">
                <property name="text">
-                <string>8 Hz</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Low-Pass Filter Cutoff Frequency &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>16 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>32 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>64 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>128 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>256 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>512 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>1024 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>2048 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>4096 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>8192 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>16384 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>20000 Hz</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="main_tab_Cutoff_FrequencyLabel">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;Low-Pass Filter
-																Cutoff Frequency&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-															</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_DAQParams_Cutoff_Frequency_DropDown
+               <property name="buddy">
+                <cstring>main_tab_DAQParams_Cutoff_Frequency_DropDown
 															</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="main_tab_DAQParams_gainLabel">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;Gain&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-															</string>
-              </property>
-              <property name="buddy">
-               <cstring>main_tab_DAQParams_gain_DropDown</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QComboBox" name="main_tab_DAQParams_gain_DropDown">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="main_tab_DAQParams_gainLabel">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Gain &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_DAQParams_gain_DropDown</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="main_tab_DAQParams_gain_DropDown">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0)
 															</string>
-              </property>
-              <item>
-               <property name="text">
-                <string>0.2 V/V</string>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>1 V/V</string>
+               <property name="currentIndex">
+                <number>10</number>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>10 V/V</string>
+               <property name="maxVisibleItems">
+                <number>10</number>
                </property>
-              </item>
-              <item>
+               <item>
+                <property name="text">
+                 <string>0.2 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>40 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>60V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>80 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>120 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>157 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Please Select</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="main_tab_ADC_Constant_Label">
                <property name="text">
-                <string>20 V/V</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;ADC Constant &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>30 V/V</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>40 V/V</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>60V/V</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>80 V/V</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>120 V/V</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>157 V/V</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="main_tab_ADC_Constant_Label">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-																style=&quot; font-size:12pt;&quot;&gt;ADC Constant&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-															</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0);
 															</string>
-              </property>
-              <item>
-               <property name="text">
-                <string>1 Hz</string>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>2 Hz</string>
+               <property name="currentIndex">
+                <number>15</number>
                </property>
-              </item>
-              <item>
+               <item>
+                <property name="text">
+                 <string>1 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>16 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>32 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>64 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>128 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>256 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>512 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1024 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2048 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4096 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8192 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10,000 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Please Select</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="main_tab_DAQParams_ADC_Constant_Label">
                <property name="text">
-                <string>4 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>8 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>16 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>32 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>64 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>128 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>256 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>512 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>1024 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>2048 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>4096 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>8192 Hz</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>10,000 Hz</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="main_tab_DAQParams_ADC_Constant_Label">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
 																style=&quot; font-size:12pt;&quot;&gt;298nV&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 															</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QLabel" name="main_tab_DAQSettings_Label">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>301</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;
-													font-size:12pt; font-weight:600;&quot;&gt;DATA ACQUISITION
-													PARAMETERS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-												</string>
-           </property>
-          </widget>
-          <widget class="QWidget" name="verticalLayoutWidget_4">
-           <property name="geometry">
-            <rect>
-             <x>40</x>
-             <y>70</y>
-             <width>152</width>
-             <height>80</height>
-            </rect>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
-            <property name="spacing">
-             <number>10</number>
-            </property>
-            <item>
-             <widget class="QPushButton" name="main_tab_DAQParams_LOAD_PARAMS_button">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-															</string>
-              </property>
-              <property name="text">
-               <string>Load Parameters</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="main_tab_DAQParams_SAVE_PARAMS_button">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>150</width>
-                <height>25</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-															</string>
-              </property>
-              <property name="text">
-               <string>Save Parameters</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QFrame" name="main_tab_Buttons_Frame">
-           <property name="geometry">
-            <rect>
-             <x>690</x>
-             <y>50</y>
-             <width>311</width>
-             <height>100</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>100</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>100</height>
-            </size>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_2">
-            <item row="0" column="0">
-             <widget class="QPushButton" name="main_tab_CHANNEL_INFO_button">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>100</width>
-                <height>16777200</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-															</string>
-              </property>
-              <property name="text">
-               <string>Module 
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QFrame" name="main_tab_Buttons_Frame">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="main_tab_CHANNEL_INFO_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>130</width>
+                  <height>16777200</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Module 
  Information</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QPushButton" name="main_tab_START_button">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>100</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="baseSize">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="autoFillBackground">
-               <bool>false</bool>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:rgb(204, 51, 0);
-																color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-															</string>
-              </property>
-              <property name="text">
-               <string>START</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="main_tab_START_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>130</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>START</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
@@ -1949,7 +2042,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1100</width>
+     <width>1150</width>
      <height>21</height>
     </rect>
    </property>
@@ -1993,7 +2086,6 @@
   </action>
  </widget>
  <tabstops>
-  <tabstop>main_tab_LAYOUT</tabstop>
   <tabstop>main_tab_RecordingSettings_name_LineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_durationLineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_type_DropDown</tabstop>
@@ -2002,7 +2094,6 @@
   <tabstop>main_tab_RecordingSettings_LOAD_SETTINGS_Button</tabstop>
   <tabstop>main_tab_RecordingSettings__SAVE_button</tabstop>
   <tabstop>main_tab_LocalizationSettings_type_DropBox</tabstop>
-  <tabstop>main_tab_LocalizationSettings_acquire_GPS_Button</tabstop>
   <tabstop>main_tab_LocalizationSettings_Name_lineEdit</tabstop>
   <tabstop>main_tab_LocalizationSettings_longitudLineEdit</tabstop>
   <tabstop>main_tab_LocalizationSettings_latitudLineEdit</tabstop>

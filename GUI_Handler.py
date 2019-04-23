@@ -29,10 +29,10 @@ def show_not_connected_error():
 
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/Qt_Files/main_window.ui")
-prog_dlg = uic.loadUi("GUI/progress_dialog_v1.ui")
-viz_sensor_sel_win = uic.loadUi('GUI/visualize_sensor_selection_matrix.ui')
+prog_dlg = uic.loadUi("GUI/Qt_Files/progress_dialog_v1.ui")
+viz_sensor_sel_win = uic.loadUi('GUI/Qt_Files/visualize_sensor_selection_matrix.ui')
 main_sensor_sel_win = uic.loadUi('GUI/Qt_Files/main_sensor_selection_matrix.ui')
-mod_sel_win = uic.loadUi('GUI/module_selection_window.ui')
+mod_sel_win = uic.loadUi('GUI/Qt_Files/module_selection_window.ui')
 file_sys_win = uic.loadUi('GUI/Qt_Files/file_system_window.ui')
 filename_input_win = uic.loadUi('GUI/Qt_Files/filename_editor_window.ui')
 module_1_info_win = uic.loadUi("GUI/Qt_Files/module_1_info_window.ui")
@@ -44,21 +44,21 @@ module_6_info_win = uic.loadUi("GUI/Qt_Files/module_6_info_window.ui")
 module_7_info_win = uic.loadUi("GUI/Qt_Files/module_7_info_window.ui")
 module_8_info_win = uic.loadUi("GUI/Qt_Files/module_8_info_window.ui")
 
-main_window.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-prog_dlg.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-viz_sensor_sel_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-main_sensor_sel_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-mod_sel_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-file_sys_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-filename_input_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_1_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_2_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_3_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_4_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_5_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_6_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_7_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
-module_8_info_win.setWindowIcon(QIcon('GUI/Qt_Files/EWAS_Logo_1.svg'))
+main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+prog_dlg.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+main_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+mod_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_1_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_2_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_3_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_4_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_5_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_6_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_7_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+module_8_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
 # Init Instances of all classes for reference
 sens_1 = Sensor_Individual.Sensor('Sensor 1', 0)
@@ -282,7 +282,7 @@ def set_gps_into_gui():
     Sets GPS information on current settings into GUI fields.
     """
     loc_type_dropdown.setCurrentIndex(0)  # Set to GPS in Drop Down.
-    main_window.main_tab_LocalizationSettings_Name_lineEdit.setText(daq_config.location_configs['loc_name'])
+    main_window.main_tab_LocalizationSettings_Name_lineEdit.setText(str(daq_config.location_configs['loc_name']))
     main_window.main_tab_LocalizationSettings_longitudLineEdit.setText(str(daq_config.location_configs['longitude']))
     main_window.main_tab_LocalizationSettings_latitudLineEdit.setText(str(daq_config.location_configs['latitude']))
     main_window.main_tab_LocalizationSettings_hourLineEdit.setText(str(daq_config.location_configs['hour']))
@@ -954,10 +954,10 @@ main_window.visualize_tab_COHERE_button.clicked.connect(
     lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
 # File Name
 fn_in = filename_input_win.filename_lineEdit
-fn_in.returnPressed.connect(lambda: do_saving_loading_action())  # FIXME - TypeError: native Qt signal is not callable
+fn_in.returnPressed.connect(lambda: do_saving_loading_action())
 fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_saving_loading_action())
-fn_CANCEL_bton = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
-filename_input_win.pushButton.clicked.connect(file_choose)
+fn_CANCEL_btn = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
+fn_EXPLORER_btn = filename_input_win.open_FILE_EXPLORER_Button.clicked.connect(file_choose)
 
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
@@ -1080,7 +1080,7 @@ def action_store_DAQ_Params():
     # Get info from GUI.
     get_daq_params_from_gui()
     # Save to File.
-    setting_data_manager.store_daq_configs(filename)
+    setting_data_manager.store_signal_params(filename)
     # Close Window
     filename_input_win.close()
 
@@ -1089,9 +1089,10 @@ def action_load_DAQ_Params():
     # Get filename from User
     filename = fn_in.text()
     # Load Params from File
-    setting_data_manager.load_daq_configs(filename)
-    # Set Params into GUI.
-    set_daq_params_to_gui()
+    setting_data_manager.load_signal_params(filename)
+    if set_dat_man.verify_file_exists('Config/DAQ/Signal/' + filename):
+        # Set Params into GUI.
+        set_daq_params_to_gui()
     # Close Window
     filename_input_win.close()
 
@@ -1103,10 +1104,10 @@ def action_store_Location():
     # Get info from GUI.
     # get_location_from_gui()
     loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
-    if not loc_type:
+    if not loc_type: # FIXME ESTE IF NO HACE NADA.
         if not validate_gps_location_settings():
             # Save to File.
-            setting_data_manager.store_daq_configs(filename)
+            setting_data_manager.store_location_configs(filename)
             # Close Window
             filename_input_win.close()
         else:
@@ -1114,7 +1115,7 @@ def action_store_Location():
     else:
         if not validate_module_location_settings():
             # Save to File.
-            setting_data_manager.store_daq_configs(filename)
+            setting_data_manager.store_location_configs(filename)
             # Close Window
             filename_input_win.close()
         else:
@@ -1125,9 +1126,11 @@ def action_load_Location():
     # Get filename from User
     filename = fn_in.text()
     # Load Params from File
-    setting_data_manager.load_daq_configs(filename)
-    # Set Params into GUI.
-    load_local_settings_to_gui()
+    setting_data_manager.load_location_configs(filename)
+
+    if set_dat_man.verify_file_exists('Config/DAQ/Location/' + filename):
+        # Set Params into GUI.
+        load_local_settings_to_gui()
     # Close Window
     filename_input_win.close()
 
@@ -1140,7 +1143,7 @@ def action_store_Rec_Setts():
     # get_rec_setts_from_gui()
     if not validate_rec_settings():
         # Save to File.
-        setting_data_manager.store_daq_configs(filename)
+        setting_data_manager.store_recording_configs(filename)
         # Close Window
         filename_input_win.close()
     else:
@@ -1151,9 +1154,10 @@ def action_load_Rec_Setts():
     # Get filename from User
     filename = fn_in.text()
     # Load Params from File
-    setting_data_manager.load_daq_configs(filename)
-    # Set Params into GUI.
-    set_recording_into_gui()
+    setting_data_manager.load_recording_configs(filename)
+    if set_dat_man.verify_file_exists('Config/DAQ/Recording/' + filename):
+        # Set Params into GUI.
+        set_recording_into_gui()
     # Close Window
     filename_input_win.close()
 

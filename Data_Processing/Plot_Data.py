@@ -10,7 +10,7 @@ log = 1
 class Plot_Data():
     # TODO get sampling frequency from file.
     def __init__(self, filename):
-        filename = r'../Data/' + filename
+        filename = r'Data/' + filename
         self.data_read = pd.read_csv(filename, header=90, index_col=0)
         if log: print(self.data_read)
 
