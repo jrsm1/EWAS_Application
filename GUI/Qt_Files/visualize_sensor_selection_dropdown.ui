@@ -114,11 +114,6 @@ color:rgb(0, 0, 0);</string>
           </property>
           <item>
            <property name="text">
-            <string>Sensor_32</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>Select Sensor</string>
            </property>
           </item>
