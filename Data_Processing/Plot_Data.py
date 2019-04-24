@@ -134,7 +134,7 @@ class Plot_Data():
 
 
 # TESTING.
-pdata = Plot_Data('Testing.csv')
+# pdata = Plot_Data('Testing.csv')
 # pdata.plt_time().show_plot('Sensor Plots')
 # pdata.plot_coherence('S1', 'S2', 1000).show_plot('Coherence')
 # pdata.plot_fft('S1', 1).show_plot('Fast Fourier Transform')

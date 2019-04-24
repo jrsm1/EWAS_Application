@@ -111,7 +111,7 @@ modules_all = [mod_1, mod_2, mod_3, mod_4, mod_5, mod_6, mod_7,
 # ----------- CONFIGS ----------
 daq_config = DAQ_Configuration.DAQconfigs()
 
-setting_data_manager = set_dat_man.Setting_File_Manager(daq_con=daq_config, mod_con=mod_1, sens_con=sens_1)
+setting_data_manager = set_dat_man.Setting_File_Manager(daq_con=daq_config, mod_con=modules_all, sens_con=sensors_all)
 
 # TESTING purposes
 log = 1
@@ -346,23 +346,18 @@ def get_rec_setts_from_gui():
     """
     # try:  # This should NEVER happen when validating
     daq_config.recording_configs['test_name'] = str(main_window.main_tab_RecordingSettings_name_LineEdit.text())
-    daq_config.recording_configs['test_duration'] = int(
-        main_window.main_tab_RecordingSettings_durationLineEdit.text())
-    daq_config.recording_configs['test_start_delay'] = int(
-        main_window.main_tab_RecordingSettings_delay_LineEdit.text())
-    daq_config.recording_configs['test_type'] = int(
-        main_window.main_tab_RecordingSettings_type_DropDown.currentIndex())
+    daq_config.recording_configs['test_duration'] = int(main_window.main_tab_RecordingSettings_durationLineEdit.text())
+    daq_config.recording_configs['test_start_delay'] = int(main_window.main_tab_RecordingSettings_delay_LineEdit.text())
+    daq_config.recording_configs['test_type'] = str(main_window.main_tab_RecordingSettings_type_DropDown.currentText())
     """
     QCheckbox, needs checkState() to get the state.
     There are two states.
     2 = checked
     0 = unchecked
     """
-    daq_config.recording_configs[
-        'visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
+    daq_config.recording_configs['visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
     # BOOLEAN
-    daq_config.recording_configs[
-        'store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
+    daq_config.recording_configs['store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
     if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
 
 
@@ -370,10 +365,13 @@ def get_daq_params_from_gui():
     """
     Gets information on GUI into DAQ Parameters Data Structures.
     """
-    daq_config.signal_configs['sampling_rate'] = main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex()
-    daq_config.signal_configs[
-        'cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
-    daq_config.signal_configs['signal_gain'] = main_window.main_tab_DAQParams_gain_DropDown.currentIndex()
+    daq_config.signal_configs['sampling_rate'] = main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()
+    daq_config.signal_configs['cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentText()
+    daq_config.signal_configs['signal_gain'] = main_window.main_tab_DAQParams_gain_DropDown.currentText()
+
+    daq_config.sampling_rate_index = main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex()
+    daq_config.cutoff_freq_index = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentIndex()
+    daq_config.gain_index = main_window.main_tab_DAQParams_gain_DropDown.currentIndex()
 
 
 def get_location_from_gui():
@@ -605,23 +603,15 @@ def get_module_and_sensors_selected():
         return sensors_selected
     return "0000"
 
-def get_sensor_enable():
-
-    sensors = []
+def get_sensor_enabled():
+    sensor_enable = []
     if log: print("entered get_module_and_sensors_selected()")
-    count = 0
-    sensors_sel = []
     if log: print("created empy sensor selected array")
-    sensors_sel.append(main_sensor_sel_win.Sensor_1)
-    if log:
-        print("print sensors array created correctly")
-    sensors_selected = "0000"
-    correct = 1
-    index = 0
-    for i in main_sensor_selection_list:
-        sensors[index] = int(i.checkState())
 
-    return sensors
+    for i in main_sensor_selection_list:
+        sensor_enable.append(i.checkState())
+
+    return sensor_enable
 
 
 def start_acquisition():
@@ -635,13 +625,13 @@ def start_acquisition():
 def sensor_sel_start():
     sens = get_module_and_sensors_selected()
     if log: print("sensors selected are ", sens)
-    sensor_enable = get_sensor_enable()
+    sensors_enabled = get_sensor_enable()
 
     main_sensor_sel_win.close()
     try:
         ins = ins_man.instruction_manager(ins_port)
-        ins.send_recording_parameters(daq_sample_rate, daq_cutoff, daq_gain, duration, daq_start_delay,
-                                      sens, sensor_enable, daq_exp_name, daq_exp_location)
+        ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index, daq_config.gain_index,
+                                      "0100", "0100", "0102", sensors_enabled, "test name", "test location")
         enable_main_window()
         if log:
             print("came back to sensor_sel_start")
@@ -971,19 +961,12 @@ gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # Visualization
-main_window.visualize_tab_TIME_button.clicked.connect(
-    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
-        'PLOT'))  # TODO GET INFO FROM USER.
-main_window.visualize_tab_FFT_button.clicked.connect(
-    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_APS_button.clicked.connect(
-    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_XPS_button.clicked.connect(
-    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD('S1', 'S2', 100).show_plot('PLOT'))
-main_window.visualize_tab_PHASE_button.clicked.connect(
-    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_COHERE_button.clicked.connect(
-    lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
+main_window.visualize_tab_TIME_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot('PLOT'))  # TODO GET INFO FROM USER.
+main_window.visualize_tab_FFT_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_APS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_XPS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD('S1', 'S2', 100).show_plot('PLOT'))
+main_window.visualize_tab_PHASE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase('S1', 100).show_plot('PLOT'))
+main_window.visualize_tab_COHERE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
 # File Name
 fn_in = filename_input_win.filename_lineEdit
 fn_in.returnPressed.connect(lambda: do_saving_loading_action())
@@ -1004,7 +987,7 @@ def action_begin_recording():
     # Send Setting Information to Control Module.
     try:
         ins = ins_man.instruction_manager(ins_port)
-        ins.send_set_configuration('Configuration String.')
+        ins.send_set_configuration(setting_data_manager.settings_to_string())
         # TODO Prepare Real-Time Plot to receive Data.
         # Send Begin Recording FLAG to Control Module.
         ins.send_request_start()
@@ -1220,7 +1203,7 @@ def action_load_Rec_Setts():
         # Close Window
         filename_input_win.close()
 
-
+21
 # ********************************************* LOCATION ***************************************************************
 def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.

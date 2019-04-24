@@ -8,13 +8,13 @@ class instruction_manager():
     def __init__(self, port):
         self.serial_interface = serial_interface.serial_interface(port)
 
-    """
-    function to set configuration.
-    input: string with configuration
-    sends an instruction byte to know what it must do, and then the configuration as a string
-    """
 
     def send_set_configuration(self, string):
+        """
+        function to set configuration.
+        :param: string with configuration
+        sends an instruction byte to know what it must do, and then the configuration as a string
+        """
         self.serial_interface.send_byte(b'\x80')
         self.serial_interface.send_string(string)
         line = self.serial_interface.listen()
@@ -233,7 +233,7 @@ class instruction_manager():
         self.serial_interface.send_byte(bytes([int(sensors_selected[1])]))
         self.serial_interface.send_byte(bytes([int(sensors_selected[2])]))
         self.serial_interface.send_byte(bytes([int(sensors_selected[3])]))
-        # send sensor enable
+        # send sensor enabled
         for i in sensor_enable:
             self.serial_interface.send_byte(bytes([i]))
         # send name

@@ -7,19 +7,19 @@ from os import path
 import pandas as pd
 from PyQt5 import QtWidgets
 import GUI_Handler
-log = 1
+log = 0
 
-def verify_file_exists(path:str, filename: str):
-    exists = path.isfile(path + filename)
-    if not exists and (filename != ''):
+def verify_file_exists(file_path: str):
+    exists = path.isfile(file_path)
+    if not exists and (file_path != ''):
         QtWidgets.QMessageBox().critical(GUI_Handler.main_window, 'WARNING', 'File does not exist')
     return exists
 
 
 class Setting_File_Manager:
-    def __init__(self, mod_con: Module_Individual, sens_con: Sensor_Individual, daq_con: DAQ_Configuration):
-        self.channel_config = mod_con
-        self.sensor_config = sens_con
+    def __init__(self, mod_con: [], sens_con: [], daq_con: DAQ_Configuration):
+        self.module_configs = mod_con
+        self.sensor_configs = sens_con
         self.daq_config = daq_con
 
     def set_filename(self, filename: str):
@@ -310,6 +310,47 @@ class Setting_File_Manager:
     #
     #     return self.sensor_config
 
+    def settings_to_string(self):
+        """
+        Reads Data from CSV file and converts it to comma and semi-colon separated STRING
+
+        :return: comma and semi-colon separated STRING
+        """
+        new_line = ';'
+        string = 'Test ID:' + new_line + DAQ_Configuration.generate_ID(self.daq_config.recording_configs['test_name']) + new_line
+
+        string += ','.join(self.daq_config.recording_configs.keys()) + new_line
+        string += ','.join(str(elem) for elem in self.daq_config.recording_configs.values()) + new_line
+
+        string += ','.join(self.daq_config.signal_configs.keys()) + new_line
+        string += ','.join(self.daq_config.signal_configs.values()) + new_line
+
+        string += ','.join(self.daq_config.location_configs.keys()) + new_line
+        string += ','.join(self.daq_config.location_configs.values()) + new_line
+
+        string += ','.join(self.daq_config.specimen_location.keys()) + new_line
+        string += ','.join(str(elem) for elem in self.daq_config.specimen_location.values()) + new_line
+
+        # Modules information
+        for module in self.module_configs:
+            string += 'Module Name' + new_line
+            string += module.channel_info['channel_name'] + new_line
+
+            string += ','.join(module.channel_info['Sensor 1'].sensor_info.keys()) + new_line
+            string += ','.join(module.channel_info['Sensor 1'].sensor_info.values()) + new_line
+
+            string += ','.join(module.channel_info['Sensor 2'].sensor_info.keys()) + new_line
+            string += ','.join(module.channel_info['Sensor 2'].sensor_info.values()) + new_line
+
+            string += ','.join(module.channel_info['Sensor 3'].sensor_info.keys()) + new_line
+            string += ','.join(module.channel_info['Sensor 3'].sensor_info.values()) + new_line
+
+            string += ','.join(module.channel_info['Sensor 4'].sensor_info.keys()) + new_line
+            string += ','.join(module.channel_info['Sensor 4'].sensor_info.values()) + new_line
+
+        if log: print(string)
+        return string
+
 # TESTING
 sc1 = Sensor_Individual.Sensor('S1', 0)
 sc2 = Sensor_Individual.Sensor('S2', 0)
@@ -345,7 +386,7 @@ sc4 = Sensor_Individual.Sensor('S4', 0)
 # sc32 = Sensor_Individual.Sensor('S32', 0)
 cc = Module_Individual.Module('mName', sc1, sc2, sc3, sc4)
 daq = DAQ_Configuration.DAQconfigs()
-sfm = Setting_File_Manager(cc, sc1, daq)
+sfm = Setting_File_Manager([cc,cc,cc,cc,cc,cc,cc,cc], sc1, daq)
 # print(cc.channel_info)
 # print(sc.sensor_info)
 # print(daq.signal_configs)
@@ -378,3 +419,5 @@ filename = r'Default_Configuration.csv'  # Directory set in methods
 # sfm.store_sensor_config(filename, [sc1, sc2, sc3, sc4, sc5, sc6, sc7, sc8, sc9, sc10, sc11, sc12, sc13, sc14, sc15, sc16,
 #                                    sc17,sc18,sc19,sc20,sc21,sc22,sc23,sc24,sc25,sc26,sc27,sc28,sc29,sc30,sc31,sc32])
 # print(sfm.load_sensor_config(filename))
+
+# sfm.settings_to_string()

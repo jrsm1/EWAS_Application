@@ -65,6 +65,10 @@ class DAQconfigs:
 
         self.test_id = {'Test ID': generate_ID(test_name)}
 
+        self.sampling_rate_index = sampling_rate
+        self.cutoff_freq_index = cutoff_frequency
+        self.gain_index = signal_gain
+
         self.signal_configs["sampling_rate"] = SAMPLING_RATES[sampling_rate]
         self.signal_configs["cutoff_frequency"] = CUTOFF_FREQUENCIES[cutoff_frequency]
         self.signal_configs["signal_gain"] = GAINS[signal_gain]
@@ -110,14 +114,14 @@ class DAQconfigs:
         """
         return self.test_id
 
+
+
+def generate_ID(name: str):
     """
     Generates Test ID from Test Name
     
     :param name : Test Name to generate ID from.
     """
-
-
-def generate_ID(name: str):
     answer = name[0: int(ID_LIMIT / 2)]
 
     answer = answer + '_'
