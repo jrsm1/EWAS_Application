@@ -102,7 +102,7 @@ class Data_Handler():
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
         filename = r'Data/' + filename
-        data_read = pd.read_csv(filename, header=90, index_col='Timestamp')
+        data_read = pd.read_csv(filename, header=90, index_col='Timestamp') # FIXME 'Timestamp' DOES NOT EXISTS IN STORE DATA YET.
 
         return data_read
 
@@ -157,8 +157,17 @@ class Data_Handler():
 
         return self.all_data
 
-    def read_sensor_headers(self, filename):
-        sensors = pd.data
+    def read_sensor_headers(self, filename: str):
+        """
+        Reads Sensor Names from Data in _filename_  as a Pandas DataFrame.
+        This method reads The columns, ignoring _Timestamp_, which are the sensor names for which
+        data exists in the given File.
+
+        :param filename: The Data File
+
+        :return: Pandas Series with the Data.
+        """
+        return pd.read_csv(filename, header=90, nrows=0).columns.tolist()[1:]
 
 def select_data_columns():
     """
@@ -247,7 +256,8 @@ def get_port():
 # dc = DAQ_Configuration.DAQconfigs()
 # cc = Module_Individual.Module('mName', sc1, sc2, sc3, sc4)
 # dh = Data_Handler([cc,cc,cc,cc,cc,cc,cc,cc], dc)
-#
-# data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
-# # dh.store_data('Testing.csv', data)
-# print(dh.data_to_string('Testing.csv'))
+# #
+# # data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
+# # # dh.store_data('Testing.csv', data)
+# # print(dh.data_to_string('Testing.csv'))
+# dh.read_sensor_headers('Testing.csv')

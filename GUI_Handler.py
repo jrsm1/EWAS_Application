@@ -29,7 +29,7 @@ def show_not_connected_error():
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/Qt_Files/main_window.ui")
 prog_dlg = uic.loadUi("GUI/Qt_Files/progress_dialog_v1.ui")
-viz_sensor_sel_win = uic.loadUi('GUI/Qt_Files/visualize_sensor_selection_matrix.ui')
+viz_sensor_sel_win = uic.loadUi('GUI/Qt_Files/visualize_sensor_selection_dropdown.ui')
 main_sensor_sel_win = uic.loadUi('GUI/Qt_Files/main_sensor_selection_matrix.ui')
 mod_sel_win = uic.loadUi('GUI/Qt_Files/module_selection_window.ui')
 file_sys_win = uic.loadUi('GUI/Qt_Files/file_system_window.ui')
@@ -1201,8 +1201,26 @@ def send_diagnostics():
 
 main_window.actionTime.triggered.connect(lambda: time_plot())
 def time_plot():
-    show_visualization_sensor_selector_window()
-    enable_main_start_connected_sensors()
+    show_visualization_sensor_selector_window(1)
+    ()
+
+main_window.actionFrequency.triggered.connect(lambda: freq_plot())
+def freq_plot():
+    show_visualization_sensor_selector_window(2)
+
+main_window.actionAuto_Power.triggered.connect(lambda: auto_plot())
+def auto_plot():
+    show_visualization_sensor_selector_window(3)
+
+main_window.actionCross_Power.triggered.connect(lambda: cross_plot())
+def cross_plot():
+    show_visualization_sensor_selector_window(4)
+
+main_window.actionCoherence.triggered.connect(lambda: cohere_plot())
+def cohere_plot():
+    show_visualization_sensor_selector_window(5)
+
+
 
 
 # RECORDING  Settings
@@ -1258,7 +1276,8 @@ fn_EXPLORER_btn = filename_input_win.open_FILE_EXPLORER_Button.clicked.connect(f
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
 def suggest_sampling_freq():
-    samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
+    if samfreq_dropdown.currentText() != 'Plase Select':
+        samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
 
 def action_begin_recording():
