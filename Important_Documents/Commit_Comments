@@ -25,6 +25,7 @@
 * [X] Filename Extension Validated.
 * [X] Directory View Only Allows CSV Files.
 * [X] Directory View Defaults to Config Directory.
+* [X] Storing and Loading DAQ Params from Dedicated Distinct Directories.
 
 # To-Do
 * [x] Initialize Widgets.
@@ -49,4 +50,6 @@ $ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable
 $ [ ] Bug where Drop Downs look kindda squashed together.
 $ [ ] Bug Acquire GPS Dialog waits for it to finish sync to display progressBar and Message.
 $ [X] $ Bug where Main Selection Matrix shows when not connected.
+$ [ ] $ Bug 'File does not exists' Error showing when selecting file from File Explorer.
+    $ [ ] Bug File Explorer shows full path.
 

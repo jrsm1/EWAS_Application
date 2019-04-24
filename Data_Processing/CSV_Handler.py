@@ -5,6 +5,8 @@ import csv
 import pandas as pd
 
 log = 1
+
+
 class Data_Handler():
     """
     Class in charge of handling data files.
@@ -24,7 +26,7 @@ class Data_Handler():
         :return: CSV file with metadata header and data body.
         """
 
-        datapath = r'../Data/' + filename
+        datapath = r'Data/' + filename
 
         with open(datapath, 'w', newline='') as f:
             writer = csv.writer(f)
@@ -211,5 +213,3 @@ def get_port():
 # data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
 # # dh.store_data('Testing.csv', data)
 # print(dh.data_to_string('Testing.csv'))
-
-
