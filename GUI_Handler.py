@@ -256,7 +256,7 @@ def close_filename_editor_window():
     filename_input_win.close()
 
 
-# TODO get selected sensors.
+# TODO
 def begin_visualization():
     """
     Begins Visualization Analysis for user selected plots.
@@ -1187,7 +1187,7 @@ def do_plot(plot: int):
     sensors = CSV_Handler.read_sensor_headers(visualization_values['plot_filename'])
 
     # Clear DropDown to prepare for new plot option.
-    # Clear everything but Placeholder [Index 0]
+    #   Clear everything but Placeholder [Index 0].
     for item in range(1, viz_sens_1_dropdown.count(), 1):
         viz_sens_1_dropdown.removeItem(item)
     for item in range(1, viz_sens_1_dropdown.count(), 1):
@@ -1201,16 +1201,19 @@ def do_plot(plot: int):
     if plot == 1:
         viz_name_label.setText('Plot Raw Data Against Time. <br>'
                                'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setCurrentIndex(0)
         viz_sens_2_dropdown.setEnabled(False)
 
     elif plot == 2:
         viz_name_label.setText('Plot Frequency Spectrum. <br>'
                                'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setCurrentIndex(0)
         viz_sens_2_dropdown.setEnabled(False)
 
     elif plot == 3:
         viz_name_label.setText('Plot Auto-Power Spectrum. <br>'
                                'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setCurrentIndex(0)
         viz_sens_2_dropdown.setEnabled(False)
 
     elif plot == 4:
@@ -1957,25 +1960,29 @@ def plot_time(filename: str):
     [1]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data(filename).plt_time(viz_sens_1_dropdown.currentText())
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plt_time(sensor)
 
 
-def plot_fft(filename: str, sensor: str, freq: int):
+def plot_fft(filename: str):
     """
     [2]
     Creats and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data(filename).plot_fft('S1', 100).show_plot(
-        'FOURIER TRANSFORM')  # TODO SWITCH TO FILENAME FILE.
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_fft(sensor)
 
 
-def plot_aps(filename: str, sensor: str, freq: int):
+def plot_aps(filename: str):
     """
     [3]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot(
-        'AUTO-POWER SPECTRA')  # TODO SWITCH TO FILENAME FILE.
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_PSD(sensor)
 
 
 def plot_cps(filename: str):
@@ -1983,8 +1990,10 @@ def plot_cps(filename: str):
     [4]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD().show_plot(
-        'CROSS-POWER SPECTRA')  # TODO SWITCH TO FILENAME FILE.
+    sensor_1 = viz_sens_1_dropdown.currentText()
+    sensor_2 = viz_sens_2_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_CSD(sensor_1=sensor_1, sensor_2=sensor_2)
 
 
 def plot_phase(filename: str):
@@ -1992,8 +2001,9 @@ def plot_phase(filename: str):
     [5]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase().show_plot(
-        'UNWRAPPED PHASE FUNCTION')  # TODO SWITCH TO FILENAME FILE.
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_Phase(sensor)
 
 
 def plot_cohere(filename: str):
@@ -2001,9 +2011,7 @@ def plot_cohere(filename: str):
     [6]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot(
-        'COHERENCE')  # TODO SWITCH TO FILENAME FILE.
-
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence()
 
 def init():
     """

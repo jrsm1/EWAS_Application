@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="">
+    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="[X] Time PLot working with data File.&#10;&#10;[ ] Plot All">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Testing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Testing.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/visualize_sensor_selection_dropdown.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Qt_Files/visualize_sensor_selection_dropdown.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,244 +16,75 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4921466">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1602">
-                  <caret line="89" column="50" lean-forward="true" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                    <element signature="e#103154#104122#0" />
-                    <element signature="e#53897#53929#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="197">
-                  <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#0#98#0" expanded="true" />
-                    <element signature="e#242#297#1" />
-                    <element signature="e#393#490#0" />
-                    <element signature="e#494#3245#0" />
-                    <element signature="e#494#794#1" />
-                    <element signature="e#3303#3699#0" />
-                    <element signature="e#3303#3519#1" />
-                    <element signature="e#3749#3955#1" />
-                    <element signature="e#4146#4576#0" />
-                    <element signature="e#4146#4369#1" />
-                    <element signature="e#4609#6691#0" />
-                    <element signature="e#4609#4691#1" />
-                    <element signature="e#4749#4755#0" />
-                    <element signature="e#5106#5253#0" />
-                    <element signature="e#5295#5442#0" />
-                    <element signature="e#5484#5634#0" />
-                    <element signature="e#5676#5827#0" />
-                    <element signature="e#5869#6020#0" />
-                    <element signature="e#6062#6213#0" />
-                    <element signature="e#6255#6406#0" />
-                    <element signature="e#6448#6599#0" />
-                    <element signature="e#6714#7261#0" />
-                    <element signature="e#6765#7088#0" />
-                    <element signature="e#6782#6990#0" />
-                    <element signature="e#7053#7088#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1632">
-                  <caret line="123" selection-start-line="123" selection-end-line="123" />
-                  <folding>
-                    <element signature="e#0#93#1" />
-                    <element signature="e#344#534#0" />
-                    <element signature="e#682#783#0" />
-                    <element signature="e#836#1052#0" />
-                    <element signature="e#836#995#1" />
-                    <element signature="e#1110#2531#0" />
-                    <element signature="e#1110#1254#1" />
-                    <element signature="e#14363#14387#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="910">
-                  <caret line="139" column="19" selection-start-line="139" selection-start-column="19" selection-end-line="139" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#70#237#0" />
-                    <element signature="e#259#426#0" />
-                    <element signature="e#1250#1363#0" />
-                    <element signature="e#1398#1664#0" />
-                    <element signature="e#1703#1771#0" />
-                    <element signature="e#1805#1983#0" />
-                    <element signature="e#2018#2205#0" />
-                    <element signature="e#3732#3739#0" />
-                    <element signature="e#4140#4224#1" />
-                    <element signature="e#4426#4528#1" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
-                  <caret line="46" column="41" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="43" />
-                  <folding>
-                    <element signature="e#156#219#0" />
-                    <element signature="e#275#765#0" />
-                    <element signature="e#275#469#1" />
-                    <element signature="e#690#748#0" />
-                    <element signature="e#771#809#1" />
-                    <element signature="e#861#1213#0" />
-                    <element signature="e#1030#1196#0" />
-                    <element signature="e#1219#1277#1" />
-                    <element signature="e#1490#1556#0" />
-                    <element signature="e#1579#1698#1" />
-                    <element signature="e#1761#2297#0" />
-                    <element signature="e#1930#2280#0" />
-                    <element signature="e#2202#2256#0" />
-                    <element signature="e#2375#2696#0" />
-                    <element signature="e#2702#2821#1" />
-                    <element signature="e#2868#3354#0" />
-                    <element signature="e#3184#3337#0" />
-                    <element signature="e#3402#4719#0" />
-                    <element signature="e#3922#4616#0" />
-                    <element signature="e#3744#4702#0" />
-                    <element signature="e#4524#4542#0" />
-                    <element signature="e#4725#4805#1" />
-                    <element signature="e#4854#5242#0" />
-                    <element signature="e#5023#5225#0" />
-                    <element signature="e#5248#5392#1" />
-                    <element signature="e#5439#5825#0" />
-                    <element signature="e#5608#5808#0" />
-                    <element signature="e#5873#6265#0" />
-                    <element signature="e#5873#5993#1" />
-                    <element signature="e#6171#6248#0" />
-                    <element signature="e#6312#6698#0" />
-                    <element signature="e#6481#6681#0" />
-                    <element signature="e#6743#7528#0" />
-                    <element signature="e#6939#7511#0" />
-                    <element signature="e#7589#7975#0" />
-                    <element signature="e#7758#7958#0" />
-                    <element signature="e#8124#10999#0" />
-                    <element signature="e#8124#8221#1" />
-                    <element signature="e#7129#7231#0" />
-                    <element signature="e#9250#9632#0" />
-                    <element signature="e#9168#9207#0" />
-                    <element signature="e#9550#10117#0" />
-                    <element signature="e#9973#10089#0" />
-                    <element signature="e#10162#10408#0" />
-                    <element signature="e#10331#10391#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" column="25" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="310">
-                  <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5932">
-                  <caret line="1959" selection-start-line="1959" selection-end-line="1959" />
-                  <folding>
-                    <element signature="e#0#4#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1567">
-                  <caret line="122" column="21" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#0#93#1" />
-                    <element signature="e#94#192#0" expanded="true" />
-                    <element signature="e#836#1052#0" />
-                    <element signature="e#836#995#1" />
-                    <element signature="e#1110#2531#0" />
-                    <element signature="e#1110#1254#1" />
-                    <element signature="e#14363#14387#0" />
-                    <element signature="e#14780#14838#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="318">
-                  <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#949#1024#1" />
-                    <element signature="e#1462#2147#0" />
-                    <element signature="e#1462#1736#1" />
-                    <element signature="e#2268#2873#0" />
-                    <element signature="e#2268#2703#1" />
-                    <element signature="e#2977#3423#0" />
-                    <element signature="e#2977#3281#1" />
-                    <element signature="e#3487#4002#0" />
-                    <element signature="e#3487#3812#1" />
-                    <element signature="e#4087#4857#0" />
-                    <element signature="e#4087#4538#1" />
-                    <element signature="e#4863#4959#0" />
-                    <element signature="e#5396#5406#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="25" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="258" column="7" selection-start-line="258" selection-start-column="7" selection-end-line="258" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#103154#104122#0" />
+                <element signature="e#53897#53929#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1712">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+              <folding>
+                <element signature="e#242#297#1" />
+                <element signature="e#393#490#0" />
+                <element signature="e#494#794#1" />
+                <element signature="e#3303#3699#0" />
+                <element signature="e#3303#3519#1" />
+                <element signature="e#3749#3955#1" />
+                <element signature="e#4146#4576#0" />
+                <element signature="e#4146#4369#1" />
+                <element signature="e#4609#6691#0" />
+                <element signature="e#4609#4691#1" />
+                <element signature="e#4749#4755#0" />
+                <element signature="e#5106#5253#0" />
+                <element signature="e#5295#5442#0" />
+                <element signature="e#5484#5634#0" />
+                <element signature="e#5676#5827#0" />
+                <element signature="e#5869#6020#0" />
+                <element signature="e#6062#6213#0" />
+                <element signature="e#6255#6406#0" />
+                <element signature="e#6448#6599#0" />
+                <element signature="e#6714#7261#0" />
+                <element signature="e#6765#7088#0" />
+                <element signature="e#6782#6990#0" />
+                <element signature="e#7053#7088#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="178" column="23" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="23" />
+              <folding>
+                <element signature="e#196#1254#0" />
+                <element signature="e#1301#1827#0" />
+                <element signature="e#2770#3405#0" />
+                <element signature="e#3511#4245#0" />
+                <element signature="e#4337#5001#0" />
+                <element signature="e#5071#6029#0" />
+                <element signature="e#5071#5522#1" />
+                <element signature="e#6073#6385#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -260,9 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>create_threads_gps</find>
-      <find>show_filename_editor_window</find>
-      <find>validate_file</find>
       <find>send_recording_parameters</find>
       <find>send_set_configuration</find>
       <find>send_request_start</find>
@@ -285,14 +118,16 @@
       <find>self.channel_config.</find>
       <find>listen</find>
       <find>show_file</find>
-      <find>GUI_Handler</find>
       <find>get_sensor</find>
-      <find>send_re</find>
       <find>store_loca</find>
+      <find>self.sampling_rate = self.get_sampling_rate()</find>
+      <find>sampling_rate = self.get_sampling_rate()</find>
+      <find>sampling_rate</find>
       <find>NEXT</find>
+      <find>send_re</find>
+      <find>GUI_Handler</find>
     </findStrings>
     <replaceStrings>
-      <replace>module_2_sensor_3_</replace>
       <replace>module_3_sensor_3_</replace>
       <replace>module_4_sensor_3_</replace>
       <replace>module_5_sensor_3_</replace>
@@ -319,9 +154,10 @@
       <replace>module_6_</replace>
       <replace>module_7_</replace>
       <replace>module</replace>
-      <replace>sensor_</replace>
       <replace>module_8_</replace>
+      <replace>self.sampling_rate</replace>
       <replace>module.</replace>
+      <replace>sensor_</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -382,8 +218,8 @@
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
         <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
-        <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
         <option value="$PROJECT_DIR$/Data/Testing.csv" />
+        <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
         <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
         <option value="$PROJECT_DIR$/GUI_Handler.py" />
       </list>
@@ -550,20 +386,125 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="CSV_Handler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Data_Processing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DAQ_Configuration" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Control_Module_Comm/Structures" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Plot_Data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Data_Processing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setting_data_manager" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Settings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.CSV_Handler" />
       <item itemvalue="Python.DAQ_Configuration" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.setting_data_manager" />
-      <item itemvalue="Python.tester" />
+      <item itemvalue="Python.CSV_Handler" />
+      <item itemvalue="Python.Plot_Data" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.Plot_Data" />
         <item itemvalue="Python.CSV_Handler" />
         <item itemvalue="Python.DAQ_Configuration" />
         <item itemvalue="Python.setting_data_manager" />
-        <item itemvalue="Python.tester" />
       </list>
     </recent_temporary>
   </component>
@@ -910,7 +851,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556140649549</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="[X] Time PLot working with data File.&#10;&#10;[ ] Plot All">
+      <created>1556141415770</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1556141415770</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView">
@@ -924,6 +872,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1858" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5007704" visible="true" weight="0.16043957" />
       <window_info id="Structure" order="1" sideWeight="0.49922958" side_tool="true" weight="0.16043957" />
@@ -931,7 +880,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3271028" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.27310488" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32606438" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32606438" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24918744" />
@@ -1008,7 +957,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Formatting Changes. [WORKING]" />
     <MESSAGE value="changed all window functionality to GUI_Handler script.&#10;&#10;# Done&#10;- [x] Successfully Initialized UI Windows.&#10;- [X] Created New GUI directory with init file to hold all UI components.&#10;- [X] Created Test Configuration Data Structure and Class.&#10;- [X] Created Class for data Visualization with dummy data file.&#10;    [X] Time&#10;    [X] Fourier Transform&#10;    [X] CSD&#10;    [X] PSD&#10;    [X] Phase Spectrum&#10;    [X] Coherence&#10;- [X] Creates Handler for saving and loading setting profile.&#10;- [X] Correctly Improving performance on rendering plots.&#10;** [X] Visualize Buttons shows Plots.&#10;&#10;# To-Do&#10;[ ] Initialize Widgets.&#10;[ ] Code Basic Functionality to GUI Widgets and Components.&#10;[ ] Link GUI components to Control Module Communication Classes.&#10;[ ] Use real data to verify plots.&#10;[ ] Embed plots in Qt widget.&#10;[ ] setting_data_manager - Change/Create Filename method to save in proper path&#10;[ ] Handle Better Test Names.&#10;[ ] Change __init__ method in DAQ_Config to remove 'default' parameter.&#10;[ ] Remove 'special values' from {testing_configs} in DAQ_Config --&gt; set normal.&#10;[ ] Make Plots Pretty.&#10;[ ] Get Sampling Frequency from file.&#10;[ ] Remove 'special values' from {testing_configs} in DAQ_Config --&gt; set normal.&#10;[ ] call 'show_plot' method to within each plot method to simplify code.&#10;[ ] change 'show_plot' method to use a list of titles for multiple plot situation.&#10;[ ] Set GUI Window Icon to EWAS Logo.&#10;[ ] Create and import App Running Dialog.&#10;[ ] Create Setting Data Structure to send to Control Module.&#10;&#10;* [ ] Set Correct Flow when visualize&#10;&#10;&#10;# Bugs&#10;$ [ ] $ Bug DAQ_Config __init__ method does not store every default value.&#10;$ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable again.&#10;    [ ] Bug Second window opening when first is closed." />
     <MESSAGE value="* [X] Change Main method --&gt; fixed double window bug.&#10;* [X] Fixed some spelling.&#10;* [X] Logic for loading and enabling location parameters.&#10;* [X] Logic for GPS sync and display info to GUI.&#10;* [X] Setting Recording data to Display in GUI.&#10;* [x] Logic for channel info ALMOST ready.&#10;&#10;* [ ] GPS Sync Request timeout.&#10;* [ ] Error Dialog when sync times out.&#10;* [ ] Finish Channel Info Logic." />
     <MESSAGE value="* [X] Change Main method --&gt; fixed double window bug.&#10;* [X] Fixed some spelling.&#10;* [X] Logic for loading and enabling location parameters.&#10;* [X] Logic for GPS sync and display info to GUI.&#10;* [X] Setting Recording data to Display in GUI.&#10;* [x] Logic for channel info ALMOST ready.&#10;* [-] Added Logo to some Windows.&#10;&#10;* [ ] GPS Sync Request timeout.&#10;* [ ] Error Dialog when sync times out.&#10;* [ ] Finish Channel Info Logic." />
@@ -1033,16 +981,12 @@
     <MESSAGE value="[x] Getting sensor Names from Data File. &#10;&#10;-Changed Visualizatoin Sensor Selection Window design and logic." />
     <MESSAGE value="Visualization Sensor Selection Window Object Import" />
     <MESSAGE value="[X] Time PLot working with data File." />
-    <option name="LAST_COMMIT_MESSAGE" value="[X] Time PLot working with data File." />
+    <MESSAGE value="[X] Time PLot working with data File.&#10;&#10;[ ] Plot All" />
+    <option name="LAST_COMMIT_MESSAGE" value="[X] Time PLot working with data File.&#10;&#10;[ ] Plot All" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Data_Processing/Plot_Data.py</url>
-          <line>51</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
           <line>44</line>
@@ -1055,7 +999,7 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1227</line>
+          <line>1230</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -1065,13 +1009,23 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py</url>
-          <line>169</line>
+          <line>170</line>
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>280</line>
-          <option name="timeStamp" value="182" />
+          <line>243</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
+          <line>266</line>
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
+          <line>1982</line>
+          <option name="timeStamp" value="191" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1286,13 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Settings/Diagnostics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1382,14 +1329,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/xml/etree/ElementTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="905">
+          <caret line="579" column="29" lean-forward="true" selection-start-line="579" selection-start-column="29" selection-end-line="579" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Huerta _nw301001.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="480">
+          <caret line="16000" column="28" lean-forward="true" selection-start-line="1" selection-end-line="16000" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="139" column="19" selection-start-line="139" selection-start-column="19" selection-end-line="139" selection-end-column="19" />
+        <state relative-caret-position="-1">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="e#70#237#0" />
             <element signature="e#259#426#0" />
-            <element signature="e#1250#1363#0" />
             <element signature="e#1398#1664#0" />
             <element signature="e#1703#1771#0" />
             <element signature="e#1805#1983#0" />
@@ -1398,6 +1361,16 @@
             <element signature="e#4140#4224#1" />
             <element signature="e#4426#4528#1" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Testing.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1418,22 +1391,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/xml/etree/ElementTree.py">
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="905">
-          <caret line="579" column="29" lean-forward="true" selection-start-line="579" selection-start-column="29" selection-end-line="579" selection-end-column="29" />
+        <state relative-caret-position="102">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
+        <state relative-caret-position="-1712">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding>
-            <element signature="e#0#98#0" expanded="true" />
             <element signature="e#242#297#1" />
             <element signature="e#393#490#0" />
-            <element signature="e#494#3245#0" />
             <element signature="e#494#794#1" />
             <element signature="e#3303#3699#0" />
             <element signature="e#3303#3519#1" />
@@ -1459,52 +1430,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Huerta _nw301001.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="480">
-          <caret line="16000" column="28" lean-forward="true" selection-start-line="1" selection-end-line="16000" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Testing.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="840">
-          <caret line="15970" column="11" selection-start-line="15970" selection-start-column="11" selection-end-line="15970" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+        <state relative-caret-position="380">
+          <caret line="178" column="23" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="23" />
           <folding>
-            <element signature="e#949#1024#1" />
-            <element signature="e#1462#2147#0" />
-            <element signature="e#1462#1736#1" />
-            <element signature="e#2268#2873#0" />
-            <element signature="e#2268#2703#1" />
-            <element signature="e#2977#3423#0" />
-            <element signature="e#2977#3281#1" />
-            <element signature="e#3487#4002#0" />
-            <element signature="e#3487#3812#1" />
-            <element signature="e#4087#4857#0" />
-            <element signature="e#4087#4538#1" />
-            <element signature="e#4863#4959#0" />
-            <element signature="e#5396#5406#0" />
+            <element signature="e#196#1254#0" />
+            <element signature="e#1301#1827#0" />
+            <element signature="e#2770#3405#0" />
+            <element signature="e#3511#4245#0" />
+            <element signature="e#4337#5001#0" />
+            <element signature="e#5071#6029#0" />
+            <element signature="e#5071#5522#1" />
+            <element signature="e#6073#6385#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1602">
-          <caret line="89" column="50" lean-forward="true" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+        <state relative-caret-position="164">
+          <caret line="258" column="7" selection-start-line="258" selection-start-column="7" selection-end-line="258" selection-end-column="7" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#103154#104122#0" />

@@ -1,5 +1,6 @@
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Control_Module_Comm import instruction_manager as ins_man
+import numpy as np
 import GUI_Handler
 import serial
 import csv
@@ -149,7 +150,7 @@ class Data_Handler():
         timestamp = ''
         time = 0
         time_step = 1/GUI_Handler.daq_config.get_sampling_freq()
-        for x in range(len(self.all_data.index)):
+        for x in np.arange(len(self.all_data.index)):
             time += time_step
             timestamp += str(time) + ';' # New line every timestamp calculated.
 
@@ -256,8 +257,8 @@ def get_port():
 # dc = DAQ_Configuration.DAQconfigs()
 # cc = Module_Individual.Module('mName', sc1, sc2, sc3, sc4)
 # dh = Data_Handler([cc,cc,cc,cc,cc,cc,cc,cc], dc)
-# #
-# # data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
-# # # dh.store_data('Testing.csv', data)
-# # print(dh.data_to_string('Testing.csv'))
+#
+# data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
+# # dh.store_data('Testing.csv', data)
+# print(dh.data_to_string('Testing.csv'))
 # dh.read_sensor_headers('Testing.csv')

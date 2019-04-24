@@ -3,7 +3,7 @@ Test9_gwra
 test_name,test_duration,test_type,test_start_delay
 Test97eb71a2311f42de,15,Free-Field,0
 sampling_rate,cutoff_frequency,signal_gain
-7,7,1
+512 Hz, 256 Hz,1
 loc_name,longitude,latitude,hour,minute,second
 NoName,-0000.0000,+0000.0000,00,00,00
 1,2,3,4,5,6,7,8,Specimen 1,Specimen 2,Specimen 3,Specimen 4,Specimen 5,Specimen 6,Specimen 7,Specimen 8
