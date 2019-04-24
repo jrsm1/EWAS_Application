@@ -1,3 +1,4 @@
+from Data_Processing import CSV_Handler
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QFileDialog, QFileSystemModel
@@ -234,38 +235,46 @@ def show_progress_dialog(message: str):
     prog_dlg.show()
 
 
-def show_visualization_sensor_selector_window(plot: int):  # TODO
-    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
-    viz_sensor_sel_win.show()
-    # Pass info on who called me to know which plot to display.
-    begin_visualization(plot)
+def show_visualization_sensor_selector_window():
+    """
+    Opens Visualization Window Selection if do_plot has been called before.
+    If it happens raise an error. (SHOULD NEVER BE THE CASE. REDUNDANCY)
+    """
+    if (visualization_values['requested_plot'] != 0) and (visualization_values['plot_filename'] != ''):
+        viz_sensor_sel_win.show()
+    else:
+        show_error('Requested Plot Error. <br> ErrorCode: 0000') # TODO do not hardcode Error Codes.
 
+def close_visualization_sensor_selection_window():
+    viz_sensor_sel_win.close()
 
 def show_filename_editor_window():
     filename_input_win.show()
 
 
 # TODO get selected sensors.
-def begin_visualization(plot: int):
+def begin_visualization():
     """
     Begins Visualization Analysis for user selected plots.
     """
+    filename = visualization_values['plot_filename']
+    plot = visualization_values['requested_plot']
     # Choose which Plot.
     if plot == 1:
-        plot_time()
+        plot_time(filename)
     elif plot == 2:
-        plot_fft()
+        plot_fft(filename)
     elif plot == 3:
-        plot_aps()
+        plot_aps(filename)
     elif plot == 4:
-        plot_cps()
+        plot_cps(filename)
     elif plot == 5:
-        plot_phase()
+        plot_phase(filename)
     elif plot == 6:
-        plot_cohere()
+        plot_cohere(filename)
 
-    # Show Progress Dialog. # TODO VERIFY IF REMOVE
-    show_progress_dialog('Plotting ' + 'What you wanna plot')
+    close_visualization_sensor_selection_window()
+    # show_progress_dialog('Plotting ' + 'What you wanna plot')
 
 
 def set_gps_into_gui():
@@ -1050,13 +1059,6 @@ module_8_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 
-# Visualize Sensor Selection
-viz_sensor_sel_win.plot_name_label
-viz_sensor_sel_win.sensor_1_DropDown
-viz_sensor_sel_win.sensor_2_DropDown
-viz_sensor_sel_win.plot_name_label
-
-
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
     lambda: action_begin_recording())  # Close() DONE in UI.
@@ -1135,11 +1137,6 @@ module_button_list = [mod_1_button, mod_2_button, mod_3_button, mod_4_button, mo
                       mod_7_button, mod_8_button]
 
 
-# File System
-file_sys_win.file_system_treeView
-file_sys_win.file_system_OPEN_button
-file_sys_win.file_system_CANCEL_button
-
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  Main Tab Window  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Menu Bar
@@ -1158,27 +1155,71 @@ def send_diagnostics():
     except serial.SerialException:
         show_not_connected_error()
 
+# Visualization
+## Visualize Sensor Selection
+viz_name_label = viz_sensor_sel_win.plot_name_label
+viz_sens_1_dropdown = viz_sensor_sel_win.sensor_1_DropDown
+viz_sens_2_dropdown = viz_sensor_sel_win.sensor_2_DropDown
+viz_next_btn = viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: begin_visualization())
 
-main_window.actionTime.triggered.connect(lambda: time_plot())
-def time_plot():
-    show_visualization_sensor_selector_window(1)
-    ()
+# TODO create constant variables to hold plot int values --> code cleanup
+main_window.actionTime.triggered.connect(lambda: do_plot(1))
+main_window.actionFrequency.triggered.connect(lambda: do_plot(2))
+main_window.actionAuto_Power.triggered.connect(lambda: do_plot(3))
+main_window.actionCross_Power.triggered.connect(lambda: do_plot(4))
+main_window.actionCoherence.triggered.connect(lambda: do_plot(5))
 
-main_window.actionFrequency.triggered.connect(lambda: freq_plot())
-def freq_plot():
-    show_visualization_sensor_selector_window(2)
 
-main_window.actionAuto_Power.triggered.connect(lambda: auto_plot())
-def auto_plot():
-    show_visualization_sensor_selector_window(3)
+# Variable to know which method called the plot signal after Visualization Sensor Selection Window NEXT called.
+visualization_values = {
+    'requested_plot': 0,
+    'plot_filename': ''
+}
 
-main_window.actionCross_Power.triggered.connect(lambda: cross_plot())
-def cross_plot():
-    show_visualization_sensor_selector_window(4)
+def do_plot(plot: int):
+    visualization_values['plot_filename'] = file_choose('Data')
+    visualization_values['requested_plot'] = plot
 
-main_window.actionCoherence.triggered.connect(lambda: cohere_plot())
-def cohere_plot():
-    show_visualization_sensor_selector_window(5)
+    sensors = CSV_Handler.read_sensor_headers(visualization_values['plot_filename'])
+
+    # Clear DropDown to prepare for new plot option.
+    # Clear everything but Placeholder [Index 0]
+    for item in range(1, viz_sens_1_dropdown.count(), 1):
+        viz_sens_1_dropdown.removeItem(item)
+    for item in range(1, viz_sens_1_dropdown.count(), 1):
+        viz_sens_1_dropdown.removeItem(item)
+
+    # Set DropDown Values
+    viz_sens_1_dropdown.addItems(sensors)
+    viz_sens_2_dropdown.addItems(sensors)
+
+    # Update Label and Enabled Dropdown for correct plot window
+    if plot == 1:
+        viz_name_label.setText('Plot Raw Data Against Time. <br>'
+                               'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setEnabled(False)
+
+    elif plot == 2:
+        viz_name_label.setText('Plot Frequency Spectrum. <br>'
+                               'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setEnabled(False)
+
+    elif plot == 3:
+        viz_name_label.setText('Plot Auto-Power Spectrum. <br>'
+                               'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setEnabled(False)
+
+    elif plot == 4:
+        viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
+                               'Please Select Two Sensor.')
+        viz_sens_2_dropdown.setEnabled(True)
+    elif plot == 5:
+        viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
+                               'Please Select Two Sensor.')
+        viz_sens_2_dropdown.setEnabled(True)
+
+    show_visualization_sensor_selector_window()
+
 
 
 
@@ -1886,8 +1927,7 @@ def plot_time(filename: str):
     [1]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
-        'RESPECT TO TIME')  # TODO SWITCH TO FILENAME FILE.
+    Plot_Data.Plot_Data(filename).plt_time(viz_sens_1_dropdown.currentText())
 
 
 def plot_fft(filename: str, sensor: str, freq: int):
@@ -1895,7 +1935,7 @@ def plot_fft(filename: str, sensor: str, freq: int):
     [2]
     Creats and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot(
+    Plot_Data.Plot_Data(filename).plot_fft('S1', 100).show_plot(
         'FOURIER TRANSFORM')  # TODO SWITCH TO FILENAME FILE.
 
 

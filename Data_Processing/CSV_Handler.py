@@ -157,17 +157,17 @@ class Data_Handler():
 
         return self.all_data
 
-    def read_sensor_headers(self, filename: str):
-        """
-        Reads Sensor Names from Data in _filename_  as a Pandas DataFrame.
-        This method reads The columns, ignoring _Timestamp_, which are the sensor names for which
-        data exists in the given File.
+def read_sensor_headers(filename: str):
+    """
+    Reads Sensor Names from Data in _filename_  as a Pandas DataFrame.
+    This method reads The columns, ignoring _Timestamp_, which are the sensor names for which
+    data exists in the given File.
 
-        :param filename: The Data File
+    :param filename: The Data File
 
-        :return: Pandas Series with the Data.
-        """
-        return pd.read_csv(filename, header=90, nrows=0).columns.tolist()[1:]
+    :return: Pandas Series with the Data.
+    """
+    return pd.read_csv(filename, header=90, nrows=0).columns.tolist()[1:]
 
 def select_data_columns():
     """

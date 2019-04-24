@@ -10,8 +10,7 @@ log = 1
 class Plot_Data():
     # TODO get sampling frequency from file.
     def __init__(self, filename):
-        filename = r'Data/' + filename
-        self.data_read = pd.read_csv(filename, header=90, index_col=0)
+        self.data_read = pd.read_csv(filename, header=90)
         if log: print(self.data_read)
 
         # Open in New Qt5 Interactive Window
@@ -26,14 +25,17 @@ class Plot_Data():
         matplotlib.rcParams["figure.facecolor"] = '0.85'
 
     # TODO Use a sensor List parameter to get column titles from file.
-    def plt_time(self):
+    def plt_time(self, sensor: str):
         """
         Plots raw data with respect to timestamp from file.
         """
-        # Multiple Plots.
-        columns = self.data_read.columns.tolist()  # TODO Change to range(1, len(columns), 1) for timestamp in First Row
-        for sen in range(0, len(columns) - 1, 1):
-            self.data_read.plot(x='timestamp', y=columns[sen], legend=False, label='Sensor 1')
+        # TODO Read only the sensor column --> Optimization
+        self.data_read.plot(x='Timestamp', y=sensor, legend=False, label=sensor)
+
+        # Setup Plot Parameters.
+        plt.title('RAW DATA')
+        plt.legend()
+        plt.show()
 
         return self  # Return Instance so that it can be linearly written in code.
 
@@ -42,6 +44,7 @@ class Plot_Data():
         Plot Fourier Transform using Numpy .fft algorithm.
 
         :param sensor : The sensor name which should be the name of the column which contains desired sensor information.
+        :param sampling_rate : The
 
         :return Return Instance so that it can be linearly written in code.
         """
@@ -131,6 +134,10 @@ class Plot_Data():
         plt.title(title)
         plt.legend()
         plt.show()
+
+
+    # def get_sampling_frequency():
+    #     df =
 
 
 # TESTING.
