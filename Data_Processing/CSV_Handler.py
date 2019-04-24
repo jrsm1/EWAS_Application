@@ -1,5 +1,6 @@
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Control_Module_Comm import instruction_manager as ins_man
+import GUI_Handler
 import serial
 import csv
 import pandas as pd
@@ -15,8 +16,9 @@ class Data_Handler():
     def __init__(self, mod_con: [], daq_con: DAQ_Configuration):
         self.module_list = mod_con
         self.daq_config = daq_con
+        self.all_data = pd.DataFrame
 
-    def store_data(self, filename: str, data: str):
+    def store_data(self, filename: str, data: pd.DataFrame):
         """
         Stores Metadata as Header and Data bellow on a CSV file.
 
@@ -25,7 +27,6 @@ class Data_Handler():
 
         :return: CSV file with metadata header and data body.
         """
-
         datapath = r'Data/' + filename
 
         with open(datapath, 'w', newline='') as f:
@@ -76,8 +77,7 @@ class Data_Handler():
             f.close()
 
         with open(datapath, 'a', newline='') as f:
-            dataFrame = self.string_to_dataframe(data)
-            dataFrame.to_csv(datapath, mode='a', index=False)
+            data.to_csv(datapath, mode='a', index=False)
         f.close()
 
     def string_to_dataframe(self, string: str):
@@ -121,6 +121,42 @@ class Data_Handler():
             result += x + ';'
 
         return result
+
+    def request_all_data(self, connected_modules: []):
+        """
+        Gets data from Control Module and parses it into a single Pandas DataFrame.
+
+        :param connected_modules: 1/0 List indicating connected modules.
+
+        :return: Pandas DataFrame with joint module sensor data.
+        """
+        string = ''
+        self.all_data = pd.DataFrame()
+        for i in range(len(connected_modules)):
+            if connected_modules[i]:
+                string += ''  # String necessary here to connect inner and outer variables apperently.
+                try:
+                    im = ins_man.instruction_manager()
+                    string = im.send_request_data(i)  # FIXME wait for Juan's Method Merge.
+                except serial.SerialException:
+                    GUI_Handler.show_error('Device has been Disconnected. <br>'
+                                           ' Data Collection Aborted.')
+                    break
+
+                self.all_data.join(self.string_to_dataframe(string))
+
+        # DataFrame to hold index and simulate timestamp. TODO
+        timestamp = ''
+        time = 0
+        time_step = 1/GUI_Handler.daq_config.get_sampling_freq()
+        for x in range(len(self.all_data.index)):
+            time += time_step
+            timestamp += str(time) + ';' # New line every timestamp calculated.
+
+        timedf = self.string_to_dataframe(timestamp)
+
+        return self.all_data
+
 
 def select_data_columns():
     """

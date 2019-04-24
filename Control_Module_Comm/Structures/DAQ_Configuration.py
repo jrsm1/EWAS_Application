@@ -114,6 +114,8 @@ class DAQconfigs:
         """
         return self.test_id
 
+    def get_sampling_freq(self):
+        return int(self.signal_configs['sampling_rate'].split()[0])
 
 
 def generate_ID(name: str):
@@ -140,3 +142,5 @@ def generate_ID(name: str):
 # print(dq.recording_configs)
 # print(dq.location_configs)
 # print(dq.specimen_location)
+# print(dq.get_sampling_freq())
+

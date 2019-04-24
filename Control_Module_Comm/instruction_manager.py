@@ -8,7 +8,6 @@ class instruction_manager():
     def __init__(self, port):
         self.serial_interface = serial_interface.serial_interface(port)
 
-
     def send_set_configuration(self, string):
         """
         function to set configuration.
@@ -174,12 +173,12 @@ class instruction_manager():
             return line
         return 0
 
-    """
-    send gps sync request. It uses the devices internal gps to sync the local RTC
-    byte is 8A
-    """
 
     def send_gps_sync_request(self):
+        """
+        send gps sync request. It uses the devices internal gps to sync the local RTC
+        byte is 8A
+        """
         self.serial_interface.send_instruction(b'\x8A')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -233,15 +232,13 @@ class instruction_manager():
             return line
         return 0
 
-    """
-    sampling frequency
-    cutoff frequency
-    gain
-    duration
-    """
-
-    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, sensors_selected, sensor_enable, name,
-                                  location):
+    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, sensors_selected, sensor_enable, name, location):
+        """
+        sampling frequency
+        cutoff frequency
+        gain
+        duration
+        """
         if log: print("entered send recording parameters")
         self.serial_interface.send_byte(b'\x85')
         if log: print("sent byte of instruction")
