@@ -1050,52 +1050,12 @@ module_8_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 
-
 # Visualize Sensor Selection
-viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(lambda: show_progress_dialog('Plotting ' + 'What you wanna plot'))
-viz_sensor_sel_win.sensor_select_MAX_Label
-viz_sens_1 = viz_sensor_sel_win.Sensor_1
-viz_sens_2 = viz_sensor_sel_win.Sensor_2
-viz_sens_3 = viz_sensor_sel_win.Sensor_3
-viz_sens_4 = viz_sensor_sel_win.Sensor_4
-viz_sens_5 = viz_sensor_sel_win.Sensor_5
-viz_sens_6 = viz_sensor_sel_win.Sensor_6
-viz_sens_7 = viz_sensor_sel_win.Sensor_7
-viz_sens_8 = viz_sensor_sel_win.Sensor_8
-viz_sens_9 = viz_sensor_sel_win.Sensor_9
-viz_sens_10 = viz_sensor_sel_win.Sensor_10
-viz_sens_11 = viz_sensor_sel_win.Sensor_11
-viz_sens_12 = viz_sensor_sel_win.Sensor_12
-viz_sens_13 = viz_sensor_sel_win.Sensor_13
-viz_sens_14 = viz_sensor_sel_win.Sensor_14
-viz_sens_15 = viz_sensor_sel_win.Sensor_15
-viz_sens_16 = viz_sensor_sel_win.Sensor_16
-viz_sens_17 = viz_sensor_sel_win.Sensor_17
-viz_sens_18 = viz_sensor_sel_win.Sensor_18
-viz_sens_19 = viz_sensor_sel_win.Sensor_19
-viz_sens_20 = viz_sensor_sel_win.Sensor_20
-viz_sens_21 = viz_sensor_sel_win.Sensor_21
-viz_sens_22 = viz_sensor_sel_win.Sensor_22
-viz_sens_23 = viz_sensor_sel_win.Sensor_23
-viz_sens_24 = viz_sensor_sel_win.Sensor_24
-viz_sens_25 = viz_sensor_sel_win.Sensor_25
-viz_sens_26 = viz_sensor_sel_win.Sensor_26
-viz_sens_27 = viz_sensor_sel_win.Sensor_27
-viz_sens_28 = viz_sensor_sel_win.Sensor_28
-viz_sens_29 = viz_sensor_sel_win.Sensor_29
-viz_sens_30 = viz_sensor_sel_win.Sensor_30
-viz_sens_31 = viz_sensor_sel_win.Sensor_31
-viz_sens_32 = viz_sensor_sel_win.Sensor_32
-visualization_sensor_selection_list = [viz_sens_1, viz_sens_2, viz_sens_3, viz_sens_4, viz_sens_5, viz_sens_6,
-                                       viz_sens_7, viz_sens_8,
-                                       viz_sens_9, viz_sens_10, viz_sens_11, viz_sens_12, viz_sens_13, viz_sens_14,
-                                       viz_sens_15,
-                                       viz_sens_15, viz_sens_16, viz_sens_17, viz_sens_18, viz_sens_19, viz_sens_20,
-                                       viz_sens_21,
-                                       viz_sens_22, viz_sens_23, viz_sens_24, viz_sens_25, viz_sens_26, viz_sens_27,
-                                       viz_sens_28,
-                                       viz_sens_29, viz_sens_30, viz_sens_31,
-                                       viz_sens_32]  # Used to get values easily (goes from 0 to 31)
+viz_sensor_sel_win.plot_name_label
+viz_sensor_sel_win.sensor_1_DropDown
+viz_sensor_sel_win.sensor_2_DropDown
+viz_sensor_sel_win.plot_name_label
+
 
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
