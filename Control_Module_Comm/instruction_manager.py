@@ -1,7 +1,7 @@
 import Control_Module_Comm.serial_interface as serial_interface
 import serial
 
-log = 1
+log = 0
 
 
 class instruction_manager():
@@ -91,15 +91,53 @@ class instruction_manager():
         self.serial_interface.send_instruction(b'\x86')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
-        if line == b'\x86':
+        line = str(line)
+        line = line[2:len(line)-5]
+        if log:
+            print("request all data successful")
+        while not line == '\xAA\xBB\xAA\xBB\r\n':
+            # store the data somehow
             if log:
-                print("request all data successful")
-            while not line == b'\xFF\xFF\xFF\xFF\xFF\xFF\r\n':
+                print("line in all data is: " + str(line))
+            line = self.serial_interface.listen()
+        return 0
+
+    def send_request_data(self, daq):
+        self.serial_interface.send_byte(b'\x87')
+        self.serial_interface.send_instruction(bytes([daq]))
+        line = self.serial_interface.listen()
+        line = line.strip(b'\r\n')
+        line = str(line)
+        line = line[2:len(line) - 5]
+        count = 0
+        line1 = ''
+        print("line is = ", line)
+        if 1:
+            if log:
+                print("line is " + str(line))
+                print("request daq data successful")
+            while not line == b'\xaa\xbb\xaa\xbb\r\n':
                 # store the data somehow
-                if log:
-                    print("line in all data is: " + str(line))
+                if count < 93:
+                    count = count + 1
+                    if log: print(str(count))
+                else:
+                    if log: print("entered else")
+                    line = str(line)
+                    line1 = line1 + (line[2:len(line)-5]) + ';'
+                    # line1 = line1 + line
+                    print(str(count))
+                    count = count + 1
+                if 1:
+                    print("line in all data is: " + str(line[2:len(line)-5]))
                 line = self.serial_interface.listen()
-            return 1
+                # line = str(line)
+                # line = line[2:len(line)-5]
+                # if line.is
+
+            print("entered lines")
+            print(line1)
+            return line1
         return 0
 
     """
