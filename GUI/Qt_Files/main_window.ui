@@ -689,7 +689,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>12</number>
                   </property>
                   <property name="placeholderText">
-                   <string>+1234.12345</string>
+                   <string>+12345.12345</string>
                   </property>
                  </widget>
                 </item>
@@ -718,7 +718,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>11</number>
                   </property>
                   <property name="placeholderText">
-                   <string>-12345.12345</string>
+                   <string>-1234.12345</string>
                   </property>
                  </widget>
                 </item>
@@ -1290,7 +1290,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </item>
                <item>
                 <property name="text">
-                 <string>Plase Select</string>
+                 <string>Please Select</string>
                 </property>
                </item>
               </widget>
@@ -1323,6 +1323,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
 																font: 14pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0);
 															</string>
+               </property>
+               <property name="currentText">
+                <string>Please Select</string>
                </property>
                <property name="currentIndex">
                 <number>15</number>

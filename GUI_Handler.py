@@ -119,18 +119,10 @@ log_working = 0
 
 # Global Variables.
 not_connected_error_string = 'Device is not Connected. <br> Please Try Again.'
-daq_sample_rate = 0
-daq_cutoff = 0
-daq_gain = 0
-duration = 0
-daq_exp_name = ''
-daq_exp_location = ''
-daq_start_delay = 0
 # status global variables
 recorded = 0
 stored = 0
 gps_sync = 0
-keep_alive = True
 ins_port = 'COM-1'
 
 
@@ -625,7 +617,7 @@ def start_acquisition():
 def sensor_sel_start():
     sens = get_module_and_sensors_selected()
     if log: print("sensors selected are ", sens)
-    sensors_enabled = get_sensor_enable()
+    sensors_enabled = get_sensor_enabled()
 
     main_sensor_sel_win.close()
     try:
@@ -958,7 +950,7 @@ samfreq_dropdown = main_window.main_tab_DAQParams_samplingRate_DropDown
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
-main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
+main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: False)
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # Visualization
 main_window.visualize_tab_TIME_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot('PLOT'))  # TODO GET INFO FROM USER.
@@ -993,10 +985,37 @@ def action_begin_recording():
         ins.send_request_start()
         # Close Window
         main_sensor_sel_win.close()
-        # Show Progress Dialog
-        show_progress_dialog('Data')
+        check_status_during_test()
     except serial.SerialException:
         show_not_connected_error()
+
+
+def check_status_during_test():
+    show_acquire_dialog('GPS Signal')
+    prog_dlg.progress_dialog_progressBar.setMaximum(100)
+    prog_dlg.progress_dialog_progressBar.setValue(0)
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        timeout = 0
+        test_successful = True  # Used to not request data if synched==False.
+        duration = daq_config.recording_configs['test_duration']
+        time_to_update_progress_bar = (duration/100)+2
+        bar_value = 0
+        while ins.send_request_status()[0] != 1:  # Status[2] --> gps_synched
+            if log: print('Waiting for test to finish....')
+            sleep(1)  # Wait for half a second before asking again.
+            timeout += 1
+            if timeout == time_to_update_progress_bar:
+                timeout = 0
+                prog_dlg.progress_dialog_progressBar.setValue(++bar_value)
+                app.processEvents()
+        if test_successful:
+            prog_dlg.close()
+
+            set_gps_into_gui()
+    except serial.SerialException:
+        show_not_connected_error()
+        prog_dlg.close()
 
 
 def action_cancel_everything():
@@ -1219,11 +1238,11 @@ def sync_gps():  # TODO TEST
         synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
             if log: print('GPS Waiting....')
-            sleep(time_to_sleep)  # Wait for half a second before asking again.
+            sleep(0.500)  # Wait for half a second before asking again.
             timeout += 1
-            prog_dlg.progress_dialog_progressBar.setValue(timeout*(10/time_to_sleep))
+            prog_dlg.progress_dialog_progressBar.setValue(timeout*5)
             app.processEvents()
-            if timeout == 10 * (10/time_to_sleep):  # = [desired timeout in seconds] * [1/(sleep value)]
+            if timeout == 10 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
                 # prog_dlg.close()
                 show_error('GPS Failed to Synchronize.')
                 synched = False
