@@ -105,18 +105,22 @@ class instruction_manager():
         self.serial_interface.send_byte(b'\x87')
         self.serial_interface.send_instruction(bytes([daq]))
         line = self.serial_interface.listen()
-        line = line.strip(b'\r\n')
+        # line = line.strip(b'\r\n')
+        # print("line is = ", line)
         line = str(line)
+        # print("line is = ", line)
         line = line[2:len(line) - 5]
+        # print("line is = ", line)
         count = 0
         line1 = ''
         print("line is = ", line)
-        if 1:
+        if line == '\\x87':
             if log:
                 print("line is " + str(line))
                 print("request daq data successful")
             while not line == b'\xaa\xbb\xaa\xbb\r\n':
                 # store the data somehow
+                line = self.serial_interface.listen()
                 if count < 93:
                     count = count + 1
                     if log: print(str(count))
@@ -129,7 +133,7 @@ class instruction_manager():
                     count = count + 1
                 if 1:
                     print("line in all data is: " + str(line[2:len(line)-5]))
-                line = self.serial_interface.listen()
+
                 # line = str(line)
                 # line = line[2:len(line)-5]
                 # if line.is

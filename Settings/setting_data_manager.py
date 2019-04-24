@@ -37,15 +37,15 @@ class Setting_File_Manager:
 
         :param filename : The The path of the desired file.
         """
-        daq_file = 'Config/DAQ/' + filename
+        filename = 'Config/DAQ/' + filename
 
         # # Generate Test ID
         # if not self.daq_config.recording_configs["test_ID"]:
         #     self.daq_config.recording_configs["test_ID"] = DAQ_Configuration.generate_ID(
         #         self.daq_config.recording_configs['test_name'])
 
-        # if verify_file_exists(daq_file):
-        with open(daq_file, 'w', newline='') as f:
+        # if verify_file_exists(filename):
+        with open(filename, 'w', newline='') as f:
             writer = csv.writer(f)
 
             writer.writerow(self.daq_config.signal_configs.keys())
@@ -77,16 +77,15 @@ class Setting_File_Manager:
 
         :return list of DAQ Configs
         """
-        daq_file = 'Config/DAQ/' + filename
-        if verify_file_exists(daq_file):
-            self.daq_config.signal_configs = pd.read_csv(daq_file, header=0, nrows=1).to_dict('r')[0]
-            self.daq_config.recording_configs = pd.read_csv(daq_file, header=2, nrows=1).to_dict('r')[0]
-            self.daq_config.data_handling_configs = pd.read_csv(daq_file, header=4, nrows=1).to_dict('r')[0]
+        if verify_file_exists(filename):
+            self.daq_config.signal_configs = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]
+            self.daq_config.recording_configs = pd.read_csv(filename, header=2, nrows=1).to_dict('r')[0]
+            self.daq_config.data_handling_configs = pd.read_csv(filename, header=4, nrows=1).to_dict('r')[0]
             self.daq_config.location_configs = \
-                pd.read_csv(daq_file, header=6, nrows=1, dtype={'longitude': str, 'latitude': str,
+                pd.read_csv(filename, header=6, nrows=1, dtype={'longitude': str, 'latitude': str,
                                                                 'hour': str, 'minute': str,
                                                                 'second': str}).to_dict('r')[0]
-            self.daq_config.specimen_location = pd.read_csv(daq_file, header=8, nrows=1).to_dict('r')[0]
+            self.daq_config.specimen_location = pd.read_csv(filename, header=8, nrows=1).to_dict('r')[0]
 
             if log: print('Load Daq Configs : SUCCESSFUL')
         else:
@@ -163,11 +162,9 @@ class Setting_File_Manager:
 
         :return Location Configuration Dictionary
         """
-        loc_file = 'Config/DAQ/Location/' + filename
-
-        if verify_file_exists(loc_file):
-            self.daq_config.location_configs = pd.read_csv(loc_file, header=0, nrows=1, dtype=str).to_dict('r')[0]
-            self.daq_config.specimen_location = pd.read_csv(loc_file, header=2, nrows=1, dtype=str).to_dict('r')[0]
+        if verify_file_exists(filename):
+            self.daq_config.location_configs = pd.read_csv(filename, header=0, nrows=1, dtype=str).to_dict('r')[0]
+            self.daq_config.specimen_location = pd.read_csv(filename, header=2, nrows=1, dtype=str).to_dict('r')[0]
 
             if log: print('Load Location Configuration Successful')
         else:
@@ -204,10 +201,10 @@ class Setting_File_Manager:
 
         :return Signal Parameter Dictionary
         """
-        sig_file = 'Config/DAQ/Signal/' + filename
+        # sig_file = 'Config/DAQ/Signal/' + filename
 
-        if verify_file_exists(sig_file):
-            self.daq_config.signal_configs = pd.read_csv(sig_file).to_dict('r')[0]
+        if verify_file_exists(filename):
+            self.daq_config.signal_configs = pd.read_csv(filename).to_dict('r')[0]
 
             if log:
                 print('Load Location Configuration Successful')
@@ -251,13 +248,13 @@ class Setting_File_Manager:
         f.close()
 
     def load_module_config(self, filename: str):
-        module_file = 'Config/Module/' + filename
-        if verify_file_exists(module_file):
-            name_dict = pd.read_csv(module_file, header=0, nrows=1).to_dict('r')[0]
-            sensor_1 = pd.read_csv(module_file, header=2, nrows=1).to_dict('r')[0]
-            sensor_2 = pd.read_csv(module_file, header=4, nrows=1).to_dict('r')[0]
-            sensor_3 = pd.read_csv(module_file, header=6, nrows=1).to_dict('r')[0]
-            sensor_4 = pd.read_csv(module_file, header=8, nrows=1).to_dict('r')[0]
+        # module_file = 'Config/Module/' + filename
+        if verify_file_exists(filename):
+            name_dict = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]
+            sensor_1 = pd.read_csv(filename, header=2, nrows=1).to_dict('r')[0]
+            sensor_2 = pd.read_csv(filename, header=4, nrows=1).to_dict('r')[0]
+            sensor_3 = pd.read_csv(filename, header=6, nrows=1).to_dict('r')[0]
+            sensor_4 = pd.read_csv(filename, header=8, nrows=1).to_dict('r')[0]
 
             if log: print(name_dict)
             if log: print(sensor_1)
@@ -348,6 +345,7 @@ class Setting_File_Manager:
         if log: print(string)
         return string
 
+
 # TESTING
 sc1 = Sensor_Individual.Sensor('S1', 0)
 sc2 = Sensor_Individual.Sensor('S2', 0)
@@ -383,7 +381,7 @@ sc4 = Sensor_Individual.Sensor('S4', 0)
 # sc32 = Sensor_Individual.Sensor('S32', 0)
 cc = Module_Individual.Module('mName', sc1, sc2, sc3, sc4)
 daq = DAQ_Configuration.DAQconfigs()
-sfm = Setting_File_Manager([cc,cc,cc,cc,cc,cc,cc,cc], sc1, daq)
+sfm = Setting_File_Manager([cc, cc, cc, cc, cc, cc, cc, cc], sc1, daq)
 # print(cc.channel_info)
 # print(sc.sensor_info)
 # print(daq.signal_configs)

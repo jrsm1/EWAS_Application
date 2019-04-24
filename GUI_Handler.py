@@ -6,8 +6,9 @@ from time import sleep
 import sys
 import serial
 
+from Data_Processing import CSV_Handler as csv_handler
 from Control_Module_Comm import instruction_manager as ins_man
-from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
+from Control_Module_Comm.Structures import Module_Individual as Chan, Sensor_Individual as sens
 from Data_Processing import Plot_Data
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Settings import setting_data_manager as set_dat_man
@@ -251,6 +252,9 @@ def close_visualization_sensor_selection_window():
 def show_filename_editor_window():
     filename_input_win.show()
 
+def close_filename_editor_window():
+    filename_input_win.close()
+
 
 # TODO get selected sensors.
 def begin_visualization():
@@ -355,10 +359,10 @@ def get_rec_setts_from_gui():
     2 = checked
     0 = unchecked
     """
-    daq_config.recording_configs['visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
+    # daq_config.recording_configs['visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
     # BOOLEAN
-    daq_config.recording_configs['store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
-    if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
+    # daq_config.recording_configs['store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
+    # if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
 
 
 def get_daq_params_from_gui():
@@ -1272,7 +1276,7 @@ fn_in = filename_input_win.filename_lineEdit
 fn_in.returnPressed.connect(lambda: do_saving_loading_action())
 fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_saving_loading_action())
 fn_CANCEL_btn = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
-fn_EXPLORER_btn = filename_input_win.open_FILE_EXPLORER_Button.clicked.connect(file_choose)
+# fn_EXPLORER_btn = filename_input_win.open_FILE_EXPLORER_Button.clicked.connect(file_choose)
 
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
@@ -1320,12 +1324,24 @@ def check_status_during_test():
                 app.processEvents()
         if test_successful:
             prog_dlg.close()
-
-            set_gps_into_gui()
+            get_all_data()
     except serial.SerialException:
         show_not_connected_error()
         prog_dlg.close()
 
+def get_all_data():
+    show_acquire_dialog('Acquiring Test Data')
+    prog_dlg.progress_dialog_progressBar.setMaximum(100)
+    prog_dlg.progress_dialog_progressBar.setValue(0)
+    data = ''
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        data = ins.send_request_all_data()
+        prog_dlg.close()
+    except serial.SerialException:
+        data = ''
+        show_not_connected_error()
+        prog_dlg.close()
 
 def action_cancel_everything():
     """
@@ -1375,18 +1391,19 @@ def handle_loading_saving(what: str, who: int):
         if log: print('Loading Error.')
     else:
         if what == 'save':
+            show_filename_editor_window()
             load_save_instructions['who_to_save'] = who
         elif what == 'load':
             load_save_instructions['who_to_load'] = who
+            do_saving_loading_action()
 
-    do_saving_loading_action()
+    #
 
 
 def do_saving_loading_action():
     """
     Function continues to correct method depending on saving/loading and option combinations.
     """
-    filename_input_win.close()
     if load_save_instructions['action'] == 'save':
         decide_who_to_save(load_save_instructions['who_to_save'])
     elif load_save_instructions['action'] == 'load':
@@ -1418,7 +1435,8 @@ def decide_who_to_load(instruction: int):
     elif instruction == 3:
         action_load_DAQ_Params()
     elif instruction == 4:
-        action_load_module_info()
+        show_error("Not Yet Implemented")
+        # action_load_module_info() #TODO ACTION LOAD MODULE INFO
 
 def validate_filename(filename: str):
     """
@@ -1441,15 +1459,20 @@ def validate_filename(filename: str):
 def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    # show_filename_editor_window()
+    show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
-        # Get info from GUI.
-        get_daq_params_from_gui()
-        # Save to File.
-        setting_data_manager.store_signal_params(filename)
-        # Close Window
+        if not validate_daq_params():
+            setting_data_manager.store_signal_params(filename)
+        else:
+            close_filename_editor_window()
+            show_error(validate_daq_params())
         filename_input_win.close()
+
+def validate_daq_params():
+    error = ''
+    get_daq_params_from_gui()
+    return error
 
 
 def action_load_DAQ_Params():
@@ -1475,7 +1498,7 @@ def action_store_Location():
         # Get info from GUI.
         # get_location_from_gui()
         loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
-        if not loc_type: # FIXME ESTE IF NO HACE NADA.
+        if not loc_type:
             if not validate_gps_location_settings():
                 # Save to File.
                 setting_data_manager.store_location_configs(filename)
@@ -1491,6 +1514,7 @@ def action_store_Location():
                 filename_input_win.close()
             else:
                 show_error(validate_module_location_settings())
+        close_filename_editor_window()
 
 
 def action_load_Location():
@@ -1499,8 +1523,7 @@ def action_load_Location():
     filename = file_choose(relative_path)
     # Load Params from File
     setting_data_manager.load_location_configs(filename)
-
-    if set_dat_man.verify_file_exists(relative_path + filename):
+    if set_dat_man.verify_file_exists(filename):
         # Set Params into GUI.
         load_local_settings_to_gui()
         # Close Window
@@ -1510,23 +1533,24 @@ def action_load_Location():
 def action_store_Rec_Setts():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    show_filename_editor_window()
+    # show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
         if not validate_rec_settings(): # Validation calls get_rec_setts_from_gui()
             # Save to File.
             setting_data_manager.store_recording_configs(filename)
-            # Close Window
-            filename_input_win.close()
         else:
+            close_filename_editor_window()
             show_error(validate_rec_settings())
+
+        # Close Window
+        close_filename_editor_window()
 
 
 def action_load_Rec_Setts():
     relative_path = 'Config/DAQ/Recording'
     # Get filename from User
     filename = file_choose(relative_path)
-
     # Load Params from File
     setting_data_manager.load_recording_configs(filename)
     if set_dat_man.verify_file_exists(filename):
@@ -1542,7 +1566,7 @@ def sync_gps():  # TODO TEST
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
     prog_dlg.progress_dialog_progressBar.setMaximum(100)
-    # prog_dlg.progress_dialog_progressBar.setValue(-1)
+    prog_dlg.progress_dialog_progressBar.setValue(0)
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
@@ -1550,13 +1574,14 @@ def sync_gps():  # TODO TEST
         time_to_sleep = 0.5
         synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
-            if log: print('GPS Waiting....')
+            print('GPS Waiting....')
             sleep(0.500)  # Wait for half a second before asking again.
             timeout += 1
-            prog_dlg.progress_dialog_progressBar.setValue(timeout*5)
+            prog_dlg.progress_dialog_progressBar.setValue(timeout*2)
             app.processEvents()
-            if timeout == 10 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
+            if timeout == 45:  # = [desired timeout in seconds] * [1/(sleep value)]
                 # prog_dlg.close()
+                prog_dlg.progress_dialog_progressBar.setValue(100)
                 show_error('GPS Failed to Synchronize.')
                 synched = False
                 break
@@ -1676,7 +1701,7 @@ def save_module_info(module: int):
             modules_all[0].channel_info['Sensor 1'] = sensors_all[1]
             modules_all[0].channel_info['Sensor 1'] = sensors_all[2]
             modules_all[0].channel_info['Sensor 1'] = sensors_all[3]
-            setting_data_manager.store_module_configs(get_filename(), modules_all[0])
+            # setting_data_manager.store_module_configs(get_filename(), modules_all[0])
 
         if connected_module_list[1]:
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
@@ -1916,10 +1941,15 @@ def save_module_info(module: int):
     sens_4 = sens.Sensor('NAME', 0)
 
     # Set channel sensors.
-    channel = chan.Module('NAME', sens_1, sens_2, sens_3, sens_4)
+    channel = Chan.Module('NAME', sens_1, sens_2, sens_3, sens_4)
 
 
 # ------------------------------------------------ VISUALIZATION ------------------------------------------------------
+
+def update_sensor_drop_down():
+    print('NOt YEt')
+    csv_file = file_choose()
+    csv_handler.Data_Handler().read_sensor_headers()
 
 
 def plot_time(filename: str):
@@ -1991,7 +2021,7 @@ def init():
         # sys.exit()
     else:
         sync_gps()
-
+        # show_error('Device is supposed to be Connected.')
     # --------- TESTING ------------
     # get_rec_setts_from_gui()
     # setting_data_manager.store_daq_configs('Testing_Configs.csv')

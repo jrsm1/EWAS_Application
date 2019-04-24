@@ -1,6 +1,6 @@
 import serial.tools.list_ports
 
-log = 0
+log = 1
 
 class serial_interface():
     global ser

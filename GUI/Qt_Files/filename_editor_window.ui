@@ -91,27 +91,6 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="open_FILE_EXPLORER_Button">
-        <property name="minimumSize">
-         <size>
-          <width>150</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(204, 51, 0);
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string>Open File Explorer</string>
-        </property>
-        <property name="checkable">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
        <spacer name="verticalSpacer_2">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
