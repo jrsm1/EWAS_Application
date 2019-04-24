@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module Info Storing/Loading">
+    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Settings/setting_data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/setting_data_manager.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,8 +105,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+                <state relative-caret-position="172">
+                  <caret line="124" selection-start-line="124" selection-end-line="124" />
                   <folding>
                     <element signature="e#0#93#1" />
                     <element signature="e#344#534#0" />
@@ -482,9 +479,9 @@
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
-        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
         <option value="$PROJECT_DIR$/GUI_Handler.py" />
         <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
+        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
       </list>
     </option>
   </component>
@@ -505,6 +502,38 @@
             <path>
               <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="DAQ" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="DAQ" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Location" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="DAQ" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Recording" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="DAQ" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Signal" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -1041,7 +1070,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556113198825</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module Info Storing/Loading&#10;&#10;$ [ ] $ Bug where Loading Logic does not recognize filename.">
+      <created>1556125133197</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1556125133197</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1055,14 +1091,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1858" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.50142854" visible="true" weight="0.16043957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.50142854" visible="true" weight="0.16043957" />
       <window_info id="Structure" order="1" sideWeight="0.49857143" side_tool="true" visible="true" weight="0.16043957" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3271028" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49733475" visible="true" weight="0.27310488" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" visible="true" weight="0.27310488" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32606438" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1140,7 +1175,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="# DONE&#10;- [X] Connected START button to Control Module Comm methods.&#10;   [X] Changed instruction_manager __init__ method to work with GUI.&#10;&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables" />
     <MESSAGE value="# DONE&#10;- [X] Changed Configuration Data Structures according to GUI.&#10;- [X] Connected Progress Dialog and Main Window Buttons.&#10;- [X] Disabling and Enabling Main window when START.&#10;- [X] Sending Cancel signal from Progress Dialog.&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables" />
     <MESSAGE value="..." />
     <MESSAGE value="...cleanup" />
@@ -1165,7 +1199,8 @@
     <MESSAGE value="Load/Store File System Update" />
     <MESSAGE value="GUI Changes.&#10;&#10;Send Configuration Set." />
     <MESSAGE value="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module INfo Storing/Loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module INfo Storing/Loading" />
+    <MESSAGE value="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module Info Storing/Loading&#10;&#10;$ [ ] $ Bug where Loading Logic does not recognize filename." />
+    <option name="LAST_COMMIT_MESSAGE" value="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module Info Storing/Loading&#10;&#10;$ [ ] $ Bug where Loading Logic does not recognize filename." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1192,7 +1227,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>233</line>
+          <line>231</line>
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1653,8 +1688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+        <state relative-caret-position="172">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
           <folding>
             <element signature="e#0#93#1" />
             <element signature="e#344#534#0" />

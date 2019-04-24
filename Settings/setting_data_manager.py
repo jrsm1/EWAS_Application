@@ -122,8 +122,6 @@ class Setting_File_Manager:
         #     if log: print('Storing Recording Configuration FAILED')
 
     def load_recording_configs(self, filename: str):
-        filename
-
         if verify_file_exists(filename):
             self.daq_config.recording_configs = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]
 
