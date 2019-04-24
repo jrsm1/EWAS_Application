@@ -730,7 +730,7 @@ def file_choose(rootPath: str):
 Add default functionality here
 """
 # Module 1 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(1))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(1))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_1_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -770,7 +770,7 @@ module_1_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Module 2 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(2))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(2))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_2_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -810,7 +810,7 @@ module_2_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Module 3 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(3))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(3))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_3_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -850,7 +850,7 @@ module_3_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Module 4 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(4))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(4))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_4_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -890,7 +890,7 @@ module_4_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Module 5 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(5))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(5))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_5_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -930,7 +930,7 @@ module_5_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Module 6 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(6))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(6))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_6_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -970,7 +970,7 @@ module_6_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Module 7 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(7))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(7))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_7_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -1010,7 +1010,7 @@ module_7_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Module 8 Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info(8))
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(8))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_8_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -1383,6 +1383,8 @@ def decide_who_to_save(instruction: int):
         action_store_Location()
     elif instruction == 3:
         action_store_DAQ_Params()
+    elif instruction == 4:
+        action_store_module_info()
 
 
 def decide_who_to_load(instruction: int):
@@ -1395,6 +1397,8 @@ def decide_who_to_load(instruction: int):
         action_load_Location()
     elif instruction == 3:
         action_load_DAQ_Params()
+    elif instruction == 4:
+        action_load_module_info()
 
 def validate_filename(filename: str):
     """
@@ -1417,7 +1421,7 @@ def validate_filename(filename: str):
 def action_store_DAQ_Params():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    show_filename_editor_window()
+    # show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
         # Get info from GUI.
@@ -1435,7 +1439,7 @@ def action_load_DAQ_Params():
     # Load Params from File
     setting_data_manager.load_signal_params(filename)
 
-    if set_dat_man.verify_file_exists(relative_path + filename):
+    if set_dat_man.verify_file_exists(filename):
         # Set Params into GUI.
         set_daq_params_to_gui()
         # Close Window
@@ -1505,7 +1509,7 @@ def action_load_Rec_Setts():
 
     # Load Params from File
     setting_data_manager.load_recording_configs(filename)
-    if set_dat_man.verify_file_exists(relative_path + filename):
+    if set_dat_man.verify_file_exists(filename):
         # Set Params into GUI.
         set_recording_into_gui()
         # Close Window
@@ -1576,6 +1580,9 @@ def change_local_allowed():
 
 
 # ---------------------------------------------- MODULE INFORMATION----------------------------------------------------
+
+def action_store_module_info():
+    pass
 # """
 # Loads fields from Channel info data structure into GUI.
 # """
@@ -1603,8 +1610,8 @@ def show_acquire_dialog(message: str):
     # enable_main_window()
 
 
-# ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
-def save_sensor_info(module: int):
+# ****************************************** SENSOR & MODULE INFORMATION *********************************************
+def save_module_info(module: int):
     """
     Saves sensor data from UI into structure.
     """
@@ -1621,7 +1628,6 @@ def save_sensor_info(module: int):
                                                       sensor_full_scale=str(module_1_sensor_1_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_1_damping.text()),
                                                       sensor_localization=str(module_1_sensor_1_location.text()) )
-
             sensors_all[1] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
                                                       sensor_type=module_1_sensor_2_type.currentIndex(),
                                                       sensor_sensitivity=str(module_1_sensor_2_sensitivity.text()),
@@ -1645,6 +1651,12 @@ def save_sensor_info(module: int):
                                                       sensor_full_scale=str(module_1_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_4_damping.text()),
                                                       sensor_localization=str(module_1_sensor_4_location.text()))
+
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[0]
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[1]
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[2]
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[3]
+            setting_data_manager.store_module_configs(get_filename(), modules_all[0])
 
         if connected_module_list[1]:
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
@@ -1896,7 +1908,7 @@ def plot_time(filename: str):
     Creates and Opens Window with Time plot using user information from file.
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
-        'RESPECT TO TIME')  # TODO SWITCH TO TEMP FILE.
+        'RESPECT TO TIME')  # TODO SWITCH TO FILENAME FILE.
 
 
 def plot_fft(filename: str, sensor: str, freq: int):
@@ -1905,7 +1917,7 @@ def plot_fft(filename: str, sensor: str, freq: int):
     Creats and Opens Window with Time plot using user information from file.
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot(
-        'FOURIER TRANSFORM')  # TODO SWITCH TO TEMP FILE.
+        'FOURIER TRANSFORM')  # TODO SWITCH TO FILENAME FILE.
 
 
 def plot_aps(filename: str, sensor: str, freq: int):
@@ -1914,7 +1926,7 @@ def plot_aps(filename: str, sensor: str, freq: int):
     Creates and Opens Window with Time plot using user information from file.
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot(
-        'AUTO-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
+        'AUTO-POWER SPECTRA')  # TODO SWITCH TO FILENAME FILE.
 
 
 def plot_cps(filename: str):
@@ -1923,7 +1935,7 @@ def plot_cps(filename: str):
     Creates and Opens Window with Time plot using user information from file.
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD().show_plot(
-        'CROSS-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
+        'CROSS-POWER SPECTRA')  # TODO SWITCH TO FILENAME FILE.
 
 
 def plot_phase(filename: str):
@@ -1932,7 +1944,7 @@ def plot_phase(filename: str):
     Creates and Opens Window with Time plot using user information from file.
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase().show_plot(
-        'UNWRAPPED PHASE FUNCTION')  # TODO SWITCH TO TEMP FILE.
+        'UNWRAPPED PHASE FUNCTION')  # TODO SWITCH TO FILENAME FILE.
 
 
 def plot_cohere(filename: str):
@@ -1941,7 +1953,7 @@ def plot_cohere(filename: str):
     Creates and Opens Window with Time plot using user information from file.
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot(
-        'COHERENCE')  # TODO SWITCH TO TEMP FILE.
+        'COHERENCE')  # TODO SWITCH TO FILENAME FILE.
 
 
 def init():

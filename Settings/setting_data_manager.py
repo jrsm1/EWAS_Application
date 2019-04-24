@@ -122,11 +122,10 @@ class Setting_File_Manager:
         #     if log: print('Storing Recording Configuration FAILED')
 
     def load_recording_configs(self, filename: str):
-        rec_file = 'Config/DAQ/Recording/' + filename
+        filename
 
-        if verify_file_exists(rec_file):
-            self.daq_config.recording_configs = pd.read_csv(rec_file, header=0, nrows=1).to_dict('r')[0]
-            self.daq_config.data_handling_configs = pd.read_csv(rec_file, header=2, nrows=1).to_dict('r')[0]
+        if verify_file_exists(filename):
+            self.daq_config.recording_configs = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]
 
             if log: print('Load Recording Settings Successful')
         else:
@@ -219,33 +218,33 @@ class Setting_File_Manager:
 
         return self.daq_config.signal_configs
 
-    def store_module_configs(self, filename: str):
+    def store_module_configs(self, filename: str, module: Module_Individual):
         module_file = 'Config/Module/' + filename
         if verify_file_exists(module_file):
             with open(module_file, 'w+', newline='') as f:
                 writer = csv.writer(f)
 
                 # for x in range(0, 1000000, 1):  # TESTING to make sure it is the same always. [PASSED]
-                if log: print(list(self.channel_config.channel_info.keys())[0])
-                if log: print(type(self.channel_config.channel_info.keys()))
+                if log: print(list(module.channel_info.keys())[0])
+                if log: print(type(module.channel_info.keys()))
 
                 # Marroneo -  Store values in temp dict so that it will be stored like a word in csv.
-                temp_dict = {list(self.channel_config.channel_info.keys())[0]: self.channel_config.channel_info['channel_name']}
+                temp_dict = {list(module.channel_info.keys())[0]: module.channel_info['channel_name']}
                 if log: print('WRITE Channel Settings: ' + str(temp_dict))
                 writer.writerow(temp_dict.keys())
                 writer.writerow(temp_dict.values())
 
-                writer.writerow(self.channel_config.channel_info['Sensor 1'].sensor_info.keys())
-                writer.writerow(self.channel_config.channel_info['Sensor 1'].sensor_info.values())
+                writer.writerow(module.channel_info['Sensor 1'].sensor_info.keys())
+                writer.writerow(module.channel_info['Sensor 1'].sensor_info.values())
 
-                writer.writerow(self.channel_config.channel_info['Sensor 2'].sensor_info.keys())
-                writer.writerow(self.channel_config.channel_info['Sensor 2'].sensor_info.values())
+                writer.writerow(module.channel_info['Sensor 2'].sensor_info.keys())
+                writer.writerow(module.channel_info['Sensor 2'].sensor_info.values())
 
-                writer.writerow(self.channel_config.channel_info['Sensor 3'].sensor_info.keys())
-                writer.writerow(self.channel_config.channel_info['Sensor 3'].sensor_info.values())
+                writer.writerow(module.channel_info['Sensor 3'].sensor_info.keys())
+                writer.writerow(module.channel_info['Sensor 3'].sensor_info.values())
 
-                writer.writerow(self.channel_config.channel_info['Sensor 4'].sensor_info.keys())
-                writer.writerow(self.channel_config.channel_info['Sensor 4'].sensor_info.values())
+                writer.writerow(module.channel_info['Sensor 4'].sensor_info.keys())
+                writer.writerow(module.channel_info['Sensor 4'].sensor_info.values())
 
                 if log: print('Save Module Configs : SUCCESSFUL')
         else:

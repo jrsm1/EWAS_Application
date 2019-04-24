@@ -157,6 +157,8 @@ class Data_Handler():
 
         return self.all_data
 
+    def read_sensor_headers(self, filename):
+        sensors = pd.data
 
 def select_data_columns():
     """

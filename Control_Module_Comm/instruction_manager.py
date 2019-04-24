@@ -158,6 +158,7 @@ class instruction_manager():
     """
     request the gps data as a string. still needs post processing.
     returns a string formatted a certain way.
+    returns a string formatted a certain way.
     format pending.
     """
 
