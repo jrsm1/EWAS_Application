@@ -37,8 +37,12 @@ def show_error(message: str):
         Creates an Error Message dialog
 
         :param message: String - The Desired Message Output.
+
+        :return a Qt StandardButton
     """
-    QtWidgets.QMessageBox().critical(main_window, 'WARNING', message)
+    error = QtWidgets.QMessageBox().critical(main_window, 'WARNING', message)
+
+    return error
 
 
 def show_not_connected_error():
@@ -172,19 +176,15 @@ def open_module_selection_window():
     Done before Channel Selection.
     """
 
-    # Diable not connected modules.
-    connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
+    # Disable not connected modules.
     try:
-        im = ins_man.instruction_manager(ins_port)
-        connected_modules = im.send_request_number_of_mods_connected()
+        connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
+        # im = ins_man.instruction_manager(ins_port)
+        # connected_modules = im.send_request_number_of_mods_connected() # FIXME ENABLE FOR REAL
         disable_module_selection_buttons(connected_modules)
         mod_sel_win.show()
     except serial.SerialException:
         show_not_connected_error()
-
-    disable_module_selection_buttons(connected_modules)
-
-    mod_sel_win.show()
 
 
 def disable_module_selection_buttons(connected_modules: []):
@@ -1238,9 +1238,9 @@ def do_plot(plot: int):
     # Clear DropDown to prepare for new plot option.
     #   Clear everything but Placeholder [Index 0].
     for item in range(1, viz_sens_1_dropdown.count(), 1):
-        viz_sens_1_dropdown.removeItem(item)
-    for item in range(1, viz_sens_1_dropdown.count(), 1):
-        viz_sens_1_dropdown.removeItem(item)
+        viz_sens_1_dropdown.removeItem(1)
+    for item in range(1, viz_sens_2_dropdown.count(), 1):
+        viz_sens_2_dropdown.removeItem(1)
 
     # Set DropDown Values
     viz_sens_1_dropdown.addItems(sensors)
@@ -1276,9 +1276,6 @@ def do_plot(plot: int):
         viz_sens_2_dropdown.setEnabled(True)
 
     show_visualization_sensor_selector_window()
-
-
-
 
 
 # RECORDING  Settings
@@ -1324,7 +1321,7 @@ samfreq_dropdown.currentIndexChanged.connect(lambda: check_duration())
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
-main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: False)
+main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 # File Name
 fn_in = filename_input_win.filename_lineEdit
@@ -1761,24 +1758,25 @@ def save_module_info(module: int):
     """
     # Get info from GUI.
     try:
-        ins = ins_man.instruction_manager(ins_port)
-        connected_module_list = ins.send_request_number_of_mods_connected()
+        connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
+        # ins = ins_man.instruction_manager(ins_port)  # FIXME UNCOMMENT FOR REAL
+        # connected_modules = ins.send_request_number_of_mods_connected()
         if log: print("entered enable start")
-        if connected_module_list[0]:
+        if module == 1:
             sensors_all[0] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_1_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_1_sensor_1_sensitivity.text()),
                                                       sensor_bandwidth=str(module_1_sensor_1_bandwidth.text()),
                                                       sensor_full_scale=str(module_1_sensor_1_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_1_damping.text()),
-                                                      sensor_localization=str(module_1_sensor_1_location.text()) )
+                                                      sensor_localization=str(module_1_sensor_1_location.toPlainText()) )
             sensors_all[1] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
                                                       sensor_type=module_1_sensor_2_type.currentIndex(),
                                                       sensor_sensitivity=str(module_1_sensor_2_sensitivity.text()),
                                                       sensor_bandwidth=str(module_1_sensor_2_bandwidth.text()),
                                                       sensor_full_scale=str(module_1_sensor_2_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_2_damping.text()),
-                                                      sensor_localization=str(module_1_sensor_2_location.text()) )
+                                                      sensor_localization=str(module_1_sensor_2_location.toPlainText()) )
 
             sensors_all[2] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
                                                       sensor_type=module_1_sensor_3_type.currentIndex(),
@@ -1786,7 +1784,7 @@ def save_module_info(module: int):
                                                       sensor_bandwidth=str(module_1_sensor_3_bandwidth.text()),
                                                       sensor_full_scale=str(module_1_sensor_3_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_3_damping.text()),
-                                                      sensor_localization=str(module_1_sensor_3_location.text()))
+                                                      sensor_localization=str(module_1_sensor_3_location.toPlainText()))
 
             sensors_all[3] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
                                                       sensor_type=module_1_sensor_4_type.currentIndex(),
@@ -1794,15 +1792,14 @@ def save_module_info(module: int):
                                                       sensor_bandwidth=str(module_1_sensor_4_bandwidth.text()),
                                                       sensor_full_scale=str(module_1_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_4_damping.text()),
-                                                      sensor_localization=str(module_1_sensor_4_location.text()))
+                                                      sensor_localization=str(module_1_sensor_4_location.toPlainText()))
 
             modules_all[0].channel_info['Sensor 1'] = sensors_all[0]
             modules_all[0].channel_info['Sensor 1'] = sensors_all[1]
             modules_all[0].channel_info['Sensor 1'] = sensors_all[2]
             modules_all[0].channel_info['Sensor 1'] = sensors_all[3]
             # setting_data_manager.store_module_configs(get_filename(), modules_all[0])
-
-        if connected_module_list[1]:
+        if connected_modules[1]:
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_2_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_2_sensor_1_sensitivity.text()),
@@ -1834,7 +1831,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_2_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_2_sensor_4_damping.text()),
                                                       sensor_localization=str(module_2_sensor_4_location.text()))
-        if connected_module_list[2]:  # MODULE 3
+        if connected_modules[2]:  # MODULE 3
             sensors_all[8] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_3_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_3_sensor_1_sensitivity.text()),
@@ -1866,7 +1863,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_3_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_3_sensor_4_damping.text()),
                                                       sensor_localization=str(module_3_sensor_4_location.text()))
-        if connected_module_list[3]:  # MODULE 4
+        if connected_modules[3]:  # MODULE 4
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_4_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_4_sensor_1_sensitivity.text()),
@@ -1898,7 +1895,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_4_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_4_sensor_4_damping.text()),
                                                       sensor_localization=str(module_4_sensor_4_location.text()))
-        if connected_module_list[4]: # MODULE 5
+        if connected_modules[4]: # MODULE 5
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_5_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_5_sensor_1_sensitivity.text()),
@@ -1930,7 +1927,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_5_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_5_sensor_4_damping.text()),
                                                       sensor_localization=str(module_5_sensor_4_location.text()))
-        if connected_module_list[5]:  # MODULE 6
+        if connected_modules[5]:  # MODULE 6
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_6_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_6_sensor_1_sensitivity.text()),
@@ -1962,7 +1959,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_6_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_6_sensor_4_damping.text()),
                                                       sensor_localization=str(module_6_sensor_4_location.text()))
-        if connected_module_list[6]:  # MODULE 7
+        if connected_modules[6]:  # MODULE 7
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_7_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_7_sensor_1_sensitivity.text()),
@@ -1994,7 +1991,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_7_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_7_sensor_4_damping.text()),
                                                       sensor_localization=str(module_7_sensor_4_location.text()))
-        if connected_module_list[7]: # MODULE 8
+        if connected_modules[7]: # MODULE 8
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_8_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_8_sensor_1_sensitivity.text()),
