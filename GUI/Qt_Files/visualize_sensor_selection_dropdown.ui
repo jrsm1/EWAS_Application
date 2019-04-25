@@ -22,6 +22,9 @@
     <height>160</height>
    </size>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>Select Sensors for Plot Generation</string>
   </property>

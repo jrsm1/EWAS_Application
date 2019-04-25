@@ -36,7 +36,6 @@ class DAQconfigs:
         }
 
         self.data_handling_configs = {
-            "visualize": bool,
             "store": bool
         }
 
@@ -50,14 +49,14 @@ class DAQconfigs:
         }
 
         self.specimen_location = {
-            '1': str,
-            '2': str,
-            '3': str,
-            '4': str,
-            '5': str,
-            '6': str,
-            '7': str,
-            '8': str,
+            'Specimen 1': str,
+            'Specimen 2': str,
+            'Specimen 3': str,
+            'Specimen 4': str,
+            'Specimen 5': str,
+            'Specimen 6': str,
+            'Specimen 7': str,
+            'Specimen 8': str,
         }
 
         if len(test_name) > NAME_LIMIT:

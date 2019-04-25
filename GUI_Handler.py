@@ -256,29 +256,55 @@ def close_filename_editor_window():
     filename_input_win.close()
 
 
-# TODO
+# TODO Validate
 def begin_visualization():
     """
     Begins Visualization Analysis for user selected plots.
     """
     filename = visualization_values['plot_filename']
     plot = visualization_values['requested_plot']
-    # Choose which Plot.
-    if plot == 1:
-        plot_time(filename)
-    elif plot == 2:
-        plot_fft(filename)
-    elif plot == 3:
-        plot_aps(filename)
-    elif plot == 4:
-        plot_cps(filename)
-    elif plot == 5:
-        plot_phase(filename)
-    elif plot == 6:
-        plot_cohere(filename)
 
-    close_visualization_sensor_selection_window()
-    # show_progress_dialog('Plotting ' + 'What you wanna plot')
+    if validate_visualize_sensor_selection(1):  # Only have to Validate One Sensor.
+        # Choose which Plot.
+        if plot == 1:
+            plot_time(filename)
+        elif plot == 2:
+            plot_fft(filename)
+        elif plot == 3:
+            plot_aps(filename)
+
+        close_visualization_sensor_selection_window()
+
+    elif validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
+        if plot == 4:
+            plot_cps(filename)
+        elif plot == 5:
+            plot_phase(filename)
+        elif plot == 6:
+            plot_cohere(filename)
+
+        close_visualization_sensor_selection_window()
+    else:
+        show_error('Sensor not selected.')
+
+
+def validate_visualize_sensor_selection(max_sensors: int):
+    """
+    Validates the user has selected a sensor to visualize.
+
+    :return: True if User has selected al proper sensors.
+    """
+    validated = True
+    if viz_sens_1_dropdown.currentIndex() == 0: # if Default Value --> Not Validated.
+        close_visualization_sensor_selection_window()
+        validated = False
+
+    if max_sensors == 2:
+        if viz_sens_2_dropdown.currentIndex() != 0:
+            close_visualization_sensor_selection_window()
+            validated = False
+
+    return validated
 
 
 def set_gps_into_gui():
@@ -334,9 +360,9 @@ def set_daq_params_to_gui():
     """
     Sets Data Acquisition Parameters to GUI Fields.
     """
-    samfreq_dropdown.setCurrentIndex(daq_config.signal_configs['sampling_rate'])
-    cutfreq_drodown.setCurrentIndex(daq_config.signal_configs['cutoff_frequency'])
-    gain_dropdown.setCurrentIndex(daq_config.signal_configs['signal_gain'])
+    samfreq_dropdown.setCurrentText(daq_config.signal_configs['sampling_rate'])
+    cutfreq_drodown.setCurrentText(daq_config.signal_configs['cutoff_frequency'])
+    gain_dropdown.setCurrentText(daq_config.signal_configs['signal_gain'])
 
 
 def check_boxes(text_box: str, pattern: str):
@@ -388,14 +414,14 @@ def get_location_from_gui():
     daq_config.location_configs['hour'] = str(main_window.main_tab_LocalizationSettings_hourLineEdit.text())
     daq_config.location_configs['minute'] = str(main_window.main_tab_LocalizationSettings_minutesLineEdit.text())
     daq_config.location_configs['second'] = str(main_window.main_tab_LocalizationSettings_secondsLineEdit.text())
-    daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
-    daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
-    daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
-    daq_config.specimen_location['4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
-    daq_config.specimen_location['5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
-    daq_config.specimen_location['6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
-    daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
-    daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
+    daq_config.specimen_location['Specimen 1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
+    daq_config.specimen_location['Specimen 2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
+    daq_config.specimen_location['Specimen 3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
+    daq_config.specimen_location['Specimen 4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
+    daq_config.specimen_location['Specimen 5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
+    daq_config.specimen_location['Specimen 6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
+    daq_config.specimen_location['Specimen 7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
+    daq_config.specimen_location['Specimen 8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
 
 
 def get_gps_location_from_gui():
@@ -408,14 +434,14 @@ def get_gps_location_from_gui():
 
 
 def get_modules_location_from_gui():
-    daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
-    daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
-    daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
-    daq_config.specimen_location['4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
-    daq_config.specimen_location['5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
-    daq_config.specimen_location['6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
-    daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
-    daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
+    daq_config.specimen_location['Specimen 1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
+    daq_config.specimen_location['Specimen 2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
+    daq_config.specimen_location['Specimen 3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
+    daq_config.specimen_location['Specimen 4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
+    daq_config.specimen_location['Specimen 5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
+    daq_config.specimen_location['Specimen 6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
+    daq_config.specimen_location['Specimen 7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
+    daq_config.specimen_location['Specimen 8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
 
 
 def validate_rec_settings():
@@ -1220,6 +1246,7 @@ def do_plot(plot: int):
         viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
                                'Please Select Two Sensor.')
         viz_sens_2_dropdown.setEnabled(True)
+
     elif plot == 5:
         viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
                                'Please Select Two Sensor.')
