@@ -20,7 +20,7 @@ class DAQconfigs:
                  loc_name='NoName', latitude='+0000.0000', longitude='-0000.0000', hour='00', minute='00', second='00',
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
-                 visualize=True, store=False):
+                 store='1111'):
         self.signal_configs = {
             'sampling_rate': str,
             'cutoff_frequency': str,
@@ -36,7 +36,7 @@ class DAQconfigs:
         }
 
         self.data_handling_configs = {
-            "store": bool
+            "store": str
         }
 
         self.location_configs = {
@@ -93,7 +93,6 @@ class DAQconfigs:
         self.specimen_location['Specimen 7'] = specimen_7
         self.specimen_location['Specimen 8'] = specimen_8
 
-        self.data_handling_configs["visualize"] = visualize
         self.data_handling_configs["store"] = store
 
         # else:

@@ -237,7 +237,7 @@ class instruction_manager():
             return line
         return 0
 
-    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, sensors_selected, sensor_enable, name, location):
+    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
         """
         sampling frequency
         cutoff frequency
@@ -269,10 +269,10 @@ class instruction_manager():
         self.serial_interface.send_byte(bytes([int(start_delay[2])]))
         self.serial_interface.send_byte(bytes([int(start_delay[3])]))
         # send sensors selected
-        self.serial_interface.send_byte(bytes([int(sensors_selected[0])]))
-        self.serial_interface.send_byte(bytes([int(sensors_selected[1])]))
-        self.serial_interface.send_byte(bytes([int(sensors_selected[2])]))
-        self.serial_interface.send_byte(bytes([int(sensors_selected[3])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[0])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[1])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[2])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[3])]))
         # send sensor enabled
         for i in sensor_enable:
             self.serial_interface.send_byte(bytes([i]))

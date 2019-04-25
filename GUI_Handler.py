@@ -61,6 +61,7 @@ module_5_info_win = uic.loadUi("GUI/Qt_Files/module_5_info_window.ui")
 module_6_info_win = uic.loadUi("GUI/Qt_Files/module_6_info_window.ui")
 module_7_info_win = uic.loadUi("GUI/Qt_Files/module_7_info_window.ui")
 module_8_info_win = uic.loadUi("GUI/Qt_Files/module_8_info_window.ui")
+store_data_window = uic.loadUi("GUI/Qt_Files/store_data_dialog.ui")
 
 main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 prog_dlg.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
@@ -681,8 +682,9 @@ def sensor_sel_start():
     main_sensor_sel_win.close()
     try:
         ins = ins_man.instruction_manager(ins_port)
+        # def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
         ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index, daq_config.gain_index,
-                                      "0100", "0100", "0102", sensors_enabled, "test name", "test location")
+                                      "0100", "0100", daq_config.data_handling_configs["store"], sensors_enabled, "test name", "test location")
         enable_main_window()
         if log:
             print("came back to sensor_sel_start")
@@ -1331,8 +1333,17 @@ fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_sav
 fn_CANCEL_btn = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
 # fn_EXPLORER_btn = filename_input_win.open_FILE_EXPLORER_Button.clicked.connect(file_choose)
 
+# Store Data Dialog
+yes_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('yes'))
+no_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('no'))
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
+
+def store_data(yes: str):
+    if yes:
+        daq_config.data_handling_configs["store"] = '1111'
+    else:
+        daq_config.data_handling_configs["store"] = '0000'
 
 def check_sampling_rate():
     test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()

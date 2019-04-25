@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/EWAS_Application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EWAS_Application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Qt_Files/main_window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
     </list>
     <ignored path="C:\Users\chris\PycharmProjects\EWAS_Application\.idea\shelf/" />
@@ -18,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="142" column="24" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="24" />
+            <state relative-caret-position="-509">
+              <caret line="239" column="40" selection-start-line="239" selection-start-column="40" selection-end-line="239" selection-end-column="40" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -53,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="441" column="16" selection-start-line="441" selection-start-column="4" selection-end-line="441" selection-end-column="16" />
+            <state relative-caret-position="240">
+              <caret line="684" column="141" selection-start-line="684" selection-start-column="141" selection-end-line="684" selection-end-column="141" />
               <folding>
                 <element signature="e#100909#100993#1" />
                 <element signature="e#101174#101267#0" />
@@ -70,11 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
+            <state relative-caret-position="-6077">
               <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
-              <folding>
-                <element signature="e#9200#9209#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -82,14 +77,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+            <state relative-caret-position="405">
+              <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
               <folding>
                 <element signature="e#0#93#1" />
-                <element signature="e#807#1023#0" />
-                <element signature="e#807#966#1" />
-                <element signature="e#1081#2502#0" />
-                <element signature="e#1081#1225#1" />
               </folding>
             </state>
           </provider>
@@ -98,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2970">
-              <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="301">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -140,9 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main_window</find>
-      <find>button</find>
-      <find>start</find>
       <find>sensor_sel_start</find>
       <find>close</find>
       <find>next_B</find>
@@ -170,6 +158,9 @@
       <find>check_duration</find>
       <find>check_sampl</find>
       <find>validate_box</find>
+      <find>store_data</find>
+      <find>send</find>
+      <find>send_rec</find>
     </findStrings>
     <replaceStrings>
       <replace>config</replace>
@@ -233,7 +224,6 @@
         <option value="$PROJECT_DIR$/GUI/Error_Dialog.py" />
         <option value="$PROJECT_DIR$/Settings/Store Settings.ipynb" />
         <option value="$PROJECT_DIR$/Config/DAQ/Default_Configuration.csv" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
         <option value="$PROJECT_DIR$/thread_progress.py" />
         <option value="$PROJECT_DIR$/Threading.py" />
         <option value="$PROJECT_DIR$/Module_Info.py" />
@@ -241,8 +231,9 @@
         <option value="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" />
         <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
         <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/tester.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
         <option value="$PROJECT_DIR$/GUI_Handler.py" />
       </list>
     </option>
@@ -799,7 +790,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556138878660</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Limited Duration 5&lt;x&lt;1800&#10;Added warning in case huerta wants to exceed this">
+      <created>1556167551480</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1556167551480</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -813,7 +811,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6232804" weight="0.3078125" />
       <window_info id="Structure" order="1" sideWeight="0.37671956" side_tool="true" weight="0.3078125" />
@@ -896,7 +893,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="# DONE&#10;- [X] Changed Configuration Data Structures according to GUI.&#10;- [X] Connected Progress Dialog and Main Window Buttons.&#10;- [X] Disabling and Enabling Main window when START.&#10;- [X] Sending Cancel signal from Progress Dialog.&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables" />
     <MESSAGE value="..." />
     <MESSAGE value="...cleanup" />
     <MESSAGE value="[X} Changed all methods from UI into GUI_Handler para evitar imports." />
@@ -921,7 +917,8 @@
     <MESSAGE value="Halp" />
     <MESSAGE value="Wrote start button logic somewhat. Look for check_status_during_test" />
     <MESSAGE value="Fixed GPS communication while loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed GPS communication while loop" />
+    <MESSAGE value="Limited Duration 5&lt;x&lt;1800&#10;Added warning in case huerta wants to exceed this" />
+    <option name="LAST_COMMIT_MESSAGE" value="Limited Duration 5&lt;x&lt;1800&#10;Added warning in case huerta wants to exceed this" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -934,28 +931,23 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>44</line>
+          <line>47</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>80</line>
+          <line>81</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>12</line>
+          <line>14</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1310</line>
+          <line>1378</line>
           <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1328</line>
-          <option name="timeStamp" value="93" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1247,25 +1239,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
-          <folding>
-            <element signature="e#9200#9209#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1274,20 +1253,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+    <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="142" column="24" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="24" />
+        <state relative-caret-position="405">
+          <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
           <folding>
-            <element signature="e#0#63#0" expanded="true" />
+            <element signature="e#0#93#1" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="164" selection-start-line="164" selection-end-line="164" />
         </state>
       </provider>
     </entry>
@@ -1301,38 +1273,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
+    <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#93#1" />
-            <element signature="e#807#1023#0" />
-            <element signature="e#807#966#1" />
-            <element signature="e#1081#2502#0" />
-            <element signature="e#1081#1225#1" />
-          </folding>
+        <state relative-caret-position="-6077">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2970">
-          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="301">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="441" column="16" selection-start-line="441" selection-start-column="4" selection-end-line="441" selection-end-column="16" />
+        <state relative-caret-position="240">
+          <caret line="684" column="141" selection-start-line="684" selection-start-column="141" selection-end-line="684" selection-end-column="141" />
           <folding>
             <element signature="e#100909#100993#1" />
             <element signature="e#101174#101267#0" />
             <element signature="e#102133#102165#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-509">
+          <caret line="239" column="40" selection-start-line="239" selection-start-column="40" selection-end-line="239" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
