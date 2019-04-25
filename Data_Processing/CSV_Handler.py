@@ -81,17 +81,21 @@ class Data_Handler():
             data.to_csv(datapath, mode='a', index=False)
         f.close()
 
-    def string_to_dataframe(self, string: str):
+    def string_to_dataframe(self, string: str, timestamp=None):
         """
         Converts Comma delimited string into pandas DataFrame.
 
         :param string: Contains the comma delimited data string.
+        :param timestamp: True if the string to convert has Timestamp data.
 
         :return: Pandas DataFrame with the data from the input string.
         """
 
         # Select Column Based on Selected Sensors.
-        columns = select_data_columns()
+        if timestamp:
+            culumns = ['Timestamp']
+        else:
+            columns = select_data_columns()
         return pd.DataFrame([x.split(',') for x in string.split(';')], columns=columns)
 
     def read_data(self, filename: str):
@@ -146,15 +150,31 @@ class Data_Handler():
 
                 self.all_data.join(self.string_to_dataframe(string))
 
-        # DataFrame to hold index and simulate timestamp. TODO
+        # Convert Data Values as float.
+        self.all_data.astype(float)
+
         timestamp = ''
         time = 0
         time_step = 1/GUI_Handler.daq_config.get_sampling_freq()
-        for x in np.arange(len(self.all_data.index)):
+        for x in np.arange(len(self.all_data.index-1)):
             time += time_step
-            timestamp += str(time) + ';' # New line every timestamp calculated.
+            timestamp += str(time) + ';'  # New line every timestamp calculated.
 
+        # Do last value because otherwise it will let the last value NaN.
+        time += time_step
+        timestamp += str(time)
+
+        # store timestamp in DataFrame
         timedf = self.string_to_dataframe(timestamp)
+        timedf = timedf.astype(float)
+
+        # Join Timestamp to all_data and set it as Index
+        self.all_data = timedf.join(self.all_data)
+        self.all_data.set_index('timestamp')
+
+        if log:
+            print(self.all_data)
+            print(self.all_data.info())
 
         return self.all_data
 
@@ -183,7 +203,7 @@ def select_data_columns():
     #     # show_error('')
     #     print('Serial Error.')
 
-    sensor_list = ['Timestamp']
+    sensor_list = []
     if log: print("CSV_Handler - entered Select sensor Headers")
     if connected_module_list[0]:
         sensor_list.append('Sensor_1')
@@ -228,7 +248,6 @@ def select_data_columns():
     if log: print("CSV_Handler - got out of Select sensor Headers")
 
     return sensor_list
-
 
 def get_port():
     port = 'COM'

@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="[X] Saved DEFAULT CONFIGURATIONS.">
-      <change beforePath="$PROJECT_DIR$/.idea/EWAS_Application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EWAS_Application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="[X] File format incorrect ALMOST handling it xD">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Huerta _nw301001.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Huerta _nw301001.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Testing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Testing.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Error_Dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Error_Dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/main_tab_layout_V2.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Qt_Files/main_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/visualize_sensor_selection_dropdown.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Qt_Files/visualize_sensor_selection_dropdown.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+            <state relative-caret-position="433">
+              <caret line="1390" column="32" lean-forward="true" selection-start-line="1390" selection-start-column="32" selection-end-line="1390" selection-end-column="32" />
               <folding>
                 <element signature="e#677#964#0" />
                 <element signature="e#1000#1213#0" />
@@ -55,7 +46,6 @@
                 <element signature="e#9003#9066#1" />
                 <element signature="e#9290#9593#0" />
                 <element signature="e#9290#9542#1" />
-                <element signature="e#9649#10058#0" />
                 <element signature="e#9649#9809#1" />
                 <element signature="e#10115#10141#0" />
                 <element signature="e#10182#10207#0" />
@@ -171,7 +161,6 @@
                 <element signature="e#58973#59050#0" />
                 <element signature="e#59122#59137#0" />
                 <element signature="e#59971#60023#0" />
-                <element signature="e#60053#61894#0" />
                 <element signature="e#60254#60302#0" />
                 <element signature="e#60763#60978#0" />
                 <element signature="e#60786#60884#0" />
@@ -197,10 +186,7 @@
                 <element signature="e#67337#67561#0" />
                 <element signature="e#67395#67561#0" />
                 <element signature="e#64469#64594#0" />
-                <element signature="e#64631#65217#0" />
                 <element signature="e#64631#64721#1" />
-                <element signature="e#64789#65147#0" />
-                <element signature="e#64919#64965#0" />
                 <element signature="e#65256#66304#0" />
                 <element signature="e#65417#66209#0" />
                 <element signature="e#65791#66125#0" />
@@ -329,10 +315,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="737">
-              <caret line="170" selection-start-line="170" selection-end-line="170" />
+            <state relative-caret-position="294">
+              <caret line="109" column="98" selection-start-line="109" selection-start-column="98" selection-end-line="109" selection-end-column="98" />
               <folding>
-                <element signature="e#0#98#0" expanded="true" />
+                <element signature="e#282#337#1" />
+                <element signature="e#412#509#0" />
+                <element signature="e#580#880#1" />
+                <element signature="e#984#3140#0" />
+                <element signature="e#1020#1029#0" />
+                <element signature="e#2023#2997#0" />
+                <element signature="e#3325#3541#1" />
+                <element signature="e#3771#3977#1" />
+                <element signature="e#4223#4653#0" />
+                <element signature="e#4223#4446#1" />
+                <element signature="e#4718#4957#1" />
+                <element signature="e#6130#6494#0" />
+                <element signature="e#6130#6420#1" />
+                <element signature="e#6527#6609#1" />
+                <element signature="e#6667#6673#0" />
+                <element signature="e#7213#7360#0" />
+                <element signature="e#7402#7552#0" />
+                <element signature="e#7594#7745#0" />
+                <element signature="e#7787#7938#0" />
+                <element signature="e#7980#8131#0" />
+                <element signature="e#8173#8324#0" />
+                <element signature="e#8366#8517#0" />
+                <element signature="e#8632#9179#0" />
+                <element signature="e#8683#9006#0" />
+                <element signature="e#8700#8908#0" />
+                <element signature="e#8971#9006#0" />
               </folding>
             </state>
           </provider>
@@ -350,11 +361,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+            <state relative-caret-position="272">
+              <caret line="55" column="80" lean-forward="true" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -374,9 +385,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sel_se</find>
-      <find>DONE</find>
-      <find>send_request_configuration</find>
       <find>F</find>
       <find>show_err</find>
       <find>sensor_sel_</find>
@@ -404,6 +412,9 @@
       <find>'1'</find>
       <find>LOAD</find>
       <find>CHANNE</find>
+      <find>plot_</find>
+      <find>all_data</find>
+      <find>DONE</find>
     </findStrings>
     <replaceStrings>
       <replace>module_4_sensor_3_</replace>
@@ -485,7 +496,6 @@
         <option value="$PROJECT_DIR$/Settings/Diagnostics.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
-        <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
         <option value="$PROJECT_DIR$/Config/DAQ/Signal/Default_Configuration.csv" />
         <option value="$PROJECT_DIR$/GUI/File_Editor_Window.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
@@ -498,8 +508,9 @@
         <option value="$PROJECT_DIR$/GUI/Vizualization_Sensor_Selector_Matrix.py" />
         <option value="$PROJECT_DIR$/GUI/Error_Dialog.py" />
         <option value="$PROJECT_DIR$/Data/Testing.csv" />
-        <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
         <option value="$PROJECT_DIR$/GUI_Handler.py" />
+        <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
+        <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
       </list>
     </option>
   </component>
@@ -787,13 +798,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552944095439</updated>
-    </task>
-    <task id="LOCAL-00003" summary="# Done&#10;- [x] Added Data visualization Jupyter Notebook test files.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug">
-      <created>1553828453450</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1553828453450</updated>
     </task>
     <task id="LOCAL-00004" summary="# Done&#10;- [x] Added preliminary Settings Structure files.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
       <created>1553836570148</created>
@@ -1131,7 +1135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556170291737</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="[X] File format incorrect ALMOST handling it xD">
+      <created>1556195086970</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1556195086970</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1153,7 +1164,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3271028" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.27310488" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32606438" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32606438" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24918744" />
@@ -1230,7 +1241,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="* [X] Store Chanel config with sensors ready." />
     <MESSAGE value="main window change" />
     <MESSAGE value="DELETE OR REVERT BEFORE" />
     <MESSAGE value="Changed error checking based on which is currently selected in the gps dropdown box" />
@@ -1255,7 +1265,8 @@
     <MESSAGE value="[X] All plots working&#10;&#10;[ ] $ Bug CRASH when user does not select a sensor in visualization sensor selection window.  {VALIDATE}" />
     <MESSAGE value="Load Savin Working again" />
     <MESSAGE value="[X] Saved DEFAULT CONFIGURATIONS." />
-    <option name="LAST_COMMIT_MESSAGE" value="[X] Saved DEFAULT CONFIGURATIONS." />
+    <MESSAGE value="[X] File format incorrect ALMOST handling it xD" />
+    <option name="LAST_COMMIT_MESSAGE" value="[X] File format incorrect ALMOST handling it xD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1279,11 +1290,6 @@
           <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
           <line>224</line>
           <option name="timeStamp" value="170" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py</url>
-          <line>170</line>
-          <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
@@ -1319,6 +1325,11 @@
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
           <line>1765</line>
           <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py</url>
+          <line>178</line>
+          <option name="timeStamp" value="225" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1714,16 +1725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="170" selection-start-line="170" selection-end-line="170" />
-          <folding>
-            <element signature="e#0#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/matplotlib/mlab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2699">
@@ -1741,10 +1742,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="55" column="80" lean-forward="true" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="109" column="98" selection-start-line="109" selection-start-column="98" selection-end-line="109" selection-end-column="98" />
+          <folding>
+            <element signature="e#282#337#1" />
+            <element signature="e#412#509#0" />
+            <element signature="e#580#880#1" />
+            <element signature="e#984#3140#0" />
+            <element signature="e#1020#1029#0" />
+            <element signature="e#2023#2997#0" />
+            <element signature="e#3325#3541#1" />
+            <element signature="e#3771#3977#1" />
+            <element signature="e#4223#4653#0" />
+            <element signature="e#4223#4446#1" />
+            <element signature="e#4718#4957#1" />
+            <element signature="e#6130#6494#0" />
+            <element signature="e#6130#6420#1" />
+            <element signature="e#6527#6609#1" />
+            <element signature="e#6667#6673#0" />
+            <element signature="e#7213#7360#0" />
+            <element signature="e#7402#7552#0" />
+            <element signature="e#7594#7745#0" />
+            <element signature="e#7787#7938#0" />
+            <element signature="e#7980#8131#0" />
+            <element signature="e#8173#8324#0" />
+            <element signature="e#8366#8517#0" />
+            <element signature="e#8632#9179#0" />
+            <element signature="e#8683#9006#0" />
+            <element signature="e#8700#8908#0" />
+            <element signature="e#8971#9006#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+        <state relative-caret-position="433">
+          <caret line="1390" column="32" lean-forward="true" selection-start-line="1390" selection-start-column="32" selection-end-line="1390" selection-end-column="32" />
           <folding>
             <element signature="e#677#964#0" />
             <element signature="e#1000#1213#0" />
@@ -1773,7 +1819,6 @@
             <element signature="e#9003#9066#1" />
             <element signature="e#9290#9593#0" />
             <element signature="e#9290#9542#1" />
-            <element signature="e#9649#10058#0" />
             <element signature="e#9649#9809#1" />
             <element signature="e#10115#10141#0" />
             <element signature="e#10182#10207#0" />
@@ -1889,7 +1934,6 @@
             <element signature="e#58973#59050#0" />
             <element signature="e#59122#59137#0" />
             <element signature="e#59971#60023#0" />
-            <element signature="e#60053#61894#0" />
             <element signature="e#60254#60302#0" />
             <element signature="e#60763#60978#0" />
             <element signature="e#60786#60884#0" />
@@ -1915,10 +1959,7 @@
             <element signature="e#67337#67561#0" />
             <element signature="e#67395#67561#0" />
             <element signature="e#64469#64594#0" />
-            <element signature="e#64631#65217#0" />
             <element signature="e#64631#64721#1" />
-            <element signature="e#64789#65147#0" />
-            <element signature="e#64919#64965#0" />
             <element signature="e#65256#66304#0" />
             <element signature="e#65417#66209#0" />
             <element signature="e#65791#66125#0" />
@@ -2027,16 +2068,6 @@
             <element signature="e#104235#104328#0" />
             <element signature="e#104347#104417#0" />
             <element signature="e#104422#104454#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
