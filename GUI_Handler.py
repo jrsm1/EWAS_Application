@@ -1679,10 +1679,13 @@ def sync_gps():  # TODO TEST
                 # prog_dlg.close()
                 prog_dlg.progress_dialog_progressBar.setValue(100)
                 show_error('GPS Failed to Synchronize.')
+                prog_dlg.close()
                 synched = False
                 break
         # If synched Succesfull --> Request GPS data.
         if synched:
+            prog_dlg.progress_dialog_progressBar.setValue(100)
+            prog_dlg.close()
             ins.send_gps_data_request()
             set_gps_into_gui()
     except serial.SerialException:
