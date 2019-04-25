@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="[X] File format incorrect ALMOST handling it xD">
+    <list default="true" id="8a1ee814-7be3-4a8c-a2f0-44f3ad8a4528" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="1390" column="32" lean-forward="true" selection-start-line="1390" selection-start-column="32" selection-end-line="1390" selection-end-column="32" />
+            <state relative-caret-position="142">
+              <caret line="2162" column="15" lean-forward="true" selection-start-line="2162" selection-start-column="15" selection-end-line="2172" selection-end-column="18" />
               <folding>
                 <element signature="e#677#964#0" />
                 <element signature="e#1000#1213#0" />
@@ -50,15 +51,12 @@
                 <element signature="e#10115#10141#0" />
                 <element signature="e#10182#10207#0" />
                 <element signature="e#10249#10275#0" />
-                <element signature="e#10325#11180#0" />
                 <element signature="e#10325#10395#1" />
                 <element signature="e#10592#10831#0" />
                 <element signature="e#10913#11127#0" />
-                <element signature="e#11246#11750#0" />
+                <element signature="e#11460#11639#2" />
                 <element signature="e#11246#11375#1" />
                 <element signature="e#11491#11562#0" />
-                <element signature="e#11597#11728#0" />
-                <element signature="e#11653#11728#0" />
                 <element signature="e#11781#12608#0" />
                 <element signature="e#11781#11854#1" />
                 <element signature="e#12653#13308#0" />
@@ -162,7 +160,6 @@
                 <element signature="e#59122#59137#0" />
                 <element signature="e#59971#60023#0" />
                 <element signature="e#60254#60302#0" />
-                <element signature="e#60763#60978#0" />
                 <element signature="e#60786#60884#0" />
                 <element signature="e#61008#61220#0" />
                 <element signature="e#61031#61126#0" />
@@ -186,6 +183,7 @@
                 <element signature="e#67337#67561#0" />
                 <element signature="e#67395#67561#0" />
                 <element signature="e#64469#64594#0" />
+                <element signature="e#64631#65217#0" />
                 <element signature="e#64631#64721#1" />
                 <element signature="e#65256#66304#0" />
                 <element signature="e#65417#66209#0" />
@@ -290,11 +288,7 @@
                 <element signature="e#103544#103641#1" />
                 <element signature="e#103781#103952#0" />
                 <element signature="e#103781#103878#1" />
-                <element signature="e#103970#104938#0" />
                 <element signature="e#103970#104054#1" />
-                <element signature="e#104235#104328#0" />
-                <element signature="e#104347#104417#0" />
-                <element signature="e#104422#104454#0" />
               </folding>
             </state>
           </provider>
@@ -303,8 +297,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -315,8 +309,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="109" column="98" selection-start-line="109" selection-start-column="98" selection-end-line="109" selection-end-column="98" />
+            <state relative-caret-position="359">
+              <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
               <folding>
                 <element signature="e#282#337#1" />
                 <element signature="e#412#509#0" />
@@ -364,8 +358,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="55" column="80" lean-forward="true" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
+            <state relative-caret-position="323">
+              <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -508,9 +502,9 @@
         <option value="$PROJECT_DIR$/GUI/Vizualization_Sensor_Selector_Matrix.py" />
         <option value="$PROJECT_DIR$/GUI/Error_Dialog.py" />
         <option value="$PROJECT_DIR$/Data/Testing.csv" />
-        <option value="$PROJECT_DIR$/GUI_Handler.py" />
-        <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
         <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
+        <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
+        <option value="$PROJECT_DIR$/GUI_Handler.py" />
       </list>
     </option>
   </component>
@@ -798,13 +792,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552944095439</updated>
-    </task>
-    <task id="LOCAL-00004" summary="# Done&#10;- [x] Added preliminary Settings Structure files.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
-      <created>1553836570148</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1553836570148</updated>
     </task>
     <task id="LOCAL-00005" summary="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
       <created>1554248622468</created>
@@ -1142,7 +1129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556195086970</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="[X] Generating Timestamp and setting it to dataframe in first column ready to plot.">
+      <created>1556219050615</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1556219050631</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1164,7 +1158,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3271028" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.27310488" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32606438" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32606438" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24918744" />
@@ -1241,7 +1235,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="main window change" />
     <MESSAGE value="DELETE OR REVERT BEFORE" />
     <MESSAGE value="Changed error checking based on which is currently selected in the gps dropdown box" />
     <MESSAGE value="Specified error message size and font size" />
@@ -1266,7 +1259,8 @@
     <MESSAGE value="Load Savin Working again" />
     <MESSAGE value="[X] Saved DEFAULT CONFIGURATIONS." />
     <MESSAGE value="[X] File format incorrect ALMOST handling it xD" />
-    <option name="LAST_COMMIT_MESSAGE" value="[X] File format incorrect ALMOST handling it xD" />
+    <MESSAGE value="[X] Generating Timestamp and setting it to dataframe in first column ready to plot." />
+    <option name="LAST_COMMIT_MESSAGE" value="[X] Generating Timestamp and setting it to dataframe in first column ready to plot." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1283,7 +1277,7 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1279</line>
+          <line>1318</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -1293,37 +1287,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>318</line>
-          <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>386</line>
+          <line>417</line>
           <option name="timeStamp" value="195" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1704</line>
+          <line>1750</line>
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1620</line>
+          <line>1666</line>
           <option name="timeStamp" value="202" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1526</line>
+          <line>1569</line>
           <option name="timeStamp" value="203" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1480</line>
+          <line>1523</line>
           <option name="timeStamp" value="205" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>1765</line>
+          <line>1813</line>
           <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1331,18 +1320,37 @@
           <line>178</line>
           <option name="timeStamp" value="225" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
+          <line>330</line>
+          <option name="timeStamp" value="229" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
+          <line>285</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="sensors_all" language="Python" />
-        <watch expression="viz_sens_2_dropdown.count()" language="Python" />
-        <watch expression="viz_sens_1_dropdown.count()" language="Python" />
+        <watch expression="__file__" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>valid_path</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>__file__</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>viz_sens_1_dropdown.count()</expression-string>
         <language-id>Python</language-id>
@@ -1383,20 +1391,9 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>viz_sens_1_dropdown.currentIndex() == 0</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>viz_sens_1_dropdown.currentIndex()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Config/DAQ/qwertyuio.csv" />
     <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -1732,30 +1729,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="55" column="80" lean-forward="true" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/GUI/EWAS_Logo_1.svg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="109" column="98" selection-start-line="109" selection-start-column="98" selection-end-line="109" selection-end-column="98" />
+        <state relative-caret-position="359">
+          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="e#282#337#1" />
             <element signature="e#412#509#0" />
@@ -1787,10 +1767,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="1390" column="32" lean-forward="true" selection-start-line="1390" selection-start-column="32" selection-end-line="1390" selection-end-column="32" />
+        <state relative-caret-position="142">
+          <caret line="2162" column="15" lean-forward="true" selection-start-line="2162" selection-start-column="15" selection-end-line="2172" selection-end-column="18" />
           <folding>
             <element signature="e#677#964#0" />
             <element signature="e#1000#1213#0" />
@@ -1823,15 +1823,12 @@
             <element signature="e#10115#10141#0" />
             <element signature="e#10182#10207#0" />
             <element signature="e#10249#10275#0" />
-            <element signature="e#10325#11180#0" />
             <element signature="e#10325#10395#1" />
             <element signature="e#10592#10831#0" />
             <element signature="e#10913#11127#0" />
-            <element signature="e#11246#11750#0" />
+            <element signature="e#11460#11639#2" />
             <element signature="e#11246#11375#1" />
             <element signature="e#11491#11562#0" />
-            <element signature="e#11597#11728#0" />
-            <element signature="e#11653#11728#0" />
             <element signature="e#11781#12608#0" />
             <element signature="e#11781#11854#1" />
             <element signature="e#12653#13308#0" />
@@ -1935,7 +1932,6 @@
             <element signature="e#59122#59137#0" />
             <element signature="e#59971#60023#0" />
             <element signature="e#60254#60302#0" />
-            <element signature="e#60763#60978#0" />
             <element signature="e#60786#60884#0" />
             <element signature="e#61008#61220#0" />
             <element signature="e#61031#61126#0" />
@@ -1959,6 +1955,7 @@
             <element signature="e#67337#67561#0" />
             <element signature="e#67395#67561#0" />
             <element signature="e#64469#64594#0" />
+            <element signature="e#64631#65217#0" />
             <element signature="e#64631#64721#1" />
             <element signature="e#65256#66304#0" />
             <element signature="e#65417#66209#0" />
@@ -2063,11 +2060,7 @@
             <element signature="e#103544#103641#1" />
             <element signature="e#103781#103952#0" />
             <element signature="e#103781#103878#1" />
-            <element signature="e#103970#104938#0" />
             <element signature="e#103970#104054#1" />
-            <element signature="e#104235#104328#0" />
-            <element signature="e#104347#104417#0" />
-            <element signature="e#104422#104454#0" />
           </folding>
         </state>
       </provider>

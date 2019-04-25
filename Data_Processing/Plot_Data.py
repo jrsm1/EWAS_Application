@@ -53,7 +53,7 @@ class Plot_Data():
         :return Plotted data in new Qt5Agg interactive Window.
         """
         # TODO Read only the sensor column --> Optimization
-        self.data_read.plot(x='Timestamp', y=sensor, legend=False, label=sensor)
+        self.data_read.plot(x='timestamp', y=sensor, legend=False, label=sensor)
 
         # Setup Plot Parameters.
         plt.title('RAW DATA')

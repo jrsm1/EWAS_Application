@@ -32,6 +32,7 @@ maximum_duration = {
     '20000 Hz': 8
 }
 
+
 def show_error(message: str):
     """
         Creates an Error Message dialog
@@ -262,13 +263,16 @@ def show_visualization_sensor_selector_window():
     if (visualization_values['requested_plot'] != 0) and (visualization_values['plot_filename'] != ''):
         viz_sensor_sel_win.show()
     else:
-        show_error('Requested Plot Error. <br> ErrorCode: 0000') # TODO do not hardcode Error Codes.
+        show_error('Requested Plot Error. <br> ErrorCode: 0000')  # TODO do not hardcode Error Codes.
+
 
 def close_visualization_sensor_selection_window():
     viz_sensor_sel_win.close()
 
+
 def show_filename_editor_window():
     filename_input_win.show()
+
 
 def close_filename_editor_window():
     filename_input_win.close()
@@ -280,30 +284,57 @@ def begin_visualization():
     Begins Visualization Analysis for user selected plots.
     """
     filename = visualization_values['plot_filename']
-    plot = visualization_values['requested_plot']
+    if validate_file_path(filename):
 
-    if validate_visualize_sensor_selection(1):  # Only have to Validate One Sensor.
-        # Choose which Plot.
-        if plot == 1:
-            plot_time(filename)
-        elif plot == 2:
-            plot_fft(filename)
-        elif plot == 3:
-            plot_aps(filename)
+        plot = visualization_values['requested_plot']
 
-        close_visualization_sensor_selection_window()
+        if validate_visualize_sensor_selection(1):  # Only have to Validate One Sensor.
+            # Choose which Plot.
+            if plot == 1:
+                plot_time(filename)
+            elif plot == 2:
+                plot_fft(filename)
+            elif plot == 3:
+                plot_aps(filename)
 
-    elif validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
-        if plot == 4:
-            plot_cps(filename)
-        elif plot == 5:
-            plot_phase(filename)
-        elif plot == 6:
-            plot_cohere(filename)
+            close_visualization_sensor_selection_window()
 
-        close_visualization_sensor_selection_window()
+        elif validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
+            if plot == 4:
+                plot_cps(filename)
+            elif plot == 5:
+                plot_phase(filename)
+            elif plot == 6:
+                plot_cohere(filename)
+
+            close_visualization_sensor_selection_window()
+        else:
+            show_error('Sensor not selected.')
     else:
-        show_error('Sensor not selected.')
+        show_error('File name or Path incorrect.1 <br> <br>'
+                   'Choose a File from: C://[USER PATH]/EWAS_Applocation/Data/')
+
+def validate_file_path(path: str):
+    """
+    Ensures Data Files is opened from within allowed path.
+
+    :param path: User requested file path [may be file name with full path.]
+
+    :return: True if Data Files is opened from within allowed path.
+    """
+    validated = True
+
+    path = path.split('\\')
+    path = path[len(path)-3] + '\\' + path[len(path)-2]
+
+    valid_path = str(__file__).split('\\')
+    valid_path = valid_path[len(valid_path)-2] + '\\Data'
+
+    if path != valid_path:  # If not
+        validated = False
+
+
+    return validated
 
 
 def validate_visualize_sensor_selection(max_sensors: int):
@@ -313,7 +344,7 @@ def validate_visualize_sensor_selection(max_sensors: int):
     :return: True if User has selected al proper sensors.
     """
     validated = True
-    if viz_sens_1_dropdown.currentIndex() == 0: # if Default Value --> Not Validated.
+    if viz_sens_1_dropdown.currentIndex() == 0:  # if Default Value --> Not Validated.
         close_visualization_sensor_selection_window()
         validated = False
 
@@ -414,7 +445,8 @@ def get_daq_params_from_gui():
     Gets information on GUI into DAQ Parameters Data Structures.
     """
     daq_config.signal_configs['sampling_rate'] = main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()
-    daq_config.signal_configs['cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentText()
+    daq_config.signal_configs[
+        'cutoff_frequency'] = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentText()
     daq_config.signal_configs['signal_gain'] = main_window.main_tab_DAQParams_gain_DropDown.currentText()
 
     daq_config.sampling_rate_index = main_window.main_tab_DAQParams_samplingRate_DropDown.currentIndex()
@@ -476,7 +508,7 @@ def validate_rec_settings():
         error_string += 'Error: Invalid Duration. Restricted to numbers only.<br>'
         there_is_no_error = False
     else:
-        if int(test_duration, 10) > 1800 or int(test_duration,10) < 5:
+        if int(test_duration, 10) > 1800 or int(test_duration, 10) < 5:
             error_string += 'Error: Invalid Duration. must be higher than 5 seconds and lower than 1800 seconds. <br>'
             there_is_no_error = False
     start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
@@ -642,7 +674,7 @@ def get_module_and_sensors_selected():
             module = str(int((index - 1) / 4) + 1)
             sensor = str(((index - 1) % 4) + 1)
             sensors_selected = module + sensor + sensors_selected
-        if count > 2: #limit
+        if count > 2:  # limit
             correct = 0
             break
 
@@ -654,6 +686,7 @@ def get_module_and_sensors_selected():
         sensors_selected = sensors_selected[0:4]
         return sensors_selected
     return "0000"
+
 
 def get_sensor_enabled():
     sensor_enable = []
@@ -683,8 +716,10 @@ def sensor_sel_start():
     try:
         ins = ins_man.instruction_manager(ins_port)
         # def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
-        ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index, daq_config.gain_index,
-                                      "0100", "0100", daq_config.data_handling_configs["store"], sensors_enabled, "test name", "test location")
+        ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index,
+                                      daq_config.gain_index,
+                                      "0100", "0100", daq_config.data_handling_configs["store"], sensors_enabled,
+                                      "test name", "test location")
         enable_main_window()
         if log:
             print("came back to sensor_sel_start")
@@ -776,6 +811,7 @@ def check_status():
         show_not_connected_error()
         return False
 
+
 # trying a close event function
 def close_event(event):
     if log: print("entered main window close")
@@ -783,9 +819,9 @@ def close_event(event):
         "final status recorded=" + str(recorded) + ", stored=" + str(stored) + ", gps_synched=" + str(gps_sync))
     main_window.close()
 
+
 def file_choose(rootPath: str):
     return str(QFileDialog.getOpenFileName(None, 'Open CSV File', rootPath, 'CSV Files (*.csv)')[0])
-
 
 
 """
@@ -1111,7 +1147,6 @@ module_8_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edi
 module_8_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
 module_1_info_win.channel_info_sensor4_TITLE
 
-
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
     lambda: action_begin_recording())  # Close() DONE in UI.
@@ -1189,11 +1224,12 @@ mod_8_button.clicked.connect(lambda: show_channel_info_window(7))
 module_button_list = [mod_1_button, mod_2_button, mod_3_button, mod_4_button, mod_5_button, mod_6_button,
                       mod_7_button, mod_8_button]
 
-
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  Main Tab Window  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Menu Bar
 main_window.action_Help.triggered.connect(lambda: openUrl())
+
+
 def openUrl():
     url = QtCore.QUrl('https://github.com/jrsm1/EWAS_Application/blob/master/README.md')
     if not QtGui.QDesktopServices.openUrl(url):
@@ -1201,12 +1237,15 @@ def openUrl():
 
 
 main_window.action_Diagnose.triggered.connect(lambda: send_diagnostics())
+
+
 def send_diagnostics():
     try:
         im = ins_man.instruction_manager(ins_port)
         im.send_diagnose_request()
     except serial.SerialException:
         show_not_connected_error()
+
 
 # Visualization
 ## Visualize Sensor Selection
@@ -1222,12 +1261,12 @@ main_window.actionAuto_Power.triggered.connect(lambda: do_plot(3))
 main_window.actionCross_Power.triggered.connect(lambda: do_plot(4))
 main_window.actionCoherence.triggered.connect(lambda: do_plot(5))
 
-
 # Variable to know which method called the plot signal after Visualization Sensor Selection Window NEXT called.
 visualization_values = {
     'requested_plot': 0,
     'plot_filename': ''
 }
+
 
 def do_plot(plot: int):
     visualization_values['plot_filename'] = file_choose('Data')
@@ -1334,6 +1373,7 @@ fn_CANCEL_btn = filename_input_win.filename_CANCEL_button.clicked.connect(lambda
 yes_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('yes'))
 no_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('no'))
 
+
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
 
 def store_data(yes: str):
@@ -1341,6 +1381,7 @@ def store_data(yes: str):
         daq_config.data_handling_configs["store"] = '1111'
     else:
         daq_config.data_handling_configs["store"] = '0000'
+
 
 def check_sampling_rate():
     test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
@@ -1373,6 +1414,7 @@ def check_duration():
                     show_error('Durations higher than ' + str(max_duration) +
                                ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
 
+
 def suggest_sampling_freq():
     if samfreq_dropdown.currentText() != 'Plase Select':
         samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
@@ -1386,7 +1428,6 @@ def action_begin_recording():
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_set_configuration(setting_data_manager.settings_to_string())
-        # TODO Prepare Real-Time Plot to receive Data.
         # Send Begin Recording FLAG to Control Module.
         ins.send_request_start()
         # Close Window
@@ -1405,7 +1446,7 @@ def check_status_during_test():
         timeout = 0
         test_successful = True  # Used to not request data if synched==False.
         duration = daq_config.recording_configs['test_duration']
-        time_to_update_progress_bar = (duration/100)+2
+        time_to_update_progress_bar = (duration / 100) + 2
         bar_value = 0
         while ins.send_request_status()[0] != 1:  # Status[2] --> gps_synched
             if log: print('Waiting for test to finish....')
@@ -1422,6 +1463,7 @@ def check_status_during_test():
         show_not_connected_error()
         prog_dlg.close()
 
+
 def get_all_data():
     show_acquire_dialog('Acquiring Test Data')
     prog_dlg.progress_dialog_progressBar.setMaximum(100)
@@ -1435,6 +1477,7 @@ def get_all_data():
         data = ''
         show_not_connected_error()
         prog_dlg.close()
+
 
 def action_cancel_everything():
     """
@@ -1531,6 +1574,7 @@ def decide_who_to_load(instruction: int):
         show_error("Not Yet Implemented")
         # action_load_module_info() #TODO ACTION LOAD MODULE INFO
 
+
 def validate_filename(filename: str):
     """
     Validates filename has a CSV File Extension.
@@ -1547,6 +1591,7 @@ def validate_filename(filename: str):
 
     return validated
 
+
 # ****** ACTIONS STORE/LOAD **********
 
 def action_store_DAQ_Params():
@@ -1561,6 +1606,7 @@ def action_store_DAQ_Params():
             close_filename_editor_window()
             show_error(validate_daq_params())
         filename_input_win.close()
+
 
 def validate_daq_params():
     error = ''
@@ -1629,7 +1675,7 @@ def action_store_Rec_Setts():
     # show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
-        if not validate_rec_settings(): # Validation calls get_rec_setts_from_gui()
+        if not validate_rec_settings():  # Validation calls get_rec_setts_from_gui()
             # Save to File.
             setting_data_manager.store_recording_configs(filename)
         else:
@@ -1670,7 +1716,7 @@ def sync_gps():  # TODO TEST
             print('GPS Waiting....')
             sleep(0.500)  # Wait for half a second before asking again.
             timeout += 1
-            prog_dlg.progress_dialog_progressBar.setValue(timeout*2)
+            prog_dlg.progress_dialog_progressBar.setValue(timeout * 2)
             app.processEvents()
             if timeout == 45:  # = [desired timeout in seconds] * [1/(sleep value)]
                 # prog_dlg.close()
@@ -1724,6 +1770,8 @@ def change_local_allowed():
 
 def action_store_module_info():
     pass
+
+
 # """
 # Loads fields from Channel info data structure into GUI.
 # """
@@ -1752,6 +1800,7 @@ def show_acquire_dialog(message: str):
 
 
 # ****************************************** SENSOR & MODULE INFORMATION *********************************************
+# TODO TEST
 def save_module_info(module: int):
     """
     Saves sensor data from UI into structure.
@@ -1769,14 +1818,14 @@ def save_module_info(module: int):
                                                       sensor_bandwidth=str(module_1_sensor_1_bandwidth.text()),
                                                       sensor_full_scale=str(module_1_sensor_1_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_1_damping.text()),
-                                                      sensor_localization=str(module_1_sensor_1_location.toPlainText()) )
+                                                      sensor_localization=str(module_1_sensor_1_location.toPlainText()))
             sensors_all[1] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
                                                       sensor_type=module_1_sensor_2_type.currentIndex(),
                                                       sensor_sensitivity=str(module_1_sensor_2_sensitivity.text()),
                                                       sensor_bandwidth=str(module_1_sensor_2_bandwidth.text()),
                                                       sensor_full_scale=str(module_1_sensor_2_fullscale.text()),
                                                       sensor_damping=str(module_1_sensor_2_damping.text()),
-                                                      sensor_localization=str(module_1_sensor_2_location.toPlainText()) )
+                                                      sensor_localization=str(module_1_sensor_2_location.toPlainText()))
 
             sensors_all[2] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
                                                       sensor_type=module_1_sensor_3_type.currentIndex(),
@@ -1849,20 +1898,20 @@ def save_module_info(module: int):
                                                       sensor_localization=str(module_3_sensor_2_location.text()))
 
             sensors_all[10] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
-                                                      sensor_type=module_3_sensor_3_type.currentIndex(),
-                                                      sensor_sensitivity=str(module_3_sensor_3_sensitivity.text()),
-                                                      sensor_bandwidth=str(module_3_sensor_3_bandwidth.text()),
-                                                      sensor_full_scale=str(module_3_sensor_3_fullscale.text()),
-                                                      sensor_damping=str(module_3_sensor_3_damping.text()),
-                                                      sensor_localization=str(module_3_sensor_3_location.text()))
+                                                       sensor_type=module_3_sensor_3_type.currentIndex(),
+                                                       sensor_sensitivity=str(module_3_sensor_3_sensitivity.text()),
+                                                       sensor_bandwidth=str(module_3_sensor_3_bandwidth.text()),
+                                                       sensor_full_scale=str(module_3_sensor_3_fullscale.text()),
+                                                       sensor_damping=str(module_3_sensor_3_damping.text()),
+                                                       sensor_localization=str(module_3_sensor_3_location.text()))
 
             sensors_all[11] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
-                                                      sensor_type=module_3_sensor_4_type.currentIndex(),
-                                                      sensor_sensitivity=str(module_3_sensor_4_sensitivity.text()),
-                                                      sensor_bandwidth=str(module_3_sensor_4_bandwidth.text()),
-                                                      sensor_full_scale=str(module_3_sensor_4_fullscale.text()),
-                                                      sensor_damping=str(module_3_sensor_4_damping.text()),
-                                                      sensor_localization=str(module_3_sensor_4_location.text()))
+                                                       sensor_type=module_3_sensor_4_type.currentIndex(),
+                                                       sensor_sensitivity=str(module_3_sensor_4_sensitivity.text()),
+                                                       sensor_bandwidth=str(module_3_sensor_4_bandwidth.text()),
+                                                       sensor_full_scale=str(module_3_sensor_4_fullscale.text()),
+                                                       sensor_damping=str(module_3_sensor_4_damping.text()),
+                                                       sensor_localization=str(module_3_sensor_4_location.text()))
         if connected_modules[3]:  # MODULE 4
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_4_sensor_1_type.currentIndex(),
@@ -1895,7 +1944,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_4_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_4_sensor_4_damping.text()),
                                                       sensor_localization=str(module_4_sensor_4_location.text()))
-        if connected_modules[4]: # MODULE 5
+        if connected_modules[4]:  # MODULE 5
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_5_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_5_sensor_1_sensitivity.text()),
@@ -1991,7 +2040,7 @@ def save_module_info(module: int):
                                                       sensor_full_scale=str(module_7_sensor_4_fullscale.text()),
                                                       sensor_damping=str(module_7_sensor_4_damping.text()),
                                                       sensor_localization=str(module_7_sensor_4_location.text()))
-        if connected_modules[7]: # MODULE 8
+        if connected_modules[7]:  # MODULE 8
             sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
                                                       sensor_type=module_8_sensor_1_type.currentIndex(),
                                                       sensor_sensitivity=str(module_8_sensor_1_sensitivity.text()),
@@ -2106,6 +2155,7 @@ def plot_cohere(filename: str):
     """
     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence()
 
+
 def init():
     """
     Beginning of the program.
@@ -2122,8 +2172,11 @@ def init():
         # sys.exit()
     else:
         sync_gps()
-        # show_error('Device is supposed to be Connected.')
+    #     # show_error('Device is supposed to be Connected.')
+
     # --------- TESTING ------------
+    # validate_file_path(r'C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data\Huerta _nw301001.csv')
+    # begin_visualization()
     # get_rec_setts_from_gui()
     # setting_data_manager.store_daq_configs('Testing_Configs.csv')
     # set_recording_into_gui()
