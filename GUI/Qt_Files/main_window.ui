@@ -1484,7 +1484,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </item>
                <item>
                 <property name="text">
-                 <string>Plase Select</string>
+                 <string>Please Select</string>
                 </property>
                </item>
               </widget>

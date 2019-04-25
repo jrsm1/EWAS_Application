@@ -14,6 +14,23 @@ from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration,
 from Settings import setting_data_manager as set_dat_man
 from regex import regex
 
+maximum_duration = {
+    '2 Hz': 1800,
+    '4 Hz': 1800,
+    '8 Hz': 1800,
+    '16 Hz': 1800,
+    '32 Hz': 1800,
+    '64 Hz': 1800,
+    '128 Hz': 1365,
+    '256 Hz': 682,
+    '512 Hz': 341,
+    '1024 Hz': 170,
+    '2048 Hz': 85,
+    '4096 Hz': 42,
+    '8192 Hz': 21,
+    '16384 Hz': 10,
+    '20000 Hz': 8
+}
 
 def show_error(message: str):
     """
@@ -457,6 +474,10 @@ def validate_rec_settings():
     if not validate_box:
         error_string += 'Error: Invalid Duration. Restricted to numbers only.<br>'
         there_is_no_error = False
+    else:
+        if int(test_duration, 10) > 1800 or int(test_duration,10) < 5:
+            error_string += 'Error: Invalid Duration. must be higher than 5 seconds and lower than 1800 seconds. <br>'
+            there_is_no_error = False
     start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
     validate_box = check_boxes(start_delay, '^\d+$')
     if not validate_box:
@@ -1263,6 +1284,7 @@ main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lamb
 main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: handle_loading_saving('save', 1))
 rec_name_edit = main_window.main_tab_RecordingSettings_name_LineEdit
 rec_duration_edit = main_window.main_tab_RecordingSettings_durationLineEdit
+rec_duration_edit.editingFinished.connect(lambda: check_sampling_rate())
 rec_type_dropdown = main_window.main_tab_RecordingSettings_type_DropDown
 delay_edit = main_window.main_tab_RecordingSettings_delay_LineEdit
 # Localization Settings
@@ -1296,6 +1318,7 @@ main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: handle
 main_window.main_tab_DAQParams_LOAD_PARAMS_button.clicked.connect(lambda: handle_loading_saving('load', 3))
 # main_window.main_tab_DAQParams_ADC_Constant_Label
 samfreq_dropdown = main_window.main_tab_DAQParams_samplingRate_DropDown
+samfreq_dropdown.currentIndexChanged.connect(lambda: check_duration())
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
@@ -1310,6 +1333,38 @@ fn_CANCEL_btn = filename_input_win.filename_CANCEL_button.clicked.connect(lambda
 
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
+
+def check_sampling_rate():
+    test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    print(test_duration)
+    validate_box = check_boxes(test_duration, '^[0-9]+$')
+    if not validate_box:
+        show_error('Error: Invalid Duration. Restricted to numbers only.<br>')
+    else:
+        if int(test_duration, 10) > 1800 or int(test_duration, 10) < 5:
+            show_error('Error: Invalid Duration. must be higher than 5 seconds and lower than 1800 seconds.')
+        else:
+            if not main_window.main_tab_DAQParams_samplingRate_DropDown.currentText() == 'Please Select':
+                max_duration = maximum_duration[main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()]
+                if not max_duration == 'Please Select':
+                    if int(test_duration) > max_duration:
+                        show_error('Durations higher than ' + str(max_duration) +
+                                   ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+
+
+def check_duration():
+    test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    if test_duration:
+        validate_box = check_boxes(test_duration, '^[0-9]+$')
+        if not validate_box:
+            show_error('Error: Invalid Duration. Restricted to numbers only.<br>')
+        else:
+            max_duration = maximum_duration[main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()]
+            if not max_duration == 'Please Select':
+                if int(test_duration) > max_duration:
+                    show_error('Durations higher than ' + str(max_duration) +
+                               ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+
 def suggest_sampling_freq():
     if samfreq_dropdown.currentText() != 'Plase Select':
         samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
