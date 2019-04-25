@@ -155,13 +155,13 @@ def test_wrong_instruction_acknowledge():
     if line == b'\xFE': print("wrong instruction succesful")
 
 def test_specific_daq(daq):
-    tester = instruction_manager.instruction_manager('COM6')
+    tester = instruction_manager.instruction_manager('COM7')
     line = tester.send_request_data(daq)
     print("recieved line " + str(line))
     
     
 # if __name__ == "__main__":
-test_specific_daq(2)
+# test_specific_daq(1)
 # test_listen()
 # test_send()
 # test_send_byte()

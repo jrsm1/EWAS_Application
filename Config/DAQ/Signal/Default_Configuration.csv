@@ -1,0 +1,2 @@
+sampling_rate,cutoff_frequency,signal_gain
+256 Hz,128 Hz,1 V/V

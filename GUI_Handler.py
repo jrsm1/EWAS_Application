@@ -1,18 +1,36 @@
-# import PyQt5
-from PyQt5 import QtWidgets, uic
+from Data_Processing import CSV_Handler
+from PyQt5 import QtWidgets, uic, QtCore, QtGui
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QFileDialog, QFileSystemModel
 from time import sleep
 import sys
 import serial
 
+from Data_Processing import CSV_Handler as csv_handler
 from Control_Module_Comm import instruction_manager as ins_man
-from Control_Module_Comm.Structures import Module_Individual as chan, Sensor_Individual as sens
+from Control_Module_Comm.Structures import Module_Individual as Chan, Sensor_Individual as sens
 from Data_Processing import Plot_Data
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Settings import setting_data_manager as set_dat_man
 from regex import regex
 
+maximum_duration = {
+    '2 Hz': 1800,
+    '4 Hz': 1800,
+    '8 Hz': 1800,
+    '16 Hz': 1800,
+    '32 Hz': 1800,
+    '64 Hz': 1800,
+    '128 Hz': 1365,
+    '256 Hz': 682,
+    '512 Hz': 341,
+    '1024 Hz': 170,
+    '2048 Hz': 85,
+    '4096 Hz': 42,
+    '8192 Hz': 21,
+    '16384 Hz': 10,
+    '20000 Hz': 8
+}
 
 def show_error(message: str):
     """
@@ -30,7 +48,7 @@ def show_not_connected_error():
 app = QtWidgets.QApplication([])
 main_window = uic.loadUi("GUI/Qt_Files/main_window.ui")
 prog_dlg = uic.loadUi("GUI/Qt_Files/progress_dialog_v1.ui")
-viz_sensor_sel_win = uic.loadUi('GUI/Qt_Files/visualize_sensor_selection_matrix.ui')
+viz_sensor_sel_win = uic.loadUi('GUI/Qt_Files/visualize_sensor_selection_dropdown.ui')
 main_sensor_sel_win = uic.loadUi('GUI/Qt_Files/main_sensor_selection_matrix.ui')
 mod_sel_win = uic.loadUi('GUI/Qt_Files/module_selection_window.ui')
 file_sys_win = uic.loadUi('GUI/Qt_Files/file_system_window.ui')
@@ -43,6 +61,7 @@ module_5_info_win = uic.loadUi("GUI/Qt_Files/module_5_info_window.ui")
 module_6_info_win = uic.loadUi("GUI/Qt_Files/module_6_info_window.ui")
 module_7_info_win = uic.loadUi("GUI/Qt_Files/module_7_info_window.ui")
 module_8_info_win = uic.loadUi("GUI/Qt_Files/module_8_info_window.ui")
+store_data_window = uic.loadUi("GUI/Qt_Files/store_data_dialog.ui")
 
 main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 prog_dlg.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
@@ -235,38 +254,75 @@ def show_progress_dialog(message: str):
     prog_dlg.show()
 
 
-def show_visualization_sensor_selector_window(plot: int):  # TODO
-    # TODO REQUEST CONTROL MODULE FOR CONNECTED MODULES.
-    viz_sensor_sel_win.show()
-    # Pass info on who called me to know which plot to display.
-    begin_visualization(plot)
+def show_visualization_sensor_selector_window():
+    """
+    Opens Visualization Window Selection if do_plot has been called before.
+    If it happens raise an error. (SHOULD NEVER BE THE CASE. REDUNDANCY)
+    """
+    if (visualization_values['requested_plot'] != 0) and (visualization_values['plot_filename'] != ''):
+        viz_sensor_sel_win.show()
+    else:
+        show_error('Requested Plot Error. <br> ErrorCode: 0000') # TODO do not hardcode Error Codes.
 
+def close_visualization_sensor_selection_window():
+    viz_sensor_sel_win.close()
 
 def show_filename_editor_window():
     filename_input_win.show()
 
+def close_filename_editor_window():
+    filename_input_win.close()
 
-# TODO get selected sensors.
-def begin_visualization(plot: int):
+
+# TODO Validate
+def begin_visualization():
     """
     Begins Visualization Analysis for user selected plots.
     """
-    # Choose which Plot.
-    if plot == 1:
-        plot_time()
-    elif plot == 2:
-        plot_fft()
-    elif plot == 3:
-        plot_aps()
-    elif plot == 4:
-        plot_cps()
-    elif plot == 5:
-        plot_phase()
-    elif plot == 6:
-        plot_cohere()
+    filename = visualization_values['plot_filename']
+    plot = visualization_values['requested_plot']
 
-    # Show Progress Dialog. # TODO VERIFY IF REMOVE
-    show_progress_dialog('Plotting ' + 'What you wanna plot')
+    if validate_visualize_sensor_selection(1):  # Only have to Validate One Sensor.
+        # Choose which Plot.
+        if plot == 1:
+            plot_time(filename)
+        elif plot == 2:
+            plot_fft(filename)
+        elif plot == 3:
+            plot_aps(filename)
+
+        close_visualization_sensor_selection_window()
+
+    elif validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
+        if plot == 4:
+            plot_cps(filename)
+        elif plot == 5:
+            plot_phase(filename)
+        elif plot == 6:
+            plot_cohere(filename)
+
+        close_visualization_sensor_selection_window()
+    else:
+        show_error('Sensor not selected.')
+
+
+def validate_visualize_sensor_selection(max_sensors: int):
+    """
+    Validates the user has selected a sensor to visualize.
+
+    :return: True if User has selected al proper sensors.
+    """
+    validated = True
+    if viz_sens_1_dropdown.currentIndex() == 0: # if Default Value --> Not Validated.
+        close_visualization_sensor_selection_window()
+        validated = False
+
+    if max_sensors == 2:
+        if viz_sens_2_dropdown.currentIndex() != 0:
+            close_visualization_sensor_selection_window()
+            validated = False
+
+    return validated
 
 
 def set_gps_into_gui():
@@ -307,24 +363,24 @@ def set_recording_into_gui():
     rec_type_dropdown.setCurrentText(str(daq_config.recording_configs['test_type']))
     delay_edit.setText(str(daq_config.recording_configs['test_start_delay']))
 
-    if daq_config.data_handling_configs['visualize']:
-        rec_viz_checkbox.setCheckState(2)  # Qt::Checked	2
-    else:
-        rec_viz_checkbox.setCheckState(0)
-
-    if daq_config.data_handling_configs['store']:
-        rec_store_checkbox.setCheckState(2)
-    else:
-        rec_store_checkbox.setCheckState(0)  # Qt::Unchecked	0
+    # if daq_config.data_handling_configs['visualize']:
+    #     rec_viz_checkbox.setCheckState(2)  # Qt::Checked	2
+    # else:
+    #     rec_viz_checkbox.setCheckState(0)
+    #
+    # if daq_config.data_handling_configs['store']:
+    #     rec_store_checkbox.setCheckState(2)
+    # else:
+    #     rec_store_checkbox.setCheckState(0)  # Qt::Unchecked	0
 
 
 def set_daq_params_to_gui():
     """
     Sets Data Acquisition Parameters to GUI Fields.
     """
-    samfreq_dropdown.setCurrentIndex(daq_config.signal_configs['sampling_rate'])
-    cutfreq_drodown.setCurrentIndex(daq_config.signal_configs['cutoff_frequency'])
-    gain_dropdown.setCurrentIndex(daq_config.signal_configs['signal_gain'])
+    samfreq_dropdown.setCurrentText(daq_config.signal_configs['sampling_rate'])
+    cutfreq_drodown.setCurrentText(daq_config.signal_configs['cutoff_frequency'])
+    gain_dropdown.setCurrentText(daq_config.signal_configs['signal_gain'])
 
 
 def check_boxes(text_box: str, pattern: str):
@@ -347,10 +403,10 @@ def get_rec_setts_from_gui():
     2 = checked
     0 = unchecked
     """
-    daq_config.recording_configs['visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
+    # daq_config.recording_configs['visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
     # BOOLEAN
-    daq_config.recording_configs['store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
-    if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
+    # daq_config.recording_configs['store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
+    # if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
 
 
 def get_daq_params_from_gui():
@@ -376,14 +432,14 @@ def get_location_from_gui():
     daq_config.location_configs['hour'] = str(main_window.main_tab_LocalizationSettings_hourLineEdit.text())
     daq_config.location_configs['minute'] = str(main_window.main_tab_LocalizationSettings_minutesLineEdit.text())
     daq_config.location_configs['second'] = str(main_window.main_tab_LocalizationSettings_secondsLineEdit.text())
-    daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
-    daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
-    daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
-    daq_config.specimen_location['4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
-    daq_config.specimen_location['5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
-    daq_config.specimen_location['6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
-    daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
-    daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
+    daq_config.specimen_location['Specimen 1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
+    daq_config.specimen_location['Specimen 2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
+    daq_config.specimen_location['Specimen 3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
+    daq_config.specimen_location['Specimen 4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
+    daq_config.specimen_location['Specimen 5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
+    daq_config.specimen_location['Specimen 6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
+    daq_config.specimen_location['Specimen 7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
+    daq_config.specimen_location['Specimen 8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
 
 
 def get_gps_location_from_gui():
@@ -396,14 +452,14 @@ def get_gps_location_from_gui():
 
 
 def get_modules_location_from_gui():
-    daq_config.specimen_location['1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
-    daq_config.specimen_location['2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
-    daq_config.specimen_location['3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
-    daq_config.specimen_location['4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
-    daq_config.specimen_location['5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
-    daq_config.specimen_location['6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
-    daq_config.specimen_location['7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
-    daq_config.specimen_location['8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
+    daq_config.specimen_location['Specimen 1'] = str(main_window.main_tab_module_loc_LineEdit_1.text())
+    daq_config.specimen_location['Specimen 2'] = str(main_window.main_tab_module_loc_LineEdit_2.text())
+    daq_config.specimen_location['Specimen 3'] = str(main_window.main_tab_module_loc_LineEdit_3.text())
+    daq_config.specimen_location['Specimen 4'] = str(main_window.main_tab_module_loc_LineEdit_4.text())
+    daq_config.specimen_location['Specimen 5'] = str(main_window.main_tab_module_loc_LineEdit_5.text())
+    daq_config.specimen_location['Specimen 6'] = str(main_window.main_tab_module_loc_LineEdit_6.text())
+    daq_config.specimen_location['Specimen 7'] = str(main_window.main_tab_module_loc_LineEdit_7.text())
+    daq_config.specimen_location['Specimen 8'] = str(main_window.main_tab_module_loc_LineEdit_8.text())
 
 
 def validate_rec_settings():
@@ -419,6 +475,10 @@ def validate_rec_settings():
     if not validate_box:
         error_string += 'Error: Invalid Duration. Restricted to numbers only.<br>'
         there_is_no_error = False
+    else:
+        if int(test_duration, 10) > 1800 or int(test_duration,10) < 5:
+            error_string += 'Error: Invalid Duration. must be higher than 5 seconds and lower than 1800 seconds. <br>'
+            there_is_no_error = False
     start_delay = main_window.main_tab_RecordingSettings_delay_LineEdit.text()
     validate_box = check_boxes(start_delay, '^\d+$')
     if not validate_box:
@@ -622,8 +682,9 @@ def sensor_sel_start():
     main_sensor_sel_win.close()
     try:
         ins = ins_man.instruction_manager(ins_port)
+        # def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
         ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index, daq_config.gain_index,
-                                      "0100", "0100", "0102", sensors_enabled, "test name", "test location")
+                                      "0100", "0100", daq_config.data_handling_configs["store"], sensors_enabled, "test name", "test location")
         enable_main_window()
         if log:
             print("came back to sensor_sel_start")
@@ -730,8 +791,8 @@ def file_choose(rootPath: str):
 """
 Add default functionality here
 """
-# Channel Info Window.
-module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_sensor_info())
+# Module 1 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(1))
 chan_mod_name = module_1_info_win.channel_info_module_name
 # Ch 1
 module_1_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
@@ -741,82 +802,315 @@ module_1_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_
 module_1_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
 module_1_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
 module_1_info_win.channel_info_sensor1_TITLE
-module_1_info_win.channel_info_sensor1_type_DropDown
+module_1_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
 # Ch 2
-module_1_info_win.channel_info_sensor2_dampingLineEdit
-module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
-module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
-module_1_info_win.channel_info_sensor2_nameLineEdit
-module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_1_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_1_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_1_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_1_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
 module_1_info_win.channel_info_sensor2_TITLE
-module_1_info_win.channel_info_sensor2_location_Edit
-module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+module_1_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_1_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
 # Ch 3
-module_1_info_win.channel_info_sensor3_nameLineEdit
-module_1_info_win.channel_info_sensor3_type_DropDown
-module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
-module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
-module_1_info_win.channel_info_sensor3_full_scale_LineEdit
-module_1_info_win.channel_info_sensor3_dampingLineEdit
-module_1_info_win.channel_info_sensor3_location_Edit
+module_1_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_1_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_1_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_1_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_1_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_1_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_1_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
 module_1_info_win.channel_info_sensor3_TITLE
 # Ch 4
-module_1_info_win.channel_info_sensor4_nameLineEdit
-module_1_info_win.channel_info_sensor4_type_DropDown
-module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
-module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
-module_1_info_win.channel_info_senson4_full_Scale_LineEdit
-module_1_info_win.channel_info_sensor4_location_Edit
-module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_1_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_1_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_1_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_1_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_1_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_1_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
 module_1_info_win.channel_info_sensor4_TITLE
 
-# Visualize Sensor Selection
-viz_sensor_sel_win.sensor_selection_Save_Plot_Data_checkBox
-viz_sensor_sel_win.sensor_selection_NEXT_Button.clicked.connect(
-    lambda: show_progress_dialog('Plotting ' + 'What you wanna plot'))
-viz_sensor_sel_win.sensor_select_MAX_Label
-viz_sens_1 = viz_sensor_sel_win.Sensor_1
-viz_sens_2 = viz_sensor_sel_win.Sensor_2
-viz_sens_3 = viz_sensor_sel_win.Sensor_3
-viz_sens_4 = viz_sensor_sel_win.Sensor_4
-viz_sens_5 = viz_sensor_sel_win.Sensor_5
-viz_sens_6 = viz_sensor_sel_win.Sensor_6
-viz_sens_7 = viz_sensor_sel_win.Sensor_7
-viz_sens_8 = viz_sensor_sel_win.Sensor_8
-viz_sens_9 = viz_sensor_sel_win.Sensor_9
-viz_sens_10 = viz_sensor_sel_win.Sensor_10
-viz_sens_11 = viz_sensor_sel_win.Sensor_11
-viz_sens_12 = viz_sensor_sel_win.Sensor_12
-viz_sens_13 = viz_sensor_sel_win.Sensor_13
-viz_sens_14 = viz_sensor_sel_win.Sensor_14
-viz_sens_15 = viz_sensor_sel_win.Sensor_15
-viz_sens_16 = viz_sensor_sel_win.Sensor_16
-viz_sens_17 = viz_sensor_sel_win.Sensor_17
-viz_sens_18 = viz_sensor_sel_win.Sensor_18
-viz_sens_19 = viz_sensor_sel_win.Sensor_19
-viz_sens_20 = viz_sensor_sel_win.Sensor_20
-viz_sens_21 = viz_sensor_sel_win.Sensor_21
-viz_sens_22 = viz_sensor_sel_win.Sensor_22
-viz_sens_23 = viz_sensor_sel_win.Sensor_23
-viz_sens_24 = viz_sensor_sel_win.Sensor_24
-viz_sens_25 = viz_sensor_sel_win.Sensor_25
-viz_sens_26 = viz_sensor_sel_win.Sensor_26
-viz_sens_27 = viz_sensor_sel_win.Sensor_27
-viz_sens_28 = viz_sensor_sel_win.Sensor_28
-viz_sens_29 = viz_sensor_sel_win.Sensor_29
-viz_sens_30 = viz_sensor_sel_win.Sensor_30
-viz_sens_31 = viz_sensor_sel_win.Sensor_31
-viz_sens_32 = viz_sensor_sel_win.Sensor_32
-visualization_sensor_selection_list = [viz_sens_1, viz_sens_2, viz_sens_3, viz_sens_4, viz_sens_5, viz_sens_6,
-                                       viz_sens_7, viz_sens_8,
-                                       viz_sens_9, viz_sens_10, viz_sens_11, viz_sens_12, viz_sens_13, viz_sens_14,
-                                       viz_sens_15,
-                                       viz_sens_15, viz_sens_16, viz_sens_17, viz_sens_18, viz_sens_19, viz_sens_20,
-                                       viz_sens_21,
-                                       viz_sens_22, viz_sens_23, viz_sens_24, viz_sens_25, viz_sens_26, viz_sens_27,
-                                       viz_sens_28,
-                                       viz_sens_29, viz_sens_30, viz_sens_31,
-                                       viz_sens_32]  # Used to get values easily (goes from 0 to 31)
+# Module 2 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(2))
+chan_mod_name = module_1_info_win.channel_info_module_name
+# Ch 1
+module_2_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_2_sensor_1_damping = module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_2_sensor_1_bandwidth = module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_2_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_2_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
+module_2_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_2_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
+# Ch 2
+module_2_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_2_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_2_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_2_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_2_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_2_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_2_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+# Ch 3
+module_2_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_2_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_2_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_2_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_2_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_2_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_2_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
+# Ch 4
+module_2_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_2_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_2_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_2_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_2_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_2_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_2_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
+
+# Module 3 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(3))
+chan_mod_name = module_1_info_win.channel_info_module_name
+# Ch 1
+module_3_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_3_sensor_1_damping = module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_3_sensor_1_bandwidth = module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_3_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_3_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
+module_3_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_3_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
+# Ch 2
+module_3_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_3_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_3_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_3_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_3_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_3_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_3_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+# Ch 3
+module_3_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_3_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_3_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_3_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_3_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_3_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_3_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
+# Ch 4
+module_3_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_3_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_3_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_3_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_3_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_3_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_3_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
+
+# Module 4 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(4))
+chan_mod_name = module_1_info_win.channel_info_module_name
+# Ch 1
+module_4_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_4_sensor_1_damping = module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_4_sensor_1_bandwidth = module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_4_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_4_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
+module_4_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_4_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
+# Ch 2
+module_4_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_4_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_4_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_4_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_4_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_4_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_4_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+# Ch 3
+module_4_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_4_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_4_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_4_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_4_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_4_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_4_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
+# Ch 4
+module_4_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_4_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_4_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_4_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_4_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_4_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_4_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
+
+# Module 5 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(5))
+chan_mod_name = module_1_info_win.channel_info_module_name
+# Ch 1
+module_5_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_5_sensor_1_damping = module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_5_sensor_1_bandwidth = module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_5_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_5_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
+module_5_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_5_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
+# Ch 2
+module_5_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_5_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_5_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_5_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_5_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_5_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_5_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+# Ch 3
+module_5_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_5_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_5_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_5_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_5_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_5_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_5_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
+# Ch 4
+module_5_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_5_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_5_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_5_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_5_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_5_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_5_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
+
+# Module 6 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(6))
+chan_mod_name = module_1_info_win.channel_info_module_name
+# Ch 1
+module_6_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_6_sensor_1_damping = module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_6_sensor_1_bandwidth = module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_6_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_6_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
+module_6_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_6_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
+# Ch 2
+module_6_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_6_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_6_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_6_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_6_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_6_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_6_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+# Ch 3
+module_6_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_6_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_6_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_6_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_6_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_6_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_6_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
+# Ch 4
+module_6_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_6_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_6_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_6_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_6_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_6_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_6_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
+
+# Module 7 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(7))
+chan_mod_name = module_1_info_win.channel_info_module_name
+# Ch 1
+module_7_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_7_sensor_1_damping = module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_7_sensor_1_bandwidth = module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_7_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_7_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
+module_7_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_7_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
+# Ch 2
+module_7_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_7_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_7_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_7_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_7_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_7_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_7_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+# Ch 3
+module_7_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_7_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_7_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_7_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_7_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_7_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_7_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
+# Ch 4
+module_7_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_7_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_7_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_7_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_7_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_7_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_7_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
+
+# Module 8 Info Window.
+module_1_info_win.channel_info_SAVE_Button.clicked.connect(lambda: save_module_info(8))
+chan_mod_name = module_1_info_win.channel_info_module_name
+# Ch 1
+module_8_sensor_1_sensitivity = module_1_info_win.channel_info_sensor1_Sensitivity_LineEdit
+module_8_sensor_1_damping = module_1_info_win.channel_info_sensor1_dampingLineEdit
+module_8_sensor_1_bandwidth = module_1_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
+module_8_sensor_1_fullscale = module_1_info_win.channel_info_sensor1_full_Scale_LineEdit
+module_8_sensor_1_location = module_1_info_win.channel_info_sensor1_location_Edit
+module_8_sensor_1_name = module_1_info_win.channel_info_sensor1_nameLineEdit
+module_1_info_win.channel_info_sensor1_TITLE
+module_8_sensor_1_type = module_1_info_win.channel_info_sensor1_type_DropDown
+# Ch 2
+module_8_sensor_2_damping = module_1_info_win.channel_info_sensor2_dampingLineEdit
+module_8_sensor_2_bandwidth = module_1_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
+module_8_sensor_2_sensitivity = module_1_info_win.channel_info_sensor2_Sensitivity_LineEdit
+module_8_sensor_2_name = module_1_info_win.channel_info_sensor2_nameLineEdit
+module_8_sensor_2_type = module_1_info_win.channel_info_sensor2_type_DropDown
+module_1_info_win.channel_info_sensor2_TITLE
+module_8_sensor_2_location = module_1_info_win.channel_info_sensor2_location_Edit
+module_8_sensor_2_fullscale = module_1_info_win.channel_info_sensor2_full_Scale_LineEdit
+# Ch 3
+module_8_sensor_3_name = module_1_info_win.channel_info_sensor3_nameLineEdit
+module_8_sensor_3_type = module_1_info_win.channel_info_sensor3_type_DropDown
+module_8_sensor_3_sensitivity = module_1_info_win.channel_info_sensor3_Sensitivity_LineEdit
+module_8_sensor_3_bandwidth = module_1_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
+module_8_sensor_3_fullscale = module_1_info_win.channel_info_sensor3_full_scale_LineEdit
+module_8_sensor_3_damping = module_1_info_win.channel_info_sensor3_dampingLineEdit
+module_8_sensor_3_location = module_1_info_win.channel_info_sensor3_location_Edit
+module_1_info_win.channel_info_sensor3_TITLE
+# Ch 4
+module_8_sensor_4_name = module_1_info_win.channel_info_sensor4_nameLineEdit
+module_8_sensor_4_type = module_1_info_win.channel_info_sensor4_type_DropDown
+module_8_sensor_4_sensitivity = module_1_info_win.channel_info_sensor4_Sensitivity_LineEdit
+module_8_sensor_4_bandwidth = module_1_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
+module_8_sensor_4_fullscale = module_1_info_win.channel_info_senson4_full_Scale_LineEdit
+module_8_sensor_4_location = module_1_info_win.channel_info_sensor4_location_Edit
+module_8_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEdit
+module_1_info_win.channel_info_sensor4_TITLE
+
 
 # Main Sensor Selection
 main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
@@ -896,25 +1190,104 @@ module_button_list = [mod_1_button, mod_2_button, mod_3_button, mod_4_button, mo
                       mod_7_button, mod_8_button]
 
 
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  Main Tab Window  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-# File System
-file_sys_win.file_system_treeView
-file_sys_win.file_system_OPEN_button
-file_sys_win.file_system_CANCEL_button
-viz_file_sys = main_window.visualization_treeView
-model = QFileSystemModel()
-model.setRootPath(r'C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data')
-viz_file_sys.setModel(model)
+# Menu Bar
+main_window.action_Help.triggered.connect(lambda: openUrl())
+def openUrl():
+    url = QtCore.QUrl('https://github.com/jrsm1/EWAS_Application/blob/master/README.md')
+    if not QtGui.QDesktopServices.openUrl(url):
+        show_error('Could not open Help URL')
 
-# Main Tab Window
+
+main_window.action_Diagnose.triggered.connect(lambda: send_diagnostics())
+def send_diagnostics():
+    try:
+        im = ins_man.instruction_manager(ins_port)
+        im.send_diagnose_request()
+    except serial.SerialException:
+        show_not_connected_error()
+
+# Visualization
+## Visualize Sensor Selection
+viz_name_label = viz_sensor_sel_win.plot_name_label
+viz_sens_1_dropdown = viz_sensor_sel_win.sensor_1_DropDown
+viz_sens_2_dropdown = viz_sensor_sel_win.sensor_2_DropDown
+viz_next_btn = viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: begin_visualization())
+
+# TODO create constant variables to hold plot int values --> code cleanup
+main_window.actionTime.triggered.connect(lambda: do_plot(1))
+main_window.actionFrequency.triggered.connect(lambda: do_plot(2))
+main_window.actionAuto_Power.triggered.connect(lambda: do_plot(3))
+main_window.actionCross_Power.triggered.connect(lambda: do_plot(4))
+main_window.actionCoherence.triggered.connect(lambda: do_plot(5))
+
+
+# Variable to know which method called the plot signal after Visualization Sensor Selection Window NEXT called.
+visualization_values = {
+    'requested_plot': 0,
+    'plot_filename': ''
+}
+
+def do_plot(plot: int):
+    visualization_values['plot_filename'] = file_choose('Data')
+    visualization_values['requested_plot'] = plot
+
+    sensors = CSV_Handler.read_sensor_headers(visualization_values['plot_filename'])
+
+    # Clear DropDown to prepare for new plot option.
+    #   Clear everything but Placeholder [Index 0].
+    for item in range(1, viz_sens_1_dropdown.count(), 1):
+        viz_sens_1_dropdown.removeItem(item)
+    for item in range(1, viz_sens_1_dropdown.count(), 1):
+        viz_sens_1_dropdown.removeItem(item)
+
+    # Set DropDown Values
+    viz_sens_1_dropdown.addItems(sensors)
+    viz_sens_2_dropdown.addItems(sensors)
+
+    # Update Label and Enabled Dropdown for correct plot window
+    if plot == 1:
+        viz_name_label.setText('Plot Raw Data Against Time. <br>'
+                               'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setCurrentIndex(0)
+        viz_sens_2_dropdown.setEnabled(False)
+
+    elif plot == 2:
+        viz_name_label.setText('Plot Frequency Spectrum. <br>'
+                               'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setCurrentIndex(0)
+        viz_sens_2_dropdown.setEnabled(False)
+
+    elif plot == 3:
+        viz_name_label.setText('Plot Auto-Power Spectrum. <br>'
+                               'Please Select Only one Sensor.')
+        viz_sens_2_dropdown.setCurrentIndex(0)
+        viz_sens_2_dropdown.setEnabled(False)
+
+    elif plot == 4:
+        viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
+                               'Please Select Two Sensor.')
+        viz_sens_2_dropdown.setEnabled(True)
+
+    elif plot == 5:
+        viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
+                               'Please Select Two Sensor.')
+        viz_sens_2_dropdown.setEnabled(True)
+
+    show_visualization_sensor_selector_window()
+
+
+
+
+
 # RECORDING  Settings
 main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: handle_loading_saving('load', 1))
 main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: handle_loading_saving('save', 1))
 rec_name_edit = main_window.main_tab_RecordingSettings_name_LineEdit
 rec_duration_edit = main_window.main_tab_RecordingSettings_durationLineEdit
+rec_duration_edit.editingFinished.connect(lambda: check_sampling_rate())
 rec_type_dropdown = main_window.main_tab_RecordingSettings_type_DropDown
-rec_viz_checkbox = main_window.main_tab_RecordingSettings_visualize_checkBox
-rec_store_checkbox = main_window.main_tab_RecordingSettings_store_checkBox
 delay_edit = main_window.main_tab_RecordingSettings_delay_LineEdit
 # Localization Settings
 main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: sync_gps())
@@ -947,29 +1320,65 @@ main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: handle
 main_window.main_tab_DAQParams_LOAD_PARAMS_button.clicked.connect(lambda: handle_loading_saving('load', 3))
 # main_window.main_tab_DAQParams_ADC_Constant_Label
 samfreq_dropdown = main_window.main_tab_DAQParams_samplingRate_DropDown
+samfreq_dropdown.currentIndexChanged.connect(lambda: check_duration())
 cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: False)
 main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
-# Visualization
-main_window.visualize_tab_TIME_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot('PLOT'))  # TODO GET INFO FROM USER.
-main_window.visualize_tab_FFT_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_APS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_XPS_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD('S1', 'S2', 100).show_plot('PLOT'))
-main_window.visualize_tab_PHASE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase('S1', 100).show_plot('PLOT'))
-main_window.visualize_tab_COHERE_button.clicked.connect(lambda: Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence('S1', 'S2', 100).show_plot('PLOT'))
 # File Name
 fn_in = filename_input_win.filename_lineEdit
 fn_in.returnPressed.connect(lambda: do_saving_loading_action())
 fn_OK_btn = filename_input_win.filename_OK_button.clicked.connect(lambda: do_saving_loading_action())
 fn_CANCEL_btn = filename_input_win.filename_CANCEL_button.clicked.connect(lambda: filename_input_win.close())
-fn_EXPLORER_btn = filename_input_win.open_FILE_EXPLORER_Button.clicked.connect(file_choose)
+# fn_EXPLORER_btn = filename_input_win.open_FILE_EXPLORER_Button.clicked.connect(file_choose)
 
+# Store Data Dialog
+yes_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('yes'))
+no_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('no'))
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
+
+def store_data(yes: str):
+    if yes:
+        daq_config.data_handling_configs["store"] = '1111'
+    else:
+        daq_config.data_handling_configs["store"] = '0000'
+
+def check_sampling_rate():
+    test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    print(test_duration)
+    validate_box = check_boxes(test_duration, '^[0-9]+$')
+    if not validate_box:
+        show_error('Error: Invalid Duration. Restricted to numbers only.<br>')
+    else:
+        if int(test_duration, 10) > 1800 or int(test_duration, 10) < 5:
+            show_error('Error: Invalid Duration. must be higher than 5 seconds and lower than 1800 seconds.')
+        else:
+            if not main_window.main_tab_DAQParams_samplingRate_DropDown.currentText() == 'Please Select':
+                max_duration = maximum_duration[main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()]
+                if not max_duration == 'Please Select':
+                    if int(test_duration) > max_duration:
+                        show_error('Durations higher than ' + str(max_duration) +
+                                   ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+
+
+def check_duration():
+    test_duration = main_window.main_tab_RecordingSettings_durationLineEdit.text()
+    if test_duration:
+        validate_box = check_boxes(test_duration, '^[0-9]+$')
+        if not validate_box:
+            show_error('Error: Invalid Duration. Restricted to numbers only.<br>')
+        else:
+            max_duration = maximum_duration[main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()]
+            if not max_duration == 'Please Select':
+                if int(test_duration) > max_duration:
+                    show_error('Durations higher than ' + str(max_duration) +
+                               ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+
 def suggest_sampling_freq():
-    samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
+    if samfreq_dropdown.currentText() != 'Plase Select':
+        samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
 
 def action_begin_recording():
@@ -1011,12 +1420,24 @@ def check_status_during_test():
                 app.processEvents()
         if test_successful:
             prog_dlg.close()
-
-            set_gps_into_gui()
+            get_all_data()
     except serial.SerialException:
         show_not_connected_error()
         prog_dlg.close()
 
+def get_all_data():
+    show_acquire_dialog('Acquiring Test Data')
+    prog_dlg.progress_dialog_progressBar.setMaximum(100)
+    prog_dlg.progress_dialog_progressBar.setValue(0)
+    data = ''
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        data = ins.send_request_all_data()
+        prog_dlg.close()
+    except serial.SerialException:
+        data = ''
+        show_not_connected_error()
+        prog_dlg.close()
 
 def action_cancel_everything():
     """
@@ -1066,18 +1487,19 @@ def handle_loading_saving(what: str, who: int):
         if log: print('Loading Error.')
     else:
         if what == 'save':
+            show_filename_editor_window()
             load_save_instructions['who_to_save'] = who
         elif what == 'load':
             load_save_instructions['who_to_load'] = who
+            do_saving_loading_action()
 
-    do_saving_loading_action()
+    #
 
 
 def do_saving_loading_action():
     """
     Function continues to correct method depending on saving/loading and option combinations.
     """
-    filename_input_win.close()
     if load_save_instructions['action'] == 'save':
         decide_who_to_save(load_save_instructions['who_to_save'])
     elif load_save_instructions['action'] == 'load':
@@ -1094,6 +1516,8 @@ def decide_who_to_save(instruction: int):
         action_store_Location()
     elif instruction == 3:
         action_store_DAQ_Params()
+    elif instruction == 4:
+        action_store_module_info()
 
 
 def decide_who_to_load(instruction: int):
@@ -1106,6 +1530,9 @@ def decide_who_to_load(instruction: int):
         action_load_Location()
     elif instruction == 3:
         action_load_DAQ_Params()
+    elif instruction == 4:
+        show_error("Not Yet Implemented")
+        # action_load_module_info() #TODO ACTION LOAD MODULE INFO
 
 def validate_filename(filename: str):
     """
@@ -1131,12 +1558,17 @@ def action_store_DAQ_Params():
     show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
-        # Get info from GUI.
-        get_daq_params_from_gui()
-        # Save to File.
-        setting_data_manager.store_signal_params(filename)
-        # Close Window
+        if not validate_daq_params():
+            setting_data_manager.store_signal_params(filename)
+        else:
+            close_filename_editor_window()
+            show_error(validate_daq_params())
         filename_input_win.close()
+
+def validate_daq_params():
+    error = ''
+    get_daq_params_from_gui()
+    return error
 
 
 def action_load_DAQ_Params():
@@ -1146,7 +1578,7 @@ def action_load_DAQ_Params():
     # Load Params from File
     setting_data_manager.load_signal_params(filename)
 
-    if set_dat_man.verify_file_exists(relative_path + filename):
+    if set_dat_man.verify_file_exists(filename):
         # Set Params into GUI.
         set_daq_params_to_gui()
         # Close Window
@@ -1162,7 +1594,7 @@ def action_store_Location():
         # Get info from GUI.
         # get_location_from_gui()
         loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
-        if not loc_type: # FIXME ESTE IF NO HACE NADA.
+        if not loc_type:
             if not validate_gps_location_settings():
                 # Save to File.
                 setting_data_manager.store_location_configs(filename)
@@ -1178,6 +1610,7 @@ def action_store_Location():
                 filename_input_win.close()
             else:
                 show_error(validate_module_location_settings())
+        close_filename_editor_window()
 
 
 def action_load_Location():
@@ -1186,8 +1619,7 @@ def action_load_Location():
     filename = file_choose(relative_path)
     # Load Params from File
     setting_data_manager.load_location_configs(filename)
-
-    if set_dat_man.verify_file_exists(relative_path + filename):
+    if set_dat_man.verify_file_exists(filename):
         # Set Params into GUI.
         load_local_settings_to_gui()
         # Close Window
@@ -1197,39 +1629,40 @@ def action_load_Location():
 def action_store_Rec_Setts():
     # TODO Make Sure Files are not empty.
     # Get filename from User
-    show_filename_editor_window()
+    # show_filename_editor_window()
     filename = fn_in.text()
     if validate_filename(filename):
         if not validate_rec_settings(): # Validation calls get_rec_setts_from_gui()
             # Save to File.
             setting_data_manager.store_recording_configs(filename)
-            # Close Window
-            filename_input_win.close()
         else:
+            close_filename_editor_window()
             show_error(validate_rec_settings())
+
+        # Close Window
+        close_filename_editor_window()
 
 
 def action_load_Rec_Setts():
     relative_path = 'Config/DAQ/Recording'
     # Get filename from User
     filename = file_choose(relative_path)
-
     # Load Params from File
     setting_data_manager.load_recording_configs(filename)
-    if set_dat_man.verify_file_exists(relative_path + filename):
+    if set_dat_man.verify_file_exists(filename):
         # Set Params into GUI.
         set_recording_into_gui()
         # Close Window
         filename_input_win.close()
 
-21
+
 # ********************************************* LOCATION ***************************************************************
 def sync_gps():  # TODO TEST
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
     prog_dlg.progress_dialog_progressBar.setMaximum(100)
-    # prog_dlg.progress_dialog_progressBar.setValue(-1)
+    prog_dlg.progress_dialog_progressBar.setValue(0)
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
@@ -1237,18 +1670,22 @@ def sync_gps():  # TODO TEST
         time_to_sleep = 0.5
         synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
-            if log: print('GPS Waiting....')
+            print('GPS Waiting....')
             sleep(0.500)  # Wait for half a second before asking again.
             timeout += 1
-            prog_dlg.progress_dialog_progressBar.setValue(timeout*5)
+            prog_dlg.progress_dialog_progressBar.setValue(timeout*2)
             app.processEvents()
-            if timeout == 10 * 2:  # = [desired timeout in seconds] * [1/(sleep value)]
+            if timeout == 45:  # = [desired timeout in seconds] * [1/(sleep value)]
                 # prog_dlg.close()
+                prog_dlg.progress_dialog_progressBar.setValue(100)
                 show_error('GPS Failed to Synchronize.')
+                prog_dlg.close()
                 synched = False
                 break
         # If synched Succesfull --> Request GPS data.
         if synched:
+            prog_dlg.progress_dialog_progressBar.setValue(100)
+            prog_dlg.close()
             ins.send_gps_data_request()
             set_gps_into_gui()
     except serial.SerialException:
@@ -1287,6 +1724,9 @@ def change_local_allowed():
 
 
 # ---------------------------------------------- MODULE INFORMATION----------------------------------------------------
+
+def action_store_module_info():
+    pass
 # """
 # Loads fields from Channel info data structure into GUI.
 # """
@@ -1314,12 +1754,284 @@ def show_acquire_dialog(message: str):
     # enable_main_window()
 
 
-# ****************************************** SENSOR & CHANNEL INFORMATION *********************************************
-def save_sensor_info():
+# ****************************************** SENSOR & MODULE INFORMATION *********************************************
+def save_module_info(module: int):
     """
     Saves sensor data from UI into structure.
     """
     # Get info from GUI.
+    try:
+        ins = ins_man.instruction_manager(ins_port)
+        connected_module_list = ins.send_request_number_of_mods_connected()
+        if log: print("entered enable start")
+        if connected_module_list[0]:
+            sensors_all[0] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_1_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_1_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_1_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_1_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_1_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_1_sensor_1_location.text()) )
+            sensors_all[1] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_1_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_1_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_1_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_1_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_1_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_1_sensor_2_location.text()) )
+
+            sensors_all[2] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_1_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_1_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_1_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_1_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_1_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_1_sensor_3_location.text()))
+
+            sensors_all[3] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_1_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_1_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_1_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_1_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_1_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_1_sensor_4_location.text()))
+
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[0]
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[1]
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[2]
+            modules_all[0].channel_info['Sensor 1'] = sensors_all[3]
+            # setting_data_manager.store_module_configs(get_filename(), modules_all[0])
+
+        if connected_module_list[1]:
+            sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_2_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_2_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_2_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_2_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_2_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_2_sensor_1_location.text()))
+
+            sensors_all[5] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_2_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_2_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_2_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_2_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_2_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_2_sensor_2_location.text()))
+
+            sensors_all[6] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_2_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_2_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_2_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_2_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_2_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_2_sensor_3_location.text()))
+
+            sensors_all[7] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_2_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_2_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_2_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_2_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_2_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_2_sensor_4_location.text()))
+        if connected_module_list[2]:  # MODULE 3
+            sensors_all[8] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_3_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_3_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_3_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_3_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_3_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_3_sensor_1_location.text()))
+
+            sensors_all[9] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_3_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_3_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_3_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_3_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_3_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_3_sensor_2_location.text()))
+
+            sensors_all[10] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_3_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_3_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_3_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_3_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_3_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_3_sensor_3_location.text()))
+
+            sensors_all[11] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_3_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_3_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_3_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_3_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_3_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_3_sensor_4_location.text()))
+        if connected_module_list[3]:  # MODULE 4
+            sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_4_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_4_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_4_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_4_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_4_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_4_sensor_1_location.text()))
+
+            sensors_all[5] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_4_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_4_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_4_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_4_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_4_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_4_sensor_2_location.text()))
+
+            sensors_all[6] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_4_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_4_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_4_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_4_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_4_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_4_sensor_3_location.text()))
+
+            sensors_all[7] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_4_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_4_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_4_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_4_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_4_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_4_sensor_4_location.text()))
+        if connected_module_list[4]: # MODULE 5
+            sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_5_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_5_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_5_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_5_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_5_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_5_sensor_1_location.text()))
+
+            sensors_all[5] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_5_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_5_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_5_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_5_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_5_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_5_sensor_2_location.text()))
+
+            sensors_all[6] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_5_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_5_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_5_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_5_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_5_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_5_sensor_3_location.text()))
+
+            sensors_all[7] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_5_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_5_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_5_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_5_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_5_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_5_sensor_4_location.text()))
+        if connected_module_list[5]:  # MODULE 6
+            sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_6_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_6_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_6_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_6_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_6_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_6_sensor_1_location.text()))
+
+            sensors_all[5] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_6_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_6_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_6_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_6_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_6_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_6_sensor_2_location.text()))
+
+            sensors_all[6] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_6_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_6_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_6_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_6_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_6_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_6_sensor_3_location.text()))
+
+            sensors_all[7] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_6_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_6_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_6_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_6_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_6_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_6_sensor_4_location.text()))
+        if connected_module_list[6]:  # MODULE 7
+            sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_7_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_7_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_7_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_7_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_7_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_7_sensor_1_location.text()))
+
+            sensors_all[5] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_7_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_7_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_7_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_7_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_7_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_7_sensor_2_location.text()))
+
+            sensors_all[6] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_7_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_7_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_7_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_7_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_7_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_7_sensor_3_location.text()))
+
+            sensors_all[7] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_7_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_7_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_7_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_7_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_7_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_7_sensor_4_location.text()))
+        if connected_module_list[7]: # MODULE 8
+            sensors_all[4] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
+                                                      sensor_type=module_8_sensor_1_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_8_sensor_1_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_8_sensor_1_bandwidth.text()),
+                                                      sensor_full_scale=str(module_8_sensor_1_fullscale.text()),
+                                                      sensor_damping=str(module_8_sensor_1_damping.text()),
+                                                      sensor_localization=str(module_8_sensor_1_location.text()))
+
+            sensors_all[5] = Sensor_Individual.Sensor(sensor_name='Sensor_2',
+                                                      sensor_type=module_8_sensor_2_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_8_sensor_2_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_8_sensor_2_bandwidth.text()),
+                                                      sensor_full_scale=str(module_8_sensor_2_fullscale.text()),
+                                                      sensor_damping=str(module_8_sensor_2_damping.text()),
+                                                      sensor_localization=str(module_8_sensor_2_location.text()))
+
+            sensors_all[6] = Sensor_Individual.Sensor(sensor_name='Sensor_3',
+                                                      sensor_type=module_8_sensor_3_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_8_sensor_3_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_8_sensor_3_bandwidth.text()),
+                                                      sensor_full_scale=str(module_8_sensor_3_fullscale.text()),
+                                                      sensor_damping=str(module_8_sensor_3_damping.text()),
+                                                      sensor_localization=str(module_8_sensor_3_location.text()))
+
+            sensors_all[7] = Sensor_Individual.Sensor(sensor_name='Sensor_4',
+                                                      sensor_type=module_8_sensor_4_type.currentIndex(),
+                                                      sensor_sensitivity=str(module_8_sensor_4_sensitivity.text()),
+                                                      sensor_bandwidth=str(module_8_sensor_4_bandwidth.text()),
+                                                      sensor_full_scale=str(module_8_sensor_4_fullscale.text()),
+                                                      sensor_damping=str(module_8_sensor_4_damping.text()),
+                                                      sensor_localization=str(module_8_sensor_4_location.text()))
+        if log: print("got out of enable start connected sensors")
+        # If not Connected to not continue.
+    except serial.SerialException:
+        continuar = False
+        show_not_connected_error()
+
     # Set info to correct Data Structure.
     # Set sensor info (4)
     sens_1 = sens.Sensor('NAME', 0)
@@ -1328,10 +2040,15 @@ def save_sensor_info():
     sens_4 = sens.Sensor('NAME', 0)
 
     # Set channel sensors.
-    channel = chan.Module('NAME', sens_1, sens_2, sens_3, sens_4)
+    channel = Chan.Module('NAME', sens_1, sens_2, sens_3, sens_4)
 
 
 # ------------------------------------------------ VISUALIZATION ------------------------------------------------------
+
+def update_sensor_drop_down():
+    print('NOt YEt')
+    csv_file = file_choose()
+    csv_handler.Data_Handler().read_sensor_headers()
 
 
 def plot_time(filename: str):
@@ -1339,26 +2056,29 @@ def plot_time(filename: str):
     [1]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plt_time().show_plot(
-        'RESPECT TO TIME')  # TODO SWITCH TO TEMP FILE.
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plt_time(sensor)
 
 
-def plot_fft(filename: str, sensor: str, freq: int):
+def plot_fft(filename: str):
     """
     [2]
     Creats and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_fft('S1', 100).show_plot(
-        'FOURIER TRANSFORM')  # TODO SWITCH TO TEMP FILE.
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_fft(sensor)
 
 
-def plot_aps(filename: str, sensor: str, freq: int):
+def plot_aps(filename: str):
     """
     [3]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_PSD('S1', 100).show_plot(
-        'AUTO-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_PSD(sensor)
 
 
 def plot_cps(filename: str):
@@ -1366,8 +2086,10 @@ def plot_cps(filename: str):
     [4]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_CSD().show_plot(
-        'CROSS-POWER SPECTRA')  # TODO SWITCH TO TEMP FILE.
+    sensor_1 = viz_sens_1_dropdown.currentText()
+    sensor_2 = viz_sens_2_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_CSD(sensor_1=sensor_1, sensor_2=sensor_2)
 
 
 def plot_phase(filename: str):
@@ -1375,8 +2097,9 @@ def plot_phase(filename: str):
     [5]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_Phase().show_plot(
-        'UNWRAPPED PHASE FUNCTION')  # TODO SWITCH TO TEMP FILE.
+    sensor = viz_sens_1_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_Phase(sensor)
 
 
 def plot_cohere(filename: str):
@@ -1384,9 +2107,7 @@ def plot_cohere(filename: str):
     [6]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence().show_plot(
-        'COHERENCE')  # TODO SWITCH TO TEMP FILE.
-
+    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence()
 
 def init():
     """
@@ -1404,7 +2125,7 @@ def init():
         # sys.exit()
     else:
         sync_gps()
-
+        # show_error('Device is supposed to be Connected.')
     # --------- TESTING ------------
     # get_rec_setts_from_gui()
     # setting_data_manager.store_daq_configs('Testing_Configs.csv')

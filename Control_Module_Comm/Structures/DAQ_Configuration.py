@@ -20,7 +20,7 @@ class DAQconfigs:
                  loc_name='NoName', latitude='+0000.0000', longitude='-0000.0000', hour='00', minute='00', second='00',
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
-                 visualize=True, store=False):
+                 store='1111'):
         self.signal_configs = {
             'sampling_rate': str,
             'cutoff_frequency': str,
@@ -36,8 +36,7 @@ class DAQconfigs:
         }
 
         self.data_handling_configs = {
-            "visualize": bool,
-            "store": bool
+            "store": str
         }
 
         self.location_configs = {
@@ -50,14 +49,14 @@ class DAQconfigs:
         }
 
         self.specimen_location = {
-            '1': str,
-            '2': str,
-            '3': str,
-            '4': str,
-            '5': str,
-            '6': str,
-            '7': str,
-            '8': str,
+            'Specimen 1': str,
+            'Specimen 2': str,
+            'Specimen 3': str,
+            'Specimen 4': str,
+            'Specimen 5': str,
+            'Specimen 6': str,
+            'Specimen 7': str,
+            'Specimen 8': str,
         }
 
         if len(test_name) > NAME_LIMIT:
@@ -94,7 +93,6 @@ class DAQconfigs:
         self.specimen_location['Specimen 7'] = specimen_7
         self.specimen_location['Specimen 8'] = specimen_8
 
-        self.data_handling_configs["visualize"] = visualize
         self.data_handling_configs["store"] = store
 
         # else:
@@ -114,6 +112,8 @@ class DAQconfigs:
         """
         return self.test_id
 
+    def get_sampling_freq(self):
+        return int(self.signal_configs['sampling_rate'].split()[0])
 
 
 def generate_ID(name: str):
@@ -140,3 +140,5 @@ def generate_ID(name: str):
 # print(dq.recording_configs)
 # print(dq.location_configs)
 # print(dq.specimen_location)
+# print(dq.get_sampling_freq())
+

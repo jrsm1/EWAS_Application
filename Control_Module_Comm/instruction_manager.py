@@ -8,7 +8,6 @@ class instruction_manager():
     def __init__(self, port):
         self.serial_interface = serial_interface.serial_interface(port)
 
-
     def send_set_configuration(self, string):
         """
         function to set configuration.
@@ -106,18 +105,22 @@ class instruction_manager():
         self.serial_interface.send_byte(b'\x87')
         self.serial_interface.send_instruction(bytes([daq]))
         line = self.serial_interface.listen()
-        line = line.strip(b'\r\n')
+        # line = line.strip(b'\r\n')
+        # print("line is = ", line)
         line = str(line)
+        # print("line is = ", line)
         line = line[2:len(line) - 5]
+        # print("line is = ", line)
         count = 0
         line1 = ''
         print("line is = ", line)
-        if 1:
+        if line == '\\x87':
             if log:
                 print("line is " + str(line))
                 print("request daq data successful")
             while not line == b'\xaa\xbb\xaa\xbb\r\n':
                 # store the data somehow
+                line = self.serial_interface.listen()
                 if count < 93:
                     count = count + 1
                     if log: print(str(count))
@@ -130,7 +133,7 @@ class instruction_manager():
                     count = count + 1
                 if 1:
                     print("line in all data is: " + str(line[2:len(line)-5]))
-                line = self.serial_interface.listen()
+
                 # line = str(line)
                 # line = line[2:len(line)-5]
                 # if line.is
@@ -159,6 +162,7 @@ class instruction_manager():
     """
     request the gps data as a string. still needs post processing.
     returns a string formatted a certain way.
+    returns a string formatted a certain way.
     format pending.
     """
 
@@ -174,12 +178,12 @@ class instruction_manager():
             return line
         return 0
 
-    """
-    send gps sync request. It uses the devices internal gps to sync the local RTC
-    byte is 8A
-    """
 
     def send_gps_sync_request(self):
+        """
+        send gps sync request. It uses the devices internal gps to sync the local RTC
+        byte is 8A
+        """
         self.serial_interface.send_instruction(b'\x8A')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -233,15 +237,13 @@ class instruction_manager():
             return line
         return 0
 
-    """
-    sampling frequency
-    cutoff frequency
-    gain
-    duration
-    """
-
-    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, sensors_selected, sensor_enable, name,
-                                  location):
+    def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
+        """
+        sampling frequency
+        cutoff frequency
+        gain
+        duration
+        """
         if log: print("entered send recording parameters")
         self.serial_interface.send_byte(b'\x85')
         if log: print("sent byte of instruction")
@@ -267,10 +269,10 @@ class instruction_manager():
         self.serial_interface.send_byte(bytes([int(start_delay[2])]))
         self.serial_interface.send_byte(bytes([int(start_delay[3])]))
         # send sensors selected
-        self.serial_interface.send_byte(bytes([int(sensors_selected[0])]))
-        self.serial_interface.send_byte(bytes([int(sensors_selected[1])]))
-        self.serial_interface.send_byte(bytes([int(sensors_selected[2])]))
-        self.serial_interface.send_byte(bytes([int(sensors_selected[3])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[0])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[1])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[2])]))
+        self.serial_interface.send_byte(bytes([int(store_data_sd[3])]))
         # send sensor enabled
         for i in sensor_enable:
             self.serial_interface.send_byte(bytes([i]))

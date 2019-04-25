@@ -689,7 +689,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>12</number>
                   </property>
                   <property name="placeholderText">
-                   <string>+12345.12345</string>
+                   <string>+1234.12345</string>
                   </property>
                  </widget>
                 </item>
@@ -718,7 +718,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>11</number>
                   </property>
                   <property name="placeholderText">
-                   <string>-1234.12345</string>
+                   <string>-12345.12345</string>
                   </property>
                  </widget>
                 </item>
@@ -1081,6 +1081,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
            <enum>QFrame::Raised</enum>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>20</number>
+           </property>
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_12">
              <item>
@@ -1092,7 +1095,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                 </size>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;DATA ACQUISITION PARAMETERS&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;SIGNAL PARAMETERS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1186,7 +1189,198 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="0">
+             <item row="2" column="0">
+              <widget class="QLabel" name="main_tab_Cutoff_FrequencyLabel">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Low-Pass Filter Cutoff Frequency &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_DAQParams_Cutoff_Frequency_DropDown
+															</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="main_tab_DAQParams_gainLabel">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Gain &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="buddy">
+                <cstring>main_tab_DAQParams_gain_DropDown</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																color: rgb(0, 0, 0);
+															</string>
+               </property>
+               <property name="currentIndex">
+                <number>15</number>
+               </property>
+               <item>
+                <property name="text">
+                 <string>1 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>16 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>32 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>64 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>128 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>256 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>512 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1024 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2048 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4096 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8192 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10,000 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Please Select</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QComboBox" name="main_tab_DAQParams_gain_DropDown">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																color: rgb(0, 0, 0)
+															</string>
+               </property>
+               <property name="currentIndex">
+                <number>10</number>
+               </property>
+               <property name="maxVisibleItems">
+                <number>10</number>
+               </property>
+               <item>
+                <property name="text">
+                 <string>0.2 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>40 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>60V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>80 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>120 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>157 V/V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Please Select</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="3" column="0">
               <widget class="QLabel" name="main_tab_samplingRateLabel">
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Sampling Rate &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1196,7 +1390,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
+             <item row="3" column="1">
               <widget class="QComboBox" name="main_tab_DAQParams_samplingRate_DropDown">
                <property name="maximumSize">
                 <size>
@@ -1286,200 +1480,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                <item>
                 <property name="text">
                  <string>20000 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Please Select</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="main_tab_Cutoff_FrequencyLabel">
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Low-Pass Filter Cutoff Frequency &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="buddy">
-                <cstring>main_tab_DAQParams_Cutoff_Frequency_DropDown
-															</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="main_tab_DAQParams_gainLabel">
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Gain &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="buddy">
-                <cstring>main_tab_DAQParams_gain_DropDown</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0);
-															</string>
-               </property>
-               <property name="currentText">
-                <string>Please Select</string>
-               </property>
-               <property name="currentIndex">
-                <number>15</number>
-               </property>
-               <item>
-                <property name="text">
-                 <string>1 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>2 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>4 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>8 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>16 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>32 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>64 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>128 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>256 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>512 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>1024 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>2048 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>4096 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>8192 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>10,000 Hz</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Please Select</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QComboBox" name="main_tab_DAQParams_gain_DropDown">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0)
-															</string>
-               </property>
-               <property name="currentIndex">
-                <number>10</number>
-               </property>
-               <property name="maxVisibleItems">
-                <number>10</number>
-               </property>
-               <item>
-                <property name="text">
-                 <string>0.2 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>1 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>10 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>20 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>30 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>40 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>60V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>80 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>120 V/V</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>157 V/V</string>
                 </property>
                </item>
                <item>
@@ -1585,144 +1585,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="visualize_tab">
-       <attribute name="title">
-        <string>Data Visualization</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <widget class="QTreeView" name="visualization_treeView">
-          <property name="showDropIndicator" stdset="0">
-           <bool>true</bool>
-          </property>
-          <attribute name="headerVisible">
-           <bool>false</bool>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="visualize_tab_button_layout">
-          <item>
-           <widget class="QPushButton" name="visualize_tab_TIME_button">
-            <property name="styleSheet">
-             <string notr="true">background-color:rgb(204, 51, 0);
-														color: rgb(255, 255, 255);
-														font: 12pt &quot;MS Shell Dlg 2&quot;;
-													</string>
-            </property>
-            <property name="text">
-             <string>Time Domain</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="visualize_tab_FFT_button">
-            <property name="styleSheet">
-             <string notr="true">background-color:rgb(204, 51, 0);
-														color: rgb(255, 255, 255);
-														font: 12pt &quot;MS Shell Dlg 2&quot;;
-													</string>
-            </property>
-            <property name="text">
-             <string>Frequency Domain</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="visualize_tab_APS_button">
-            <property name="styleSheet">
-             <string notr="true">background-color:rgb(204, 51, 0);
-														color: rgb(255, 255, 255);
-														font: 12pt &quot;MS Shell Dlg 2&quot;;
-													</string>
-            </property>
-            <property name="text">
-             <string>Auto-Power Spectrum</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="visualize_tab_XPS_button">
-            <property name="styleSheet">
-             <string notr="true">background-color:rgb(204, 51, 0);
-														color: rgb(255, 255, 255);
-														font: 12pt &quot;MS Shell Dlg 2&quot;;
-													</string>
-            </property>
-            <property name="text">
-             <string>Cross-Power Spectrum</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="visualize_tab_PHASE_button">
-            <property name="styleSheet">
-             <string notr="true">background-color:rgb(204, 51, 0);
-														color: rgb(255, 255, 255);
-														font: 12pt &quot;MS Shell Dlg 2&quot;;
-													</string>
-            </property>
-            <property name="text">
-             <string>Phase Function</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="visualize_tab_COHERE_button">
-            <property name="styleSheet">
-             <string notr="true">background-color:rgb(204, 51, 0);
-														color: rgb(255, 255, 255);
-														font: 12pt &quot;MS Shell Dlg 2&quot;;
-													</string>
-            </property>
-            <property name="text">
-             <string>Coherence Function</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -1765,6 +1627,17 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     <addaction name="separator"/>
     <addaction name="action_Diagnose"/>
    </widget>
+   <widget class="QMenu" name="menuVisualize">
+    <property name="title">
+     <string>Visualize</string>
+    </property>
+    <addaction name="actionTime"/>
+    <addaction name="actionFrequency"/>
+    <addaction name="actionAuto_Power"/>
+    <addaction name="actionCross_Power"/>
+    <addaction name="actionCoherence"/>
+   </widget>
+   <addaction name="menuVisualize"/>
    <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -1777,6 +1650,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <pointsize>12</pointsize>
      <weight>50</weight>
      <bold>false</bold>
+     <stylestrategy>PreferAntialias</stylestrategy>
      <kerning>true</kerning>
     </font>
    </property>
@@ -1799,6 +1673,57 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   <action name="actionManual">
    <property name="text">
     <string>Manual</string>
+   </property>
+  </action>
+  <action name="actionTime">
+   <property name="text">
+    <string>Time</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <stylestrategy>PreferAntialias</stylestrategy>
+    </font>
+   </property>
+  </action>
+  <action name="actionFrequency">
+   <property name="text">
+    <string>Frequency</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionAuto_Power">
+   <property name="text">
+    <string>Auto-Power</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionCross_Power">
+   <property name="text">
+    <string>Cross-Power</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionCoherence">
+   <property name="text">
+    <string>Coherence</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
   </action>
  </widget>
@@ -1825,19 +1750,12 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   <tabstop>main_tab_module_loc_LineEdit_8</tabstop>
   <tabstop>main_tab_LocalizationSettings_LOAD_LOCATION_button</tabstop>
   <tabstop>main_tab_LocalizationSettings_SAVE_LOCATION_button</tabstop>
-  <tabstop>main_tab_DAQParams_samplingRate_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_Cutoff_Frequency_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_gain_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_LOAD_PARAMS_button</tabstop>
   <tabstop>main_tab_DAQParams_SAVE_PARAMS_button</tabstop>
   <tabstop>main_tab_CHANNEL_INFO_button</tabstop>
   <tabstop>main_tab_START_button</tabstop>
-  <tabstop>visualize_tab_TIME_button</tabstop>
-  <tabstop>visualize_tab_FFT_button</tabstop>
-  <tabstop>visualize_tab_APS_button</tabstop>
-  <tabstop>visualize_tab_XPS_button</tabstop>
-  <tabstop>visualize_tab_PHASE_button</tabstop>
-  <tabstop>visualize_tab_COHERE_button</tabstop>
  </tabstops>
  <resources/>
  <connections/>

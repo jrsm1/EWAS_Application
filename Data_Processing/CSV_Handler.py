@@ -1,5 +1,7 @@
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Control_Module_Comm import instruction_manager as ins_man
+import numpy as np
+import GUI_Handler
 import serial
 import csv
 import pandas as pd
@@ -15,8 +17,9 @@ class Data_Handler():
     def __init__(self, mod_con: [], daq_con: DAQ_Configuration):
         self.module_list = mod_con
         self.daq_config = daq_con
+        self.all_data = pd.DataFrame
 
-    def store_data(self, filename: str, data: str):
+    def store_data(self, filename: str, data: pd.DataFrame):
         """
         Stores Metadata as Header and Data bellow on a CSV file.
 
@@ -25,7 +28,6 @@ class Data_Handler():
 
         :return: CSV file with metadata header and data body.
         """
-
         datapath = r'Data/' + filename
 
         with open(datapath, 'w', newline='') as f:
@@ -76,8 +78,7 @@ class Data_Handler():
             f.close()
 
         with open(datapath, 'a', newline='') as f:
-            dataFrame = self.string_to_dataframe(data)
-            dataFrame.to_csv(datapath, mode='a', index=False)
+            data.to_csv(datapath, mode='a', index=False)
         f.close()
 
     def string_to_dataframe(self, string: str):
@@ -102,7 +103,7 @@ class Data_Handler():
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
         filename = r'Data/' + filename
-        data_read = pd.read_csv(filename, header=90, index_col='Timestamp')
+        data_read = pd.read_csv(filename, header=90, index_col='Timestamp') # FIXME 'Timestamp' DOES NOT EXISTS IN STORE DATA YET.
 
         return data_read
 
@@ -121,6 +122,53 @@ class Data_Handler():
             result += x + ';'
 
         return result
+
+    def request_all_data(self, connected_modules: []):
+        """
+        Gets data from Control Module and parses it into a single Pandas DataFrame.
+
+        :param connected_modules: 1/0 List indicating connected modules.
+
+        :return: Pandas DataFrame with joint module sensor data.
+        """
+        string = ''
+        self.all_data = pd.DataFrame()
+        for i in range(len(connected_modules)):
+            if connected_modules[i]:
+                string += ''  # String necessary here to connect inner and outer variables apperently.
+                try:
+                    im = ins_man.instruction_manager()
+                    string = im.send_request_data(i)  # FIXME wait for Juan's Method Merge.
+                except serial.SerialException:
+                    GUI_Handler.show_error('Device has been Disconnected. <br>'
+                                           ' Data Collection Aborted.')
+                    break
+
+                self.all_data.join(self.string_to_dataframe(string))
+
+        # DataFrame to hold index and simulate timestamp. TODO
+        timestamp = ''
+        time = 0
+        time_step = 1/GUI_Handler.daq_config.get_sampling_freq()
+        for x in np.arange(len(self.all_data.index)):
+            time += time_step
+            timestamp += str(time) + ';' # New line every timestamp calculated.
+
+        timedf = self.string_to_dataframe(timestamp)
+
+        return self.all_data
+
+def read_sensor_headers(filename: str):
+    """
+    Reads Sensor Names from Data in _filename_  as a Pandas DataFrame.
+    This method reads The columns, ignoring _Timestamp_, which are the sensor names for which
+    data exists in the given File.
+
+    :param filename: The Data File
+
+    :return: Pandas Series with the Data.
+    """
+    return pd.read_csv(filename, header=90, nrows=0).columns.tolist()[1:]
 
 def select_data_columns():
     """
@@ -213,3 +261,4 @@ def get_port():
 # data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
 # # dh.store_data('Testing.csv', data)
 # print(dh.data_to_string('Testing.csv'))
+# dh.read_sensor_headers('Testing.csv')
