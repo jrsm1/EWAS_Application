@@ -107,7 +107,7 @@ class Data_Handler():
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
         filename = r'Data/' + filename
-        data_read = pd.read_csv(filename, header=90, index_col='Timestamp') # FIXME 'Timestamp' DOES NOT EXISTS IN STORE DATA YET.
+        data_read = pd.read_csv(filename, header=90, index_col='Timestamp')  # TODO Test
 
         return data_read
 
@@ -170,7 +170,7 @@ class Data_Handler():
 
         # Join Timestamp to all_data and set it as Index
         self.all_data = timedf.join(self.all_data)
-        self.all_data.set_index('timestamp')
+        self.all_data.set_index('Timestamp')
 
         if log:
             print(self.all_data)

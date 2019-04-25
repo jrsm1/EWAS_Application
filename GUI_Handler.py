@@ -278,7 +278,6 @@ def close_filename_editor_window():
     filename_input_win.close()
 
 
-# TODO Validate
 def begin_visualization():
     """
     Begins Visualization Analysis for user selected plots.
@@ -317,6 +316,7 @@ def begin_visualization():
 def validate_file_path(path: str):
     """
     Ensures Data Files is opened from within allowed path.
+    Also verifies if Filename ends in .csv for redundancy as the File Explorer already does this.
 
     :param path: User requested file path [may be file name with full path.]
 
@@ -324,17 +324,19 @@ def validate_file_path(path: str):
     """
     validated = True
 
-    path = path.split('\\')
-    path = path[len(path)-3] + '\\' + path[len(path)-2]
+    # Keep to validate Filename : Done like this to maintain Code clarity and naming convention on functions.
+    filename = path
+
+    path = path.split('/')
+    path = path[len(path)-3] + '/' + path[len(path)-2]
 
     valid_path = str(__file__).split('\\')
-    valid_path = valid_path[len(valid_path)-2] + '\\Data'
+    valid_path = valid_path[len(valid_path)-2] + '/Data'
 
     if path != valid_path:  # If not
         validated = False
 
-
-    return validated
+    return (validated and validate_filename(filename))
 
 
 def validate_visualize_sensor_selection(max_sensors: int):
@@ -1254,12 +1256,16 @@ viz_sens_1_dropdown = viz_sensor_sel_win.sensor_1_DropDown
 viz_sens_2_dropdown = viz_sensor_sel_win.sensor_2_DropDown
 viz_next_btn = viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: begin_visualization())
 
-# TODO create constant variables to hold plot int values --> code cleanup
-main_window.actionTime.triggered.connect(lambda: do_plot(1))
-main_window.actionFrequency.triggered.connect(lambda: do_plot(2))
-main_window.actionAuto_Power.triggered.connect(lambda: do_plot(3))
-main_window.actionCross_Power.triggered.connect(lambda: do_plot(4))
-main_window.actionCoherence.triggered.connect(lambda: do_plot(5))
+TIME_PLOT = 1
+FREQ_PLOT = 2
+APS_PLOT = 3
+CPS_PLOT = 4
+COHERENCE_PLOT = 5
+main_window.actionTime.triggered.connect(lambda: do_plot(TIME_PLOT))
+main_window.actionFrequency.triggered.connect(lambda: do_plot(FREQ_PLOT))
+main_window.actionAuto_Power.triggered.connect(lambda: do_plot(APS_PLOT))
+main_window.actionCross_Power.triggered.connect(lambda: do_plot(CPS_PLOT))
+main_window.actionCoherence.triggered.connect(lambda: do_plot(COHERENCE_PLOT))
 
 # Variable to know which method called the plot signal after Visualization Sensor Selection Window NEXT called.
 visualization_values = {
@@ -1595,7 +1601,6 @@ def validate_filename(filename: str):
 # ****** ACTIONS STORE/LOAD **********
 
 def action_store_DAQ_Params():
-    # TODO Make Sure Files are not empty.
     # Get filename from User
     show_filename_editor_window()
     filename = fn_in.text()
@@ -1629,7 +1634,6 @@ def action_load_DAQ_Params():
 
 
 def action_store_Location():
-    # TODO Make Sure Files are not empty.
     # Get filename from User
     show_filename_editor_window()
     filename = fn_in.text()
@@ -1670,7 +1674,6 @@ def action_load_Location():
 
 
 def action_store_Rec_Setts():
-    # TODO Make Sure Files are not empty.
     # Get filename from User
     # show_filename_editor_window()
     filename = fn_in.text()
@@ -1700,7 +1703,7 @@ def action_load_Rec_Setts():
 
 
 # ********************************************* LOCATION ***************************************************************
-def sync_gps():  # TODO TEST
+def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
     # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
@@ -1714,11 +1717,11 @@ def sync_gps():  # TODO TEST
         synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
             print('GPS Waiting....')
-            sleep(0.500)  # Wait for half a second before asking again.
+            sleep(0.500)  # Wait for half a second before asking again. TODO VERIFY
             timeout += 1
             prog_dlg.progress_dialog_progressBar.setValue(timeout * 2)
             app.processEvents()
-            if timeout == 45:  # = [desired timeout in seconds] * [1/(sleep value)]
+            if timeout == 45:
                 # prog_dlg.close()
                 prog_dlg.progress_dialog_progressBar.setValue(100)
                 show_error('GPS Failed to Synchronize.')
