@@ -148,8 +148,9 @@ recorded = 0
 stored = 0
 gps_sync = 0
 ins_port = 'COM-1'
-
-
+start_diagnose_decision = 0
+START_TEST = 1
+DIAGNOSE = 2
 
 
 def show_main_window():
@@ -267,7 +268,6 @@ def close_filename_editor_window():
     filename_input_win.close()
 
 
-# TODO Validate
 def begin_visualization():
     """
     Begins Visualization Analysis for user selected plots.
@@ -296,7 +296,7 @@ def begin_visualization():
             elif plot == 6:
                 plot_cohere(filename)
 
-                close_visualization_sensor_selection_window()
+            close_visualization_sensor_selection_window()
         else:
             show_error('Sensor not selected.')
     else:
@@ -306,6 +306,7 @@ def begin_visualization():
 def validate_file_path(path: str):
     """
     Ensures Data Files is opened from within allowed path.
+    Also verifies if Filename ends in .csv for redundancy as the File Explorer already does this.
 
     :param path: User requested file path [may be file name with full path.]
 
@@ -313,17 +314,19 @@ def validate_file_path(path: str):
     """
     validated = True
 
-    path = path.split('\\')
-    path = path[len(path)-3] + '\\' + path[len(path)-2]
+    # Keep to validate Filename : Done like this to maintain Code clarity and naming convention on functions.
+    filename = path
+
+    path = path.split('/')
+    path = path[len(path)-3] + '/' + path[len(path)-2]
 
     valid_path = str(__file__).split('\\')
-    valid_path = valid_path[len(valid_path)-2] + '\\Data'
+    valid_path = valid_path[len(valid_path)-2] + '/Data'
 
     if path != valid_path:  # If not
         validated = False
 
-
-    return validated
+    return (validated and validate_filename(filename))
 
 
 def validate_visualize_sensor_selection(max_sensors: int):
@@ -655,16 +658,14 @@ def get_module_and_sensors_selected():
     sensors_selected = "0000"
     correct = 1
     index = 0
+    modules_selected = set()
     for i in main_sensor_selection_list:
         index += 1
         if i.checkState() == 2:
-            count = count + 1
             module = str(int((index - 1) / 4) + 1)
             sensor = str(((index - 1) % 4) + 1)
             sensors_selected = module + sensor + sensors_selected
-        if count > 2:  # limit
-            correct = 0
-            break
+            modules_selected.add(module)
 
     if log: print("sensors selected are: ", sensors_selected)
 
@@ -687,12 +688,19 @@ def get_sensor_enabled():
     return sensor_enable
 
 
-def start_acquisition():
+def start_acquisition(who_called: int):
     """
     Begin Acquisition Process
     """
+    global start_diagnose_decision
+
     if snapshot_data():
-        store_data_window.show()
+        # Find out who called me
+        if who_called == START_TEST:
+            start_diagnose_decision = START_TEST
+        elif who_called == DIAGNOSE:
+            start_diagnose_decision = DIAGNOSE
+        show_main_sens_sel_window()
 
 
 # def sensor_sel_start():
@@ -710,11 +718,12 @@ def start_acquisition():
 
 
 def save_port():
-    port = 'COM-1'
     global ins_port
+    port = 'COM-1'
     pid = "0403"
     hid = "6001"
     ports = list(serial.tools.list_ports.comports())
+
     for p in ports:
         if pid and hid in p.hwid:
             port = p.device
@@ -1137,8 +1146,7 @@ module_8_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Main Sensor Selection
-main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
-    lambda: action_begin_recording())  # Close() DONE in UI.
+main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: action_begin_recording(start_diagnose_decision))
 main_sensor_sel_win.sensor_select_MAX_Label
 win_sens_1 = main_sensor_sel_win.Sensor_1
 win_sens_2 = main_sensor_sel_win.Sensor_2
@@ -1243,12 +1251,16 @@ viz_sens_1_dropdown = viz_sensor_sel_win.sensor_1_DropDown
 viz_sens_2_dropdown = viz_sensor_sel_win.sensor_2_DropDown
 viz_next_btn = viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: begin_visualization())
 
-# TODO create constant variables to hold plot int values --> code cleanup
-main_window.actionTime.triggered.connect(lambda: do_plot(1))
-main_window.actionFrequency.triggered.connect(lambda: do_plot(2))
-main_window.actionAuto_Power.triggered.connect(lambda: do_plot(3))
-main_window.actionCross_Power.triggered.connect(lambda: do_plot(4))
-main_window.actionCoherence.triggered.connect(lambda: do_plot(5))
+TIME_PLOT = 1
+FREQ_PLOT = 2
+APS_PLOT = 3
+CPS_PLOT = 4
+COHERENCE_PLOT = 5
+main_window.actionTime.triggered.connect(lambda: do_plot(TIME_PLOT))
+main_window.actionFrequency.triggered.connect(lambda: do_plot(FREQ_PLOT))
+main_window.actionAuto_Power.triggered.connect(lambda: do_plot(APS_PLOT))
+main_window.actionCross_Power.triggered.connect(lambda: do_plot(CPS_PLOT))
+main_window.actionCoherence.triggered.connect(lambda: do_plot(COHERENCE_PLOT))
 
 # Variable to know which method called the plot signal after Visualization Sensor Selection Window NEXT called.
 visualization_values = {
@@ -1350,7 +1362,8 @@ cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
-main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
+main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition(START_TEST))
+
 # File Name
 fn_in = filename_input_win.filename_lineEdit
 fn_in.returnPressed.connect(lambda: do_saving_loading_action())
@@ -1413,7 +1426,7 @@ def suggest_sampling_freq():
         samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
 
-def action_begin_recording():
+def action_begin_recording(start_diagnose: int):
     """
     Prepares GUI and sends request to control module for begin recording data.
     """
@@ -1422,29 +1435,31 @@ def action_begin_recording():
     try:
         configuration = setting_data_manager.settings_to_string()
         sens = get_module_and_sensors_selected()
-        if log: print("sensors selected are ", sens)
         sensors_enabled = get_sensor_enabled()
-        main_sensor_sel_win.close()
-        if configuration:
-            ins = ins_man.instruction_manager(ins_port)
-            ins.send_set_configuration(configuration)
-            bool = ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index,
-                                          daq_config.gain_index,
-                                          daq_config.recording_configs["test_duration"],
-                                          daq_config.recording_configs["test_start_delay"],
-                                          daq_config.data_handling_configs["store"], sensors_enabled,
-                                          "Not Used", "Not Used")
-            # Send Begin Recording FLAG to Control Module.
-            print("sent was " + str(bool))
-            if bool: sent = True
+        ins = ins_man.instruction_manager(ins_port)
+        ins.send_set_configuration(setting_data_manager.settings_to_string())
+        # Send Begin Recording FLAG to Control Module.
+        if start_diagnose == START_TEST:
+            if configuration:
+                ins = ins_man.instruction_manager(ins_port)
+                ins.send_set_configuration(configuration)
+                bool = ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index,
+                                                     daq_config.gain_index,
+                                                     daq_config.recording_configs["test_duration"],
+                                                     daq_config.recording_configs["test_start_delay"],
+                                                     daq_config.data_handling_configs["store"], sensors_enabled,
+                                                     "Not Used", "Not Used")
+                # Send Begin Recording FLAG to Control Module.
+                print("sent was " + str(bool))
+                if bool: sent = True
             ins.send_request_start()
-            # Close Window
-            main_sensor_sel_win.close()
-            # del ins
-            check_status_during_test(ins)
+        elif start_diagnose == DIAGNOSE:
+            ins.send_diagnose_request()
+        # Close Window
+        main_sensor_sel_win.close()
+        check_status_during_test(ins)
     except serial.SerialException:
         show_not_connected_error()
-    # if sent: check_status_during_test()
 
 
 def check_status_during_test(ins):
@@ -1484,7 +1499,7 @@ def get_all_data():
     data = ''
     try:
         ins = ins_man.instruction_manager(ins_port)
-        data = ins.send_request()
+        data = ins.send_request_all_data()
         prog_dlg.close()
     except serial.SerialException:
         data = ''
@@ -1607,7 +1622,6 @@ def validate_filename(filename: str):
 # ****** ACTIONS STORE/LOAD **********
 
 def action_store_DAQ_Params():
-    # TODO Make Sure Files are not empty.
     # Get filename from User
     show_filename_editor_window()
     filename = fn_in.text()
@@ -1635,7 +1649,6 @@ def action_load_DAQ_Params():
 
 
 def action_store_Location():
-    # TODO Make Sure Files are not empty.
     # Get filename from User
     show_filename_editor_window()
     filename = fn_in.text()
@@ -1676,7 +1689,6 @@ def action_load_Location():
 
 
 def action_store_Rec_Setts():
-    # TODO Make Sure Files are not empty.
     # Get filename from User
     # show_filename_editor_window()
     filename = fn_in.text()
@@ -1706,7 +1718,8 @@ def action_load_Rec_Setts():
 
 
 # ********************************************* LOCATION ***************************************************************
-def sync_gps():  # TODO TEST
+def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
+    # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
     prog_dlg.progress_dialog_progressBar.setMaximum(100)
@@ -1718,7 +1731,7 @@ def sync_gps():  # TODO TEST
         synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
             print('GPS Waiting....')
-            sleep(0.500)  # Wait for half a second before asking again.
+            sleep(0.500)  # Wait for half a second before asking again. TODO VERIFY
             timeout += 1
             prog_dlg.progress_dialog_progressBar.setValue(timeout * 2)
             app.processEvents()
