@@ -34,6 +34,7 @@ maximum_duration = {
     'Please Select': -1
 }
 
+gps_loop = True
 
 def show_error(message: str):
     """
@@ -229,10 +230,13 @@ def show_main_sens_sel_window():
     """
     Opens Sensor Selection Window for Recording
     """
-    if enable_main_start_connected_sensors():
-        main_sensor_sel_win.show()
-    else:
-        show_error('No Modules Connected.')
+    try:
+        if enable_main_start_connected_sensors():
+            main_sensor_sel_win.show()
+        else:
+            show_error('No Modules Connected.')
+    except serial.SerialException:
+        show_not_connected_error()
 
 
 def show_progress_dialog(message: str):
@@ -736,62 +740,59 @@ def save_port():
 def enable_main_start_connected_sensors():
     # TODO TEST
     continuar = False
-    try:
-        ins = ins_man.instruction_manager(ins_port)
-        connected_module_list = ins.send_request_number_of_mods_connected()
-        if log: print("entered enable start")
-        if connected_module_list[0]:
-            win_sens_1.setEnabled(True)
-            win_sens_2.setEnabled(True)
-            win_sens_3.setEnabled(True)
-            win_sens_4.setEnabled(True)
-            continuar = True
-        if connected_module_list[1]:
-            win_sens_5.setEnabled(True)
-            win_sens_6.setEnabled(True)
-            win_sens_7.setEnabled(True)
-            win_sens_8.setEnabled(True)
-            continuar = True
-        if connected_module_list[2]:
-            win_sens_9.setEnabled(True)
-            win_sens_10.setEnabled(True)
-            win_sens_11.setEnabled(True)
-            win_sens_12.setEnabled(True)
-            continuar = True
-        if connected_module_list[3]:
-            win_sens_13.setEnabled(True)
-            win_sens_14.setEnabled(True)
-            win_sens_15.setEnabled(True)
-            win_sens_16.setEnabled(True)
-            continuar = True
-        if connected_module_list[4]:
-            win_sens_17.setEnabled(True)
-            win_sens_18.setEnabled(True)
-            win_sens_19.setEnabled(True)
-            win_sens_20.setEnabled(True)
-            continuar = True
-        if connected_module_list[5]:
-            win_sens_21.setEnabled(True)
-            win_sens_22.setEnabled(True)
-            win_sens_23.setEnabled(True)
-            win_sens_24.setEnabled(True)
-            continuar = True
-        if connected_module_list[6]:
-            win_sens_25.setEnabled(True)
-            win_sens_26.setEnabled(True)
-            win_sens_27.setEnabled(True)
-            win_sens_28.setEnabled(True)
-            continuar = True
-        if connected_module_list[7]:
-            win_sens_29.setEnabled(True)
-            win_sens_30.setEnabled(True)
-            win_sens_31.setEnabled(True)
-            win_sens_32.setEnabled(True)
-            continuar = True
-        if log: print("got out of enable start connected sensors")
-        # If not Connected to not continue.
-    except serial.SerialException:
-        show_not_connected_error()
+    ins = ins_man.instruction_manager(ins_port)
+    connected_module_list = ins.send_request_number_of_mods_connected()
+    if log: print("entered enable start")
+    if connected_module_list[0]:
+        win_sens_1.setEnabled(True)
+        win_sens_2.setEnabled(True)
+        win_sens_3.setEnabled(True)
+        win_sens_4.setEnabled(True)
+        continuar = True
+    if connected_module_list[1]:
+        win_sens_5.setEnabled(True)
+        win_sens_6.setEnabled(True)
+        win_sens_7.setEnabled(True)
+        win_sens_8.setEnabled(True)
+        continuar = True
+    if connected_module_list[2]:
+        win_sens_9.setEnabled(True)
+        win_sens_10.setEnabled(True)
+        win_sens_11.setEnabled(True)
+        win_sens_12.setEnabled(True)
+        continuar = True
+    if connected_module_list[3]:
+        win_sens_13.setEnabled(True)
+        win_sens_14.setEnabled(True)
+        win_sens_15.setEnabled(True)
+        win_sens_16.setEnabled(True)
+        continuar = True
+    if connected_module_list[4]:
+        win_sens_17.setEnabled(True)
+        win_sens_18.setEnabled(True)
+        win_sens_19.setEnabled(True)
+        win_sens_20.setEnabled(True)
+        continuar = True
+    if connected_module_list[5]:
+        win_sens_21.setEnabled(True)
+        win_sens_22.setEnabled(True)
+        win_sens_23.setEnabled(True)
+        win_sens_24.setEnabled(True)
+        continuar = True
+    if connected_module_list[6]:
+        win_sens_25.setEnabled(True)
+        win_sens_26.setEnabled(True)
+        win_sens_27.setEnabled(True)
+        win_sens_28.setEnabled(True)
+        continuar = True
+    if connected_module_list[7]:
+        win_sens_29.setEnabled(True)
+        win_sens_30.setEnabled(True)
+        win_sens_31.setEnabled(True)
+        win_sens_32.setEnabled(True)
+        continuar = True
+    if log: print("got out of enable start connected sensors")
+    # If not Connected to not continue.
 
     return continuar
 
@@ -810,8 +811,6 @@ def check_status():
     except serial.SerialException:
         show_not_connected_error()
         return False
-    except Exceptions.noPowerException:
-        show_error('The Control Module appears to be disconnected or has a major power problem.')
 
 
 # trying a close event function
@@ -1464,8 +1463,6 @@ def action_begin_recording(start_diagnose: int):
         check_status_during_test(ins)
     except serial.SerialException:
         show_not_connected_error()
-    except Exceptions.noPowerException:
-        show_error('The Control Module appears to be disconnected or has a major power problem.')
 
 
 def check_status_during_test(ins):
@@ -1520,9 +1517,11 @@ def action_cancel_everything():
 
     Called by user when CANCEL action is desired.
     """
+    global gps_loop
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_cancel_request()
+        gps_loop = False
     except serial.SerialException:
         show_not_connected_error()
 
@@ -1730,6 +1729,8 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
     show_acquire_dialog('GPS Signal')
     prog_dlg.progress_dialog_progressBar.setMaximum(100)
     prog_dlg.progress_dialog_progressBar.setValue(0)
+    app.processEvents()
+    global gps_loop
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
@@ -1741,8 +1742,7 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
             timeout += 1
             prog_dlg.progress_dialog_progressBar.setValue(timeout * 2)
             app.processEvents()
-            if timeout == 45:  # = [desired timeout in seconds] * [1/(sleep value)]
-                # prog_dlg.close()
+            if timeout == 45 or not gps_loop:  # = [desired timeout in seconds] * [1/(sleep value)]
                 prog_dlg.progress_dialog_progressBar.setValue(100)
                 show_error('GPS Failed to Synchronize.')
                 prog_dlg.close()
@@ -1757,8 +1757,6 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
     except serial.SerialException:
         prog_dlg.close()
         show_not_connected_error()
-    except Exceptions.noPowerException:
-        show_error('The Control Module appears to be disconnected or has a major power problem.')
 
 
 def load_local_settings_to_gui():

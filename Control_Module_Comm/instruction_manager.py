@@ -226,7 +226,7 @@ class instruction_manager():
             status.append(int(line[3]))# gps_synched
             if log: print("instruction status = " + str(status))
             return status
-        raise Exceptions.noPowerException
+        # raise Exceptions.noPowerException('The Control Module appears to be disconnected or has a major power problem.')
         return [-1, -1, -1]
 
     def send_request_configuration_validity(self):
