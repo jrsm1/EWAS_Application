@@ -22,11 +22,11 @@ class instruction_manager():
             return 1
         return 0
 
-    """
-    requests configuration
-    """
 
     def send_request_configuration(self):
+        """
+        requests configuration
+        """
         self.serial_interface.send_instruction(b'\x81')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -37,11 +37,11 @@ class instruction_manager():
             return line
         return 0
 
-    """
-    send an instruction byte to request start 
-    """
 
     def send_request_start(self):
+        """
+        send an instruction byte to request start
+        """
         self.serial_interface.send_instruction(b'\x82')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -50,11 +50,11 @@ class instruction_manager():
             return 1
         return 0
 
-    """
-    this is for requesting the number of modules that the device has connected at any one time. it returns 
-    """
 
     def send_request_number_of_mods_connected(self):
+        """
+        this is for requesting the number of modules that the device has connected at any one time. it returns
+        """
         self.serial_interface.send_instruction(b'\x84')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -80,12 +80,12 @@ class instruction_manager():
         if line == b'\x88':
             if log: print("send live stream request successful")
 
-    """
-    instruction to request all data. sends a single byte for instruction
-    the byte in hexadecimal is x86
-    """
 
     def send_request_all_data(self):
+        """
+        instruction to request all data. sends a single byte for instruction
+        the byte in hexadecimal is x86
+        """
         self.serial_interface.send_instruction(b'\x86')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -142,11 +142,11 @@ class instruction_manager():
             return line1
         return 0
 
-    """
-    must be called while visualize is active. as in in a while loop.
-    """
 
     def send_request_live_bytes(self):
+        """
+        must be called while visualize is active. as in in a while loop.
+        """
         self.serial_interface.send_instruction(b'\x88')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -158,14 +158,14 @@ class instruction_manager():
             return line
         return 0
 
-    """
-    request the gps data as a string. still needs post processing.
-    returns a string formatted a certain way.
-    returns a string formatted a certain way.
-    format pending.
-    """
 
     def send_gps_data_request(self):
+        """
+        request the gps data as a string. still needs post processing.
+        returns a string formatted a certain way.
+        returns a string formatted a certain way.
+        format pending.
+        """
         self.serial_interface.send_instruction(b'\x89')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -226,7 +226,7 @@ class instruction_manager():
             status.append(int(line[3]))# gps_synched
             if log: print("instruction status = " + str(status))
             return status
-        raise Exceptions.noPowerException
+        # raise Exceptions.noPowerException
         return [-1, -1, -1]
 
     def send_request_configuration_validity(self):

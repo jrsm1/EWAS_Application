@@ -19,7 +19,6 @@ class serial_interface():
             timeout=1)
         print("connected to: " + self.ser.portstr)
 
-
     """
     listen will block until it receives a tranmission ending with
     bytes \r\n and then it will return it to it's caller. it would be advantegous to use it as a thread. 
@@ -29,18 +28,18 @@ class serial_interface():
         ser = self.ser
         line = ser.readline()
         if log: print("entered listen")
-        # while not line:
-        line = ser.readline()
-            # continue
+        while not line:
+            line = ser.readline()
+            continue
         if log: print("received: " + str(line))
         if log: print("left listen")
         return line
 
-    """
-    send a string of data. this function will automatically close the data being sent. 
-    """
 
     def send_string(self, string):
+        """
+        send a string of data. this function will automatically close the data being sent.
+        """
         st = bytes(string, 'ascii')
         self.ser.write(st)
 

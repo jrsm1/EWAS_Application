@@ -290,7 +290,7 @@ def begin_visualization():
 
             close_visualization_sensor_selection_window()
 
-        if validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
+        elif validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
             if plot == 4:
                 plot_cps(filename)
             elif plot == 5:
@@ -1324,7 +1324,7 @@ def disable_viz_2_dropdown():
                                       'font: 14pt "MS Shell Dlg 2";'
                                       'color: rgb(162, 162, 162);')
 
-def enable_viz_2_dropdown(widget: QtWidgets):
+def enable_viz_2_dropdown():
     viz_sens_2_dropdown.setCurrentIndex(0)
     viz_sens_2_dropdown.setEnabled(True)
     viz_sens_2_dropdown.setStyleSheet('background-color: rgb(255, 255, 255);'
