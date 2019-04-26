@@ -27,6 +27,7 @@
 * [X] Directory View Defaults to Config Directory.
 * [X] Storing and Loading DAQ Params from Dedicated Distinct Directories.
 
+
 # To-Do
 * [x] Initialize Widgets.
 * [ ] Code Basic Functionality to GUI Widgets and Components.
@@ -52,4 +53,5 @@ $ [ ] Bug Acquire GPS Dialog waits for it to finish sync to display progressBar 
 $ [X] $ Bug where Main Selection Matrix shows when not connected.
 $ [ ] $ Bug 'File does not exists' Error showing when selecting file from File Explorer.
     $ [ ] Bug File Explorer shows full path.
+$ [X] $ Visualization Sensor Disable and Enables Changing StyleSheet.
 

@@ -1294,32 +1294,43 @@ def do_plot(plot: int):
     if plot == 1:
         viz_name_label.setText('Plot Raw Data Against Time. <br>'
                                'Please Select Only one Sensor.')
-        viz_sens_2_dropdown.setCurrentIndex(0)
-        viz_sens_2_dropdown.setEnabled(False)
-
+        disable_viz_2_dropdown()
     elif plot == 2:
         viz_name_label.setText('Plot Frequency Spectrum. <br>'
                                'Please Select Only one Sensor.')
-        viz_sens_2_dropdown.setCurrentIndex(0)
-        viz_sens_2_dropdown.setEnabled(False)
+        disable_viz_2_dropdown()
 
     elif plot == 3:
         viz_name_label.setText('Plot Auto-Power Spectrum. <br>'
                                'Please Select Only one Sensor.')
-        viz_sens_2_dropdown.setCurrentIndex(0)
-        viz_sens_2_dropdown.setEnabled(False)
+        disable_viz_2_dropdown()
 
     elif plot == 4:
         viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
                                'Please Select Two Sensor.')
-        viz_sens_2_dropdown.setEnabled(True)
+        enable_viz_2_dropdown()
 
     elif plot == 5:
         viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
                                'Please Select Two Sensor.')
-        viz_sens_2_dropdown.setEnabled(True)
+        enable_viz_2_dropdown()
 
     show_visualization_sensor_selector_window()
+
+def disable_viz_2_dropdown():
+    viz_sens_2_dropdown.setCurrentIndex(0)
+    viz_sens_2_dropdown.setEnabled(False)
+    viz_sens_2_dropdown.setStyleSheet('background-color: rgb(255, 255, 255);'
+                                      'font: 14pt "MS Shell Dlg 2";'
+                                      'color: rgb(162, 162, 162);')
+
+def enable_viz_2_dropdown(widget: QtWidgets):
+    viz_sens_2_dropdown.setCurrentIndex(0)
+    viz_sens_2_dropdown.setEnabled(True)
+    viz_sens_2_dropdown.setStyleSheet('background-color: rgb(255, 255, 255);'
+                                      'font: 14pt "MS Shell Dlg 2";'
+                                      'color: rgb(0, 0, 0);')
+
 
 
 # RECORDING  Settings
