@@ -150,25 +150,13 @@ gps_sync = 0
 ins_port = 'COM-1'
 
 
+
+
 def show_main_window():
     """
     Displays Main Window on Computer's Screen.
     """
     main_window.show()
-
-
-def disable_main_window():
-    """
-        Disables Input for every Widget inside Main Window.
-    """
-    main_window.setEnabled(False)
-
-
-def enable_main_window():
-    """
-        Disables Input for every Widget inside Main Window.
-    """
-    main_window.setEnabled(True)
 
 
 def open_module_selection_window():
@@ -236,11 +224,12 @@ def show_channel_info_window(module: int):
 
 def show_main_sens_sel_window():
     """
-        Opens Sensor Selection Window for Recording
+    Opens Sensor Selection Window for Recording
     """
-    # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     if enable_main_start_connected_sensors():
         main_sensor_sel_win.show()
+    else:
+        show_error('No Modules Connected.')
 
 
 def show_progress_dialog(message: str):
@@ -307,7 +296,7 @@ def begin_visualization():
             elif plot == 6:
                 plot_cohere(filename)
 
-            close_visualization_sensor_selection_window()
+                close_visualization_sensor_selection_window()
         else:
             show_error('Sensor not selected.')
     else:
@@ -394,16 +383,6 @@ def set_recording_into_gui():
     rec_type_dropdown.setCurrentText(str(daq_config.recording_configs['test_type']))
     delay_edit.setText(str(daq_config.recording_configs['test_start_delay']))
 
-    # if daq_config.data_handling_configs['visualize']:
-    #     rec_viz_checkbox.setCheckState(2)  # Qt::Checked	2
-    # else:
-    #     rec_viz_checkbox.setCheckState(0)
-    #
-    # if daq_config.data_handling_configs['store']:
-    #     rec_store_checkbox.setCheckState(2)
-    # else:
-    #     rec_store_checkbox.setCheckState(0)  # Qt::Unchecked	0
-
 
 def set_daq_params_to_gui():
     """
@@ -428,16 +407,6 @@ def get_rec_setts_from_gui():
     daq_config.recording_configs['test_duration'] = int(main_window.main_tab_RecordingSettings_durationLineEdit.text())
     daq_config.recording_configs['test_start_delay'] = int(main_window.main_tab_RecordingSettings_delay_LineEdit.text())
     daq_config.recording_configs['test_type'] = str(main_window.main_tab_RecordingSettings_type_DropDown.currentText())
-    """
-    QCheckbox, needs checkState() to get the state.
-    There are two states.
-    2 = checked
-    0 = unchecked
-    """
-    # daq_config.recording_configs['visualize'] = main_window.main_tab_RecordingSettings_visualize_checkBox.isChecked()  # isChecked() returns
-    # BOOLEAN
-    # daq_config.recording_configs['store'] = main_window.main_tab_RecordingSettings_store_checkBox.isChecked()  # isChecked() returns BOOLEAN
-    # if log: print(daq_config.recording_configs['visualize'], daq_config.recording_configs['store'])
 
 
 def get_daq_params_from_gui():
@@ -564,6 +533,21 @@ def validate_gps_location_settings():
         return error_string
 
 
+def validate_daq_params():
+    there_is_no_error = True
+    error_string = ''
+    sampling_rate = main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()
+    cutoff = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown.currentText()
+    gain = main_window.main_tab_DAQParams_gain_DropDown.currentText()
+    if sampling_rate == 'Please Select' or cutoff == 'Please Select' or gain == 'Please Select':
+        error_string += 'Error: Invalid Signal Parameters. ' \
+                        'Please select a valid option from the dropdowns.<br>'
+        there_is_no_error = False
+    else:
+        get_daq_params_from_gui()
+    return error_string
+
+
 def validate_module_location_settings():
     there_is_no_error = True
     error_string = ""
@@ -646,6 +630,10 @@ def snapshot_data():
             error_string += validate_module_location_settings()
             there_is_no_error = False
 
+    if not validate_daq_params() == '':
+        error_string += validate_daq_params()
+        there_is_no_error = False
+
     if there_is_no_error:
         get_rec_setts_from_gui()
         get_location_from_gui()
@@ -704,27 +692,21 @@ def start_acquisition():
     Begin Acquisition Process
     """
     if snapshot_data():
-        show_main_sens_sel_window()
+        store_data_window.show()
 
 
-def sensor_sel_start():
-    sens = get_module_and_sensors_selected()
-    if log: print("sensors selected are ", sens)
-    sensors_enabled = get_sensor_enabled()
-
-    main_sensor_sel_win.close()
-    try:
-        ins = ins_man.instruction_manager(ins_port)
-        # def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
-        ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index,
-                                      daq_config.gain_index,
-                                      "0100", "0100", daq_config.data_handling_configs["store"], sensors_enabled,
-                                      "test name", "test location")
-        enable_main_window()
-        if log:
-            print("came back to sensor_sel_start")
-    except serial.SerialException:
-        show_not_connected_error()
+# def sensor_sel_start():
+#
+#     try:
+#         ins = ins_man.instruction_manager(ins_port)
+#         # def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
+#         ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index, daq_config.gain_index,
+#                                       "0100", "0100", daq_config.data_handling_configs["store"], sensors_enabled, "Not Used", "Not Used")
+#         enable_main_window()
+#         if log:
+#             print("came back to sensor_sel_start")
+#     except serial.SerialException:
+#         show_not_connected_error()
 
 
 def save_port():
@@ -742,7 +724,7 @@ def save_port():
 
 def enable_main_start_connected_sensors():
     # TODO TEST
-    continuar = True
+    continuar = False
     try:
         ins = ins_man.instruction_manager(ins_port)
         connected_module_list = ins.send_request_number_of_mods_connected()
@@ -752,45 +734,52 @@ def enable_main_start_connected_sensors():
             win_sens_2.setEnabled(True)
             win_sens_3.setEnabled(True)
             win_sens_4.setEnabled(True)
+            continuar = True
         if connected_module_list[1]:
             win_sens_5.setEnabled(True)
             win_sens_6.setEnabled(True)
             win_sens_7.setEnabled(True)
             win_sens_8.setEnabled(True)
+            continuar = True
         if connected_module_list[2]:
             win_sens_9.setEnabled(True)
             win_sens_10.setEnabled(True)
             win_sens_11.setEnabled(True)
             win_sens_12.setEnabled(True)
+            continuar = True
         if connected_module_list[3]:
             win_sens_13.setEnabled(True)
             win_sens_14.setEnabled(True)
             win_sens_15.setEnabled(True)
             win_sens_16.setEnabled(True)
+            continuar = True
         if connected_module_list[4]:
             win_sens_17.setEnabled(True)
             win_sens_18.setEnabled(True)
             win_sens_19.setEnabled(True)
             win_sens_20.setEnabled(True)
+            continuar = True
         if connected_module_list[5]:
             win_sens_21.setEnabled(True)
             win_sens_22.setEnabled(True)
             win_sens_23.setEnabled(True)
             win_sens_24.setEnabled(True)
+            continuar = True
         if connected_module_list[6]:
             win_sens_25.setEnabled(True)
             win_sens_26.setEnabled(True)
             win_sens_27.setEnabled(True)
             win_sens_28.setEnabled(True)
+            continuar = True
         if connected_module_list[7]:
             win_sens_29.setEnabled(True)
             win_sens_30.setEnabled(True)
             win_sens_31.setEnabled(True)
             win_sens_32.setEnabled(True)
+            continuar = True
         if log: print("got out of enable start connected sensors")
         # If not Connected to not continue.
     except serial.SerialException:
-        continuar = False
         show_not_connected_error()
 
     return continuar
@@ -1371,16 +1360,20 @@ fn_CANCEL_btn = filename_input_win.filename_CANCEL_button.clicked.connect(lambda
 
 # Store Data Dialog
 yes_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('yes'))
-no_button = store_data_window.store_data_yes_button.clicked.connect(lambda: store_data('no'))
+no_button = store_data_window.store_data_no_button.clicked.connect(lambda: store_data('no'))
+
 
 
 # ----------------------------------------------- MAIN WINDOW ------------------------------------------------------
 
 def store_data(yes: str):
+    store_data_window.close()
     if yes:
         daq_config.data_handling_configs["store"] = '1111'
     else:
         daq_config.data_handling_configs["store"] = '0000'
+    show_main_sens_sel_window()
+
 
 
 def check_sampling_rate():
@@ -1416,7 +1409,7 @@ def check_duration():
 
 
 def suggest_sampling_freq():
-    if samfreq_dropdown.currentText() != 'Plase Select':
+    if samfreq_dropdown.currentText() != 'Please Select':
         samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
 
@@ -1425,43 +1418,63 @@ def action_begin_recording():
     Prepares GUI and sends request to control module for begin recording data.
     """
     # Send Setting Information to Control Module.
+    sent = False
     try:
-        ins = ins_man.instruction_manager(ins_port)
-        ins.send_set_configuration(setting_data_manager.settings_to_string())
-        # Send Begin Recording FLAG to Control Module.
-        ins.send_request_start()
-        # Close Window
+        configuration = setting_data_manager.settings_to_string()
+        sens = get_module_and_sensors_selected()
+        if log: print("sensors selected are ", sens)
+        sensors_enabled = get_sensor_enabled()
         main_sensor_sel_win.close()
-        check_status_during_test()
+        if configuration:
+            ins = ins_man.instruction_manager(ins_port)
+            ins.send_set_configuration(configuration)
+            bool = ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index,
+                                          daq_config.gain_index,
+                                          daq_config.recording_configs["test_duration"],
+                                          daq_config.recording_configs["test_start_delay"],
+                                          daq_config.data_handling_configs["store"], sensors_enabled,
+                                          "Not Used", "Not Used")
+            # Send Begin Recording FLAG to Control Module.
+            print("sent was " + str(bool))
+            if bool: sent = True
+            ins.send_request_start()
+            # Close Window
+            main_sensor_sel_win.close()
+            # del ins
+            check_status_during_test(ins)
     except serial.SerialException:
         show_not_connected_error()
+    # if sent: check_status_during_test()
 
 
-def check_status_during_test():
+def check_status_during_test(ins):
     show_acquire_dialog('GPS Signal')
     prog_dlg.progress_dialog_progressBar.setMaximum(100)
     prog_dlg.progress_dialog_progressBar.setValue(0)
-    try:
-        ins = ins_man.instruction_manager(ins_port)
-        timeout = 0
-        test_successful = True  # Used to not request data if synched==False.
-        duration = daq_config.recording_configs['test_duration']
-        time_to_update_progress_bar = (duration / 100) + 2
-        bar_value = 0
-        while ins.send_request_status()[0] != 1:  # Status[2] --> gps_synched
-            if log: print('Waiting for test to finish....')
-            sleep(1)  # Wait for half a second before asking again.
-            timeout += 1
-            if timeout == time_to_update_progress_bar:
-                timeout = 0
-                prog_dlg.progress_dialog_progressBar.setValue(++bar_value)
-                app.processEvents()
-        if test_successful:
-            prog_dlg.close()
-            get_all_data()
-    except serial.SerialException:
-        show_not_connected_error()
+
+    # sleep(0)
+    # ins = ins_man.instruction_manager(ins_port)
+    timeout = 0
+    test_successful = True  # Used to not request data if synched==False.
+    duration = daq_config.recording_configs['test_duration']
+    time_to_update_progress_bar = (duration / 100) + 2
+    bar_value = 0
+    var = ins.send_request_status()
+    print("--ar = " + str(var))
+    while ins.send_request_status()[0] != 1:  # Status[2] --> gps_synched
+        if log: print('Waiting for test to finish....')
+        sleep(1)  # Wait for half a second before asking again.
+        timeout += 1
+        if timeout == time_to_update_progress_bar:
+            timeout = 0
+            prog_dlg.progress_dialog_progressBar.setValue(++bar_value)
+            app.processEvents()
+    if test_successful:
+        print('get all data')
         prog_dlg.close()
+        get_all_data()
+
+    prog_dlg.close()
 
 
 def get_all_data():
@@ -1471,7 +1484,7 @@ def get_all_data():
     data = ''
     try:
         ins = ins_man.instruction_manager(ins_port)
-        data = ins.send_request_all_data()
+        data = ins.send_request()
         prog_dlg.close()
     except serial.SerialException:
         data = ''
@@ -1489,7 +1502,6 @@ def action_cancel_everything():
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_cancel_request()
-        enable_main_window()
     except serial.SerialException:
         show_not_connected_error()
 
@@ -1608,12 +1620,6 @@ def action_store_DAQ_Params():
         filename_input_win.close()
 
 
-def validate_daq_params():
-    error = ''
-    get_daq_params_from_gui()
-    return error
-
-
 def action_load_DAQ_Params():
     relative_path = 'Config/DAQ/Signal'
     # Get filename from User
@@ -1701,7 +1707,6 @@ def action_load_Rec_Setts():
 
 # ********************************************* LOCATION ***************************************************************
 def sync_gps():  # TODO TEST
-    # disable_main_window()  # NOT Going to do. --> failed to re-enable correctly in all cases.
     # Show Progress Dialog.
     show_acquire_dialog('GPS Signal')
     prog_dlg.progress_dialog_progressBar.setMaximum(100)
@@ -1710,7 +1715,6 @@ def sync_gps():  # TODO TEST
         ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
         timeout = 0
-        time_to_sleep = 0.5
         synched = True  # Used to not request data if synched==False.
         while ins.send_request_status()[2] != 1:  # Status[2] --> gps_synched
             print('GPS Waiting....')
@@ -1732,8 +1736,8 @@ def sync_gps():  # TODO TEST
             ins.send_gps_data_request()
             set_gps_into_gui()
     except serial.SerialException:
-        show_not_connected_error()
         prog_dlg.close()
+        show_not_connected_error()
 
 
 def load_local_settings_to_gui():
@@ -1795,9 +1799,6 @@ def show_acquire_dialog(message: str):
     # Show Dialog & Set Message
     show_progress_dialog('Acquiring ' + message)
 
-    # Enable Main Window when done.  # FIXME Change to correct function.
-    # enable_main_window()
-
 
 # ****************************************** SENSOR & MODULE INFORMATION *********************************************
 # TODO TEST
@@ -1807,9 +1808,9 @@ def save_module_info(module: int):
     """
     # Get info from GUI.
     try:
-        connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
-        # ins = ins_man.instruction_manager(ins_port)  # FIXME UNCOMMENT FOR REAL
-        # connected_modules = ins.send_request_number_of_mods_connected()
+        # connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
+        ins = ins_man.instruction_manager(ins_port)  # FIXME UNCOMMENT FOR REAL
+        connected_modules = ins.send_request_number_of_mods_connected()
         if log: print("entered enable start")
         if module == 1:
             sensors_all[0] = Sensor_Individual.Sensor(sensor_name='Sensor_1',
@@ -2172,8 +2173,7 @@ def init():
         # sys.exit()
     else:
         sync_gps()
-    #     # show_error('Device is supposed to be Connected.')
-
+        # show_error('Device is supposed to be Connected.')
     # --------- TESTING ------------
     # validate_file_path(r'C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data\Huerta _nw301001.csv')
     # begin_visualization()

@@ -1,7 +1,6 @@
 import Control_Module_Comm.serial_interface as serial_interface
-import serial
 
-log = 0
+log = 1
 
 
 class instruction_manager():
@@ -208,7 +207,11 @@ class instruction_manager():
         self.serial_interface.send_instruction(b'\x83')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
-        status = [0, 0, 0]
+        if log: print('Received ' + str(line) + 'in send request status')
+        status = []
+        # while line != b'\x83':
+        #     line = self.serial_interface.listen()
+        #     if log:print("still in while")
         if line == b'\x83':
             if log: print("diagnose request successful")
             line = self.serial_interface.listen()
@@ -218,12 +221,12 @@ class instruction_manager():
             if log: print("line is", line)
             line = line.split("\\x")
             if log: print("line split gives = ", line)
-            status[0] = int(line[1])  # Recorded
-            status[1] = int(line[2])  # Stored
-            status[2] = int(line[3])  # gps_synched
+            status.append(int(0))  # Recorded
+            status.append(int(line[2])) # Stored
+            status.append(int(line[3]))# gps_synched
             if log: print("instruction status = " + str(status))
             return status
-        return 0
+        return -1
 
     def send_request_configuration_validity(self):
         self.serial_interface.send_instruction(b'\x8C')
