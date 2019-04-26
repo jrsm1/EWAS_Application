@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="changed all window functionality to GUI_Handler script.">
+    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="[X] Saved DEFAULT CONFIGURATIONS.">
+      <change afterPath="$PROJECT_DIR$/Exceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/Plot Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Important_Documents/Commit_Comments" beforeDir="false" afterPath="$PROJECT_DIR$/Important_Documents/Commit_Comments" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DAQ/Recording/Default_Configuration.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DAQ/Recording/Default_Configuration.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Qt_Files/main_window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,126 +20,66 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="197">
+              <caret line="205" column="18" selection-start-line="205" selection-start-column="18" selection-end-line="205" selection-end-column="18" />
               <folding>
-                <element signature="e#916#934#0" />
-                <element signature="e#964#1027#1" />
-                <element signature="e#1059#1088#0" />
-                <element signature="e#1090#1153#1" />
-                <element signature="e#1184#1212#0" />
-                <element signature="e#1215#1320#1" />
-                <element signature="e#1355#1442#0" />
-                <element signature="e#1445#1489#1" />
-                <element signature="e#1526#1549#0" />
-                <element signature="e#1552#1607#1" />
-                <element signature="e#1645#1697#0" />
-                <element signature="e#1732#1740#1" />
-                <element signature="e#1915#1923#1" />
-                <element signature="e#1852#8005#0" />
-                <element signature="e#1852#1937#0" />
-                <element signature="e#2192#2295#1" />
-                <element signature="e#2383#2524#1" />
-                <element signature="e#4257#4285#0" />
-                <element signature="e#6856#8005#0" />
-                <element signature="e#7764#7852#0" />
-                <element signature="e#8258#8266#1" />
-                <element signature="e#8039#8054#0" />
-                <element signature="e#8052#8090#1" />
-                <element signature="e#12917#12934#0" />
-                <element signature="e#15447#15529#1" />
-                <element signature="e#15612#15642#0" />
-                <element signature="e#15761#15802#0" />
-                <element signature="e#16014#16100#1" />
-                <element signature="e#16128#16269#0" />
-                <element signature="e#16383#16490#1" />
-                <element signature="e#16746#16941#1" />
-                <element signature="e#16978#17066#0" />
-                <element signature="e#17180#17229#1" />
-                <element signature="e#17257#17584#0" />
-                <element signature="e#17258#17278#0" />
+                <element signature="e#0#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+        <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+            <state relative-caret-position="447">
+              <caret line="1759" column="39" lean-forward="true" selection-start-line="1759" selection-start-column="39" selection-end-line="1759" selection-end-column="39" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+        <entry file="file://$PROJECT_DIR$/Config/DAQ/Recording/Default_Configuration.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="61" lean-forward="true" selection-end-line="39" selection-end-column="55" />
+            <state relative-caret-position="27">
+              <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
+        <entry file="file://$PROJECT_DIR$/Config/DAQ/Signal/Default_Configuration.csv">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/Channel_Info_Window.py">
+        <entry file="file://$PROJECT_DIR$/Exceptions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="96" selection-end-line="1" />
+              <caret column="22" selection-start-column="6" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
+        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
-              <folding>
-                <element signature="e#94#193#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="405">
+              <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -153,111 +96,161 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>__</find>
-      <find>setting</find>
-      <find>a</find>
-      <find>9</find>
-      <find>box</find>
-      <find>sensor_</find>
-      <find>lsensor_select_MAX_Labelabel</find>
-      <find>init</find>
-      <find>START</find>
-      <find>start</find>
-      <find>main_tab_SAVE_PARAMS_button</find>
-      <find>main_tab_DAQParams_SAVE_PARAMS_button</find>
-      <find>log</find>
-      <find>channel_info_SAVE_Button</find>
-      <find>Bb</find>
-      <find>class</find>
-      <find>class=&quot;QLabel&quot;</find>
-      <find>sensor_select_MAX_Label</find>
-      <find>class=&quot;QLabel</find>
-      <find>action_Begin_Recording</find>
-      <find>bb</find>
-      <find>start_time_requested</find>
-      <find>button</find>
-      <find>live</find>
-      <find>main_window</find>
-      <find>close</find>
-      <find>sens</find>
+      <find>module_7_sensor_1_</find>
+      <find>module_5_sensor_4_</find>
+      <find>module_1_</find>
+      <find>module_2_</find>
+      <find>self.channel_config.</find>
+      <find>listen</find>
+      <find>show_file</find>
+      <find>get_sensor</find>
+      <find>store_loca</find>
+      <find>self.sampling_rate = self.get_sampling_rate()</find>
+      <find>sampling_rate = self.get_sampling_rate()</find>
+      <find>sampling_rate</find>
+      <find>NEXT</find>
+      <find>send_re</find>
       <find>GUI_Handler</find>
-      <find>next</find>
-      <find>acqui</find>
+      <find>'S</find>
+      <find>, 0</find>
+      <find>'1'</find>
+      <find>LOAD</find>
+      <find>CHANNE</find>
+      <find>plot_</find>
+      <find>all_data</find>
+      <find>DONE</find>
+      <find>Timestamp</find>
+      <find>'Timestamp'</find>
+      <find>fata</find>
+      <find>'timestamp'</find>
+      <find>check_duration</find>
+      <find>modules</find>
+      <find>send_request_status</find>
     </findStrings>
     <replaceStrings>
-      <replace>config</replace>
+      <replace>module_4_sensor_3_</replace>
+      <replace>module_5_sensor_3_</replace>
+      <replace>module_2_sensor_4_</replace>
+      <replace>module_3_sensor_4_</replace>
+      <replace>module_4_sensor_4_</replace>
+      <replace>module_5_sensor_4_</replace>
+      <replace>module_6_sensor_4_</replace>
+      <replace>module_7_sensor_4_</replace>
+      <replace>module_6_sensor_1_</replace>
+      <replace>module_7_sensor_1_</replace>
+      <replace>module_8_sensor_1_</replace>
+      <replace>module_6_sensor_2_</replace>
+      <replace>module_7_sensor_2_</replace>
+      <replace>module_8_sensor_3_</replace>
+      <replace>module_8_sensor_4_</replace>
+      <replace>module_1_sensor_3_</replace>
+      <replace>module_1_sensor_4_</replace>
+      <replace>module_2_</replace>
+      <replace>module_3_</replace>
+      <replace>module_4_</replace>
+      <replace>module_5_</replace>
+      <replace>module_5=6_</replace>
+      <replace>module_6_</replace>
+      <replace>module_7_</replace>
+      <replace>module</replace>
+      <replace>module_8_</replace>
+      <replace>module.</replace>
+      <replace>sensor_</replace>
+      <replace>'Sensor_</replace>
+      <replace>self.sampling_rate</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="GUI" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/serial_interface.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_output.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_input.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/tdt.ipynb" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Settings/Singnal_Settings.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Settings/settings.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/settings.py" />
-        <option value="$PROJECT_DIR$/GUI/Error_Dialog.py" />
-        <option value="$PROJECT_DIR$/Data/random_dummy_data_v1.csv" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Sensor.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Configuration.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/__init__.py" />
-        <option value="$PROJECT_DIR$/Data/Random_Dummy_Data_v2.csv" />
-        <option value="$PROJECT_DIR$/GUI/channel_info_window.ui" />
-        <option value="$PROJECT_DIR$/GUI/progress_dialog_v1.ui" />
-        <option value="$PROJECT_DIR$/GUI/sensor_selection_matrix.ui" />
         <option value="$PROJECT_DIR$/GUI/file_system_window.ui" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" />
         <option value="$PROJECT_DIR$/GUI/Main_WIndoww.py" />
         <option value="$PROJECT_DIR$/GUI/main_tab_layout_V2.ui" />
         <option value="$PROJECT_DIR$/GUI/Main_WIndow.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py" />
         <option value="$PROJECT_DIR$/GUI/Channel_Info_Window.py" />
-        <option value="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/tester.py" />
-        <option value="$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui" />
         <option value="$PROJECT_DIR$/GUI/Visualization_GUI.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
         <option value="$PROJECT_DIR$/Data/CSV_Handler.py" />
-        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Testers/instruction_manager_tester.py" />
-        <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
         <option value="$PROJECT_DIR$/GUI/Acquire_Dialog.py" />
-        <option value="$PROJECT_DIR$/GUI/Main_Window.py" />
         <option value="$PROJECT_DIR$/GUI/__init__.py" />
-        <option value="$PROJECT_DIR$/GUI/GUI_Handler.py" />
         <option value="$PROJECT_DIR$/Data_Processing/__init__.py" />
         <option value="$PROJECT_DIR$/Data_Processing/Plot Data.py" />
         <option value="$PROJECT_DIR$/google/Plot Data.py" />
-        <option value="$PROJECT_DIR$/GUI_Handler.py" />
-        <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/tester.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/GUI/channel_info_window.ui" />
+        <option value="$PROJECT_DIR$/GUI/GUI_Handler.py" />
+        <option value="$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui" />
+        <option value="$PROJECT_DIR$/GUI/module_selection_window.ui" />
+        <option value="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" />
+        <option value="$PROJECT_DIR$/GUI/filename_editor_window.ui" />
+        <option value="$PROJECT_DIR$/GUI/main_window.ui" />
+        <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/serialwin32.py" />
         <option value="$PROJECT_DIR$/Important_Documents/Commit_Comments" />
+        <option value="$PROJECT_DIR$/Settings/Store Settings.ipynb" />
+        <option value="$PROJECT_DIR$/Config/DAQ/Default_Configuration.csv" />
+        <option value="$PROJECT_DIR$/thread_progress.py" />
+        <option value="$PROJECT_DIR$/Threading.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py" />
+        <option value="$PROJECT_DIR$/Settings/Diagnostics.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py" />
+        <option value="$PROJECT_DIR$/Config/DAQ/Signal/Default_Configuration.csv" />
+        <option value="$PROJECT_DIR$/GUI/File_Editor_Window.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
+        <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
+        <option value="$PROJECT_DIR$/GUI/Main_Window.py" />
+        <option value="$PROJECT_DIR$/GUI/Module_Selection_Window.py" />
+        <option value="$PROJECT_DIR$/GUI/Progress_Dialog.py" />
+        <option value="$PROJECT_DIR$/GUI/Sensor_Selection_Matrix.py" />
+        <option value="$PROJECT_DIR$/GUI/Vizualization_Sensor_Selector_Matrix.py" />
+        <option value="$PROJECT_DIR$/GUI/Error_Dialog.py" />
+        <option value="$PROJECT_DIR$/Data/Testing.csv" />
+        <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
+        <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" />
+        <option value="$PROJECT_DIR$/Exceptions.py" />
+        <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
+        <option value="$PROJECT_DIR$/GUI_Handler.py" />
+        <option value="$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv" />
+        <option value="$PROJECT_DIR$/Config/DAQ/Recording/Default_Configuration.csv" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="45" />
-    <option name="y" value="25" />
-    <option name="width" value="1750" />
-    <option name="height" value="1030" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,50 +261,62 @@
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Data" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Data_Processing" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+              <item name="DAQ" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Important_Documents" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+              <item name="DAQ" type="462c0819:PsiDirectoryNode" />
+              <item name="Location" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Testers" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+              <item name="DAQ" type="462c0819:PsiDirectoryNode" />
+              <item name="Recording" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+              <item name="DAQ" type="462c0819:PsiDirectoryNode" />
+              <item name="Signal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/google" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Config/DAQ/Signal" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/GUI_Handler.py" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\google" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Settings" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Control_Module_Comm" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Testers" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Important_Documents" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Config\DAQ\Signal" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Config\DAQ\Location" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\google" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -327,7 +332,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="GUI_Handler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="CSV_Handler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="EWAS_Application" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -335,11 +340,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Data_Processing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI_Handler.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DAQ_Configuration" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="EWAS_Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Control_Module_Comm/Structures" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -411,14 +437,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.DAQ_Configuration" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.setting_data_manager" />
+      <item itemvalue="Python.CSV_Handler" />
+      <item itemvalue="Python.Plot_Data" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.Plot_Data" />
-        <item itemvalue="Python.GUI_Handler" />
         <item itemvalue="Python.setting_data_manager" />
+        <item itemvalue="Python.Plot_Data" />
+        <item itemvalue="Python.CSV_Handler" />
+        <item itemvalue="Python.DAQ_Configuration" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -430,41 +467,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552944095439</updated>
-    </task>
-    <task id="LOCAL-00001" summary="# Done&#10;- [x] Successfully Initialized UI Windows.&#10;- [X] Created New GUI directory with init file to hold all UI components.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug">
-      <created>1553579382264</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1553579382264</updated>
-    </task>
-    <task id="LOCAL-00002" summary="# Done&#10;- [x] Formatted Code and Re-organized Project Structure. &#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug">
-      <created>1553580652017</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1553580652017</updated>
-    </task>
-    <task id="LOCAL-00003" summary="# Done&#10;- [x] Added Data visualization Jupyter Notebook test files.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug">
-      <created>1553828453450</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1553828453450</updated>
-    </task>
-    <task id="LOCAL-00004" summary="# Done&#10;- [x] Added preliminary Settings Structure files.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
-      <created>1553836570148</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1553836570148</updated>
-    </task>
-    <task id="LOCAL-00005" summary="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
-      <created>1554248622468</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1554248622468</updated>
     </task>
     <task id="LOCAL-00006" summary="# Done&#10;- [x] Created GUI Handling Error Dialog from given button for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug">
       <created>1554295781877</created>
@@ -592,10 +594,227 @@
       <option name="project" value="LOCAL" />
       <updated>1555447306442</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="changed all window functionality to GUI_Handler script.&#10;&#10;# Done&#10;- [x] Successfully Initialized UI Windows.&#10;- [X] Created New GUI directory with init file to hold all UI components.&#10;- [X] Created Test Configuration Data Structure and Class.&#10;- [X] Created Class for data Visualization with dummy data file.&#10;    [X] Time&#10;    [X] Fourier Transform&#10;    [X] CSD&#10;    [X] PSD&#10;    [X] Phase Spectrum&#10;    [X] Coherence&#10;- [X] Creates Handler for saving and loading setting profile.&#10;- [X] Correctly Improving performance on rendering plots.&#10;** [X] Visualize Buttons shows Plots.&#10;&#10;# To-Do&#10;[ ] Initialize Widgets.&#10;[ ] Code Basic Functionality to GUI Widgets and Components.&#10;[ ] Link GUI components to Control Module Communication Classes.&#10;[ ] Use real data to verify plots.&#10;[ ] Embed plots in Qt widget.&#10;[ ] setting_data_manager - Change/Create Filename method to save in proper path&#10;[ ] Handle Better Test Names.&#10;[ ] Change __init__ method in DAQ_Config to remove 'default' parameter.&#10;[ ] Remove 'special values' from {testing_configs} in DAQ_Config --&gt; set normal.&#10;[ ] Make Plots Pretty.&#10;[ ] Get Sampling Frequency from file.&#10;[ ] Remove 'special values' from {testing_configs} in DAQ_Config --&gt; set normal.&#10;[ ] call 'show_plot' method to within each plot method to simplify code.&#10;[ ] change 'show_plot' method to use a list of titles for multiple plot situation.&#10;[ ] Set GUI Window Icon to EWAS Logo.&#10;[ ] Create and import App Running Dialog.&#10;[ ] Create Setting Data Structure to send to Control Module.&#10;&#10;* [ ] Set Correct Flow when visualize&#10;&#10;&#10;# Bugs&#10;$ [ ] $ Bug DAQ_Config __init__ method does not store every default value.&#10;$ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable again.&#10;    [ ] Bug Second window opening when first is closed.">
+      <created>1555451417903</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1555451417903</updated>
+    </task>
+    <task id="LOCAL-00025" summary="* [X] Change Main method --&gt; fixed double window bug.&#10;* [X] Fixed some spelling.&#10;* [X] Logic for loading and enabling location parameters.&#10;* [X] Logic for GPS sync and display info to GUI.&#10;* [X] Setting Recording data to Display in GUI.&#10;* [x] Logic for channel info ALMOST ready.&#10;* [-] Added Logo to some Windows.&#10;&#10;* [ ] GPS Sync Request timeout.&#10;* [ ] Error Dialog when sync times out.&#10;* [ ] Finish Channel Info Logic.">
+      <created>1555538858729</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1555538858729</updated>
+    </task>
+    <task id="LOCAL-00026" summary="* [X] Store Chanel config with sensors ready.">
+      <created>1555705011217</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1555705011217</updated>
+    </task>
+    <task id="LOCAL-00027" summary="main window change">
+      <created>1555705604286</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1555705604286</updated>
+    </task>
+    <task id="LOCAL-00028" summary="DELETE OR REVERT BEFORE">
+      <created>1555705738270</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1555705738270</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Changed error checking based on which is currently selected in the gps dropdown box">
+      <created>1555804183705</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1555804183705</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Specified error message size and font size">
+      <created>1555805372366</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1555805372366</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Fixed small stuff in UI">
+      <created>1555808233634</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1555808233634</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Fixed small stuff in UI">
+      <created>1555808511278</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1555808511278</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fixed small stuff in UI">
+      <created>1555811013748</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1555811013748</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Changed snapshot to encapsulate validation and error checking in various methods for modularity">
+      <created>1555822366566</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1555822366566</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Validating save parameters, crashing on loading">
+      <created>1555824745789</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1555824745789</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed bugs in save/load">
+      <created>1555858297696</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1555858297696</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Removed calls to test_ID">
+      <created>1555861320998</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1555861320998</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Fixed bug that cropped latitude and longitude">
+      <created>1555870171250</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1555870171250</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Code cleanup; Fixed serial connection crash">
+      <created>1555894936281</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1555894936281</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Load/Store File System Update">
+      <created>1556048827212</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1556048827212</updated>
+    </task>
+    <task id="LOCAL-00041" summary="GUI Changes.&#10;&#10;Send Configuration Set.">
+      <created>1556064492025</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1556064492025</updated>
+    </task>
+    <task id="LOCAL-00042" summary="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module INfo Storing/Loading">
+      <created>1556113198825</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1556113198825</updated>
+    </task>
+    <task id="LOCAL-00043" summary="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module Info Storing/Loading&#10;&#10;$ [ ] $ Bug where Loading Logic does not recognize filename.">
+      <created>1556125133197</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1556125133197</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Committing Testing CSV Data and Configs Files.">
+      <created>1556126240488</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1556126240488</updated>
+    </task>
+    <task id="LOCAL-00045" summary="[x] Getting sensor Names from Data File. &#10;&#10;-Changed Visualizatoin Sensor Selection Window design and logic.">
+      <created>1556133211665</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1556133211665</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Visualization Sensor Selection Window Object Import">
+      <created>1556133540570</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1556133540570</updated>
+    </task>
+    <task id="LOCAL-00047" summary="[X] Time PLot working with data File.">
+      <created>1556140649549</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1556140649549</updated>
+    </task>
+    <task id="LOCAL-00048" summary="[X] Time PLot working with data File.&#10;&#10;[ ] Plot All">
+      <created>1556141415770</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1556141415770</updated>
+    </task>
+    <task id="LOCAL-00049" summary="[X] All plots working&#10;&#10;[ ] $ Bug CRASH when user does not select a sensor in visualization sensor selection window.  {VALIDATE}">
+      <created>1556146463177</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1556146463177</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Load Savin Working again">
+      <created>1556164571550</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1556164571551</updated>
+    </task>
+    <task id="LOCAL-00051" summary="[X] Saved DEFAULT CONFIGURATIONS.">
+      <created>1556170291737</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1556170291737</updated>
+    </task>
+    <task id="LOCAL-00052" summary="[X] File format incorrect ALMOST handling it xD">
+      <created>1556195086970</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1556195086970</updated>
+    </task>
+    <task id="LOCAL-00053" summary="[X] Generating Timestamp and setting it to dataframe in first column ready to plot.">
+      <created>1556219050615</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1556219050631</updated>
+    </task>
+    <task id="LOCAL-00054" summary="[X] Validating Filename in Visualizing Logic to ensure no files from other paths open.">
+      <created>1556225103840</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1556225103840</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -605,45 +824,49 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1858" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498452" visible="true" weight="0.16043957" />
-      <window_info id="Structure" order="1" sideWeight="0.501548" side_tool="true" weight="0.16043957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.14658849" />
+      <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" visible="true" weight="0.14658849" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49835163" visible="true" weight="0.32917964" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28556594" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3271028" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" visible="true" weight="0.27193934" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32502708" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989011" weight="0.23052959" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.248104" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49733475" weight="0.56121343" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49945053" weight="0.32917964" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50164837" side_tool="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026652" side_tool="true" weight="0.22968581" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498452" visible="true" weight="0.16043957" />
-      <window_info id="Structure" order="1" sideWeight="0.501548" side_tool="true" visible="true" weight="0.16043957" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.50155765" visible="true" weight="0.16043957" />
+      <window_info id="Structure" order="1" sideWeight="0.49844238" side_tool="true" visible="true" weight="0.16043957" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49835163" visible="true" weight="0.32917964" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28556594" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32719395" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.27310488" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32606438" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989011" weight="0.23052959" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.24918744" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4978678" weight="0.22968581" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49945053" weight="0.32917964" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50164837" side_tool="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026652" side_tool="true" weight="0.108342364" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -687,1008 +910,372 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="# Done&#10;- [x] Successfully Initialized UI Windows.&#10;- [X] Created New GUI directory with init file to hold all UI components.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Formatted Code and Re-organized Project Structure. &#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Added Data visualization Jupyter Notebook test files.&#10;&#10;# To-Do&#10;* [ ] Initialize Widgets.&#10;* [ ] Code Basic Functionality to GUI Widgets and Components.&#10;* [ ] Link GUI components to Control Module Communication Classes.&#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Added preliminary Settings Structure files.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Changed Test Config Data Structure Class Layout.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Created GUI Handling Error Dialog from given button for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Created Data Visialization Class and Dummy Data for TESTING.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Plotting Time and Coherence in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="# Done&#10;- [x] Plotting al 6 desired plots in different Windows.&#10;&#10;# To-Do&#10;* [ ] &#10;&#10;# Bugs&#10;* [ ] $ Bug" />
-    <MESSAGE value="Minor Changes" />
-    <MESSAGE value="added jupyter data handling tester file" />
-    <MESSAGE value="- [X] Creates Handler for saving and loading setting profile. &#10;* [ ] Change/Create Filename method to save in proper path&#10;* [ ] Handle Better Test Names." />
-    <MESSAGE value="- Added Channel Settings .csv Output file." />
-    <MESSAGE value="- [X] Reformatted Some Code.&#10;- [X] Changes Plot methods to correct size and color.&#10;- [X] Correctly Improving performance on rendering plots." />
-    <MESSAGE value="- [X] Reformatted Some Code.&#10;- [X] Added .ui Windows&#10;- [X] imported objects for most windows( EXCLUDING main window)" />
-    <MESSAGE value="- [X] Added .ui Windows&#10;- [X] imported objects for all windows" />
-    <MESSAGE value="Commit_Comments Update" />
-    <MESSAGE value="# DONE&#10;- [X] Connected START button to Control Module Comm methods.&#10;   [X] Changed instruction_manager __init__ method to work with GUI.&#10;&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables" />
-    <MESSAGE value="# DONE&#10;- [X] Changed Configuration Data Structures according to GUI.&#10;- [X] Connected Progress Dialog and Main Window Buttons.&#10;- [X] Disabling and Enabling Main window when START.&#10;- [X] Sending Cancel signal from Progress Dialog.&#10;&#10;# TODO&#10;* [ ] Connect All Buttons&#10;* [ ] Connect All Editables" />
-    <MESSAGE value="..." />
-    <MESSAGE value="...cleanup" />
-    <MESSAGE value="[X} Changed all methods from UI into GUI_Handler para evitar imports." />
-    <MESSAGE value="Formatting Changes. [WORKING]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formatting Changes. [WORKING]" />
+    <MESSAGE value="Changed error checking based on which is currently selected in the gps dropdown box" />
+    <MESSAGE value="Specified error message size and font size" />
+    <MESSAGE value="Fixed small stuff in UI" />
+    <MESSAGE value="Changed snapshot to encapsulate validation and error checking in various methods for modularity" />
+    <MESSAGE value="Validating save parameters, crashing on loading" />
+    <MESSAGE value="Fixed bugs in save/load" />
+    <MESSAGE value="Removed calls to test_ID" />
+    <MESSAGE value="Fixed bug that cropped latitude and longitude" />
+    <MESSAGE value="Cleaned up gGUI_Handler a bit. made serial verification more robust" />
+    <MESSAGE value="Code cleanup; Fixed serial connection crash" />
+    <MESSAGE value="Load/Store File System Update" />
+    <MESSAGE value="GUI Changes.&#10;&#10;Send Configuration Set." />
+    <MESSAGE value="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module INfo Storing/Loading" />
+    <MESSAGE value="[x] Converting Data from modules into joint DataFrame for storing.&#10;[X] Module config Storing and loading Done. [NOT TESTED]&#10;&#10;[ ] Test Module Info Storing/Loading&#10;&#10;$ [ ] $ Bug where Loading Logic does not recognize filename." />
+    <MESSAGE value="Committing Testing CSV Data and Configs Files." />
+    <MESSAGE value="[x] Getting sensor Names from Data File. &#10;&#10;-Changed Visualizatoin Sensor Selection Window design and logic." />
+    <MESSAGE value="Visualization Sensor Selection Window Object Import" />
+    <MESSAGE value="[X] Time PLot working with data File." />
+    <MESSAGE value="[X] Time PLot working with data File.&#10;&#10;[ ] Plot All" />
+    <MESSAGE value="[X] All plots working&#10;&#10;[ ] $ Bug CRASH when user does not select a sensor in visualization sensor selection window.  {VALIDATE}" />
+    <MESSAGE value="Load Savin Working again" />
+    <MESSAGE value="[X] Saved DEFAULT CONFIGURATIONS." />
+    <MESSAGE value="[X] File format incorrect ALMOST handling it xD" />
+    <MESSAGE value="[X] Generating Timestamp and setting it to dataframe in first column ready to plot." />
+    <MESSAGE value="[X] Validating Filename in Visualizing Logic to ensure no files from other paths open." />
+    <option name="LAST_COMMIT_MESSAGE" value="[X] Validating Filename in Visualizing Logic to ensure no files from other paths open." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/Channel_Info_Window.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/Main_Window.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Settings/setting_data_manager.py</url>
-          <line>48</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_Handler.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Data_Processing/Plot_Data.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="240" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="sensors_all" language="Python" />
+        <watch expression="viz_sens_2_dropdown.count()" language="Python" />
+        <watch expression="viz_sens_1_dropdown.count()" language="Python" />
+        <watch expression="timeout" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>self.data_read</expression-string>
+        <expression-string>valid_path</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>pdata.data_read</expression-string>
+        <expression-string>__file__</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>r'../' + file_path</expression-string>
+        <expression-string>viz_sens_1_dropdown.count()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>viz_sens_2_dropdown.count()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>sensors_all</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>sensors_all[0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>daq_config</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>daq_config.signal_configs['sampling_rate']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>samfreq_dropdown.currentText()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>validate_visualize_sensor_selection(1)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+    <entry file="file://$PROJECT_DIR$/Config/DAQ/testy1.csv" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/genericpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        <state relative-caret-position="837">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+    <entry file="file://$PROJECT_DIR$/thread_progress.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/PyQt5/QtCore.pyi">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Random_dummy_data_v1.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/numpy/fft/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/sample_plots.ipynb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Data/Random_Dummy_Data_v2.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PyQt5/uic/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/channel_info_window.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding>
-            <element signature="n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#rect#0;n#property#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#2;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#3;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#4;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#4;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#1;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#2;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#0;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#1;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#2;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#2;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#3;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#4;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#5;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#5;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#5;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#6;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#7;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#8;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#8;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#8;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#2;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#3;n#widget#0;n#item#0;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#0;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#1;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#2;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#0;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#1;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#item#2;n#widget#0;n#item#4;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#5;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#6;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#7;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#8;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#9;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#10;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#11;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#12;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#13;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#14;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#15;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#16;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#17;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#18;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#0;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#1;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#2;n#widget#0;n#item#19;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#20;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#21;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#string#0;n#property#0;n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#widget#0;n#item#22;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#1;n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#size#0;n#property#1;n#spacer#0;n#item#23;n#layout#0;n#item#2;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#item#3;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#widget#0;n#item#3;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#property#0;n#widget#0;n#item#3;n#layout#0;n#item#9;n#layout#0;n#widget#0;n#item#1;n#layout#0;n#widget#0;n#widget#0;n#ui#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/main_tab_layout.ui">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/progress_dialog_v1.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/module_selection_window.ui">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/sensor_selection_matrix.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="38" column="51" lean-forward="true" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/file_system_window.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="87" column="29" lean-forward="true" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Configuration.py" />
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Sensor.py" />
-    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot Data.ipynb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_output.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PyQt5/uic/uiparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="1020" selection-start-line="1020" selection-end-line="1020" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/main_tab_layout_V2.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="1914" column="54" selection-start-line="1914" selection-start-column="54" selection-end-line="1914" selection-end-column="54" />
-          <folding>
-            <element signature="n#widget#1;n#widget#0;n#ui#0;n#!!top" />
-            <element signature="n#action#0;n#widget#0;n#ui#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="39" column="72" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/visualize_sensor_selection_matrix.ui">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="685" column="89" lean-forward="true" selection-start-line="685" selection-start-column="89" selection-end-line="685" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Visualization_GUI.py" />
-    <entry file="file://$PROJECT_DIR$/Data/Channel_Settings.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Settings/Store Settings.ipynb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="57" column="18" lean-forward="true" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/writting_settings.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="42" lean-forward="true" selection-start-column="42" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Channel_Individual.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="91" lean-forward="true" selection-start-line="3" selection-start-column="91" selection-end-line="3" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/xml/etree/ElementTree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="586" selection-start-line="586" selection-end-line="586" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <element signature="e#111#394#0" />
-            <element signature="e#400#583#1" />
-            <element signature="e#615#883#0" />
-            <element signature="e#736#778#0" />
-            <element signature="e#889#988#1" />
-            <element signature="e#1033#1143#0" />
-            <element signature="e#1149#1263#1" />
-            <element signature="e#1304#1401#0" />
-            <element signature="e#1407#1487#1" />
-            <element signature="e#1535#1650#0" />
-          </folding>
+        <state relative-caret-position="864">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
+        <state relative-caret-position="2700">
+          <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/CSV_Handler.py">
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1350263586/PyQt5/QtCore/pyqtSignal.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1350263586/PyQt5/QtCore/QObject.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/xml/etree/ElementTree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        <state relative-caret-position="126">
+          <caret line="586" selection-start-line="586" selection-end-line="586" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1350263586/PyQt5/QtCore/QThread.py" />
+    <entry file="file://$PROJECT_DIR$/Threading.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/Invenio_Logo.svg" />
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_input.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/serial/serialutil.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1350263586/PyQt5/QtWidgets/QApplication.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/PyQt5/uic/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
+        <state relative-caret-position="-105">
+          <caret line="205" column="4" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="757" column="8" selection-start-line="757" selection-start-column="8" selection-end-line="757" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Settings/Diagnostics.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/io/parsers.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/xml/etree/ElementTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="905">
+          <caret line="579" column="29" lean-forward="true" selection-start-line="579" selection-start-column="29" selection-end-line="579" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1201">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
-            <element signature="e#732#770#1" />
-            <element signature="e#821#1173#0" />
-            <element signature="e#990#1156#0" />
-            <element signature="e#1179#1237#1" />
-            <element signature="e#1280#1532#0" />
-            <element signature="e#1449#1515#0" />
-            <element signature="e#1542#1661#1" />
-            <element signature="e#1723#2137#0" />
-            <element signature="e#1892#2120#0" />
+            <element signature="e#259#426#0" />
+            <element signature="e#1398#1664#0" />
+            <element signature="e#1805#1983#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Testers/instruction_manager_tester.py">
+    <entry file="file://$PROJECT_DIR$/Config/DAQ/Recording/123.csv" />
+    <entry file="file://$PROJECT_DIR$/GUI/File_Editor_Window.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/Module_Selection_Window.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/Progress_Dialog.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/Sensor_Selection_Matrix.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/Vizualization_Sensor_Selector_Matrix.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="35" />
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Acquire_Dialog.py">
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Sensor_Individual.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Channel_Info_Window.py">
+    <entry file="file://$PROJECT_DIR$/Data/Huerta _nw301001.csv" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/matplotlib/mlab.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/EWAS_Logo_1.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="96" selection-end-line="1" />
+        <state relative-caret-position="215">
+          <caret line="144" column="56" selection-start-line="144" selection-start-column="56" selection-end-line="144" selection-end-column="56" />
+          <folding>
+            <element signature="e#282#337#1" />
+            <element signature="e#412#509#0" />
+            <element signature="e#580#880#1" />
+            <element signature="e#984#3140#0" />
+            <element signature="e#1020#1029#0" />
+            <element signature="e#2023#2997#0" />
+            <element signature="e#3325#3541#1" />
+            <element signature="e#3771#3977#1" />
+            <element signature="e#4223#4653#0" />
+            <element signature="e#4223#4446#1" />
+            <element signature="e#4718#4957#1" />
+            <element signature="e#6130#6494#0" />
+            <element signature="e#6130#6420#1" />
+            <element signature="e#6527#6609#1" />
+            <element signature="e#6667#6673#0" />
+            <element signature="e#7213#7360#0" />
+            <element signature="e#7402#7552#0" />
+            <element signature="e#7594#7745#0" />
+            <element signature="e#7787#7938#0" />
+            <element signature="e#7980#8131#0" />
+            <element signature="e#8173#8324#0" />
+            <element signature="e#8366#8517#0" />
+            <element signature="e#8632#9179#0" />
+            <element signature="e#8683#9006#0" />
+            <element signature="e#8700#8908#0" />
+            <element signature="e#8971#9006#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Testing.csv" />
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+        <state relative-caret-position="437">
+          <caret line="292" column="8" selection-start-line="292" selection-start-column="8" selection-end-line="292" selection-end-column="8" />
           <folding>
-            <element signature="e#94#193#0" expanded="true" />
+            <element signature="e#0#93#1" />
+            <element signature="e#94#192#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Main_Window.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/regex/regex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Error_Dialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Plot Data.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/google/Plot Data.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/io/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="1852" selection-start-line="1852" selection-end-line="1852" />
+        <state relative-caret-position="199">
+          <caret line="250" selection-start-line="250" selection-end-line="250" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="108">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="324" selection-start-line="324" selection-end-line="324" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/serial/serialwin32.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/io.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="205" column="18" selection-start-line="205" selection-start-column="18" selection-end-line="205" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/DAQ/Default_Configuration.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" selection-start-line="8" selection-start-column="15" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="447">
+          <caret line="1759" column="39" lean-forward="true" selection-start-line="1759" selection-start-column="39" selection-end-line="1759" selection-end-column="39" />
           <folding>
-            <element signature="e#916#934#0" />
-            <element signature="e#964#1027#1" />
-            <element signature="e#1059#1088#0" />
-            <element signature="e#1090#1153#1" />
-            <element signature="e#1184#1212#0" />
-            <element signature="e#1215#1320#1" />
-            <element signature="e#1355#1442#0" />
-            <element signature="e#1445#1489#1" />
-            <element signature="e#1526#1549#0" />
-            <element signature="e#1552#1607#1" />
-            <element signature="e#1645#1697#0" />
-            <element signature="e#1732#1740#1" />
-            <element signature="e#1915#1923#1" />
-            <element signature="e#1852#8005#0" />
-            <element signature="e#1852#1937#0" />
-            <element signature="e#2192#2295#1" />
-            <element signature="e#2383#2524#1" />
-            <element signature="e#4257#4285#0" />
-            <element signature="e#6856#8005#0" />
-            <element signature="e#7764#7852#0" />
-            <element signature="e#8258#8266#1" />
-            <element signature="e#8039#8054#0" />
-            <element signature="e#8052#8090#1" />
-            <element signature="e#12917#12934#0" />
-            <element signature="e#15447#15529#1" />
-            <element signature="e#15612#15642#0" />
-            <element signature="e#15761#15802#0" />
-            <element signature="e#16014#16100#1" />
-            <element signature="e#16128#16269#0" />
-            <element signature="e#16383#16490#1" />
-            <element signature="e#16746#16941#1" />
-            <element signature="e#16978#17066#0" />
-            <element signature="e#17180#17229#1" />
-            <element signature="e#17257#17584#0" />
-            <element signature="e#17258#17278#0" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+    <entry file="file://$PROJECT_DIR$/Config/DAQ/Signal/Default_Configuration.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="27">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
+    <entry file="file://$PROJECT_DIR$/Config/DAQ/Recording/Default_Configuration.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="61" lean-forward="true" selection-end-line="39" selection-end-column="55" />
+        <state relative-caret-position="27">
+          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
         </state>
       </provider>
     </entry>

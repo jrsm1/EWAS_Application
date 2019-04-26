@@ -1,0 +1,10 @@
+sampling_rate,cutoff_frequency,signal_gain
+256 Hz,128 Hz,1 V/V
+test_name,test_duration,test_type,test_start_delay
+Testc190b6c5d9cd4c3d,15,Free-Field,0
+store,visualize
+False,True
+loc_name,longitude,latitude,hour,minute,second
+NoName,-0000.0000,+0000.0000,00,00,00
+Specimen 1,Specimen 2,Specimen 3,Specimen 4,Specimen 5,Specimen 6,Specimen 7,Specimen 8
+Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used,Not Used

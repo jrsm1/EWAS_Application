@@ -1,21 +1,24 @@
-import serial
-import time
+import serial.tools.list_ports
 
-log = 0
-
+log = 1
 
 class serial_interface():
     global ser
 
-    def __init__(self):
+    def __init__(self, port):
+        """
+        :exception : Throws serial.serialutil.SerialException when not connected.
+        """
+        self.port = port
         self.ser = serial.Serial(
-            port='COM6', \
-            baudrate=230400, \
-            parity=serial.PARITY_NONE, \
-            stopbits=serial.STOPBITS_ONE, \
-            bytesize=serial.EIGHTBITS, \
-            timeout=2)
+            port=self.port,
+            baudrate=230400,
+            parity=serial.PARITY_NONE,
+            stopbits=serial.STOPBITS_ONE,
+            bytesize=serial.EIGHTBITS,
+            timeout=1)
         print("connected to: " + self.ser.portstr)
+
 
     """
     listen will block until it receives a tranmission ending with
@@ -26,9 +29,9 @@ class serial_interface():
         ser = self.ser
         line = ser.readline()
         if log: print("entered listen")
-        while not line:
-            line = ser.readline()
-            continue
+        # while not line:
+        line = ser.readline()
+            # continue
         if log: print("received: " + str(line))
         if log: print("left listen")
         return line
@@ -45,6 +48,20 @@ class serial_interface():
         self.ser.write(b'\r')
 
     """
+    send string byte with no ending
+    """
+    def send_string_bytes(self, byte):
+        st = bytes(byte, 'ascii')
+        self.ser.write(st)
+
+    """
+    send ending byte
+    """
+    def send_end_byte(self):
+        self.ser.write(b'\r')
+
+
+    """
     send byte is important to be able to send instructions as bytes, that are not on the ascii table. 
     """
 
@@ -53,11 +70,17 @@ class serial_interface():
         if log == 1:
             print("byte is " + str(bytes(byte)))
 
-    """
-    I need a byte that does not end the stream of bytes being sent. 
-    """
 
     def send_instruction(self, byte):
-        self.ser.write(bytes(byte))
-        if log == 1: print("byte is " + str(bytes(byte)))
-        self.ser.write(b'\r')
+        """
+        I need a byte that does not end the stream of bytes being sent.
+        """
+        try:
+            self.ser.write(bytes(byte))
+            if log == 1: print("byte is " + str(bytes(byte)))
+            self.ser.write(b'\r')
+        except AttributeError:
+            print('The Root Error was Already Handled.')
+            print('This error is caused by handling the Serial Failed to Connect Error.')
+
+
