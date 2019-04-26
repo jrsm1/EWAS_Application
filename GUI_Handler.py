@@ -290,7 +290,7 @@ def begin_visualization():
 
             close_visualization_sensor_selection_window()
 
-        elif validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
+        if validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
             if plot == 4:
                 plot_cps(filename)
             elif plot == 5:
@@ -343,7 +343,7 @@ def validate_visualize_sensor_selection(max_sensors: int):
         validated = False
 
     if max_sensors == 2:
-        if viz_sens_2_dropdown.currentIndex() != 0:
+        if viz_sens_2_dropdown.currentIndex() == 0:
             close_visualization_sensor_selection_window()
             validated = False
 
@@ -2186,7 +2186,10 @@ def plot_cohere(filename: str):
     [6]
     Creates and Opens Window with Time plot using user information from file.
     """
-    Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence()
+    sensor_1 = viz_sens_1_dropdown.currentText()
+    sensor_2 = viz_sens_2_dropdown.currentText()
+
+    Plot_Data.Plot_Data(filename).plot_coherence(sensor_1=sensor_1, sensor_2=sensor_2)
 
 
 def init():
