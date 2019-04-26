@@ -10,7 +10,6 @@ import time
 # Testing
 log = 1
 
-# TODO AUMENTAR TAMAÑO LETRA DE LABELS EN LAS GRAFICAS.
 class Plot_Data():
     def __init__(self, filename):
         """
@@ -27,6 +26,7 @@ class Plot_Data():
         try:
             self.sampling_rate = self.get_sampling_rate()
         except ValueError:
+            GUI_Handler.close_visualization_sensor_selection_window()
             GUI_Handler.show_error(' FATAL ERROR !!! <br> <br> File formatting Error <br> File seems to be corrupted. '
                                    ' <br>  <br> Restart Program...')
 
@@ -43,6 +43,9 @@ class Plot_Data():
         matplotlib.rcParams["figure.figsize"] = (20, 6)
         matplotlib.rcParams["figure.dpi"] = 80  # Makes Window Size in PIXELS = FIGURE_SIZE * DPI
         matplotlib.rcParams["figure.facecolor"] = '0.85'
+        # Customizing Fonts
+        plt.rcParams["font.family"] = "Times New Roman"
+        plt.rcParams["font.size"] = "14"
 
     def plt_time(self, sensor: str):
         """
@@ -53,7 +56,7 @@ class Plot_Data():
         :return Plotted data in new Qt5Agg interactive Window.
         """
         # TODO Read only the sensor column --> Optimization
-        self.data_read.plot(x='timestamp', y=sensor, legend=False, label=sensor)
+        self.data_read.plot(x='Timestamp', y=sensor, legend=False, label=sensor)
 
         # Setup Plot Parameters.
         plt.title('RAW DATA')
