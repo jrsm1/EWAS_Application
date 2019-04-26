@@ -127,7 +127,7 @@ class Data_Handler():
 
         return result
 
-    def request_all_data(self, connected_modules: []):
+    def request_all_data(self, connected_modules: set):
         """
         Gets data from Control Module and parses it into a single Pandas DataFrame.
 
@@ -137,18 +137,17 @@ class Data_Handler():
         """
         string = ''
         self.all_data = pd.DataFrame()
-        for i in range(len(connected_modules)):
-            if connected_modules[i]:
-                string += ''  # String necessary here to connect inner and outer variables apperently.
-                try:
-                    im = ins_man.instruction_manager()
-                    string = im.send_request_data(i)  # FIXME wait for Juan's Method Merge.
-                except serial.SerialException:
-                    GUI_Handler.show_error('Device has been Disconnected. <br>'
-                                           ' Data Collection Aborted.')
-                    break
+        for module in connected_modules:
+            string += ''  # String necessary here to connect inner and outer variables apperently.
+            try:
+                im = ins_man.instruction_manager(get_port())
+                string = im.send_request_data(module)  # FIXME wait for Juan's Method Merge.
+            except serial.SerialException:
+                GUI_Handler.show_error('Device has been Disconnected. <br>'
+                                       ' Data Collection Aborted.')
+                break
 
-                self.all_data.join(self.string_to_dataframe(string))
+            self.all_data.join(self.string_to_dataframe(string))
 
         # Convert Data Values as float.
         self.all_data.astype(float)
@@ -250,25 +249,19 @@ def select_data_columns():
     return sensor_list
 
 def get_port():
-    port = 'COM'
-    for i in range(1, 20, 1):
-        try:
-            port = port[0:3] + str(i)
-            if log: print("before port = ", port)
-            ins = ins_man.instruction_manager(port)
-            if log: print("port = ", port)
-            del ins
-            break
-        except serial.serialutil.SerialException:
-            port = 'COM-1'
-            continue
-    port = port.strip(' ')
-    instruction_manager_port = port
-    if log: print('com port connected is = ' + instruction_manager_port)
+    global ins_port
+    port = 'COM-1'
+    pid = "0403"
+    hid = "6001"
+    ports = list(serial.tools.list_ports.comports())
 
-    return instruction_manager_port
+    for p in ports:
+        if pid and hid in p.hwid:
+            port = p.device
+    ins_port = port
+    return port
 
-# TESTING
+# ----------  TESTING  ------------------
 # sc1 = Sensor_Individual.Sensor('S1', 0)
 # sc2 = Sensor_Individual.Sensor('S2', 0)
 # sc3 = Sensor_Individual.Sensor('S3', 0)

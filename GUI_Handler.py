@@ -148,6 +148,9 @@ recorded = 0
 stored = 0
 gps_sync = 0
 ins_port = 'COM-1'
+start_diagnose_decision = 0
+START_TEST = 1
+DIAGNOSE = 2
 
 
 def show_main_window():
@@ -669,16 +672,14 @@ def get_module_and_sensors_selected():
     sensors_selected = "0000"
     correct = 1
     index = 0
+    modules_selected = set()
     for i in main_sensor_selection_list:
         index += 1
         if i.checkState() == 2:
-            count = count + 1
             module = str(int((index - 1) / 4) + 1)
             sensor = str(((index - 1) % 4) + 1)
             sensors_selected = module + sensor + sensors_selected
-        if count > 2:  # limit
-            correct = 0
-            break
+            modules_selected.add(module)
 
     if log: print("sensors selected are: ", sensors_selected)
 
@@ -701,11 +702,18 @@ def get_sensor_enabled():
     return sensor_enable
 
 
-def start_acquisition():
+def start_acquisition(who_called: int):
     """
     Begin Acquisition Process
     """
+    global start_diagnose_decision
+
     if snapshot_data():
+        # Find out who called me
+        if who_called == START_TEST:
+            start_diagnose_decision = START_TEST
+        elif who_called == DIAGNOSE:
+            start_diagnose_decision = DIAGNOSE
         show_main_sens_sel_window()
 
 
@@ -730,11 +738,12 @@ def sensor_sel_start():
 
 
 def save_port():
-    port = 'COM-1'
     global ins_port
+    port = 'COM-1'
     pid = "0403"
     hid = "6001"
     ports = list(serial.tools.list_ports.comports())
+
     for p in ports:
         if pid and hid in p.hwid:
             port = p.device
@@ -1150,8 +1159,7 @@ module_8_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Main Sensor Selection
-main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(
-    lambda: action_begin_recording())  # Close() DONE in UI.
+main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: action_begin_recording(start_diagnose_decision))
 main_sensor_sel_win.sensor_select_MAX_Label
 win_sens_1 = main_sensor_sel_win.Sensor_1
 win_sens_2 = main_sensor_sel_win.Sensor_2
@@ -1367,7 +1375,8 @@ cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
-main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
+main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition(START_TEST))
+
 # File Name
 fn_in = filename_input_win.filename_lineEdit
 fn_in.returnPressed.connect(lambda: do_saving_loading_action())
@@ -1426,7 +1435,7 @@ def suggest_sampling_freq():
         samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
 
-def action_begin_recording():
+def action_begin_recording(start_diagnose: int):
     """
     Prepares GUI and sends request to control module for begin recording data.
     """
@@ -1435,7 +1444,10 @@ def action_begin_recording():
         ins = ins_man.instruction_manager(ins_port)
         ins.send_set_configuration(setting_data_manager.settings_to_string())
         # Send Begin Recording FLAG to Control Module.
-        ins.send_request_start()
+        if start_diagnose == START_TEST:
+            ins.send_request_start()
+        elif start_diagnose == DIAGNOSE:
+            ins.send_diagnose_request()
         # Close Window
         main_sensor_sel_win.close()
         check_status_during_test()
@@ -1721,7 +1733,7 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
             timeout += 1
             prog_dlg.progress_dialog_progressBar.setValue(timeout * 2)
             app.processEvents()
-            if timeout == 45:
+            if timeout == 1000:
                 # prog_dlg.close()
                 prog_dlg.progress_dialog_progressBar.setValue(100)
                 show_error('GPS Failed to Synchronize.')
