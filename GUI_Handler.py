@@ -5,8 +5,6 @@ import serial
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
 
-import Exceptions
-import Window
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Data_Processing.CSV_Handler import Data_Handler
@@ -88,30 +86,17 @@ log_working = 0
 
 # Global Variables.
 stop_break_loop = True
-# status global variables
-recorded = 0
-stored = 0
-gps_sync = 0
 ins_port = 'COM-1'
 start_diagnose_decision = 0
 START_TEST = 1
 DIAGNOSE = 2
 
-def get_sensor_enabled():
-    sensor_enable = []
-    if log: print("entered get_module_and_sensors_selected()")
-    if log: print("created empy sensor selected array")
-
-    # for i in main_sensor_selection_list:
-    for i in sensor_enable:
-        sensor_enable.append(i.checkState())
-
-    return sensor_enable
-
-
 def start_acquisition(who_called: int):
     """
-    Begin Acquisition Process
+    Begin Acquisition Process.
+    who_called can be START_TEST or DIAGNOSE.
+
+    :param who_called: Integer that tells if user wants to START_TEST or DIAGNOSE.
     """
     global start_diagnose_decision
     error_string = ''
@@ -138,9 +123,8 @@ def start_acquisition(who_called: int):
             store_data_window.open()
     else:
         main_window.display_error(error_string)
-    pass
 
-def check_for_port(what_was_clicked: str):
+def check_for_port(what_was_clicked: str): # TODO Document.
     # if not save_port() == 'COM-1':
     #     if what_was_clicked == 'START':
     #         start_acquisition(START_TEST)
@@ -161,6 +145,11 @@ def check_for_port(what_was_clicked: str):
 
 
 def save_port():  # TODO adapt for class reconstruction
+    """
+    Gets the Comm Port the system is connected, if connected.
+
+    :return: Comm Port device is connected.
+    """
     global ins_port
     port = 'COM-1'
     pid = "0403"
@@ -211,74 +200,61 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
         prog_dlg.close()
         base_window.not_connected_error()
 
-def check_status():
-    global recorded, stored, gps_sync
-    try:
-        ins = Window.get_instruction_manager()
-        status = ins.send_request_status()
-        recorded = status[0]
-        stored = status[1]
-        gps_sync = status[2]
-        if log:
-            print("status = " + str(status))
-        return status
-    except serial.SerialException:
-        base_window.not_connected_error()
-        return False
-    except Exceptions.noPowerException:
-        base_window.display_error('The Control Module appears to be disconnected or has a major power problem.')
 
-def send_diagnostics():
-    try:
-        im = ins_man.instruction_manager(ins_port)
-    except serial.SerialException:
-        base_window.not_connected_error()
-
-def action_begin_recording(sens: SensorSelectionMatrix, start_diagnose: int):
+def action_begin_recording(sel_matrix: SensorSelectionMatrix, start_diagnose: int):
     """
     Prepares GUI and sends request to control module for begin recording data.
+
+    :param sel_matrix: SensorSelectionMatrix Window instance that called this function (signaled to this slot)
+    :param start_diagnose: Integer to know if user wants to begin recording or run a diagnostic test.
     """
     # Send Setting Information to Control Module.
 
-    # try:
-    configuration = setting_data_manager.settings_to_string()
+    try:
+        configuration = setting_data_manager.settings_to_string()
 
-    sens_selected, mods_selected = sensor_matrix.get_modules_and_sensors_selected()
-    sens.close()
+        sens_selected, mods_selected = sensor_matrix.get_modules_and_sensors_selected()
+        sel_matrix.close()
 
-    sensors_enabled = get_sensor_enabled()
-    ins = ins_man.instruction_manager(ins_port)
-    # ins.send_set_configuration(setting_data_manager.settings_to_string())
-    # Send Begin Recording FLAG to Control Module.
-    if start_diagnose == START_TEST:
-        if configuration:
-            # ins = ins_man.instruction_manager(ins_port)
-            # ins.send_set_configuration(configuration)
-            bool = ins.send_recording_parameters(sfrequency=daq_config.sampling_rate_index,
-                                                 cutoff=daq_config.cutoff_freq_index,
-                                                 gain=daq_config.gain_index,
-                                                 duration=daq_config.recording_configs["test_duration"],
-                                                 start_delay=daq_config.recording_configs["test_start_delay"],
-                                                 store_data_sd=daq_config.data_handling_configs["store"],
-                                                 sensor_enable=sensors_enabled,
-                                                 name="Not Used", location="Not Used")
-            # Send Begin Recording FLAG to Control Module.
-            print("sent was " + str(bool))
-            if bool: sent = True
-            sleep(1)
-        ins.send_request_start()
-    elif start_diagnose == DIAGNOSE:
-        ins.send_diagnose_request()
-    # Close Window
-    sensor_matrix.close()
-    check_status_during_test(ins, mods_selected)
-    # except serial.SerialException:
-    #     show_not_connected_error()
-    # except Exceptions.noPowerException:
-    #     show_error('The Control Module appears to be disconnected or has a major power problem.')
+        ins = ins_man.instruction_manager(ins_port)
+        # ins.send_set_configuration(setting_data_manager.settings_to_string()) TODO REMOVE
+
+        # SendRecording Parameters & Begin Recording FLAG to Control Module.
+        if start_diagnose == START_TEST:
+            if configuration:
+                # ins = ins_man.instruction_manager(ins_port)
+                # ins.send_set_configuration(configuration)
+                params_sent = ins.send_recording_parameters(sfrequency=daq_config.sampling_rate_index,
+                                                            cutoff=daq_config.cutoff_freq_index,
+                                                            gain=daq_config.gain_index,
+                                                            duration=daq_config.recording_configs["test_duration"],
+                                                            start_delay=daq_config.recording_configs["test_start_delay"],
+                                                            store_data_sd=daq_config.data_handling_configs["store"],
+                                                            sensor_enable=sens_selected,  # TODO TEST CHANGE.
+                                                            name="Not Used", location="Not Used")
+                print("sent was " + str(params_sent))
+                sleep(1)
+            ins.send_request_start()
+
+        # Send Run Diagnostic FLAG to Control Module.
+        elif start_diagnose == DIAGNOSE:
+            ins.send_diagnose_request()
+
+        # Close Window
+        sensor_matrix.close()
+        check_status_during_test(ins, mods_selected)
+
+    except serial.SerialException:
+        base_window.not_connected_error()
 
 
 def check_status_during_test(ins, mods_selected):
+    """
+    Handles Communication with Control Module to know its status and manages Progress Dialog Animation.
+
+    :param ins: Instructiona Manager instance for communication with Control Module
+    :param mods_selected: Set of Modules selected based on sensors selected by user.
+    """
     global stop_break_loop
     stop_break_loop = True
     # Prepare Infinite Progress Dialog.
@@ -346,9 +322,6 @@ def init():
     main_window.enable_gps_disable_spec()  # Begin with GPS only enabled.
 
     ins_port = save_port()
-    # ins = ins_man.instruction_manager(ins_port)
-    # data_handler = Data_Handler(modules_all, daq_config)
-    # data_handler.store_data('test.csv', data_handler.request_all_data({1},ins))
 
     if ins_port == 'COM-1':
         base_window.display_error('Device Not Connected. Please try again.')
@@ -359,20 +332,4 @@ def init():
 
     auto_fill()
 
-    # --------- TESTING ------------
-    # validate_file_path(r'C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data\Huerta _nw301001.csv')
-    # begin_visualization()
-    # get_rec_setts_from_gui()
-    # setting_data_manager.store_daq_configs('Testing_Configs.csv')
-    # set_recording_into_gui()
-    # set_daq_params_to_gui()
-    # load_gps_into_gui()
-    # load_local_settings_to_gui()
-    # show_progress_dialog('Message')
-    # sensor_sel.show()
-    # mod_sel.show()
-    # channel_info_win.show()
-    # show_acquire_dialog('SOMETHING')
-    # show_main_sens_sel_window()
-    # show_visualization_sensor_selector_window()
     sys.exit(app.exec_())

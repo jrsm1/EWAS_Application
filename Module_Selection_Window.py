@@ -4,6 +4,8 @@ from PyQt5.QtGui import QIcon
 from Control_Module_Comm.Structures import Module_Individual
 from Module_Info_Window import ModuleInformationWindow
 from Window import Window
+import GUI_Handler
+from Control_Module_Comm import instruction_manager as ins_man
 
 # Global Variables
 MODULE_1 = 0
@@ -25,27 +27,28 @@ class ModuleSelectionWindow(Window):
         self.modules = modules
 
         # Select Module for Channel Info.
+        # Module 1
         self.mod_1_button = self.module_selection_win.module_selection_Module1
         self.mod_1_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_1]))
-
+        # Module 2
         self.mod_2_button = self.module_selection_win.module_selection_Module2
         self.mod_2_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_2]))
-
+        # Module 3
         self.mod_3_button = self.module_selection_win.module_selection_Module3
         self.mod_3_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_3]))
-
+        # Module 4
         self.mod_4_button = self.module_selection_win.module_selection_Module4
         self.mod_4_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_4]))
-
+        # Module 5
         self.mod_5_button = self.module_selection_win.module_selection_Module5
         self.mod_5_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_5]))
-
+        # Module 6
         self.mod_6_button = self.module_selection_win.module_selection_Module6
         self.mod_6_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_6]))
-
+        # Module 7
         self.mod_7_button = self.module_selection_win.module_selection_Module7
         self.mod_7_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_7]))
-
+        # Module 8
         self.mod_8_button = self.module_selection_win.module_selection_Module8
         self.mod_8_button.clicked.connect(lambda: self.show_channel_info_window(modules[MODULE_8]))
 
@@ -56,31 +59,21 @@ class ModuleSelectionWindow(Window):
 
     def open(self):
         """
-        Opens Module Selection Window.
+        Opens Module Selection Window. [Does not create a new instance]
         Done before Channel Selection.
         """
         # Disable not connected modules.
-        # try:
-            # connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
-            # port = GUI_Handler.save_port()
-            # if not port == 'COM-1':
-        connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
-        # im = ins_man.instruction_manager(port)
-        # connected_modules = im.send_request_number_of_mods_connected()  # FIXME ENABLE FOR REAL
+        # connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
+        im = ins_man.instruction_manager(GUI_Handler.ins_port)  # TODO TEST
+        connected_modules = im.send_request_number_of_mods_connected()  # FIXME ENABLE FOR REAL
         self.disable_buttons(connected_modules)
         self.module_selection_win.show()
-            # else:
-            #     self.not_connected_error()
-        # except serial.SerialException:
-        #     self.not_connected_error()
 
         pass
 
     def close(self):
         """
-        Abstract Method that every child MUST Implement.
-
-        :return:
+        Closes Module Selection Window.
         """
         super().close()
         self.module_selection_win.close()
@@ -110,20 +103,9 @@ class ModuleSelectionWindow(Window):
         """
 
         # LATER TODO SAVE CORRECT VALUES FOR CHANNEL.
-        # TODO Pass or Receive in ModuleInformationWindow() the Module Number and Channel Names.
 
-        # Close Mosule Selection Window now as it will not do anything. --> Open after module settings are saved.
+        # Close Module Selection Window now as it will not do anything. --> Open after module settings are saved.
         self.close()
 
         # Decide which Module the user has selected and create intances for each one.
         ModuleInformationWindow(module).open()
-
-# HOLD UNTILL ALL TEST PASSED. IN CASE SIGNAL METHOD NEEDS TO BE CHANGED BACK TO THIS.
-#         self.mod_1_button.clicked.connect(lambda: show_channel_info_window(0))
-#         self.mod_2_button.clicked.connect(lambda: show_channel_info_window(1))
-#         self.mod_3_button.clicked.connect(lambda: show_channel_info_window(2))
-#         self.mod_4_button.clicked.connect(lambda: show_channel_info_window(3))
-#         self.mod_5_button.clicked.connect(lambda: show_channel_info_window(4))
-#         self.mod_6_button.clicked.connect(lambda: show_channel_info_window(5))
-#         self.mod_7_button.clicked.connect(lambda: show_channel_info_window(6))
-#         self.mod_8_button.clicked.connect(lambda: show_channel_info_window(7))

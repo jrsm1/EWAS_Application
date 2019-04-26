@@ -21,26 +21,23 @@ class ModuleInformationWindow(Window):
 
         # Objects
         self.chan_mod_name = self.module_info_win.channel_info_module_name
-        # Ch 1
+        # Channel 1
         self.sensor_1_sensitivity = self.module_info_win.channel_info_sensor1_Sensitivity_LineEdit
         self.sensor_1_damping = self.module_info_win.channel_info_sensor1_dampingLineEdit
         self.sensor_1_bandwidth = self.module_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
         self.sensor_1_fullscale = self.module_info_win.channel_info_sensor1_full_Scale_LineEdit
         self.sensor_1_location = self.module_info_win.channel_info_sensor1_location_Edit
-        # self.sensor_1_name = self.module_info_win.channel_info_sensor1_nameLineEdit
         self.module_info_win.channel_info_sensor1_TITLE.setText(module.module_info['Sensor 1'].sensor_info['sensor_name'])
         self.sensor_1_type = self.module_info_win.channel_info_sensor1_type_DropDown
-        # Ch 2
+        # Channel 2
         self.sensor_2_damping = self.module_info_win.channel_info_sensor2_dampingLineEdit
         self.sensor_2_bandwidth = self.module_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
         self.sensor_2_sensitivity = self.module_info_win.channel_info_sensor2_Sensitivity_LineEdit
-        # self.sensor_2_name = self.module_info_win.channel_info_sensor2_nameLineEdit
         self.sensor_2_type = self.module_info_win.channel_info_sensor2_type_DropDown
         self.module_info_win.channel_info_sensor2_TITLE.setText(module.module_info['Sensor 2'].sensor_info['sensor_name'])
         self.sensor_2_location = self.module_info_win.channel_info_sensor2_location_Edit
         self.sensor_2_fullscale = self.module_info_win.channel_info_sensor2_full_Scale_LineEdit
-        # Ch 3
-        # self.sensor_3_name = self.module_info_win.channel_info_sensor3_nameLineEdit
+        # Channel 3
         self.sensor_3_type = self.module_info_win.channel_info_sensor3_type_DropDown
         self.sensor_3_sensitivity = self.module_info_win.channel_info_sensor3_Sensitivity_LineEdit
         self.sensor_3_bandwidth = self.module_info_win.channel_info_sensor3_frequency_Bandwidth_LineEdit
@@ -48,8 +45,7 @@ class ModuleInformationWindow(Window):
         self.sensor_3_damping = self.module_info_win.channel_info_sensor3_dampingLineEdit
         self.sensor_3_location = self.module_info_win.channel_info_sensor3_location_Edit
         self.module_info_win.channel_info_sensor3_TITLE.setText(module.module_info['Sensor 3'].sensor_info['sensor_name'])
-        # Ch 4
-        # self.sensor_4_name = self.module_info_win.channel_info_sensor4_nameLineEdit
+        # Channel 4
         self.sensor_4_type = self.module_info_win.channel_info_sensor4_type_DropDown
         self.sensor_4_sensitivity = self.module_info_win.channel_info_sensor4_Sensitivity_LineEdit
         self.sensor_4_bandwidth = self.module_info_win.channel_info_sensor4_frequency_Bandwidth_LineEdit
@@ -60,13 +56,12 @@ class ModuleInformationWindow(Window):
 
         # Signals
         self.module_info_win.channel_info_SAVE_Button.clicked.connect(lambda: self.save_module_info())
-        # self.module_info_win.channel_info_LOAD_Button.clicked.connect(lambda: self.action_load_module_info())
+
         pass
 
     def open(self):
         """
-
-        :return:
+        Opens Module Information Window. [Does not create a new instance]
         """
         super().open()
         self.populate_fields()
@@ -74,7 +69,19 @@ class ModuleInformationWindow(Window):
 
         pass
 
+    def close(self):
+        """
+        Closes Module Information Window.
+        """
+        super().close()
+        self.module_info_win.close()
+
+        pass
+
     def populate_fields(self):
+        """
+        Populates Fields in ModuleInformationWindow instance.
+        """
         if not self.module.module_info['Sensor 1'].sensor_info['sensitivity'] == 'Not Specified':
             self.module_info_win.channel_info_sensor1_Sensitivity_LineEdit.setText(self.module.module_info['Sensor 1'].sensor_info['sensitivity'])
         if not self.module.module_info['Sensor 1'].sensor_info['damping'] == 'Not Specified':
@@ -123,19 +130,10 @@ class ModuleInformationWindow(Window):
             self.module_info_win.channel_info_sensor4_location_Edit.setPlainText(self.module.module_info['Sensor 4'].sensor_info['localization'])
         self.module_info_win.channel_info_sensor4_type_DropDown.setCurrentText(self.module.module_info['Sensor 4'].sensor_info['type'])
 
-    def close(self):
-        """
-
-        :return:
-        """
-        super().close()
-        self.module_info_win.close()
-
-        pass
-
     def save_module_info(self):
         """
-        
+        Saves the information of every ModuleInformationWindow object fields into memory.
+
         :return: New Module with window info. 
         """
         # Get info from GUI.
@@ -178,6 +176,6 @@ class ModuleInformationWindow(Window):
             self.module.module_info['Sensor 4'] = sensor_4
             if log: print("got out of enable start connected sensors")
         except serial.SerialException:
-            self.not_connected_error(self)
+            self.not_connected_error()
         self.close()
         return self.module

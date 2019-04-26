@@ -17,16 +17,14 @@ class SaveDataOptionDialog(Window):
         self.daq_config = daq_config
 
         # Objects
-        self.yes_button = self.store_data_window.store_data_yes_button.clicked.connect(lambda: self.store_data('yes'))
-        self.no_button = self.store_data_window.store_data_no_button.clicked.connect(lambda: self.store_data('no'))
+        self.yes_button = self.store_data_window.store_data_yes_button.clicked.connect(lambda: self.set_store_data_SDcard('yes'))
+        self.no_button = self.store_data_window.store_data_no_button.clicked.connect(lambda: self.set_store_data_SDcard('no'))
 
         pass
 
     def open(self):
         """
-        Abstract Method that every child MUST Implement.
-
-        :return:
+        Opens Window offering the user the option os storing data in SD Card. [Does not create a new instance]
         """
         super().open()
         self.store_data_window.show()
@@ -35,20 +33,17 @@ class SaveDataOptionDialog(Window):
 
     def close(self):
         """
-        Abstract Method that every child MUST Implement.
-
-        :return:
+        Opens Window offering the user the option os storing data in SD Card.
         """
         super().close()
         self.store_data_window.close()
 
         pass
 
-    def store_data(self, yes: str):
+    def set_store_data_SDcard(self, yes: str):
         """
-
-        :param yes:
-        :return:
+        Sets Test Status to 'YES' save data or 'NO' do not store data in SD Card.
+        :param yes: Decision made by user.
         """
         self.store_data_window.close()
         if yes:
@@ -68,29 +63,5 @@ class SaveDataOptionDialog(Window):
         """
         # User Select which sensors it wants.
         GUI_Handler.sensor_matrix.open()
-        # When Done pressed --> begin recording. | this is handled from UI
 
         pass
-
-    def save_into_dictionaries(self):
-        """
-
-        :return:
-        """
-
-        pass
-
-    def init_object(self):
-        """
-        Abstract Method that every child MUST Implement.
-
-        :return:
-        """
-        self.store_data_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-
-        # Objects
-        self.yes_button = self.store_data_window.store_data_yes_button.clicked.connect(lambda: self.store_data('yes'))
-        self.no_button = self.store_data_window.store_data_no_button.clicked.connect(lambda: self.store_data('no'))
-
-        pass
-

@@ -4,6 +4,8 @@ from PyQt5.QtGui import QIcon
 
 import GUI_Handler
 from Window import Window
+from Control_Module_Comm import instruction_manager as ins_man
+
 
 # TESTING
 log =1
@@ -70,9 +72,7 @@ class SensorSelectionMatrix(Window):
 
     def open(self):
         """
-        Opens Sensor Selection Matrix Window for Recording and Diagnostics.
-
-        :return:
+        Opens Sensor Selection Matrix Window for Recording and Diagnostics. [Does not create a new instance]
         """
         try:
             if self.enable_connected_sensors():
@@ -81,13 +81,10 @@ class SensorSelectionMatrix(Window):
                 self.display_error('No Modules Connected.')
         except serial.SerialException:
             self.not_connected_error()
-        pass
 
     def close(self):
         """
         Closes Sensor Selection Matrix Window
-
-        :return:
         """
         super().close()
         self.sensor_selection_matrix.close()
@@ -109,20 +106,20 @@ class SensorSelectionMatrix(Window):
         for i in self.sensor_selection_list:
             # Check if User has selected each checkBox.
             if i.isChecked():
-                module = int(index / 4) + 1
                 sensors_selected[index] = 1
+                module = int(index / 4) + 1
                 modules_selected.add(module)
             # Increment Index
             index += 1
 
         if log: print("sensors selected are: ", sensors_selected)
 
+        # Reset all Checkboxes.
         for i in self.sensor_selection_list:
             i.setChecked(False)
+
         return sensors_selected, modules_selected
 
-        pass
-    
     def enable_connected_sensors(self):
         """
         Enables CheckBoxes on window after asking Control Module for connected modules.
@@ -132,9 +129,12 @@ class SensorSelectionMatrix(Window):
         """
         # TODO TEST
         continuar = False
-        connected_module_list = [1, 0, 0, 0, 0, 0, 0, 0]
-        # ins = ins_man.instruction_manager(ins_port)  # TODO UNCOMMENT FOR REAL
-        # connected_module_list = connected_module_listins.send_request_number_of_mods_connected()
+
+        # Get Connected Modules
+        # connected_module_list = [1, 0, 0, 0, 0, 0, 0, 0]
+        ins = ins_man.instruction_manager(GUI_Handler.ins_port)  # TODO UNCOMMENT FOR REAL
+        connected_module_list = ins.send_request_number_of_mods_connected()
+
         if log: print("entered enable start, array is " + str(connected_module_list))
         if connected_module_list[0]:
             self.win_sens_1.setEnabled(True)

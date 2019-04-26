@@ -12,7 +12,6 @@ class Window(QtWidgets.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
 
-        self.init_objects()
         self.center()
         pass
 
@@ -60,8 +59,7 @@ class Window(QtWidgets.QMainWindow):
 
     def not_connected_error(self):
         """
-
-        :return:
+        Displays Error indicating device is not connected.
         """
         self.display_error('Device not connected. <br> <br>'
                            'Inspect all connections and power cables are properly connected.')
@@ -71,8 +69,6 @@ class Window(QtWidgets.QMainWindow):
         Opens a File system window on root path.
 
         :param root_path: Path in which File System window will open.
-
-        :return:
         """
 
         path = str(QFileDialog.getOpenFileName(None, 'Open CSV File', root_path, 'CSV Files (*.csv)')[0])
@@ -86,24 +82,6 @@ class Window(QtWidgets.QMainWindow):
             return ''
         elif error == 'cancel':  # if cancel --> user does not want to do anything else.
             pass
-
-    # TODO how to implement abstract methods and make sure all inherited uses it.
-    def init_objects(self):
-        """
-        Abstract Method that every child MUST Implement.
-
-        :return:
-        """
-
-        pass
-
-    def create_instruction_manager(self, port):
-        global ins_manager
-        ins_manager = instruction_manager.instruction_manager(port)
-        return ins_manager
-
-    def get_instruction_manager(self):
-        return ins_manager
 
 
 def validate_path(path: str):

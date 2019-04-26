@@ -16,14 +16,14 @@ class ProgressDialog(QtWidgets.QMainWindow):
         self.progress_bar = self.progress_dialog.progress_dialog_progressBar
         self.dlg_title = self.progress_dialog.progress_dialog_title
 
-        # Singnals TODO CANCEL button
+        # Signals
         self.stop_button = self.progress_dialog.progress_dialog_STOP_button.clicked.connect(lambda: GUI_Handler.cancel_everything())
 
         pass
 
     def open(self, message: str):
         """
-        Creates and Opens Progress Dialog.
+        Opens Progress Dialog. [Does not create a new instance]
         Default is to 'undetermined' infinite progress.
         To change default behaviour use { void QProgressBar::setRange(int minimum, int maximum) }
 
@@ -34,8 +34,7 @@ class ProgressDialog(QtWidgets.QMainWindow):
 
     def close(self):
         """
-
-        :return:
+        Closes Progress Dialog.
         """
         self.progress_dialog.close()
         pass
@@ -49,27 +48,3 @@ class ProgressDialog(QtWidgets.QMainWindow):
         """
 
         self.open('Acquiring... ' + message)
-
-    def init_object(self):
-        """
-        Abstract Class that every child MUST Implement.
-
-        :return:
-        """
-        self.progress_dialog.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-
-        # Objects
-        self.progress_bar = self.progress_dialog.progress_dialog_progressBar
-        self.dlg_title = self.progress_dialog.progress_dialog_title
-
-        # Signals
-
-        pass
-
-
-
-# TESTING
-# prog_dlg = ProgressDialog()
-# prog_dlg.open('My Dialog')
-# prog_dlg.acquire_dialog('My Acquire')
-# prog_dlg.close()

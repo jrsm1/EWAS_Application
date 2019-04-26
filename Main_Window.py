@@ -14,6 +14,7 @@ from Settings import setting_data_manager as set_dat_man
 from Visualization_Sensor_Selection_Dialog import VizSensorSelector
 from Window import Window as windowClass
 
+
 # Global Variables.
 app = QtWidgets.QApplication([])
 STORE_LOAD_RECORDING_SETTINGS = 1
@@ -46,9 +47,9 @@ APS_PLOT = 3
 CPS_PLOT = 4
 COHERENCE_PLOT = 5
 PHASE_PLOT = 6
-#   Variable to know which method called the plot signal after Visualization Sensor Selection Window NEXT called.
 visualization_values = {'requested_plot': 0,
-                        'plot_filename': ''}
+                        'plot_filename': ''} # Variable to know which method called the plot signal after Visualization Sensor Selection Window NEXT called.
+
 # Regex expressions
 regex_description = QRegExpValidator(QRegExp('[a-zA-Z0-9-]+'))
 regex_duration = QIntValidator(5, 1800)
@@ -75,10 +76,8 @@ class MainWindow(windowClass):
         super().__init__()
         self.main_window = uic.loadUi("GUI/Qt_Files/main_window.ui")
         self.main_window.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-        # self.init_objects()
 
         # Init Window Object
-        # self.init_objects()
         self.filename_input_win = FileInputWindow(self)
         self.setting_manager = setting_manager
         self.center()
@@ -90,12 +89,13 @@ class MainWindow(windowClass):
         }
         self.daq_config = daq_configuration
 
-        # ----------------------------  Objects  ---------------------------------
+        # -------------------------------------------  Objects  --------------------------------------------------------
         # RECORDING  Settings
         self.rec_name_edit = self.main_window.main_tab_RecordingSettings_name_LineEdit
         self.rec_duration_edit = self.main_window.main_tab_RecordingSettings_durationLineEdit
         self.rec_type_dropdown = self.main_window.main_tab_RecordingSettings_type_DropDown
         self.delay_edit = self.main_window.main_tab_RecordingSettings_delay_LineEdit
+
         # Localization Settings
         self.loc_type_dropdown = self.main_window.main_tab_LocalizationSettings_type_DropBox
         self.loc_name_edit = self.main_window.main_tab_LocalizationSettings_Name_lineEdit
@@ -104,10 +104,12 @@ class MainWindow(windowClass):
         self.loc_hour_edit = self.main_window.main_tab_LocalizationSettings_hourLineEdit
         self.loc_minute_edit = self.main_window.main_tab_LocalizationSettings_minutesLineEdit
         self.loc_seconds_edit = self.main_window.main_tab_LocalizationSettings_secondsLineEdit
+
         # Localization Frames
         self.loc_gps_frame = self.main_window.main_tab_location_gps_frame
         self.loc_specimen_frame = self.main_window.specimen_location_frame
-        ### Module Loc. Settings
+
+        # Module Loc. Settings
         self.specimen_loc_1 = self.main_window.main_tab_module_loc_LineEdit_1
         self.specimen_loc_2 = self.main_window.main_tab_module_loc_LineEdit_2
         self.specimen_loc_3 = self.main_window.main_tab_module_loc_LineEdit_3
@@ -116,30 +118,37 @@ class MainWindow(windowClass):
         self.specimen_loc_6 = self.main_window.main_tab_module_loc_LineEdit_6
         self.specimen_loc_7 = self.main_window.main_tab_module_loc_LineEdit_7
         self.specimen_loc_8 = self.main_window.main_tab_module_loc_LineEdit_8
+
         # Data Acquisition Settings
         self.samfreq_dropdown = self.main_window.main_tab_DAQParams_samplingRate_DropDown
         self.cutfreq_drodown = self.main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
         self.gain_dropdown = self.main_window.main_tab_DAQParams_gain_DropDown
 
-        # ------ Signals--------
+        # -------------------------------------------------------- Signals ---------------------------------------------
         # Menu Bar
         self.main_window.action_Help.triggered.connect(lambda: self.open_documentation())
         self.main_window.actionDiagnose.triggered.connect(lambda: GUI_Handler.check_for_port('DIAGNOSE'))  # TODO VErify if this is part of Start Logic
-        # Recording Settings # TODO Organize.
+
+        # Recording Settings
+        self.rec_duration_edit.textEdited.connect(lambda: self.check_sampling_rate())
         self.main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, 1))
         self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
-        self.main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: ModuleSelect(modules).open())
-        self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.check_for_port('START'))
-        self.cutfreq_drodown.currentIndexChanged.connect(lambda: self.suggest_sampling_rate())
-        self.main_window.main_tab_DAQParams_LOAD_PARAMS_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, STORE_LOAD_DAQ_PARAMS))
-        self.main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_DAQ_PARAMS))  # TODO
-        self.samfreq_dropdown.currentIndexChanged.connect(lambda: self.check_duration())
+
+        # Localization
+        self.loc_type_dropdown.currentIndexChanged.connect(lambda: self.change_local_allowed())
+        self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.check_for_port('GPS'))
         self.main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, STORE_LOAD_LOCATION))
         self.main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_LOCATION))
 
-        self.loc_type_dropdown.currentIndexChanged.connect(lambda: self.change_local_allowed())
-        self.rec_duration_edit.textEdited.connect(lambda: self.check_sampling_rate())
-        self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.check_for_port('GPS'))
+        # DAQ Params
+        self.main_window.main_tab_DAQParams_LOAD_PARAMS_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, STORE_LOAD_DAQ_PARAMS))
+        self.main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_DAQ_PARAMS))  # TODO
+        self.cutfreq_drodown.currentIndexChanged.connect(lambda: self.suggest_sampling_rate())
+        self.samfreq_dropdown.currentIndexChanged.connect(lambda: self.check_duration())
+
+        # START
+        self.main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: ModuleSelect(modules).open())
+        self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.check_for_port('START'))
 
         # Visualization
         self.main_window.actionTime.triggered.connect(lambda: self.do_plot(TIME_PLOT))
@@ -200,9 +209,7 @@ class MainWindow(windowClass):
 
     def open(self):
         """
-        Opens Main Window
-
-        :return:
+        Opens Main Window. [Does not create a new instance]
         """
         self.main_window.show()
         pass
@@ -210,15 +217,13 @@ class MainWindow(windowClass):
     def close(self):
         """
         Closes Main Window
-        :return:
         """
         self.main_window.close()
         pass
 
     def open_documentation(self):
         """
-        Opens documentation web page.
-        :return:
+        Opens documentation web page in default browser.
         """
         url = QtCore.QUrl('https://github.com/jrsm1/EWAS_Application/blob/master/README.md')
         if not QtGui.QDesktopServices.openUrl(url):
@@ -226,20 +231,6 @@ class MainWindow(windowClass):
 
         pass
 
-    def ask_store_data(self):
-        """
-        Ask User if he/she wants to save the collected data.
-        :return:
-        """
-        pass
-
-    def change_localization_allowed(self):
-        """
-        Enables Window Location Selection object based on Location type selected by user.
-
-        :return:
-        """
-        pass
 
     # ********************************************* LOCATION ***********************************************************
 
@@ -895,8 +886,6 @@ class MainWindow(windowClass):
                         self.plot_phase(filename)
                     elif plot == COHERENCE_PLOT:
                         self.plot_cohere(filename)
-
-                    self.selection_dialog.close()
                 else:
                     self.display_error('Sensor not selected.')
 
@@ -909,8 +898,6 @@ class MainWindow(windowClass):
                         self.plot_fft(filename)
                     elif plot == APS_PLOT:
                         self.plot_aps(filename)
-
-                    self.selection_dialog.close()
                 else:
                     self.display_error('Sensor not selected.')
 
@@ -926,7 +913,6 @@ class MainWindow(windowClass):
         sensor = self.selection_dialog.viz_sens_1_dropdown.currentText()
 
         Plot_Data.Plot_Data(filename).plt_time(sensor)
-        self.selection_dialog.close()
 
     def plot_fft(self, filename: str):
         """
@@ -976,13 +962,7 @@ class MainWindow(windowClass):
         Plot_Data.Plot_Data(filename).plot_coherence(sensor_1=sensor_1, sensor_2=sensor_2)
 
     def get_visualization_values(self):
+        """
+        :return: visualization_values Dictionary for instance.
+        """
         return visualization_values
-
-# ================ TESTING =============
-# win = MainWindow()
-# win.open()
-# win.open_documentation()
-# win.display_error('My Error')
-# win.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS)
-
-# app.exec()

@@ -156,10 +156,6 @@ class instruction_manager():
             if count >= 400:
                 pass
             else:
-                # print("num starting is", count_imp)
-                # print("type is ", type(data[count_imp]))
-                # print("type is ", type(data[count_imp+1]))
-                # print("type is ", type(data[count_imp+2]))
                 if isinstance(data[count_imp], int) and isinstance(data[count_imp + 1], int) and isinstance(
                         data[count_imp + 2], int):
                     # if True:
@@ -168,13 +164,6 @@ class instruction_manager():
                     num = int.from_bytes(bits, byteorder='big')
                     if num > pow_comp:
                         num = num - pow_sub
-                    # num += 4278190080
-
-                    # print("num is ", num)
-                    # if count_imp < 2460:
-                    #     print("important count =", count_imp)
-                    #     print("count =", count)
-                    #     print("bits =", bits)
 
                     if next[0]:
                         array[0].append(num)

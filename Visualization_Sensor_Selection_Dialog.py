@@ -26,7 +26,7 @@ class VizSensorSelector(Window):
 
     def open(self):
         """
-        Opens Visualization Window Selection if do_plot has been called before.
+        Opens Visualization Window Selection if do_plot has been called before. [Does not create a new instance]
         If it happens raise an error. (SHOULD NEVER BE THE CASE. REDUNDANCY)
         """
         super().open()
@@ -35,14 +35,13 @@ class VizSensorSelector(Window):
         else:
             self.display_error('Requested Plot Error. <br> ErrorCode: 0000')  # TODO do not hardcode Error Codes.
 
-
         pass
 
     def close(self):
         """
-
-        :return:
+        Closes Sensor Selection Matrix Window.
         """
+        self.viz_sensor_sel_win.close()
 
         pass
 
@@ -57,15 +56,12 @@ class VizSensorSelector(Window):
         validated = True
         if max_sensors == 2:
             if self.viz_sens_1_dropdown.currentIndex() == 0:  # if Default Value --> Not Validated.
-                # self.close()
                 validated = False
             if self.viz_sens_2_dropdown.currentIndex() == 0:
-                # self.close()
                 validated = False
 
         if max_sensors == 1:
             if self.viz_sens_1_dropdown.currentIndex() == 0:  # if Default Value --> Not Validated.
-                # self.close()
                 validated = False
         self.close()
         return validated
@@ -75,21 +71,3 @@ class VizSensorSelector(Window):
 
     def get_number_sensors(self):
         return self.number_of_sensors
-
-    def init_object(self):
-        """
-        Abstract Class that every child MUST Implement.
-
-        :return:
-        """
-        self.viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-
-        # Objects
-        self.viz_name_label = self.viz_sensor_sel_win.plot_name_label
-        self.viz_sens_1_dropdown = self.viz_sensor_sel_win.sensor_1_DropDown
-        self.viz_sens_2_dropdown = self.viz_sensor_sel_win.sensor_2_DropDown
-
-        # Signals
-        self.viz_next_btn = self.viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: self.parent.begin_visualization())
-
-        pass

@@ -12,7 +12,6 @@ class FileInputWindow(Window):
 
         self.filename_input_win = uic.loadUi('GUI/Qt_Files/filename_editor_window.ui')
         self.filename_input_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-        # self.init_objects()
 
         self.main_window_parent = main_window_parent
 
@@ -28,23 +27,17 @@ class FileInputWindow(Window):
 
     def open(self):
         """
-
-        :return:
+        Opens Filename Input Window. [Does not create a new instance]
         """
         super().open()
         self.filename_input_win.show()
 
-        pass
-
     def close(self):
         """
-
-        :return:
+        Closes Filename Input Window.
         """
         super().close()
         self.filename_input_win.close()
-
-        pass
 
     def validate_filename(self, filename: str):
         """
@@ -61,17 +54,3 @@ class FileInputWindow(Window):
             if log: print('File Extension Validation: FAILED')
 
         return validated
-
-    def init_objects(self):
-        """
-        Abstract Class that every child MUST Implement.
-
-        :return:
-        """
-
-
-        pass
-
-
-# fn = FileInputWindow()
-
