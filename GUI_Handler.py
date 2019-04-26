@@ -2,6 +2,7 @@ from Data_Processing import CSV_Handler
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QFileDialog, QFileSystemModel
+import Exceptions
 from time import sleep
 import sys
 import serial
@@ -29,7 +30,8 @@ maximum_duration = {
     '4096 Hz': 42,
     '8192 Hz': 21,
     '16384 Hz': 10,
-    '20000 Hz': 8
+    '20000 Hz': 8,
+    'Please Select': -1
 }
 
 
@@ -168,9 +170,9 @@ def open_module_selection_window():
 
     # Disable not connected modules.
     try:
-        connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
-        # im = ins_man.instruction_manager(ins_port)
-        # connected_modules = im.send_request_number_of_mods_connected() # FIXME ENABLE FOR REAL
+        # connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
+        im = ins_man.instruction_manager(ins_port)
+        connected_modules = im.send_request_number_of_mods_connected() # FIXME ENABLE FOR REAL
         disable_module_selection_buttons(connected_modules)
         mod_sel_win.show()
     except serial.SerialException:
@@ -808,6 +810,8 @@ def check_status():
     except serial.SerialException:
         show_not_connected_error()
         return False
+    except Exceptions.noPowerException:
+        show_error('The Control Module appears to be disconnected or has a major power problem.')
 
 
 # trying a close event function
@@ -1233,7 +1237,7 @@ def openUrl():
         show_error('Could not open Help URL')
 
 
-main_window.action_Diagnose.triggered.connect(lambda: send_diagnostics())
+main_window.actionDiagnose.triggered.connect(lambda: send_diagnostics())
 
 
 def send_diagnostics():
@@ -1414,15 +1418,15 @@ def check_duration():
         if not validate_box:
             show_error('Error: Invalid Duration. Restricted to numbers only.<br>')
         else:
-            max_duration = maximum_duration[main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()]
-            if not max_duration == 'Please Select':
+            if not main_window.main_tab_DAQParams_samplingRate_DropDown.currentText() == 'Please Select':
+                max_duration = maximum_duration[main_window.main_tab_DAQParams_samplingRate_DropDown.currentText()]
                 if int(test_duration) > max_duration:
                     show_error('Durations higher than ' + str(max_duration) +
                                ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
 
 
 def suggest_sampling_freq():
-    if samfreq_dropdown.currentText() != 'Please Select':
+    if samfreq_dropdown.currentText() == 'Please Select':
         samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
 
@@ -1460,6 +1464,8 @@ def action_begin_recording(start_diagnose: int):
         check_status_during_test(ins)
     except serial.SerialException:
         show_not_connected_error()
+    except Exceptions.noPowerException:
+        show_error('The Control Module appears to be disconnected or has a major power problem.')
 
 
 def check_status_during_test(ins):
@@ -1476,9 +1482,9 @@ def check_status_during_test(ins):
     bar_value = 0
     var = ins.send_request_status()
     print("--ar = " + str(var))
-    while ins.send_request_status()[0] != 1:  # Status[2] --> gps_synched
+    while var[0] != 1:  # Status[2] --> gps_synched
         if log: print('Waiting for test to finish....')
-        sleep(1)  # Wait for half a second before asking again.
+        sleep(1)
         timeout += 1
         if timeout == time_to_update_progress_bar:
             timeout = 0
@@ -1751,6 +1757,8 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
     except serial.SerialException:
         prog_dlg.close()
         show_not_connected_error()
+    except Exceptions.noPowerException:
+        show_error('The Control Module appears to be disconnected or has a major power problem.')
 
 
 def load_local_settings_to_gui():

@@ -1,5 +1,5 @@
 import Control_Module_Comm.serial_interface as serial_interface
-
+import Exceptions
 log = 1
 
 
@@ -226,7 +226,8 @@ class instruction_manager():
             status.append(int(line[3]))# gps_synched
             if log: print("instruction status = " + str(status))
             return status
-        return -1
+        raise Exceptions.noPowerException
+        return [-1, -1, -1]
 
     def send_request_configuration_validity(self):
         self.serial_interface.send_instruction(b'\x8C')
