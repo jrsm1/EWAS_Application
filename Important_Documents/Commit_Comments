@@ -48,8 +48,9 @@ $ [X] $ Bug DAQ_Config __init__ method does not store every default value.
 $ [X] $ Bug When closing Sensor Selection Window the Main Window does not enable again.
     [X] Bug Second window opening when first is closed.
 $ [ ] Bug where Drop Downs look kindda squashed together.
-$ [ ] Bug Acquire GPS Dialog waits for it to finish sync to display progressBar and Message.
+$ [X] Bug Acquire GPS Dialog waits for it to finish sync to display progressBar and Message.
 $ [X] $ Bug where Main Selection Matrix shows when not connected.
-$ [ ] $ Bug 'File does not exists' Error showing when selecting file from File Explorer.
-    $ [ ] Bug File Explorer shows full path.
-
+$ [X] $ Bug 'File does not exists' Error showing when selecting file from File Explorer.
+    $ [X] Bug File Explorer shows full path.
+$ [X] $ Bug Cross-Power Spectrum Not Displaying
+$ [X] $ Bug CCoherence Function Not Displaying
