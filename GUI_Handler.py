@@ -1,6 +1,8 @@
+from PyQt5.QtCore import QRegExp
+
 from Data_Processing import CSV_Handler
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QRegExpValidator, QIntValidator
 from PyQt5.QtWidgets import QFileDialog, QFileSystemModel
 import Exceptions
 from time import sleep
@@ -694,18 +696,18 @@ def get_sensor_enabled():
     return sensor_enable
 
 
-def start_acquisition(who_called: int):
+def start_acquisition():
     """
     Begin Acquisition Process
     """
-    global start_diagnose_decision
+    # global start_diagnose_decision
 
     if snapshot_data():
         # Find out who called me
-        if who_called == START_TEST:
-            start_diagnose_decision = START_TEST
-        elif who_called == DIAGNOSE:
-            start_diagnose_decision = DIAGNOSE
+        # if who_called == START_TEST:
+        #     start_diagnose_decision = START_TEST
+        # elif who_called == DIAGNOSE:
+        #     start_diagnose_decision = DIAGNOSE
         show_main_sens_sel_window()
 
 
@@ -1149,7 +1151,8 @@ module_8_sensor_4_damping = module_1_info_win.channel_info_sensor4_dampingLineEd
 module_1_info_win.channel_info_sensor4_TITLE
 
 # Main Sensor Selection
-main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda: action_begin_recording(start_diagnose_decision))
+main_sensor_sel_win.sensor_selection_DONE_Button.clicked.connect(lambda:
+                                                                 action_begin_recording(start_diagnose_decision))
 main_sensor_sel_win.sensor_select_MAX_Label
 win_sens_1 = main_sensor_sel_win.Sensor_1
 win_sens_2 = main_sensor_sel_win.Sensor_2
@@ -1321,26 +1324,71 @@ def do_plot(plot: int):
     show_visualization_sensor_selector_window()
 
 
+# Regex expressions
+regex_description = QRegExpValidator(QRegExp('[a-zA-Z0-9-]+'))
+regex_duration = QIntValidator(5, 1800)
+regex_hour = QIntValidator(0, 23)
+regex_delay = QIntValidator(0, 3600)
+regex_minute_second = QIntValidator(0, 59)
+regex_longitude = QRegExpValidator(QRegExp('(\+|-)?\d{5}.\d{5}'))
+regex_latitude = QRegExpValidator(QRegExp('(\+|-)?\d{4}.\d{5}'))
+
+# ToolTip Messages
+toolTip_description = 'Restricted to uppercase and lowercase letters\n with numbers and dashes.\n'
+toolTip_duration = 'Restricted to positive integers with a <br>' \
+                   'minimum of five seconds up to 1800 seconds<br>'
+toolTip_Delay = 'Restricted to positive integers including zero<br>' \
+                'up to a maximum of 3600 seconds'
+toolTip_Longitude = 'Restricted to NMEA format of (+-)Dddmm.mmmmm.<br>'
+toolTip_Latitude = 'Restricted to NMEA format of (+/-)ddmm.mmmmm.<br>'
+toolTip_time = 'Restricted to 24-hour format'
+
 # RECORDING  Settings
 main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: handle_loading_saving('load', 1))
 main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: handle_loading_saving('save', 1))
 rec_name_edit = main_window.main_tab_RecordingSettings_name_LineEdit
+rec_name_edit.setValidator(regex_description)
+rec_name_edit.setToolTip(toolTip_description)
 rec_duration_edit = main_window.main_tab_RecordingSettings_durationLineEdit
-rec_duration_edit.editingFinished.connect(lambda: check_sampling_rate())
+rec_duration_edit.setValidator(regex_duration)
+rec_duration_edit.setToolTip(toolTip_duration)
 rec_type_dropdown = main_window.main_tab_RecordingSettings_type_DropDown
 delay_edit = main_window.main_tab_RecordingSettings_delay_LineEdit
+delay_edit.setValidator(regex_delay)
+delay_edit.setToolTip(toolTip_Delay)
 # Localization Settings
 main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: sync_gps())
+
 loc_type_dropdown = main_window.main_tab_LocalizationSettings_type_DropBox
 loc_type_dropdown.currentIndexChanged.connect(lambda: change_local_allowed())
-main_window.main_tab_LocalizationSettings_Name_lineEdit
+
+loc_name_edit = main_window.main_tab_LocalizationSettings_Name_lineEdit
+loc_name_edit.setValidator(regex_description)
+loc_name_edit.setToolTip(toolTip_description)
+
 main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button.clicked.connect(lambda: handle_loading_saving('load', 2))
 main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button.clicked.connect(lambda: handle_loading_saving('save', 2))
-main_window.main_tab_LocalizationSettings_longitudLineEdit
-main_window.main_tab_LocalizationSettings_latitudLineEdit
-main_window.main_tab_LocalizationSettings_hourLineEdit
-main_window.main_tab_LocalizationSettings_minutesLineEdit
-main_window.main_tab_LocalizationSettings_secondsLineEdit
+
+loc_longitude_edit = main_window.main_tab_LocalizationSettings_longitudLineEdit
+loc_longitude_edit.setValidator(regex_longitude)
+loc_longitude_edit.setToolTip(toolTip_Longitude)
+
+loc_latitude_edit = main_window.main_tab_LocalizationSettings_latitudLineEdit
+loc_latitude_edit.setValidator(regex_latitude)
+loc_latitude_edit.setToolTip(toolTip_Latitude)
+
+loc_hour_edit = main_window.main_tab_LocalizationSettings_hourLineEdit
+loc_hour_edit.setValidator(regex_hour)
+loc_hour_edit.setToolTip(toolTip_time)
+
+loc_minute_edit = main_window.main_tab_LocalizationSettings_minutesLineEdit
+loc_minute_edit.setValidator(regex_minute_second)
+loc_minute_edit.setToolTip(toolTip_time)
+
+loc_second_edit = main_window.main_tab_LocalizationSettings_secondsLineEdit
+loc_second_edit.setValidator(regex_minute_second)
+loc_second_edit.setToolTip(toolTip_time)
+
 # connecting close event
 main_window.closeEvent = close_event
 
@@ -1365,7 +1413,7 @@ cutfreq_drodown = main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
 cutfreq_drodown.currentIndexChanged.connect(lambda: suggest_sampling_freq())
 gain_dropdown = main_window.main_tab_DAQParams_gain_DropDown
 main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: open_module_selection_window())
-main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition(START_TEST))
+main_window.main_tab_START_button.clicked.connect(lambda: start_acquisition())
 
 # File Name
 fn_in = filename_input_win.filename_lineEdit
@@ -1456,8 +1504,8 @@ def action_begin_recording(start_diagnose: int):
                 print("sent was " + str(bool))
                 if bool: sent = True
             ins.send_request_start()
-        elif start_diagnose == DIAGNOSE:
-            ins.send_diagnose_request()
+        # elif start_diagnose == DIAGNOSE:
+        #     ins.send_diagnose_request()
         # Close Window
         main_sensor_sel_win.close()
         check_status_during_test(ins)
