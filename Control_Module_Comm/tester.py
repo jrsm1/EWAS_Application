@@ -96,6 +96,7 @@ def test_gps_data_request():
     tester = instruction_manager.instruction_manager('COM6')
     # tester.init(1)
     line = tester.send_gps_data_request()
+    print("microntroller output is: " + str(line))
     if line:
         print("request gps data successful")
         print("microntroller output is: " + str(line))
@@ -147,7 +148,7 @@ def test_instruction_existante():
     if line == b'\xFE': print("wrong instruction succesful")
     """
 def test_wrong_instruction_acknowledge():
-    tester = serial_interface.serial_interface()
+    tester = serial_interface.serial_interface('COM6')
     tester.send_string('test')
     print("--sent test--")
     line = tester.listen()
@@ -155,30 +156,44 @@ def test_wrong_instruction_acknowledge():
     if line == b'\xFE': print("wrong instruction succesful")
 
 def test_specific_daq(daq):
-    tester = instruction_manager.instruction_manager('COM7')
+    tester = instruction_manager.instruction_manager('COM6')
     line = tester.send_request_data(daq)
     print("recieved line " + str(line))
-    
+
+def test_send_recording_parameters():
+    tester = instruction_manager.instruction_manager('COM6')
+    a = []
+    for i in range(0, 31, 1):
+        a.append(0)
+    a[1] = 2
+    a[5] = 2
+    # sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
+    tester.send_recording_parameters(1, 1, 1, "0100", "0200", "1111", a, "test_name", "test_location")
+    print("finished test")
+    del tester
     
 # if __name__ == "__main__":
+# test_send_recording_parameters()
 # test_specific_daq(1)
-# test_listen()
+# # test_listen()
 # test_send()
 # test_send_byte()
 # test_compare_byte()
 # -----------------------------------------------------
-# test_send_configuration()
-# test_request_configuration()
-# test_request_start()
-#test_request_number_of_modules_connected()
-# test_request_live_bytes()
-# test_send_cancel()
+test_send_configuration()
+test_request_configuration()
+test_request_start()
+test_request_number_of_modules_connected()
+test_request_live_bytes()
+test_send_cancel()
 # test_request_all_data()
 # test_listen()
-# test_gps_data_request()
-# test_sync_gps_request()
-# test_diagnose_request()
-# test_request_status()
-# test_request_configuration_validity()
-# test_wrong_instruction_acknowledge()
+test_gps_data_request()
+test_sync_gps_request()
+test_diagnose_request()
+test_request_status()
+for i in range(0, 1000, 1):
+    a = 0
+test_request_configuration_validity()
+test_wrong_instruction_acknowledge()
     

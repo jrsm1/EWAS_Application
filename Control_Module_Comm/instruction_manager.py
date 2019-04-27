@@ -70,7 +70,8 @@ class instruction_manager():
                 line[count] = int(i)
                 count = count + 1
             return line
-        return 0
+        return [-1, -1, -1, -1, -1, -1, -1, -1]
+
 
     def send_live_stream_request(self, module, channel1, channel2):
         self.serial_interface.send_byte(b'\x88')
@@ -105,12 +106,8 @@ class instruction_manager():
         self.serial_interface.send_byte(b'\x87')
         self.serial_interface.send_instruction(bytes([daq]))
         line = self.serial_interface.listen()
-        # line = line.strip(b'\r\n')
-        # print("line is = ", line)
         line = str(line)
-        # print("line is = ", line)
         line = line[2:len(line) - 5]
-        # print("line is = ", line)
         count = 0
         line1 = ''
         print("line is = ", line)

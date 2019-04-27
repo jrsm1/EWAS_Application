@@ -29,9 +29,9 @@ class serial_interface():
         ser = self.ser
         line = ser.readline()
         if log: print("entered listen")
-        while not line:
-            line = ser.readline()
-            continue
+        # while not line:
+        #     line = ser.readline()
+        #     continue
         if log: print("received: " + str(line))
         if log: print("left listen")
         return line
