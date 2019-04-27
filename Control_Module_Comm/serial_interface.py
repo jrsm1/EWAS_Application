@@ -16,9 +16,8 @@ class serial_interface():
             parity=serial.PARITY_NONE,
             stopbits=serial.STOPBITS_ONE,
             bytesize=serial.EIGHTBITS,
-            timeout=2)
+            timeout=1)
         print("connected to: " + self.ser.portstr)
-
 
     """
     listen will block until it receives a tranmission ending with
@@ -36,11 +35,11 @@ class serial_interface():
         if log: print("left listen")
         return line
 
-    """
-    send a string of data. this function will automatically close the data being sent. 
-    """
 
     def send_string(self, string):
+        """
+        send a string of data. this function will automatically close the data being sent.
+        """
         st = bytes(string, 'ascii')
         self.ser.write(st)
 

@@ -1517,7 +1517,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>50</height>
+                  <height>54</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1625,7 +1625,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <addaction name="action_Help"/>
     <addaction name="separator"/>
-    <addaction name="action_Diagnose"/>
+    <addaction name="actionDiagnose"/>
    </widget>
    <widget class="QMenu" name="menuVisualize">
     <property name="title">
@@ -1655,16 +1655,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </font>
    </property>
   </action>
-  <action name="action_Diagnose">
-   <property name="text">
-    <string>Diagnose</string>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-  </action>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
@@ -1684,6 +1674,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <pointsize>12</pointsize>
      <stylestrategy>PreferAntialias</stylestrategy>
     </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+V</string>
    </property>
   </action>
   <action name="actionFrequency">
@@ -1724,6 +1717,16 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     <font>
      <pointsize>12</pointsize>
     </font>
+   </property>
+  </action>
+  <action name="actionwhat_i_am">
+   <property name="text">
+    <string>what i am</string>
+   </property>
+  </action>
+  <action name="actionDiagnose">
+   <property name="text">
+    <string>Diagnose</string>
    </property>
   </action>
  </widget>

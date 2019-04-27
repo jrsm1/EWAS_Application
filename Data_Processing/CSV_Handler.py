@@ -81,17 +81,21 @@ class Data_Handler():
             data.to_csv(datapath, mode='a', index=False)
         f.close()
 
-    def string_to_dataframe(self, string: str):
+    def string_to_dataframe(self, string: str, timestamp=None):
         """
         Converts Comma delimited string into pandas DataFrame.
 
         :param string: Contains the comma delimited data string.
+        :param timestamp: True if the string to convert has Timestamp data.
 
         :return: Pandas DataFrame with the data from the input string.
         """
 
         # Select Column Based on Selected Sensors.
-        columns = select_data_columns()
+        if timestamp:
+            culumns = ['Timestamp']
+        else:
+            columns = select_data_columns()
         return pd.DataFrame([x.split(',') for x in string.split(';')], columns=columns)
 
     def read_data(self, filename: str):
@@ -103,7 +107,7 @@ class Data_Handler():
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
         filename = r'Data/' + filename
-        data_read = pd.read_csv(filename, header=90, index_col='Timestamp') # FIXME 'Timestamp' DOES NOT EXISTS IN STORE DATA YET.
+        data_read = pd.read_csv(filename, header=90, index_col='Timestamp')  # TODO Test
 
         return data_read
 
@@ -123,7 +127,7 @@ class Data_Handler():
 
         return result
 
-    def request_all_data(self, connected_modules: []):
+    def request_all_data(self, connected_modules: set):
         """
         Gets data from Control Module and parses it into a single Pandas DataFrame.
 
@@ -133,28 +137,43 @@ class Data_Handler():
         """
         string = ''
         self.all_data = pd.DataFrame()
-        for i in range(len(connected_modules)):
-            if connected_modules[i]:
-                string += ''  # String necessary here to connect inner and outer variables apperently.
-                try:
-                    im = ins_man.instruction_manager()
-                    string = im.send_request_data(i)  # FIXME wait for Juan's Method Merge.
-                except serial.SerialException:
-                    GUI_Handler.show_error('Device has been Disconnected. <br>'
-                                           ' Data Collection Aborted.')
-                    break
+        for module in connected_modules:
+            string += ''  # String necessary here to connect inner and outer variables apperently.
+            try:
+                im = ins_man.instruction_manager(get_port())
+                string = im.send_request_data(module)  # FIXME wait for Juan's Method Merge.
+            except serial.SerialException:
+                GUI_Handler.show_error('Device has been Disconnected. <br>'
+                                       ' Data Collection Aborted.')
+                break
 
-                self.all_data.join(self.string_to_dataframe(string))
+            self.all_data.join(self.string_to_dataframe(string))
 
-        # DataFrame to hold index and simulate timestamp. TODO
+        # Convert Data Values as float.
+        self.all_data.astype(float)
+
         timestamp = ''
         time = 0
         time_step = 1/GUI_Handler.daq_config.get_sampling_freq()
-        for x in np.arange(len(self.all_data.index)):
+        for x in np.arange(len(self.all_data.index-1)):
             time += time_step
-            timestamp += str(time) + ';' # New line every timestamp calculated.
+            timestamp += str(time) + ';'  # New line every timestamp calculated.
 
+        # Do last value because otherwise it will let the last value NaN.
+        time += time_step
+        timestamp += str(time)
+
+        # store timestamp in DataFrame
         timedf = self.string_to_dataframe(timestamp)
+        timedf = timedf.astype(float)
+
+        # Join Timestamp to all_data and set it as Index
+        self.all_data = timedf.join(self.all_data)
+        self.all_data.set_index('Timestamp')
+
+        if log:
+            print(self.all_data)
+            print(self.all_data.info())
 
         return self.all_data
 
@@ -183,7 +202,7 @@ def select_data_columns():
     #     # show_error('')
     #     print('Serial Error.')
 
-    sensor_list = ['Timestamp']
+    sensor_list = []
     if log: print("CSV_Handler - entered Select sensor Headers")
     if connected_module_list[0]:
         sensor_list.append('Sensor_1')
@@ -229,27 +248,20 @@ def select_data_columns():
 
     return sensor_list
 
-
 def get_port():
-    port = 'COM'
-    for i in range(1, 20, 1):
-        try:
-            port = port[0:3] + str(i)
-            if log: print("before port = ", port)
-            ins = ins_man.instruction_manager(port)
-            if log: print("port = ", port)
-            del ins
-            break
-        except serial.serialutil.SerialException:
-            port = 'COM-1'
-            continue
-    port = port.strip(' ')
-    instruction_manager_port = port
-    if log: print('com port connected is = ' + instruction_manager_port)
+    global ins_port
+    port = 'COM-1'
+    pid = "0403"
+    hid = "6001"
+    ports = list(serial.tools.list_ports.comports())
 
-    return instruction_manager_port
+    for p in ports:
+        if pid and hid in p.hwid:
+            port = p.device
+    ins_port = port
+    return port
 
-# TESTING
+# ----------  TESTING  ------------------
 # sc1 = Sensor_Individual.Sensor('S1', 0)
 # sc2 = Sensor_Individual.Sensor('S2', 0)
 # sc3 = Sensor_Individual.Sensor('S3', 0)

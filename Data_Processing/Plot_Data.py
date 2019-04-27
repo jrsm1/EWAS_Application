@@ -2,12 +2,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
+import GUI_Handler
+import os
+import sys
+import time
 
 # Testing
 log = 1
 
-
-# TODO Make Plots Pretty.
 class Plot_Data():
     def __init__(self, filename):
         """
@@ -21,20 +23,29 @@ class Plot_Data():
         :param filename: File Containing Desired Data.
         """
         self.filename = filename
-        self.sampling_rate = self.get_sampling_rate()
+        try:
+            self.sampling_rate = self.get_sampling_rate()
+        except ValueError('The Sampling Rate could not be parsed from File Header. Cannot continue with visualization'):
+            GUI_Handler.close_visualization_sensor_selection_window()
+            GUI_Handler.show_error(' FATAL ERROR !!! <br> <br> File formatting Error <br> File seems to be corrupted. '
+                                   ' <br>  <br> Restart Program...')
+
         self.data_read = pd.read_csv(self.filename, header=90)
         if log: print(self.data_read)
 
-        # Open in New Qt5 Interactive Window
+        # Open in New Qt5 Interactive Window.
         matplotlib.use('Qt5Agg')
 
         # Faster Rendering
         matplotlib.rcParams['path.simplify'] = True
         matplotlib.rcParams['path.simplify_threshold'] = 1.0
         # Init Figure Parameters
-        matplotlib.rcParams["figure.figsize"] = (20, 6)
-        matplotlib.rcParams["figure.dpi"] = 80  # Makes Window Size in PIXELS = FIGURE_SIZE * DPI
-        matplotlib.rcParams["figure.facecolor"] = '0.85'
+        matplotlib.rcParams["figure.figsize"] = (20, 6)  # Figure Size in Pixels.
+        matplotlib.rcParams["figure.dpi"] = 80  # Makes Window Size in PIXELS = FIGURE_SIZE * DPI.
+        matplotlib.rcParams["figure.facecolor"] = '0.85'  # Gray-scale Background "Brightness".
+        # Customizing Fonts
+        plt.rcParams["font.family"] = "Times New Roman"
+        plt.rcParams["font.size"] = "16"
 
     def plt_time(self, sensor: str):
         """
@@ -100,7 +111,6 @@ class Plot_Data():
 
         return self  # Return Instance so that it can be linearly written in code.
 
-    # TODO finish with values from paper.
     def plot_CSD(self, sensor_1: str, sensor_2: str):
         """
         Plots Cross Power Spectrum
@@ -118,8 +128,6 @@ class Plot_Data():
         plt.show()
 
         return self  # Return Instance so that it can be linearly written in code.
-
-    # TODO finish with values from paper.
 
     def plot_Phase(self, sensor: str):
         """
