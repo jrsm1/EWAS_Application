@@ -77,9 +77,9 @@ class ModuleSelectionWindow(Window):
             # connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
             port = GUI_Handler.save_port()
             if not port == 'COM-1':
-                connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
-                # im = ins_man.instruction_manager(port)
-                # connected_modules = im.send_request_number_of_mods_connected()  # FIXME ENABLE FOR REAL
+                # connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
+                im = ins_man.instruction_manager(port)
+                connected_modules = im.send_request_number_of_mods_connected()  # FIXME ENABLE FOR REAL
                 self.disable_buttons(connected_modules)
                 self.module_selection_win.show()
             else:
