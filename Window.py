@@ -111,21 +111,11 @@ def validate_path(path: str):
     :return: True if Data Files is opened from within allowed path.
     """
     validated = False
+    # Keep to validate Filename : Done like this to maintain Code clarity and naming convention on functions.
+    filename = path
 
-    if path:  # If user cancelles --> Path is empty --> NOT VALID
+    if '/EWAS_Application/' in path:  # If user cancels --> Path is empty --> NOT VALID
         validated = True
-
-        # Keep to validate Filename : Done like this to maintain Code clarity and naming convention on functions.
-        filename = path
-
-        path = path.split('/')
-        path = path[len(path) - 3] + '/' + path[len(path) - 2]
-
-        valid_path = str(__file__).split('\\')
-        valid_path = valid_path[len(valid_path) - 2] + '/Data'
-
-        if path != valid_path:  # If not
-            validated = False
 
     return validated and validate_filename(filename)
 

@@ -333,7 +333,7 @@ class MainWindow(windowClass):
 
         if set_dat_man.verify_file_exists(filename):
             # Set Params into GUI.
-            self.set_daq_params_to_gui()
+            self.set_DAQ_params_into_gui()
             # Close Window
             self.filename_input_win.close()
 
@@ -436,7 +436,7 @@ class MainWindow(windowClass):
         if self.loc_type_dropdown.currentIndex() == 0:  # GPS
             self.loc_gps_frame.setEnabled(True)
             self.loc_specimen_frame.setEnabled(False)
-            self.set_gps_into_gui()
+            self.set_GPS_into_gui()
 
         elif self.loc_type_dropdown.currentIndex() == 1:  # Specimen
             self.loc_gps_frame.setEnabled(False)
@@ -599,37 +599,45 @@ class MainWindow(windowClass):
         """
         test_duration = self.rec_duration_edit.text()
         print(test_duration)
-        validate_box = Window.check_boxes(test_duration, '^[0-9]+$')
-        if not validate_box:
-            self.display_error('Error: Invalid Duration. Restricted to numbers only.<br>')
-        else:
-            if int(test_duration, 10) > 1800 or int(test_duration, 10) < 5:
-                self.display_error('Error: Invalid Duration. must be higher than 5 seconds and lower than 1800 seconds.')
-            else:
-                if not self.samfreq_dropdown.currentText() == 'Please Select':
-                    max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
-                    if not max_duration == 'Please Select':
-                        if int(test_duration) > max_duration:
-                            self.display_error('Durations higher than ' + str(max_duration) +
+        if not self.samfreq_dropdown.currentText() == 'Please Select':
+            max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
+            if not max_duration == 'Please Select':
+                if int(test_duration) > max_duration:
+                    self.display_error('Durations higher than ' + str(max_duration) +
                                        ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
 
     def check_duration(self):
         """
         When Sampling Rate drop-down combobox is modified, verify that the current
         duration does not exceed the maximum duration allowed by the new sampling rate.
-        :return:
         """
         test_duration = self.rec_duration_edit.text()
         if test_duration:
-            validate_box = self.check_boxes(test_duration, '^[0-9]+$')
-            if not validate_box:
-                self.display_error('Error: Invalid Duration. Restricted to numbers only.<br>')
-            else:
-                if not self.main_window.main_tab_DAQParams_samplingRate_DropDown.currentText() == 'Please Select':
-                    max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
-                    if int(test_duration) > max_duration:
-                        self.display_error('Durations higher than ' + str(max_duration) +
-                                           ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+            if not self.main_window.main_tab_DAQParams_samplingRate_DropDown.currentText() == 'Please Select':
+                max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
+                if int(test_duration) > max_duration:
+                    self.display_error('Durations higher than ' + str(max_duration) +
+                                       ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+
+    def validate_empty_fields(self):
+        """
+        Validates User has filled all fields.
+
+        :return: True if fields validated.
+        """
+        valid = True
+        if self.rec_name_edit.text() == '' or \
+                self.rec_duration_edit.text() == '' or \
+                self.delay_edit.text() == '' or \
+                self.loc_name_edit.text() == '' or \
+                self.loc_longitude_edit.text() == '' or \
+                self.loc_latitude_edit.text() == '' or \
+                self.loc_hour_edit.text() == '' or \
+                self.loc_minute_edit.text() == '' or \
+                self.loc_seconds_edit.text() == '':
+            valid = False
+
+        return valid
 
     # ======================================= MISCELLANEOUS ==================================
     def display_error(self, message: str):
