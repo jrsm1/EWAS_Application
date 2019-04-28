@@ -703,8 +703,17 @@ def start_acquisition(who_called: int):
     Begin Acquisition Process
     """
     global start_diagnose_decision
+    valid = True
 
-    if main_window.validate_daq_params():
+    if not main_window.validate_empty_fields():
+        valid = False
+        base_window.display_error('Error: Please Make Sure All Parameters Are Filled. ')
+
+    if not main_window.validate_daq_params():
+        valid = False
+        base_window.display_error('Error: Invalid Signal Parameters. '
+                                  'Please select a valid option from the Drop Downs.<br>')
+    if valid:
         # Find out who called me
         if who_called == START_TEST:
             start_diagnose_decision = START_TEST
@@ -712,9 +721,6 @@ def start_acquisition(who_called: int):
             start_diagnose_decision = DIAGNOSE
         # show_main_sens_sel_window()
         store_data_window.open()
-    else:
-        base_window.display_error('Error: Invalid Signal Parameters. '
-                                  'Please select a valid option from the Drop Downs.<br>')
     pass
 
 
@@ -840,7 +846,7 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
             prog_dlg.progress_bar.setValue(100)
             prog_dlg.close()
             ins.send_gps_data_request()
-            main_window.set_gps_into_gui()
+            main_window.set_GPS_into_gui()
     except serial.SerialException:
         prog_dlg.close()
         base_window.not_connected_error()
