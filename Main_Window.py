@@ -4,6 +4,7 @@ import serial
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QIcon, QRegExpValidator, QIntValidator
+from PyQt5.QtWidgets import QDesktopWidget
 from Data_Processing import CSV_Handler
 from Data_Processing import Plot_Data
 import Exceptions
@@ -85,7 +86,7 @@ class MainWindow(windowClass):
         self.init_objects()
         self.filename_input_win = FileInputWindow(self)
         self.setting_manager = setting_manager
-
+        self.center()
         # Instance Parameters
         self.load_save_instructions = {
             'action': '',
@@ -142,7 +143,7 @@ class MainWindow(windowClass):
         self.main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_LOCATION))
         self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
         self.loc_type_dropdown.currentIndexChanged.connect(lambda: self.change_local_allowed())
-        self.rec_duration_edit.editingFinished.connect(lambda: self.check_sampling_rate())
+        self.rec_duration_edit.textEdited.connect(lambda: self.check_sampling_rate())
         self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.sync_gps())
 
         # Visualization
@@ -191,6 +192,16 @@ class MainWindow(windowClass):
         self.specimen_loc_8.setToolTip(toolTip_description)
 
         pass
+
+    def center(self):
+        # geometry of the main window
+        qr = self.frameGeometry()
+        # center point of screen
+        cp = QDesktopWidget().availableGeometry().center()
+        # move rectangle's center point to screen's center point
+        qr.moveCenter(cp)
+        # top left of rectangle becomes top left of window centering it
+        self.move(qr.topLeft())
 
     def open(self):
         """
@@ -601,7 +612,7 @@ class MainWindow(windowClass):
         print(test_duration)
         if not self.samfreq_dropdown.currentText() == 'Please Select':
             max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
-            if not max_duration == 'Please Select':
+            if not (max_duration == 'Please Select' or test_duration == ''):
                 if int(test_duration) > max_duration:
                     self.display_error('Durations higher than ' + str(max_duration) +
                                        ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
