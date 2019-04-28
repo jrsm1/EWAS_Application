@@ -64,7 +64,7 @@ class SensorSelectionMatrix(Window):
 
         # Signals
         self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(
-            lambda: GUI_Handler.action_begin_recording(GUI_Handler.start_diagnose_decision))
+            lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
 
         pass
 

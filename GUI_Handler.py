@@ -1500,11 +1500,12 @@ def send_diagnostics():
 #         samfreq_dropdown.setCurrentIndex(cutfreq_drodown.currentIndex())
 
 
-def action_begin_recording(start_diagnose: int):
+def action_begin_recording(sens: SensorSelectionMatrix, start_diagnose: int):
     """
     Prepares GUI and sends request to control module for begin recording data.
     """
     # Send Setting Information to Control Module.
+    sens.close()
     sent = False
     # try:
     configuration = setting_data_manager.settings_to_string()
