@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 # import Main_Window
-from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QFileDialog, QDesktopWidget
 
 from regex import regex
 
@@ -30,8 +30,18 @@ class Window(QtWidgets.QMainWindow):
         super(Window, self).__init__()
 
         self.init_objects()
-
+        self.center()
         pass
+
+    def center(self):
+        # geometry of the main window
+        qr = self.frameGeometry()
+        # center point of screen
+        cp = QDesktopWidget().availableGeometry().center()
+        # move rectangle's center point to screen's center point
+        qr.moveCenter(cp)
+        # top left of rectangle becomes top left of window centering it
+        self.move(qr.topLeft())
 
     # TODO how to implement abstract methods and make sure all inherited uses it.
     def open(self):

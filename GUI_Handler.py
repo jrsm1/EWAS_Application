@@ -704,15 +704,14 @@ def start_acquisition(who_called: int):
     """
     global start_diagnose_decision
     valid = True
-
+    error_string = ''
     if not main_window.validate_empty_fields():
         valid = False
-        base_window.display_error('Error: Please Make Sure All Parameters Are Filled. ')
+        error_string += 'Error: Please Make Sure All Parameters Are Filled.<br>'
 
     if not main_window.validate_daq_params():
         valid = False
-        base_window.display_error('Error: Invalid Signal Parameters. '
-                                  'Please select a valid option from the Drop Downs.<br>')
+        error_string += 'Error: Invalid Signal Parameters. Please select a valid option from the drop-downs.<br>'
     if valid:
         # Find out who called me
         if who_called == START_TEST:
@@ -721,6 +720,8 @@ def start_acquisition(who_called: int):
             start_diagnose_decision = DIAGNOSE
         # show_main_sens_sel_window()
         store_data_window.open()
+    else:
+        main_window.display_error(error_string)
     pass
 
 
