@@ -132,7 +132,7 @@ class MainWindow(windowClass):
         self.main_window.actionDiagnose.triggered.connect(lambda: GUI_Handler.send_diagnostics())  # TODO VErify if this is part of Start Logic
         # Recording Settings # TODO Organize.
         self.main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, 1))
-
+        self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
         self.main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: ModuleSelect(modules).open())
         self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.check_for_port('START'))
         self.cutfreq_drodown.currentIndexChanged.connect(lambda: self.suggest_sampling_rate())
@@ -141,7 +141,7 @@ class MainWindow(windowClass):
         self.samfreq_dropdown.currentIndexChanged.connect(lambda: self.check_duration())
         self.main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, STORE_LOAD_LOCATION))
         self.main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_LOCATION))
-        self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
+
         self.loc_type_dropdown.currentIndexChanged.connect(lambda: self.change_local_allowed())
         self.rec_duration_edit.textEdited.connect(lambda: self.check_sampling_rate())
         self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.check_for_port('GPS'))
@@ -267,7 +267,7 @@ class MainWindow(windowClass):
             if log: print('Loading Error.')
         else:
             if what == ACTION_SAVE:
-                FileInputWindow(self).open()
+                self.filename_input_win.open()
                 self.load_save_instructions['who_to_save'] = who
             elif what == ACTION_LOAD:
                 self.load_save_instructions['who_to_load'] = who
@@ -629,6 +629,84 @@ class MainWindow(windowClass):
                 if int(test_duration) > max_duration:
                     self.display_error('Durations higher than ' + str(max_duration) +
                                        ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+
+    def validate_rec_settings(self):
+        there_is_no_error = True
+        error_string = ''
+        if self.rec_name_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Test Name Field is empty.<br>'
+        if self.rec_duration_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Duration Field is empty.<br>'
+        if self.delay_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Start Delay Field is empty.<br>'
+        if there_is_no_error:
+            self.get_recording_from_gui()
+            return error_string
+        else:
+            return error_string
+
+    def validate_gps_location_settings(self):
+        there_is_no_error = True
+        error_string = ''
+        if self.loc_name_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Location Name Field is empty.<br>'
+        if self.loc_longitude_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Longitude Field is empty.<br>'
+        if self.loc_latitude_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Latitude Field is empty.<br>'
+        if self.loc_hour_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Hour Field is empty.<br>'
+        if self.loc_minute_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Minute Field is empty.<br>'
+        if self.loc_seconds_edit.text() == '':
+            there_is_no_error = False
+            error_string += 'Seconds Field is empty.<br>'
+        if there_is_no_error:
+            self.get_GPS_from_gui()
+            return error_string
+        else:
+            return error_string
+
+    def validate_module_location_settings(self):
+        there_is_no_error = True
+        error_string = ''
+        if self.specimen_loc_1.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 1 Location Field is empty.<br>'
+        if self.specimen_loc_2.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 2 Location Field is empty.<br>'
+        if self.specimen_loc_3.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 3 Location Field is empty.<br>'
+        if self.specimen_loc_4.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 4 Location Field is empty.<br>'
+        if self.specimen_loc_5.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 5 Location Field is empty.<br>'
+        if self.specimen_loc_6.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 6 Location Field is empty.<br>'
+        if self.specimen_loc_7.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 7 Location Field is empty.<br>'
+        if self.specimen_loc_8.text() == '':
+            there_is_no_error = False
+            error_string += 'Specimen 8 Location Field is empty.<br>'
+        if there_is_no_error:
+            self.get_specimen_location_from_gui()
+            return error_string
+        else:
+            return error_string
 
     def validate_empty_fields(self):
         """
