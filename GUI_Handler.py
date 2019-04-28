@@ -711,7 +711,11 @@ def start_acquisition(who_called: int):
         elif who_called == DIAGNOSE:
             start_diagnose_decision = DIAGNOSE
         # show_main_sens_sel_window()
-        store_data_window.show()
+        store_data_window.open()
+    else:
+        base_window.display_error('Error: Invalid Signal Parameters. '
+                                  'Please select a valid option from the Drop Downs.<br>')
+    pass
 
 
 # def sensor_sel_start():
@@ -1484,7 +1488,7 @@ def action_begin_recording(start_diagnose: int):
     sent = False
     # try:
     configuration = setting_data_manager.settings_to_string()
-    sens = sensor_matrix.get_module_and_sensors_selected()
+    sens = sensor_matrix.get_modules_and_sensors_selected()
     sensors_enabled = get_sensor_enabled()
     ins = ins_man.instruction_manager(ins_port)
     ins.send_set_configuration(setting_data_manager.settings_to_string())

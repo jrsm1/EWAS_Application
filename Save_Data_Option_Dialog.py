@@ -40,6 +40,8 @@ class SaveDataOptionDialog(Window):
 
         :return:
         """
+        super().open()
+        self.store_data_window.show()
 
         pass
 
@@ -49,6 +51,8 @@ class SaveDataOptionDialog(Window):
 
         :return:
         """
+        super().close()
+        self.store_data_window.close()
 
         pass
 

@@ -311,10 +311,11 @@ class MainWindow(windowClass):
         self.filename_input_win.open()
         filename = self.filename_input_win.fn_in.text()  # TODO FIXME May cause error. --> verify if method .text()
         if Window.validate_filename(filename):
-            if not self.validate_daq_params():
+            if self.validate_daq_params():
                 self.setting_manager.store_signal_params(filename)
             else:
-                self.display_error(self.validate_daq_params())
+                self.display_error('Error: Invalid Signal Parameters. '
+                                   'Please select a valid option from the Drop Downs.<br>')
             self.filename_input_win.close()
 
         pass
@@ -395,7 +396,7 @@ class MainWindow(windowClass):
         """
         # Get filename from User
         filename = self.filename_input_win.fn_in.text()
-        if self.validate_filename(filename):
+        if Window.validate_filename(filename):
             if not self.validate_rec_settings():  # Validation calls get_rec_setts_from_gui()
                 # Save to File.
                 self.setting_manager.store_recording_configs(filename)
@@ -575,16 +576,20 @@ class MainWindow(windowClass):
 
     # *********************************** VALIDATION ****************************************
     def validate_daq_params(self):
-        error_string = ''
+        """
+        Validates User has selected all DAQ Parameters.
+
+        :return: True if fields validated.
+        """
+        validated = True
         sampling_rate = self.samfreq_dropdown.currentText()
         cutoff = self.cutfreq_drodown.currentText()
         gain = self.gain_dropdown.currentText()
         if sampling_rate == 'Please Select' or cutoff == 'Please Select' or gain == 'Please Select':
-            error_string += 'Error: Invalid Signal Parameters. ' \
-                            'Please select a valid option from the Drop Downs.<br>'
+            validated = False
         else:
             self.get_DAQ_params_from_gui()
-        return error_string
+        return validated
 
     def check_sampling_rate(self):
         """
