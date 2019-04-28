@@ -3,7 +3,6 @@ import serial.tools.list_ports
 log = 1
 
 class serial_interface():
-    global ser
 
     def __init__(self, port):
         """
@@ -19,7 +18,6 @@ class serial_interface():
             timeout=1)
         print("connected to: " + self.ser.portstr)
 
-
     """
     listen will block until it receives a tranmission ending with
     bytes \r\n and then it will return it to it's caller. it would be advantegous to use it as a thread. 
@@ -30,17 +28,30 @@ class serial_interface():
         line = ser.readline()
         if log: print("entered listen")
         # while not line:
-        line = ser.readline()
-            # continue
+        #     line = ser.readline()
+        #     continue
         if log: print("received: " + str(line))
         if log: print("left listen")
         return line
 
-    """
-    send a string of data. this function will automatically close the data being sent. 
-    """
+    def listen_file(self):
+        ser = self.ser
+        line = ser.readline()
+        line1 = b''
+        if log: print("entered listen")
+        while line != b'':
+            line = ser.readline()
+            line1 = line1 + line
+            print("read line", line)
+            # continue
+        if log: print("received: " + str(line))
+        if log: print("left listen")
+        return line1
 
     def send_string(self, string):
+        """
+        send a string of data. this function will automatically close the data being sent.
+        """
         st = bytes(string, 'ascii')
         self.ser.write(st)
 
@@ -82,5 +93,3 @@ class serial_interface():
         except AttributeError:
             print('The Root Error was Already Handled.')
             print('This error is caused by handling the Serial Failed to Connect Error.')
-
-
