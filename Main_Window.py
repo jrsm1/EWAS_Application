@@ -134,7 +134,7 @@ class MainWindow(windowClass):
         self.main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, 1))
 
         self.main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: ModuleSelect(modules).open())
-        self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.start_acquisition(GUI_Handler.START_TEST))
+        self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.check_for_port('START'))
         self.cutfreq_drodown.currentIndexChanged.connect(lambda: self.suggest_sampling_rate())
         self.main_window.main_tab_DAQParams_LOAD_PARAMS_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, STORE_LOAD_DAQ_PARAMS))
         self.main_window.main_tab_DAQParams_SAVE_PARAMS_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_DAQ_PARAMS))  # TODO
@@ -144,7 +144,7 @@ class MainWindow(windowClass):
         self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
         self.loc_type_dropdown.currentIndexChanged.connect(lambda: self.change_local_allowed())
         self.rec_duration_edit.textEdited.connect(lambda: self.check_sampling_rate())
-        self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.sync_gps())
+        self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.check_for_port('GPS'))
 
         # Visualization
         self.main_window.actionTime.triggered.connect(lambda: self.do_plot(TIME_PLOT))

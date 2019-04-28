@@ -713,13 +713,16 @@ def start_acquisition(who_called: int):
         valid = False
         error_string += 'Error: Invalid Signal Parameters. Please select a valid option from the drop-downs.<br>'
     if valid:
-        # Find out who called me
-        if who_called == START_TEST:
-            start_diagnose_decision = START_TEST
-        elif who_called == DIAGNOSE:
-            start_diagnose_decision = DIAGNOSE
-        # show_main_sens_sel_window()
-        store_data_window.open()
+        if save_port() == 'COM-1':
+            base_window.not_connected_error()
+        else:
+            # Find out who called me
+            if who_called == START_TEST:
+                start_diagnose_decision = START_TEST
+            elif who_called == DIAGNOSE:
+                start_diagnose_decision = DIAGNOSE
+            # show_main_sens_sel_window()
+            store_data_window.open()
     else:
         main_window.display_error(error_string)
     pass
@@ -737,6 +740,15 @@ def start_acquisition(who_called: int):
 #             print("came back to sensor_sel_start")
 #     except serial.SerialException:
 #         show_not_connected_error()
+
+def check_for_port(what_was_clicked: str):
+    if not save_port() == 'COM-1':
+        if what_was_clicked == 'START':
+            start_acquisition(START_TEST)
+        elif what_was_clicked == 'GPS':
+            sync_gps()
+    else:
+        main_window.not_connected_error()
 
 
 def save_port():  # TODO adapt for class reconstruction
@@ -819,35 +831,36 @@ def save_port():  # TODO adapt for class reconstruction
 def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
     # Show Progress Dialog.
     global stop_break_loop
+    stop_break_loop = True
     prog_dlg = ProgressDialog()
     prog_dlg.acquire_dialog('GPS Signal')
-    prog_dlg.progress_bar.setMaximum(100)
     prog_dlg.progress_bar.setValue(0)
     app.processEvents()
     try:
         ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
         timeout = 0
-        synched = True  # Used to not request data if synched==False.
-        while (ins.send_request_status()[2] != 1) and (not stop_break_loop):  # Status[2] --> gps_synched
+        synced = True  # Used to not request data if synched==False.
+        while (ins.send_request_status()[2] != 1) and stop_break_loop:  # Status[2] --> gps_synched
             print('GPS Waiting....')
             sleep(0.1)  # Wait for half a second before asking again.
             timeout += 1
-            prog_dlg.progress_bar.setValue(timeout * 2)
+            prog_dlg.progress_bar.setValue(timeout * 1.3)
             app.processEvents()
-            if (timeout == 30 * 10) :  # = [desired timeout in seconds] * [1/(sleep value)]
-                # prog_dlg.close()
+            if timeout == 6 * 10:  # = [desired timeout in seconds] * [1/(sleep value)]
                 prog_dlg.progress_bar.setValue(100)
                 base_window.display_error('GPS Failed to Synchronize.')
                 prog_dlg.close()
-                synched = False
+                synced = False
                 break
-        # If synced Successful --> Request GPS data.
-        if synched:
+        if synced and stop_break_loop:
             prog_dlg.progress_bar.setValue(100)
-            prog_dlg.close()
             ins.send_gps_data_request()
             main_window.set_GPS_into_gui()
+        if not stop_break_loop:
+            ins.send_cancel_request()
+        prog_dlg.close()
+        del ins
     except serial.SerialException:
         prog_dlg.close()
         base_window.not_connected_error()
