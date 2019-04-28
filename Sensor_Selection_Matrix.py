@@ -95,8 +95,10 @@ class SensorSelectionMatrix(Window):
 
     def get_modules_and_sensors_selected(self):
         """
+        Gets Sensors selected by user from sensor selection matrix.
+        Also calculates the modules from the selected sensors.
 
-        :return:
+        :return: '0000' # TODO Find out what this return is.
         """
         if log: print("entered get_module_and_sensors_selected()")
         sensors_sel = []
