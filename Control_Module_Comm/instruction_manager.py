@@ -58,18 +58,19 @@ class instruction_manager():
         self.serial_interface.send_instruction(b'\x84')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
-        if line == b'\x84':
-            if log: print("send modules connected succesful")
-            line = self.serial_interface.listen()
-            line = str(line)
-            line = line[4:len(line) - 5]
-            line = line.split("\\x")
-            count = 0
-            for i in line:
-                line[count] = int(i)
-                count = count + 1
-            return line
-        return 0
+        # if line == b'\x84':
+        if log: print("send modules connected succesful")
+        # line = self.serial_interface.listen()
+        line1 = []
+        line = str(line)
+        line = line[4:len(line)-1]
+        line = line.split("\\x")
+        print("line is " + str(line))
+        count = 0
+        results = list(map(int, line))
+        print("line1 = " + line1)
+        return [1,0,0,0,0,0,0,0]
+        # return 0
 
     def send_live_stream_request(self, module, channel1, channel2):
         self.serial_interface.send_byte(b'\x88')
@@ -226,7 +227,7 @@ class instruction_manager():
             status.append(int(line[3]))# gps_synched
             if log: print("instruction status = " + str(status))
             return status
-        raise Exceptions.noPowerException
+        # raise Exceptions.noPowerException
         return [-1, -1, -1]
 
     def send_request_configuration_validity(self):

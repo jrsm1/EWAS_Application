@@ -1020,8 +1020,8 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="16" column="1">
-            <spacer name="horizontalSpacer_2">
+           <item row="15" column="1">
+            <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -1033,22 +1033,8 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="17" column="1">
-            <widget class="QPushButton" name="module_info_load_Button">
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(204, 51, 0);
-color: rgb(255, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Load Module Information</string>
-             </property>
-            </widget>
-           </item>
-           <item row="15" column="1">
-            <spacer name="horizontalSpacer_5">
+           <item row="16" column="1">
+            <spacer name="horizontalSpacer_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -1419,12 +1405,12 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
             <widget class="QPushButton" name="channel_info_SAVE_Button">
              <property name="styleSheet">
               <string notr="true">background-color:rgb(204, 51, 0);
-color: rgb(255, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;
-</string>
+															color: rgb(255, 255, 255);
+															font: 12pt &quot;MS Shell Dlg 2&quot;;
+														</string>
              </property>
              <property name="text">
-              <string>Store Module Information</string>
+              <string>Save Module Information</string>
              </property>
             </widget>
            </item>
@@ -1475,7 +1461,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
   <tabstop>channel_info_senson4_full_Scale_LineEdit</tabstop>
   <tabstop>channel_info_sensor4_dampingLineEdit</tabstop>
   <tabstop>channel_info_sensor4_location_Edit</tabstop>
-  <tabstop>channel_info_SAVE_Button</tabstop>
  </tabstops>
  <resources/>
  <connections/>

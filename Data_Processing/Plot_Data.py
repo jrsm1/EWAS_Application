@@ -34,7 +34,7 @@ class Plot_Data():
         if log: print(self.data_read)
 
         # Open in New Qt5 Interactive Window
-        matplotlib.use('Qt5Agg')
+        # matplotlib.use('Qt5Agg')
 
         # Faster Rendering
         matplotlib.rcParams['path.simplify'] = True

@@ -12,6 +12,8 @@ log = 0
 
 
 def verify_file_exists(file_path: str):
+    if file_path == None:
+        exists = False
     exists = path.isfile(file_path)
     if not exists and (file_path != ''):
         QtWidgets.QMessageBox().critical(GUI_Handler.main_window, 'WARNING', 'File does not exist')
