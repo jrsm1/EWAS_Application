@@ -704,16 +704,18 @@ def start_acquisition(who_called: int):
     Begin Acquisition Process
     """
     global start_diagnose_decision
-    valid = True
     error_string = ''
-    if not main_window.validate_empty_fields():
-        valid = False
-        error_string += 'Error: Please Make Sure All Parameters Are Filled.<br>'
+    error_string += main_window.validate_rec_settings()
+    loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
+    if not loc_type:
+        error_string += main_window.validate_gps_location_settings()
+    else:
+        # specimen by module
+        error_string += main_window.nvalidate_module_location_settings()
 
     if not main_window.validate_daq_params():
-        valid = False
         error_string += 'Error: Invalid Signal Parameters. Please select a valid option from the drop-downs.<br>'
-    if valid:
+    if not error_string:
         if save_port() == 'COM-1':
             base_window.not_connected_error()
         else:

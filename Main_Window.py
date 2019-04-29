@@ -610,12 +610,16 @@ class MainWindow(windowClass):
         """
         test_duration = self.rec_duration_edit.text()
         print(test_duration)
-        if not self.samfreq_dropdown.currentText() == 'Please Select':
-            max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
-            if not (max_duration == 'Please Select' or test_duration == ''):
-                if int(test_duration) > max_duration:
-                    self.display_error('Durations higher than ' + str(max_duration) +
-                                       ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+        if not test_duration == '':
+            if int(test_duration) < 5:
+                self.display_error('Must be higher than 5 seconds and less than 1800 seconds')
+            else:
+                if not self.samfreq_dropdown.currentText() == 'Please Select':
+                    max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
+                    if not max_duration == 'Please Select':
+                        if int(test_duration) > max_duration:
+                            self.display_error('Durations higher than ' + str(max_duration) +
+                                               ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
 
     def check_duration(self):
         """
