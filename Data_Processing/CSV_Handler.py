@@ -98,6 +98,17 @@ class Data_Handler():
             columns = select_data_columns()
         return pd.DataFrame([x.split(',') for x in string.split(';')], columns=columns)
 
+    def list_to_dataframe(self, list_of_lists: []):
+        """
+        Converts a list of module sensors containing list of its data.
+        :param list_of_lists: containing list of sensor data.
+        :return: Dataframe where the columns are sensor data.
+        """
+        dataframe = pd.DataFrame(list_of_lists)
+        dataframe = dataframe.transpose()
+        dataframe.columns = []
+        return dataframe
+
     def read_data(self, filename: str):
         """
         Reads Data from Data File in CSV format into a Pandas DataFrame.
@@ -130,32 +141,30 @@ class Data_Handler():
     def request_all_data(self, connected_modules: set):
         """
         Gets data from Control Module and parses it into a single Pandas DataFrame.
-
         :param connected_modules: 1/0 List indicating connected modules.
-
         :return: Pandas DataFrame with joint module sensor data.
         """
-        string = ''
+        list = []
         self.all_data = pd.DataFrame()
         for module in connected_modules:
-            string += ''  # String necessary here to connect inner and outer variables apperently.
+            print(list)  # String necessary here to connect inner and outer variables apperently.
             try:
                 im = ins_man.instruction_manager(get_port())
-                string = im.send_request_data(module)  # FIXME wait for Juan's Method Merge.
+                list = im.send_request_data(module)  # FIXME wait for Juan's Method Merge.
             except serial.SerialException:
-                GUI_Handler.show_error('Device has been Disconnected. <br>'
-                                       ' Data Collection Aborted.')
+                GUI_Handler.base_window.display_error('Device has been Disconnected. <br>'
+                                           ' Data Collection Aborted.')
                 break
 
-            self.all_data.join(self.string_to_dataframe(string))
+            self.all_data.join(self.list_to_dataframe(list))
 
         # Convert Data Values as float.
         self.all_data.astype(float)
 
         timestamp = ''
         time = 0
-        time_step = 1/GUI_Handler.daq_config.get_sampling_freq()
-        for x in np.arange(len(self.all_data.index-1)):
+        time_step = 1 / GUI_Handler.daq_config.get_sampling_freq()
+        for x in np.arange(len(self.all_data.index - 1)):
             time += time_step
             timestamp += str(time) + ';'  # New line every timestamp calculated.
 

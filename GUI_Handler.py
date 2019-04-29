@@ -16,6 +16,7 @@ from Sensor_Selection_Matrix import SensorSelectionMatrix
 from Settings import setting_data_manager as set_dat_man
 from Visualization_Sensor_Selection_Dialog import VizSensorSelector
 from Window import Window
+from Data_Processing.CSV_Handler import Data_Handler
 
 # maximum_duration = {
 #     '2 Hz': 1800,
@@ -742,13 +743,19 @@ def start_acquisition(who_called: int):
 #         show_not_connected_error()
 
 def check_for_port(what_was_clicked: str):
-    if not save_port() == 'COM-1':
-        if what_was_clicked == 'START':
-            start_acquisition(START_TEST)
-        elif what_was_clicked == 'GPS':
-            sync_gps()
-    else:
-        main_window.not_connected_error()
+    # if not save_port() == 'COM-1':
+    #     if what_was_clicked == 'START':
+    #         start_acquisition(START_TEST)
+    #     elif what_was_clicked == 'GPS':
+    #         sync_gps()
+    # else:
+    #     main_window.not_connected_error()
+    # _________________________________________ TODO change BAck for real.
+
+    if what_was_clicked == 'START':
+        start_acquisition(START_TEST)
+    elif what_was_clicked == 'GPS':
+        sync_gps()
 
 
 def save_port():  # TODO adapt for class reconstruction
@@ -834,6 +841,7 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
     stop_break_loop = True
     prog_dlg = ProgressDialog()
     prog_dlg.acquire_dialog('GPS Signal')
+    prog_dlg.progress_bar.setMaximum(100)
     prog_dlg.progress_bar.setValue(0)
     app.processEvents()
     try:
@@ -869,7 +877,7 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
 def check_status():
     global recorded, stored, gps_sync
     try:
-        ins = ins_man.instruction_manager(ins_port)
+        ins = Window.get_instruction_manager()
         status = ins.send_request_status()
         recorded = status[0]
         stored = status[1]
@@ -1301,7 +1309,7 @@ def check_status():
 
 def send_diagnostics():
     try:
-        im = ins_man.instruction_manager(ins_port)
+        im = Window.get_instruction_manager()
         im.send_diagnose_request()
     except serial.SerialException:
         base_window.not_connected_error()
@@ -1505,14 +1513,17 @@ def action_begin_recording(sens: SensorSelectionMatrix, start_diagnose: int):
     Prepares GUI and sends request to control module for begin recording data.
     """
     # Send Setting Information to Control Module.
-    sens.close()
+
     sent = False
     # try:
     configuration = setting_data_manager.settings_to_string()
-    sens = sensor_matrix.get_modules_and_sensors_selected()
+
+    sens_selected, mods_selected = sensor_matrix.get_modules_and_sensors_selected()
+    sens.close()
+
     sensors_enabled = get_sensor_enabled()
     ins = ins_man.instruction_manager(ins_port)
-    ins.send_set_configuration(setting_data_manager.settings_to_string())
+    # ins.send_set_configuration(setting_data_manager.settings_to_string())
     # Send Begin Recording FLAG to Control Module.
     if start_diagnose == START_TEST:
         if configuration:
@@ -1528,25 +1539,26 @@ def action_begin_recording(sens: SensorSelectionMatrix, start_diagnose: int):
             print("sent was " + str(bool))
             if bool: sent = True
             sleep(1)
-        # ins.send_request_start()
+        ins.send_request_start()
     elif start_diagnose == DIAGNOSE:
         ins.send_diagnose_request()
     # Close Window
     sensor_matrix.close()
-    check_status_during_test(ins)
+    check_status_during_test(ins, mods_selected)
     # except serial.SerialException:
     #     show_not_connected_error()
     # except Exceptions.noPowerException:
     #     show_error('The Control Module appears to be disconnected or has a major power problem.')
 
 
-def check_status_during_test(ins):
-    prog_dlg.acquire_dialog('GPS Signal')
-    prog_dlg.progress_dialog_progressBar.setMaximum(100)
-    prog_dlg.progress_dialog_progressBar.setValue(0)
-
+def check_status_during_test(ins, mods_selected):
+    prog_dlg.acquire_dialog('Test in Progress')
+    prog_dlg.progress_bar.setMaximum(0)
+    # prog_dlg.progress_bar.setValue(0)
+    global stop_break_loop
+    stop_break_loop = True
     # sleep(0)
-    # ins = ins_man.instruction_manager(ins_port)
+    # ins = Window.get_instruction_manager()
     timeout = 0
     synced = True  # Used to not request data if synched==False.
     duration = daq_config.recording_configs['test_duration']
@@ -1555,24 +1567,23 @@ def check_status_during_test(ins):
     else:
         time_to_update_progress_bar = (100 / duration)
     bar_value = 0
-    var = ins.send_request_status()
-    print("--ar = " + str(var))
     time_break = 0
-    while var[1] != 1:  # Status[2] --> gps_synched
+    while ins.send_request_status()[1] != 1 and stop_break_loop:  # Status[1] --> stored
         if log: print('Waiting for test to finish....')
-        sleep(1)
+        sleep(0.1)
         timeout += 1
         time_break += 1
-        if timeout == time_to_update_progress_bar:
-            timeout = 0
-            prog_dlg.progress_dialog_progressBar.setValue(++bar_value)
-            app.processEvents()
-        if time_break == 10 + duration: # = timeout in seconds.
+        app.processEvents()
+        if time_break == 10*duration + 100: # timeout in seconds.
             break
-    if not stop_break_loop:
-        ins.send_cancel_request()
-    if synced and not stop_break_loop:
+
+    if synced and stop_break_loop:
         print('get all data')
+        data_handler = Data_Handler(ins.send_request_number_of_mods_connected(), daq_config)
+        data_handler.request_all_data(mods_selected)
+
+    # if not stop_break_loop:
+    #     ins.send_cancel_request()
     prog_dlg.close()
     del ins
     # get_all_data TODO CHANGE TO CSV HANDLER GETT ALL DATA METHOD
@@ -1586,7 +1597,7 @@ def get_all_data():
     prog_dlg.progress_dialog_progressBar.setValue(0)
     data = ''
     try:
-        ins = ins_man.instruction_manager(ins_port)
+        ins = Window.get_instruction_manager()
         data = ins.send_request_all_data()
         prog_dlg.close()
     except serial.SerialException:
@@ -2260,6 +2271,10 @@ def cancel_everything():
 #     """
 #     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence()
 
+def auto_fill():
+    main_window.set_recording_into_gui()
+    main_window.set_DAQ_params_into_gui()
+    main_window.set_GPS_into_gui()
 
 def init():
     """
@@ -2270,6 +2285,7 @@ def init():
     main_window.open()
     main_window.loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
     ins_port = save_port()
+    # base_window.create_instruction_manager(ins_port)
 
     if ins_port == 'COM-1':
         base_window.display_error('Device Not Connected. Please try again.')
@@ -2277,6 +2293,8 @@ def init():
         # sys.exit()
     else:
         sync_gps()
+
+    auto_fill()
         # show_error('Device is supposed to be Connected.')
     # --------- TESTING ------------
     # validate_file_path(r'C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data\Huerta _nw301001.csv')

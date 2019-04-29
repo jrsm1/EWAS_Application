@@ -1,2 +1,2 @@
 sampling_rate,cutoff_frequency,signal_gain
-20000 Hz,"10,000 Hz",80 V/V
+2 Hz,1 Hz,1 V/V

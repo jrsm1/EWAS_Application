@@ -47,8 +47,13 @@ class instruction_manager():
         self.serial_interface.send_instruction(b'\x82')
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
-        if line == b'\x82':
+        while not line == b'\x82':
             if log: print("send request start succesful")
+            self.serial_interface.send_instruction(b'\x82')
+            line = self.serial_interface.listen()
+            line = line.strip(b'\r\n')
+            if not line == b'\x82':
+                continue
             return 1
         return 0
 

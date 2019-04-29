@@ -4,6 +4,7 @@ from PyQt5.QtGui import QIcon
 
 import GUI_Handler
 from Window import Window
+from time import sleep
 
 # TESTING
 log =1
@@ -109,11 +110,12 @@ class SensorSelectionMatrix(Window):
         sensors_selected = "0000"
         correct = 1
         index = 0
-        modules_selected = set()
+        # modules_selected = set()
+        modules_selected = {1}
         for i in self.sensor_selection_list:
             index += 1
             if i.checkState() == 2:
-                module = str(int((index - 1) / 4) + 1)
+                module = int((index - 1) / 4) + 1
                 sensor = str(((index - 1) % 4) + 1)
                 sensors_selected = module + sensor + sensors_selected
                 modules_selected.add(module)
@@ -124,7 +126,7 @@ class SensorSelectionMatrix(Window):
             i.setCheckState(False)
         if correct:
             sensors_selected = sensors_selected[0:4]
-            return sensors_selected
+            return sensors_selected, modules_selected
         return "0000"
 
         pass
@@ -193,4 +195,4 @@ class SensorSelectionMatrix(Window):
         if log: print("got out of enable start connected sensors")
 
         # If not Connected to not continue.
-        return continuar
+        return continuar, connected_module_list

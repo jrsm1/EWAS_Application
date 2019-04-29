@@ -1,29 +1,12 @@
 from PyQt5 import QtWidgets
 # import Main_Window
 from PyQt5.QtWidgets import QFileDialog, QDesktopWidget
-
+from Control_Module_Comm import instruction_manager
 from regex import regex
+import GUI_Handler
 
 # Global Variables.
-# MAX_DURATION = {  # Max allowed Duration in seconds TODO Remove if safe.
-#     '2 Hz': 1800,
-#     '4 Hz': 1800,
-#     '8 Hz': 1800,
-#     '16 Hz': 1800,
-#     '32 Hz': 1800,
-#     '64 Hz': 1800,
-#     '128 Hz': 1365,
-#     '256 Hz': 682,
-#     '512 Hz': 341,
-#     '1024 Hz': 170,
-#     '2048 Hz': 85,
-#     '4096 Hz': 42,
-#     '8192 Hz': 21,
-#     '16384 Hz': 10,
-#     '20000 Hz': 8,
-#     'Please Select': -1}
-# MIN_DURATION = 5  # Min allowed Duration in seconds TODO Remove if safe.
-
+ins_manager = None
 
 class Window(QtWidgets.QMainWindow):
     def __init__(self):
@@ -110,6 +93,14 @@ class Window(QtWidgets.QMainWindow):
 
         pass
 
+    def create_instruction_manager(self, port):
+        global ins_manager
+        ins_manager = instruction_manager.instruction_manager(port)
+        return ins_manager
+
+    def get_instruction_manager(self):
+        return ins_manager
+
 
 def validate_path(path: str):
     """
@@ -153,3 +144,4 @@ def check_boxes(text_box: str, pattern: str):
     :return: True if test_box is valid.
     """
     return regex.match(pattern, text_box)
+
