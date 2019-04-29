@@ -706,7 +706,7 @@ def start_acquisition(who_called: int):
     global start_diagnose_decision
     error_string = ''
     error_string += main_window.validate_rec_settings()
-    loc_type = main_window.main_tab_LocalizationSettings_type_DropBox.currentIndex()
+    loc_type = main_window.loc_type_dropdown.currentIndex()
     if not loc_type:
         error_string += main_window.validate_gps_location_settings()
     else:
@@ -2274,6 +2274,10 @@ def cancel_everything():
 #     Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence()
 
 def auto_fill():
+    """
+    Auto-fill Main Window with Default Parameters.
+    Used for Testing
+    """
     main_window.set_recording_into_gui()
     main_window.set_DAQ_params_into_gui()
     main_window.set_GPS_into_gui()
@@ -2285,9 +2289,12 @@ def init():
     """
     global ins_port
     main_window.open()
-    main_window.loc_specimen_frame.setEnabled(False)  # Begin with GPS only enabled.
+    main_window.enable_gps_disable_spec()  # Begin with GPS only enabled.
+
     ins_port = save_port()
     # base_window.create_instruction_manager(ins_port)
+    # data_handler = Data_Handler(ins_man.instruction_manager(ins_port).send_request_number_of_mods_connected(), daq_config)
+    # data_handler.request_all_data({1})
 
     if ins_port == 'COM-1':
         base_window.display_error('Device Not Connected. Please try again.')
@@ -2297,7 +2304,8 @@ def init():
         sync_gps()
 
     auto_fill()
-        # show_error('Device is supposed to be Connected.')
+
+
     # --------- TESTING ------------
     # validate_file_path(r'C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data\Huerta _nw301001.csv')
     # begin_visualization()

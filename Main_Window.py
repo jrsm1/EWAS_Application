@@ -748,12 +748,74 @@ class MainWindow(windowClass):
         if log: print(self.loc_type_dropdown.currentIndex())
 
         if self.loc_type_dropdown.currentIndex() == 0:  # GPS
-            self.loc_gps_frame.setEnabled(True)
-            self.loc_specimen_frame.setEnabled(False)
+            self.enable_gps_disable_spec()
 
         elif self.loc_type_dropdown.currentIndex() == 1:  # Specimen
-            self.loc_gps_frame.setEnabled(False)
-            self.loc_specimen_frame.setEnabled(True)
+            self.disable_gps_enable_spec()
+
+    def enable_gps_disable_spec(self):
+        """
+        Enables all GPS location fields of self Window (main window)
+        """
+        # Enable GPS Fields
+        self.enable_field(self.loc_name_edit)
+        self.enable_field(self.loc_latitude_edit)
+        self.enable_field(self.loc_longitude_edit)
+        self.enable_field(self.loc_hour_edit)
+        self.enable_field(self.loc_minute_edit)
+        self.enable_field(self.loc_seconds_edit)
+        # Disable Specimen Location Fields.
+        self.disable_field(self.specimen_loc_1)
+        self.disable_field(self.specimen_loc_2)
+        self.disable_field(self.specimen_loc_3)
+        self.disable_field(self.specimen_loc_4)
+        self.disable_field(self.specimen_loc_5)
+        self.disable_field(self.specimen_loc_6)
+        self.disable_field(self.specimen_loc_7)
+        self.disable_field(self.specimen_loc_8)
+
+    def disable_gps_enable_spec(self):
+        """
+        Enables all GPS location fields of self Window (main window)
+        """
+        # Enable Specimen Location Fields.
+        self.enable_field(self.specimen_loc_1)
+        self.enable_field(self.specimen_loc_2)
+        self.enable_field(self.specimen_loc_3)
+        self.enable_field(self.specimen_loc_4)
+        self.enable_field(self.specimen_loc_5)
+        self.enable_field(self.specimen_loc_6)
+        self.enable_field(self.specimen_loc_7)
+        self.enable_field(self.specimen_loc_8)
+        # Disable GPS Fields
+        self.disable_field(self.loc_name_edit)
+        self.disable_field(self.loc_latitude_edit)
+        self.disable_field(self.loc_longitude_edit)
+        self.disable_field(self.loc_hour_edit)
+        self.disable_field(self.loc_minute_edit)
+        self.disable_field(self.loc_seconds_edit)
+
+    def enable_field(self, gui_field: QtWidgets):
+        """
+        Enables QtWidgets and sets corresponding styleSheet.
+
+        :param gui_field: QtWidget to Enable.
+        """
+        gui_field.setEnabled(True)
+        gui_field.setStyleSheet('background-color:rgb(255, 255, 255);'
+                                'font: 12pt "MS Shell Dlg 2";'
+                                'color: rgb(0, 0, 0)')
+
+    def disable_field(self, gui_field: QtWidgets):
+        """
+        Enables QtWidgets and sets corresponding styleSheet.
+
+        :param gui_field: QtWidget to Enable.
+        """
+        gui_field.setEnabled(False)
+        gui_field.setStyleSheet('background-color:rgb(221, 221, 221);'
+                                'font: 12pt "MS Shell Dlg 2";'
+                                'color: rgb(0, 0, 0)')
 
     def do_plot(self, plot: int):
         visualization_values['plot_filename'] = self.file_system('Data')  # TODO FIXME POSSIBLE ERROR

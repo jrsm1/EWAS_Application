@@ -116,9 +116,10 @@ class instruction_manager():
             if log:
                 print("line is " + str(line))
                 print("request daq data successful")
-            line1 = self.serial_interface.listen_file()
-            print("entered lines")
-            print(line1)
+            # while True:
+                line1 = self.serial_interface.listen_file()
+                print("entered lines")
+                print(line1)
             data = self.organize_data(line1)
             return data
         return 0

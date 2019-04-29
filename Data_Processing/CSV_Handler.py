@@ -147,7 +147,7 @@ class Data_Handler():
         list = []
         self.all_data = pd.DataFrame()
         for module in connected_modules:
-            print(list)  # String necessary here to connect inner and outer variables apperently.
+            print(list)  # String necessary here to connect inner and outer variables apparently.
             try:
                 im = ins_man.instruction_manager(get_port())
                 list = im.send_request_data(module)  # FIXME wait for Juan's Method Merge.

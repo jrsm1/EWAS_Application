@@ -39,7 +39,8 @@ class serial_interface():
         line = ser.readline()
         line1 = b''
         if log: print("entered listen")
-        while line != b'':
+        while line == b'':
+        # while True:
             line = ser.readline()
             line1 = line1 + line
             print("read line", line)
