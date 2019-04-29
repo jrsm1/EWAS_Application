@@ -22,10 +22,10 @@ def verify_file_exists(file_path: str):
 
 
 class Setting_File_Manager:
-    def __init__(self, mod_con: [], sens_con: [], daq_con: DAQ_Configuration):
-        self.module_configs = mod_con
-        self.sensor_configs = sens_con
-        self.daq_config = daq_con
+    def __init__(self, module_config: [], daq_config: DAQ_Configuration):
+        self.module_configs = module_config
+        # self.sensor_configs = sens_con
+        self.daq_config = daq_config
 
     def set_filename(self, filename: str):
         """
@@ -244,8 +244,6 @@ class Setting_File_Manager:
             f.close()
         else:
             if log: print('File Error')
-
-
 
     def load_module_config(self, filename: str):
         # module_file = 'Config/Module/' + filename

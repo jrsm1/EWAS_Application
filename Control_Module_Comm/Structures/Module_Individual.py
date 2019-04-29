@@ -3,7 +3,7 @@ from Control_Module_Comm.Structures import Sensor_Individual as sens
 class Module:
     def __init__(self, module_name: str, sensor_1: sens, sensor_2: sens, sensor_3: sens, sensor_4: sens):
 
-        self.channel_info = {
+        self.module_info = {
             'channel_name': module_name,
             'Sensor 1': sensor_1,
             'Sensor 2': sensor_2,

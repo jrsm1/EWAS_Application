@@ -257,8 +257,6 @@ class MainWindow(windowClass):
 
         :param what: Storing or loading?
         :param who: Desired Window parameters to Store/Load
-
-        :return:
         """
 
         self.load_save_instructions['action'] = what
@@ -267,8 +265,8 @@ class MainWindow(windowClass):
             if log: print('Loading Error.')
         else:
             if what == ACTION_SAVE:
-                self.filename_input_win.open()
                 self.load_save_instructions['who_to_save'] = who
+                self.filename_input_win.open()
             elif what == ACTION_LOAD:
                 self.load_save_instructions['who_to_load'] = who
                 self.do_saving_loading_action()
@@ -294,9 +292,6 @@ class MainWindow(windowClass):
             self.action_store_location()
         elif instruction == STORE_LOAD_DAQ_PARAMS:
             self.action_store_DAQ_params()
-        elif instruction == STORE_LOAD_MODULE_INFO:
-            self.display_error(self.main_window, "Not Yet Implemented")
-            # self.action_store_module_info() # TODO Implement
             pass
 
     def decide_who_to_load(self, instruction: int):
@@ -309,9 +304,6 @@ class MainWindow(windowClass):
             self.action_load_location()
         elif instruction == STORE_LOAD_DAQ_PARAMS:
             self.action_load_DAQ_params()
-        elif instruction == STORE_LOAD_MODULE_INFO:
-            self.display_error(self.main_window, "Not Yet Implemented")
-            # action_load_module_info() #TODO ACTION LOAD MODULE INFO
 
     def action_store_DAQ_params(self):
         """

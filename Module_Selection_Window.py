@@ -1,22 +1,9 @@
-from Window import Window
-from Module_Info_Window import ModuleInformationWindow
-from Data_Processing import CSV_Handler
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt5 import uic
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QFileDialog, QFileSystemModel
-import Exceptions
-from time import sleep
-import sys
-import GUI_Handler
-import serial
 
-from Data_Processing import CSV_Handler as csv_handler
-from Control_Module_Comm import instruction_manager as ins_man
-from Control_Module_Comm.Structures import Module_Individual as Chan, Sensor_Individual as sens
-from Data_Processing import Plot_Data
-from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
-from Settings import setting_data_manager as set_dat_man
-from regex import regex
+from Control_Module_Comm.Structures import Module_Individual
+from Module_Info_Window import ModuleInformationWindow
+from Window import Window
 
 # Global Variables
 MODULE_1 = 0
@@ -73,19 +60,19 @@ class ModuleSelectionWindow(Window):
         Done before Channel Selection.
         """
         # Disable not connected modules.
-        try:
+        # try:
             # connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
-            port = GUI_Handler.save_port()
-            if not port == 'COM-1':
-                # connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
-                im = ins_man.instruction_manager(port)
-                connected_modules = im.send_request_number_of_mods_connected()  # FIXME ENABLE FOR REAL
-                self.disable_buttons(connected_modules)
-                self.module_selection_win.show()
-            else:
-                self.not_connected_error()
-        except serial.SerialException:
-            self.not_connected_error()
+            # port = GUI_Handler.save_port()
+            # if not port == 'COM-1':
+        connected_modules = [1, 0, 1, 0, 0, 0, 0, 0]
+        # im = ins_man.instruction_manager(port)
+        # connected_modules = im.send_request_number_of_mods_connected()  # FIXME ENABLE FOR REAL
+        self.disable_buttons(connected_modules)
+        self.module_selection_win.show()
+            # else:
+            #     self.not_connected_error()
+        # except serial.SerialException:
+        #     self.not_connected_error()
 
         pass
 
