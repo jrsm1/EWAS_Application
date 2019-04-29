@@ -21,22 +21,12 @@ app = QtWidgets.QApplication([])
 file_sys_win = uic.loadUi('GUI/Qt_Files/file_system_window.ui')
 
 module_2_info_win = uic.loadUi("GUI/Qt_Files/module_1_info_window.ui")
-module_3_info_win = uic.loadUi("GUI/Qt_Files/module_3_info_window.ui")
-module_4_info_win = uic.loadUi("GUI/Qt_Files/module_4_info_window.ui")
-module_5_info_win = uic.loadUi("GUI/Qt_Files/module_5_info_window.ui")
-module_6_info_win = uic.loadUi("GUI/Qt_Files/module_6_info_window.ui")
-module_7_info_win = uic.loadUi("GUI/Qt_Files/module_7_info_window.ui")
-module_8_info_win = uic.loadUi("GUI/Qt_Files/module_8_info_window.ui")
+
 
 file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
 module_2_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_3_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_4_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_5_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_6_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_7_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-module_8_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
+
 
 # Init Instances of all classes for reference
 sens_1 = Sensor_Individual.Sensor('Sensor 1', 0)

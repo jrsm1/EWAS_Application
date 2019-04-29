@@ -635,6 +635,10 @@ class MainWindow(windowClass):
         if self.rec_duration_edit.text() == '':
             there_is_no_error = False
             error_string += 'Duration Field is empty.<br>'
+        else:
+            if int(self.rec_duration_edit.text()) < 5:
+                there_is_no_error = False
+                error_string += 'Duration Field is less than 5 seconds.<br>'
         if self.delay_edit.text() == '':
             there_is_no_error = False
             error_string += 'Start Delay Field is empty.<br>'
