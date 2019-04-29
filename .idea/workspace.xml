@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/module_1_info_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Qt_Files/module_1_info_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Qt_Files/module_2_info_window.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module_Info_Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module_Info_Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module_Selection_Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module_Selection_Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/setting_data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/setting_data_manager.py" afterDir="false" />
     </list>
     <ignored path="C:\Users\chris\PycharmProjects\EWAS_Application\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main_Window.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11313">
-              <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
+            <state relative-caret-position="53">
+              <caret line="640" column="70" selection-start-line="640" selection-start-column="70" selection-end-line="640" selection-end-column="70" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -33,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Module_Info_Window.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="200">
+              <caret line="123" column="73" selection-start-line="123" selection-start-column="73" selection-end-line="123" selection-end-column="73" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -48,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="301" column="8" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
+            <state relative-caret-position="235">
+              <caret line="121" column="45" lean-forward="true" selection-start-line="121" selection-start-column="45" selection-end-line="121" selection-end-column="45" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -90,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sync_</find>
       <find>init</find>
       <find>status</find>
       <find>sync_gp</find>
@@ -120,6 +111,7 @@
       <find>Setting_File_Manager</find>
       <find>Window</find>
       <find>action_load_module_info</find>
+      <find>start_ac</find>
     </findStrings>
     <replaceStrings>
       <replace>ACTION_LOAD</replace>
@@ -212,10 +204,10 @@
         <option value="$PROJECT_DIR$/Sensor_Selection_Matrix.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py" />
         <option value="$PROJECT_DIR$/Module_Selection_Window.py" />
-        <option value="$PROJECT_DIR$/Main_Window.py" />
         <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
-        <option value="$PROJECT_DIR$/GUI_Handler.py" />
         <option value="$PROJECT_DIR$/Module_Info_Window.py" />
+        <option value="$PROJECT_DIR$/GUI_Handler.py" />
+        <option value="$PROJECT_DIR$/Main_Window.py" />
       </list>
     </option>
   </component>
@@ -476,20 +468,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552944095439</updated>
-    </task>
-    <task id="LOCAL-00011" summary="added jupyter data handling tester file">
-      <created>1554680230350</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1554680230350</updated>
-    </task>
-    <task id="LOCAL-00012" summary="- [X] Creates Handler for saving and loading setting profile. &#10;* [ ] Change/Create Filename method to save in proper path&#10;* [ ] Handle Better Test Names.">
-      <created>1554816498361</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1554816498362</updated>
     </task>
     <task id="LOCAL-00013" summary="- Added Channel Settings .csv Output file.">
       <created>1554986758044</created>
@@ -820,7 +798,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556546046602</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="[X] Fixed Channel Info Button, saves module info in dicts">
+      <created>1556564325281</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1556564325281</updated>
+    </task>
+    <task id="LOCAL-00061" summary="[X] Expanded validation in start acquisition to check for durations less than 5">
+      <created>1556564623625</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1556564623625</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -834,15 +826,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37229437" visible="true" weight="0.18656716" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.37229437" visible="true" weight="0.18656716" />
       <window_info id="Structure" order="1" sideWeight="0.62770563" side_tool="true" weight="0.38293216" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32502708" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.24918744" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.2979415" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" visible="true" weight="0.24918744" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2979415" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.248104" />
@@ -919,8 +910,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed bugs in save/load" />
-    <MESSAGE value="Removed calls to test_ID" />
     <MESSAGE value="Fixed bug that cropped latitude and longitude" />
     <MESSAGE value="Cleaned up gGUI_Handler a bit. made serial verification more robust" />
     <MESSAGE value="Code cleanup; Fixed serial connection crash" />
@@ -944,14 +933,16 @@
     <MESSAGE value="[X] Fixed glitchy sensor selection matrix" />
     <MESSAGE value="[X] Patched acquisition parameters" />
     <MESSAGE value="[X] Tried to fix visualization, se rompe 3 lineas mas alante en el codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="[X] Tried to fix visualization, se rompe 3 lineas mas alante en el codigo" />
+    <MESSAGE value="[X] Fixed Channel Info Button, saves module info in dicts" />
+    <MESSAGE value="[X] Expanded validation in start acquisition to check for durations less than 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="[X] Expanded validation in start acquisition to check for durations less than 5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Main_Window.py</url>
-          <line>857</line>
+          <line>861</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -1345,26 +1336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="301" column="8" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main_Window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11313">
-          <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Module_Selection_Window.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
@@ -1374,10 +1345,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Module_Info_Window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="200">
+          <caret line="123" column="73" selection-start-line="123" selection-start-column="73" selection-end-line="123" selection-end-column="73" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="121" column="45" lean-forward="true" selection-start-line="121" selection-start-column="45" selection-end-line="121" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main_Window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="640" column="70" selection-start-line="640" selection-start-column="70" selection-end-line="640" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
