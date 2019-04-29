@@ -1,3 +1,5 @@
+from time import sleep
+
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 from Control_Module_Comm import instruction_manager as ins_man
 import numpy as np
@@ -5,6 +7,9 @@ import GUI_Handler
 import serial
 import csv
 import pandas as pd
+
+# Global Variables
+TIMESTAMP = 'timestamp'
 
 log = 1
 
@@ -14,8 +19,8 @@ class Data_Handler():
     Class in charge of handling data files.
     """
 
-    def __init__(self, mod_con: [], daq_con: DAQ_Configuration):
-        self.module_list = mod_con
+    def __init__(self, mod_all, daq_con: DAQ_Configuration):
+        self.module_list = mod_all
         self.daq_config = daq_con
         self.all_data = pd.DataFrame
 
@@ -55,21 +60,21 @@ class Data_Handler():
             # Modules information
             for module in self.module_list:
                 # Marroneo -  Store values in temp dict so that it will be stored like a word in csv.
-                temp_dict = {list(module.channel_info.keys())[0]: module.channel_info['channel_name']}
+                temp_dict = {list(module.module_info.keys())[0]: module.module_info['channel_name']}
                 writer.writerow(temp_dict.keys())
                 writer.writerow(temp_dict.values())
 
-                writer.writerow(module.channel_info['Sensor 1'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 1'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 1'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 1'].sensor_info.values())
 
-                writer.writerow(module.channel_info['Sensor 2'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 2'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 2'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 2'].sensor_info.values())
 
-                writer.writerow(module.channel_info['Sensor 3'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 3'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 3'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 3'].sensor_info.values())
 
-                writer.writerow(module.channel_info['Sensor 4'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 4'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 4'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 4'].sensor_info.values())
 
             # Empty Rows to separate Header from Data.
             writer.writerow('')
@@ -90,10 +95,9 @@ class Data_Handler():
 
         :return: Pandas DataFrame with the data from the input string.
         """
-
         # Select Column Based on Selected Sensors.
         if timestamp:
-            culumns = ['Timestamp']
+            columns = [TIMESTAMP]
         else:
             columns = select_data_columns()
         return pd.DataFrame([x.split(',') for x in string.split(';')], columns=columns)
@@ -104,9 +108,10 @@ class Data_Handler():
         :param list_of_lists: containing list of sensor data.
         :return: Dataframe where the columns are sensor data.
         """
+        columns = select_data_columns()
         dataframe = pd.DataFrame(list_of_lists)
         dataframe = dataframe.transpose()
-        dataframe.columns = []
+        dataframe.columns = columns
         return dataframe
 
     def read_data(self, filename: str):
@@ -118,7 +123,7 @@ class Data_Handler():
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
         filename = r'Data/' + filename
-        data_read = pd.read_csv(filename, header=90, index_col='Timestamp')  # TODO Test
+        data_read = pd.read_csv(filename, header=90, index_col=TIMESTAMP)  # TODO Test
 
         return data_read
 
@@ -138,47 +143,61 @@ class Data_Handler():
 
         return result
 
-    def request_all_data(self, connected_modules: set):
+    def set_timestamp(self):
         """
-        Gets data from Control Module and parses it into a single Pandas DataFrame.
-        :param connected_modules: 1/0 List indicating connected modules.
-        :return: Pandas DataFrame with joint module sensor data.
+        Generates timestamp based on sampling frequency and test duration and adds it to the test data DataFrame.
         """
-        list = []
-        self.all_data = pd.DataFrame()
-        for module in connected_modules:
-            print(list)  # String necessary here to connect inner and outer variables apparently.
-            try:
-                im = ins_man.instruction_manager(get_port())
-                list = im.send_request_data(module)  # FIXME wait for Juan's Method Merge.
-            except serial.SerialException:
-                GUI_Handler.base_window.display_error('Device has been Disconnected. <br>'
-                                           ' Data Collection Aborted.')
-                break
-
-            self.all_data.join(self.list_to_dataframe(list))
-
-        # Convert Data Values as float.
-        self.all_data.astype(float)
-
         timestamp = ''
         time = 0
-        time_step = 1 / GUI_Handler.daq_config.get_sampling_freq()
-        for x in np.arange(len(self.all_data.index - 1)):
+        sampling_freq = GUI_Handler.daq_config.get_sampling_freq()
+        duration = GUI_Handler.daq_config.get_duration()
+        time_step = 1 / sampling_freq
+        samples = sampling_freq * duration
+
+        for x in np.arange(samples-1):
             time += time_step
             timestamp += str(time) + ';'  # New line every timestamp calculated.
 
-        # Do last value because otherwise it will let the last value NaN.
+        # Do last value because otherwise it will let the last value NaN.  ## TODO VERIFY IF NEEDED TO FILTER.
         time += time_step
         timestamp += str(time)
 
         # store timestamp in DataFrame
-        timedf = self.string_to_dataframe(timestamp)
+        timedf = self.string_to_dataframe(timestamp, timestamp=True)
         timedf = timedf.astype(float)
 
         # Join Timestamp to all_data and set it as Index
         self.all_data = timedf.join(self.all_data)
-        self.all_data.set_index('Timestamp')
+        # self.all_data.set_index(TIMESTAMP)
+
+    def request_all_data(self, connected_modules: set, ins: ins_man):
+        """
+        Gets data from Control Module and parses it into a single Pandas DataFrame.
+
+        :param connected_modules: 1/0 List indicating connected modules.
+        :param ins : Instruction Manager Instance for request data instructions.
+
+        :return: Pandas DataFrame with joint module sensor data.
+        """
+        list = []
+        self.all_data = pd.DataFrame()
+        self.set_timestamp()
+
+        for module in connected_modules:
+            print(list)  # String necessary here to connect inner and outer variables apparently.
+            try:
+                # im = ins_man.instruction_manager(get_port())
+                list = ins.send_request_data(module)
+            except serial.SerialException:
+                GUI_Handler.base_window.display_error('Device has been Disconnected. <br>'
+                                                      ' Data Collection Aborted.')
+                break
+
+            self.all_data = self.all_data.join(self.list_to_dataframe(list))
+
+        # Convert Data Values as float.
+        self.all_data = self.all_data.dropna()
+        self.all_data.astype(int)
 
         if log:
             print(self.all_data)

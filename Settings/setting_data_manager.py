@@ -218,26 +218,26 @@ class Setting_File_Manager:
                 writer = csv.writer(f)
 
                 # for x in range(0, 1000000, 1):  # TESTING to make sure it is the same always. [PASSED]
-                if log: print(list(module.channel_info.keys())[0])
-                if log: print(type(module.channel_info.keys()))
+                if log: print(list(module.module_info.keys())[0])
+                if log: print(type(module.module_info.keys()))
 
                 # Marroneo -  Store values in temp dict so that it will be stored like a word in csv.
-                temp_dict = {list(module.channel_info.keys())[0]: module.channel_info['channel_name']}
+                temp_dict = {list(module.module_info.keys())[0]: module.module_info['channel_name']}
                 if log: print('WRITE Channel Settings: ' + str(temp_dict))
                 writer.writerow(temp_dict.keys())
                 writer.writerow(temp_dict.values())
 
-                writer.writerow(module.channel_info['Sensor 1'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 1'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 1'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 1'].sensor_info.values())
 
-                writer.writerow(module.channel_info['Sensor 2'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 2'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 2'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 2'].sensor_info.values())
 
-                writer.writerow(module.channel_info['Sensor 3'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 3'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 3'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 3'].sensor_info.values())
 
-                writer.writerow(module.channel_info['Sensor 4'].sensor_info.keys())
-                writer.writerow(module.channel_info['Sensor 4'].sensor_info.values())
+                writer.writerow(module.module_info['Sensor 4'].sensor_info.keys())
+                writer.writerow(module.module_info['Sensor 4'].sensor_info.values())
 
                 if log: print('Save Module Configs : SUCCESSFUL')
 
@@ -328,19 +328,19 @@ class Setting_File_Manager:
         # Modules information
         for module in self.module_configs:
             string += 'Module Name' + new_line
-            string += module.channel_info['channel_name'] + new_line
+            string += module.module_info['channel_name'] + new_line
 
-            string += ','.join(module.channel_info['Sensor 1'].sensor_info.keys()) + new_line
-            string += ','.join(module.channel_info['Sensor 1'].sensor_info.values()) + new_line
+            string += ','.join(module.module_info['Sensor 1'].sensor_info.keys()) + new_line
+            string += ','.join(module.module_info['Sensor 1'].sensor_info.values()) + new_line
 
-            string += ','.join(module.channel_info['Sensor 2'].sensor_info.keys()) + new_line
-            string += ','.join(module.channel_info['Sensor 2'].sensor_info.values()) + new_line
+            string += ','.join(module.module_info['Sensor 2'].sensor_info.keys()) + new_line
+            string += ','.join(module.module_info['Sensor 2'].sensor_info.values()) + new_line
 
-            string += ','.join(module.channel_info['Sensor 3'].sensor_info.keys()) + new_line
-            string += ','.join(module.channel_info['Sensor 3'].sensor_info.values()) + new_line
+            string += ','.join(module.module_info['Sensor 3'].sensor_info.keys()) + new_line
+            string += ','.join(module.module_info['Sensor 3'].sensor_info.values()) + new_line
 
-            string += ','.join(module.channel_info['Sensor 4'].sensor_info.keys()) + new_line
-            string += ','.join(module.channel_info['Sensor 4'].sensor_info.values()) + new_line
+            string += ','.join(module.module_info['Sensor 4'].sensor_info.keys()) + new_line
+            string += ','.join(module.module_info['Sensor 4'].sensor_info.values()) + new_line
 
         if log: print(string)
         return string
@@ -393,13 +393,13 @@ class Setting_File_Manager:
 #
 # daq = DAQ_Configuration.DAQconfigs()
 # sfm = Setting_File_Manager(daq_con=daq, sens_con=sensor_list, mod_con=module_list)
-# # print(cc.channel_info)
+# # print(cc.module_info)
 # # print(sc.sensor_info)
 # # print(daq.signal_configs)
 # # print(daq.testing_configs)
 # # print(daq.data_handling_configs)
 #
-# # print(sfm.channel_config.channel_info)
+# # print(sfm.channel_config.module_info)
 # # print(sfm.Sensor_config.sensor_info)
 # # print(sfm.daq_config.signal_configs)
 # # print(sfm.daq_config.testing_configs)

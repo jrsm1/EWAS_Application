@@ -161,6 +161,7 @@ def test_specific_daq(daq):
     
     
 # if __name__ == "__main__":
+# test_request_status()
 test_specific_daq(1)
 # test_listen()
 # test_send()

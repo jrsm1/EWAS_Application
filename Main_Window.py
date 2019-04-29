@@ -83,7 +83,7 @@ class MainWindow(windowClass):
         # self.init_objects()
 
         # Init Window Object
-        self.init_objects()
+        # self.init_objects()
         self.filename_input_win = FileInputWindow(self)
         self.setting_manager = setting_manager
         self.center()
@@ -965,24 +965,6 @@ class MainWindow(windowClass):
         sensor_2 = VizSensorSelector.viz_sens_2_dropdown.currentText()
 
         Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence(sensor_1=sensor_1, sensor_2=sensor_2)
-
-    def init_object(self):
-        """
-        Abstract Class that every child MUST Implement.
-
-        :return:
-        """
-
-        # Objects
-
-        # Signals
-        self.main_window.actionTime.triggered.connect(lambda: self.do_plot(TIME_PLOT))
-        self.main_window.actionFrequency.triggered.connect(lambda: self.do_plot(FREQ_PLOT))
-        self.main_window.actionAuto_Power.triggered.connect(lambda: self.do_plot(APS_PLOT))
-        self.main_window.actionCross_Power.triggered.connect(lambda: self.do_plot(CPS_PLOT))
-        self.main_window.actionCoherence.triggered.connect(lambda: self.do_plot(COHERENCE_PLOT))
-
-        pass
 
     def get_visualization_values(self):
         return visualization_values

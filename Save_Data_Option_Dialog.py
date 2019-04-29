@@ -1,21 +1,9 @@
-from Window import Window
-from Sensor_Selection_Matrix import SensorSelectionMatrix
-from Data_Processing import CSV_Handler
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt5 import uic
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QFileDialog, QFileSystemModel
-import Exceptions
-from time import sleep
-import sys
-import serial
 
-from Data_Processing import CSV_Handler as csv_handler
-from Control_Module_Comm import instruction_manager as ins_man
-from Control_Module_Comm.Structures import Module_Individual as Chan, Sensor_Individual as sens
-from Data_Processing import Plot_Data
-from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
-from Settings import setting_data_manager as set_dat_man
-from regex import regex
+from Control_Module_Comm.Structures import DAQ_Configuration
+from Window import Window
+import GUI_Handler
 
 
 class SaveDataOptionDialog(Window):
@@ -67,6 +55,7 @@ class SaveDataOptionDialog(Window):
             self.daq_config.data_handling_configs["store"] = '1111'
         else:
             self.daq_config.data_handling_configs["store"] = '0000'
+
         self.ask_for_sensors()
 
         pass
@@ -78,8 +67,7 @@ class SaveDataOptionDialog(Window):
         CALL BEFORE SENDING REQUEST TO START.
         """
         # User Select which sensors it wants.
-        sensor_selection = SensorSelectionMatrix()
-        sensor_selection.open()
+        GUI_Handler.sensor_matrix.open()
         # When Done pressed --> begin recording. | this is handled from UI
 
         pass

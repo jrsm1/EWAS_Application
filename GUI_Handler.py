@@ -1,8 +1,10 @@
 import sys
 from time import sleep
+
 import serial
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
+
 import Exceptions
 import Window
 from Control_Module_Comm import instruction_manager as ins_man
@@ -17,14 +19,10 @@ from Window import Window
 from Data_Processing.CSV_Handler import Data_Handler
 
 app = QtWidgets.QApplication([])
-
 file_sys_win = uic.loadUi('GUI/Qt_Files/file_system_window.ui')
-
 module_2_info_win = uic.loadUi("GUI/Qt_Files/module_1_info_window.ui")
 
-
 file_sys_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-
 module_2_info_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
 
@@ -255,12 +253,14 @@ def action_begin_recording(sens: SensorSelectionMatrix, start_diagnose: int):
         if configuration:
             # ins = ins_man.instruction_manager(ins_port)
             # ins.send_set_configuration(configuration)
-            bool = ins.send_recording_parameters(daq_config.sampling_rate_index, daq_config.cutoff_freq_index,
-                                                 daq_config.gain_index,
-                                                 daq_config.recording_configs["test_duration"],
-                                                 daq_config.recording_configs["test_start_delay"],
-                                                 daq_config.data_handling_configs["store"], sensors_enabled,
-                                                 "Not Used", "Not Used")
+            bool = ins.send_recording_parameters(sfrequency=daq_config.sampling_rate_index,
+                                                 cutoff=daq_config.cutoff_freq_index,
+                                                 gain=daq_config.gain_index,
+                                                 duration=daq_config.recording_configs["test_duration"],
+                                                 start_delay=daq_config.recording_configs["test_start_delay"],
+                                                 store_data_sd=daq_config.data_handling_configs["store"],
+                                                 sensor_enable=sensors_enabled,
+                                                 name="Not Used", location="Not Used")
             # Send Begin Recording FLAG to Control Module.
             print("sent was " + str(bool))
             if bool: sent = True
@@ -278,22 +278,17 @@ def action_begin_recording(sens: SensorSelectionMatrix, start_diagnose: int):
 
 
 def check_status_during_test(ins, mods_selected):
-    prog_dlg.acquire_dialog('Test in Progress')
-    prog_dlg.progress_bar.setMaximum(0)
-    # prog_dlg.progress_bar.setValue(0)
     global stop_break_loop
     stop_break_loop = True
-    # sleep(0)
-    # ins = Window.get_instruction_manager()
+    # Prepare Infinite Progress Dialog.
+    prog_dlg.acquire_dialog('Test in Progress')
+    prog_dlg.progress_bar.setMaximum(0)
+    # Setup Local Variables.
     timeout = 0
     synced = True  # Used to not request data if synched==False.
     duration = daq_config.recording_configs['test_duration']
-    if duration > 100:
-        time_to_update_progress_bar = (duration / 100)
-    else:
-        time_to_update_progress_bar = (100 / duration)
-    bar_value = 0
     time_break = 0
+    # Wait for Control Module to store data.
     while ins.send_request_status()[1] != 1 and stop_break_loop:  # Status[1] --> stored
         if log: print('Waiting for test to finish....')
         sleep(0.1)
@@ -305,11 +300,11 @@ def check_status_during_test(ins, mods_selected):
 
     if synced and stop_break_loop:
         print('get all data')
-        data_handler = Data_Handler(ins.send_request_number_of_mods_connected(), daq_config)
-        data_handler.request_all_data(mods_selected)
+        data_handler = Data_Handler(modules_all, daq_config)
+        data_handler.store_data('test.csv', data_handler.request_all_data(mods_selected, ins))
 
-    # if not stop_break_loop:
-    #     ins.send_cancel_request()
+    if not stop_break_loop:
+        ins.send_cancel_request()
     prog_dlg.close()
     del ins
     # get_all_data TODO CHANGE TO CSV HANDLER GETT ALL DATA METHOD
@@ -363,6 +358,9 @@ def init():
     main_window.enable_gps_disable_spec()  # Begin with GPS only enabled.
 
     ins_port = save_port()
+    # base_window.create_instruction_manager(ins_port)
+    # data_handler = Data_Handler(modules_all, daq_config)
+    # data_handler.store_data('test.csv', data_handler.request_all_data({1}))
 
     if ins_port == 'COM-1':
         base_window.display_error('Device Not Connected. Please try again.')

@@ -101,33 +101,26 @@ class SensorSelectionMatrix(Window):
 
         :return: '0000' # TODO Find out what this return is.
         """
-        if log: print("entered get_module_and_sensors_selected()")
-        sensors_sel = []
-        if log: print("created empty sensor selected array")
-        sensors_sel.append(self.sensor_selection_matrix.Sensor_1)
-        if log:
-            print("print sensors array created correctly")
-        sensors_selected = "0000"
-        correct = 1
+        if log: print("Entered - get_modules_and_sensors_selected")
+
+        sensors_selected = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        modules_selected = set()
+
         index = 0
-        # modules_selected = set()
-        modules_selected = {1}
         for i in self.sensor_selection_list:
-            index += 1
-            if i.checkState() == 2:
-                module = int((index - 1) / 4) + 1
-                sensor = str(((index - 1) % 4) + 1)
-                sensors_selected = module + sensor + sensors_selected
+            # Check if User has selected each checkBox.
+            if i.isChecked():
+                module = int(index / 4) + 1
+                sensors_selected[index] = 1
                 modules_selected.add(module)
+            # Increment Index
+            index += 1
 
         if log: print("sensors selected are: ", sensors_selected)
 
         for i in self.sensor_selection_list:
-            i.setCheckState(False)
-        if correct:
-            sensors_selected = sensors_selected[0:4]
-            return sensors_selected, modules_selected
-        return "0000"
+            i.setChecked(False)
+        return sensors_selected, modules_selected
 
         pass
     

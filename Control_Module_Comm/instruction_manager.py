@@ -128,6 +128,7 @@ class instruction_manager():
         pow_comp = pow(2, 23)
         pow_sub = pow(2, 24)
         length = len(data)
+        print("length is ", length)
         array = []
         array.append([])
         array.append([])
@@ -141,6 +142,7 @@ class instruction_manager():
             print("type is ", type(data[i+1]))
             print("type is ", type(data[i+2]))
             if isinstance(data[i], int) and isinstance(data[i+1], int) and isinstance(data[i+2], int):
+            # if True:
                 bits = bytes([data[i]]) + bytes([data[i + 1]]) + bytes([data[i + 2]])
                 num = int.from_bytes(bits, byteorder='big')
                 if num > pow_comp:
@@ -201,7 +203,6 @@ class instruction_manager():
             if log: print("line is", line)
             return line
         return "0"
-
 
     def send_gps_sync_request(self):
         """

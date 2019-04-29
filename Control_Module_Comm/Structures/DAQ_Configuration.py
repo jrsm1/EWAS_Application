@@ -21,6 +21,7 @@ class DAQconfigs:
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
                  store='1111'):
+
         self.signal_configs = {
             'sampling_rate': str,
             'cutoff_frequency': str,
@@ -29,7 +30,6 @@ class DAQconfigs:
 
         self.recording_configs = {
             "test_name": str,
-            # "test_ID": str,
             "test_duration": int,  # In Seconds
             "test_type": str,  # get from list. Should be same as position in drop-down.
             'test_start_delay': int  # Number in Seconds.
@@ -114,6 +114,9 @@ class DAQconfigs:
 
     def get_sampling_freq(self):
         return int(self.signal_configs['sampling_rate'].split()[0])
+
+    def get_duration(self):
+        return int(self.recording_configs['test_duration'])
 
 
 def generate_ID(name: str):

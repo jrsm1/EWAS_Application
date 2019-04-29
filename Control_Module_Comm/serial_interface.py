@@ -39,14 +39,14 @@ class serial_interface():
         line = ser.readline()
         line1 = b''
         if log: print("entered listen")
-        while line == b'':
-        # while True:
-            line = ser.readline()
+        while not line == b'':
             line1 = line1 + line
+            line = ser.readline()
             print("read line", line)
             # continue
         if log: print("received: " + str(line))
         if log: print("left listen")
+        if log: print("line1 is ", line1)
         return line1
 
     def send_string(self, string):
