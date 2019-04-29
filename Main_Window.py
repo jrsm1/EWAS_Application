@@ -822,7 +822,7 @@ class MainWindow(windowClass):
         visualization_values['requested_plot'] = plot
 
         sensors = CSV_Handler.read_sensor_headers(visualization_values['plot_filename'])
-
+        self.selection_dialog = VizSensorSelector(sensors)
         # Clear DropDown to prepare for new plot option.
         #   Clear everything but Placeholder [Index 0].
         for item in range(1, self.selection_dialog.viz_sens_1_dropdown.count(), 1):
