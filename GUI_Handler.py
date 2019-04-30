@@ -144,6 +144,8 @@ def check_for_port(what_was_clicked: str):
     # if not save_port() == 'COM-1':
     #     if what_was_clicked == 'START':
     #         start_acquisition(START_TEST)
+    #     elif what_was_clicked == 'DIAGNOSE':
+    #         start_acquisition(DIAGNOSE)
     #     elif what_was_clicked == 'GPS':
     #         sync_gps()
     # else:
@@ -152,6 +154,8 @@ def check_for_port(what_was_clicked: str):
 
     if what_was_clicked == 'START':
         start_acquisition(START_TEST)
+    elif what_was_clicked == 'DIAGNOSE':
+        start_acquisition(DIAGNOSE)
     elif what_was_clicked == 'GPS':
         sync_gps()
 
@@ -226,8 +230,7 @@ def check_status():
 
 def send_diagnostics():
     try:
-        im = Window.get_instruction_manager()
-        im.send_diagnose_request()
+        im = insinstruction_manager(ins_port)
     except serial.SerialException:
         base_window.not_connected_error()
 
@@ -299,7 +302,7 @@ def check_status_during_test(ins, mods_selected):
     if synced and stop_break_loop:
         print('get all data')
         data_handler = Data_Handler(modules_all, daq_config)
-        data_handler.store_data('test.csv', data_handler.request_all_data(mods_selected, ins))
+        data_handler.store_data(daq_config.test_id['Test ID'], data_handler.request_all_data(mods_selected, ins))
 
     if not stop_break_loop:
         ins.send_cancel_request()
@@ -310,19 +313,6 @@ def check_status_during_test(ins, mods_selected):
     prog_dlg.close()
 
 
-def get_all_data():
-    prog_dlg.acquire_dialog('Test Data')
-    prog_dlg.progress_dialog_progressBar.setMaximum(100)
-    prog_dlg.progress_dialog_progressBar.setValue(0)
-    data = ''
-    try:
-        ins = Window.get_instruction_manager()
-        data = ins.send_request_all_data()
-        prog_dlg.close()
-    except serial.SerialException:
-        data = ''
-        base_window.not_connected_error()
-        prog_dlg.close()
 
 def cancel_everything():
     """

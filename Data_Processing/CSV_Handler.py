@@ -33,7 +33,7 @@ class Data_Handler():
 
         :return: CSV file with metadata header and data body.
         """
-        datapath = r'Data/' + filename
+        datapath = r'Data/' + str(filename) + '.csv'
 
         with open(datapath, 'w', newline='') as f:
             writer = csv.writer(f)
@@ -197,9 +197,9 @@ class Data_Handler():
         self.all_data = self.all_data.dropna()
         self.all_data.astype(int)
 
-        if log:
-            print(self.all_data)
-            print(self.all_data.info())
+        # if log:
+            # print(self.all_data)
+            # print(self.all_data.info())
 
         return self.all_data
 
@@ -217,6 +217,9 @@ def read_sensor_headers(filename: str):
     return pd.read_csv(filename, header=90, nrows=0).columns.tolist()[1:]
     # except:
     #     pass
+
+def read_header():
+    pass
 
 def select_data_columns():
     """

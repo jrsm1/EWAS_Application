@@ -125,7 +125,7 @@ class instruction_manager():
         return 0
 
     def organize_data(self, data):
-        pow_comp = pow(2, 23)
+        pow_comp = pow(2, 23) - 1
         pow_sub = pow(2, 24)
         length = len(data)
         print("length is ", length)
@@ -145,8 +145,9 @@ class instruction_manager():
             # if True:
                 bits = bytes([data[i]]) + bytes([data[i + 1]]) + bytes([data[i + 2]])
                 num = int.from_bytes(bits, byteorder='big')
-                if num > pow_comp:
-                    num = num - pow_sub
+                # if num > pow_comp:
+                #     num = num - pow_sub
+                    # num += 4278190080
 
                 print("num is ", num)
 

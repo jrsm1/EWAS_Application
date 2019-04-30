@@ -7,6 +7,7 @@ import GUI_Handler
 
 # Testing
 log = 1
+TIMESTAMP = 'timestamp'
 
 class Plot_Data():
     def __init__(self, filename):
@@ -54,7 +55,7 @@ class Plot_Data():
         :return Plotted data in new Qt5Agg interactive Window.
         """
         # TODO Read only the sensor column --> Optimization
-        self.data_read.plot(x='Timestamp', y=sensor, legend=False, label=sensor)
+        self.data_read.plot(x=TIMESTAMP, y=sensor, legend=False, label=sensor)
 
         # Setup Plot Parameters.
         plt.title('RAW DATA')

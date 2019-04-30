@@ -77,11 +77,15 @@ class Window(QtWidgets.QMainWindow):
 
         path = str(QFileDialog.getOpenFileName(None, 'Open CSV File', root_path, 'CSV Files (*.csv)')[0])
 
-        if validate_path(path):
+        error = validate_path(path)
+
+        if error == '': # if return empty string --> no error
             return path
-        else:
+        elif error == 'path':
             self.display_error('Choose a file from the default file path.!')
             return ''
+        elif error == 'cancel':  # if cancel --> user does not want to do anything else.
+            pass
 
     # TODO how to implement abstract methods and make sure all inherited uses it.
     def init_objects(self):
@@ -109,20 +113,20 @@ def validate_path(path: str):
 
     :param path: User requested file path [may be file name with full path.]
 
-    :return: True if Data Files is opened from within allowed path.
+    :return: Empty String if Data Files is opened from within allowed path.
     """
-    validated = False
     # Keep to validate Filename : Done like this to maintain Code clarity and naming convention on functions.
     filename = path
+    error = ''
 
     # if no path receives --> user hit cancel --> do nothing.
-    if filename == '':
-        return True
+    if filename == '' or filename is None:
+        error = 'cancel'
 
-    if '/EWAS_Application/' in path:  # If user cancels --> Path is empty --> NOT VALID
-        validated = True
+    elif '/EWAS_Application/' not in path:
+        error = 'path'
 
-    return validated and validate_filename(filename)
+    return error
 
 
 def validate_filename(filename: str):

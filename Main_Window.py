@@ -124,7 +124,7 @@ class MainWindow(windowClass):
         # ------ Signals--------
         # Menu Bar
         self.main_window.action_Help.triggered.connect(lambda: self.open_documentation())
-        self.main_window.actionDiagnose.triggered.connect(lambda: GUI_Handler.send_diagnostics())  # TODO VErify if this is part of Start Logic
+        self.main_window.actionDiagnose.triggered.connect(lambda: GUI_Handler.check_for_port('DIAGNOSE'))  # TODO VErify if this is part of Start Logic
         # Recording Settings # TODO Organize.
         self.main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, 1))
         self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
@@ -414,9 +414,10 @@ class MainWindow(windowClass):
         relative_path = 'Config/DAQ/Recording'
         # Get filename from User
         filename = self.file_system(relative_path)
-        # Load Params from File
-        self.setting_manager.load_recording_configs(filename)
+
         if set_dat_man.verify_file_exists(filename):
+            # Load Params from File
+            self.setting_manager.load_recording_configs(filename)
             # Set Params into GUI.
             self.set_recording_into_gui()
             # Close Window
@@ -809,57 +810,59 @@ class MainWindow(windowClass):
                                 'color: rgb(0, 0, 0)')
 
     def do_plot(self, plot: int):
-        visualization_values['plot_filename'] = self.file_system('Data')  # TODO FIXME POSSIBLE ERROR
-        visualization_values['requested_plot'] = plot
+        filename = self.file_system('Data')
+        if not Window.validate_path(filename):
+            visualization_values['plot_filename'] = filename  # TODO FIXME POSSIBLE ERROR
+            visualization_values['requested_plot'] = plot
 
-        sensors = CSV_Handler.read_sensor_headers(visualization_values['plot_filename'])
-        self.selection_dialog = VizSensorSelector(self, visualization_values)
-        # Clear DropDown to prepare for new plot option.
-        #   Clear everything but Placeholder [Index 0].
-        for item in range(1, self.selection_dialog.viz_sens_1_dropdown.count(), 1):
-            self.selection_dialog.viz_sens_1_dropdown.removeItem(1)
-        for item in range(1, self.selection_dialog.viz_sens_2_dropdown.count(), 1):
-            self.selection_dialog.viz_sens_2_dropdown.removeItem(1)
+            sensors = CSV_Handler.read_sensor_headers(visualization_values['plot_filename'])
+            self.selection_dialog = VizSensorSelector(self, visualization_values)
+            # Clear DropDown to prepare for new plot option.
+            #   Clear everything but Placeholder [Index 0].
+            for item in range(1, self.selection_dialog.viz_sens_1_dropdown.count(), 1):
+                self.selection_dialog.viz_sens_1_dropdown.removeItem(1)
+            for item in range(1, self.selection_dialog.viz_sens_2_dropdown.count(), 1):
+                self.selection_dialog.viz_sens_2_dropdown.removeItem(1)
 
-        # Set DropDown Values
-        self.selection_dialog.viz_sens_1_dropdown.addItems(sensors)
-        self.selection_dialog.viz_sens_2_dropdown.addItems(sensors)
+            # Set DropDown Values
+            self.selection_dialog.viz_sens_1_dropdown.addItems(sensors)
+            self.selection_dialog.viz_sens_2_dropdown.addItems(sensors)
 
-        # Update Label and Enabled Dropdown for correct plot window
-        if plot == TIME_PLOT:
-            self.selection_dialog.viz_name_label.setText('Plot Raw Data Against Time. <br>'
-                                                         'Please Select Only one Sensor.')
-            self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
-            self.disable_viz_2_dropdown()
-            self.selection_dialog.number_of_sensors = 1
+            # Update Label and Enabled Dropdown for correct plot window
+            if plot == TIME_PLOT:
+                self.selection_dialog.viz_name_label.setText('Plot Raw Data Against Time. <br>'
+                                                             'Please Select Only one Sensor.')
+                self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
+                self.disable_viz_2_dropdown()
+                self.selection_dialog.number_of_sensors = 1
 
-        elif plot == FREQ_PLOT:
-            self.selection_dialog.viz_name_label.setText('Plot Frequency Spectrum. <br>'
-                                                         'Please Select Only one Sensor.')
-            self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
-            self.disable_viz_2_dropdown()
-            self.selection_dialog.number_of_sensors = 1
+            elif plot == FREQ_PLOT:
+                self.selection_dialog.viz_name_label.setText('Plot Frequency Spectrum. <br>'
+                                                             'Please Select Only one Sensor.')
+                self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
+                self.disable_viz_2_dropdown()
+                self.selection_dialog.number_of_sensors = 1
 
-        elif plot == APS_PLOT:
-            self.selection_dialog.viz_name_label.setText('Plot Auto-Power Spectrum. <br>'
-                                                         'Please Select Only one Sensor.')
-            self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
-            self.disable_viz_2_dropdown()
-            self.selection_dialog.number_of_sensors = 1
+            elif plot == APS_PLOT:
+                self.selection_dialog.viz_name_label.setText('Plot Auto-Power Spectrum. <br>'
+                                                             'Please Select Only one Sensor.')
+                self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
+                self.disable_viz_2_dropdown()
+                self.selection_dialog.number_of_sensors = 1
 
-        elif plot == CPS_PLOT:
-            self.selection_dialog.viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
-                                                         'Please Select Two Sensors.')
-            self.enable_viz_2_dropdown()
-            self.selection_dialog.number_of_sensors = 2
+            elif plot == CPS_PLOT:
+                self.selection_dialog.viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
+                                                             'Please Select Two Sensors.')
+                self.enable_viz_2_dropdown()
+                self.selection_dialog.number_of_sensors = 2
 
-        elif plot == COHERENCE_PLOT:
-            self.selection_dialog.viz_name_label.setText('Plot Coherence Function. <br>'
-                                                         'Please Select Two Sensors.')
-            self.enable_viz_2_dropdown()
-            self.selection_dialog.number_of_sensors = 2
+            elif plot == COHERENCE_PLOT:
+                self.selection_dialog.viz_name_label.setText('Plot Coherence Function. <br>'
+                                                             'Please Select Two Sensors.')
+                self.enable_viz_2_dropdown()
+                self.selection_dialog.number_of_sensors = 2
 
-        self.selection_dialog.open()
+            self.selection_dialog.open()
 
     def disable_viz_2_dropdown(self):
         self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
@@ -880,7 +883,7 @@ class MainWindow(windowClass):
         Begins Visualization Analysis for user selected plots.
         """
         filename = visualization_values['plot_filename']
-        if Window.validate_path(filename):
+        if not Window.validate_path(filename):
 
             plot = visualization_values['requested_plot']
 
@@ -923,6 +926,7 @@ class MainWindow(windowClass):
         sensor = self.selection_dialog.viz_sens_1_dropdown.currentText()
 
         Plot_Data.Plot_Data(filename).plt_time(sensor)
+        self.selection_dialog.close()
 
     def plot_fft(self, filename: str):
         """
