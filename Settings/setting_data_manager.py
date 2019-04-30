@@ -1,13 +1,15 @@
 """
 Class manages saving and loading Setting Profiles. As well as handling the structures
 """
-from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
 import csv
 from os import path
+
 import pandas as pd
 from PyQt5 import QtWidgets
 
 import GUI_Handler
+from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration
+
 log = 0
 
 

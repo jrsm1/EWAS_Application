@@ -3,6 +3,7 @@ from PyQt5.QtGui import QIcon
 
 from Window import Window
 
+
 class VizSensorSelector(Window):
     def __init__(self, main_window_parent: QtWidgets, visualization_values):
         super().__init__()
@@ -13,7 +14,7 @@ class VizSensorSelector(Window):
 
         self.visualization_values = visualization_values
         self.parent = main_window_parent
-
+        self.number_of_sensors = 0
         # Objects
         self.viz_name_label = self.viz_sensor_sel_win.plot_name_label
         self.viz_sens_1_dropdown = self.viz_sensor_sel_win.sensor_1_DropDown
@@ -55,21 +56,26 @@ class VizSensorSelector(Window):
         :return: True if User has selected al proper sensors.
         """
         validated = True
-        if max_sensors == 1:
-            if self.viz_sens_1_dropdown.currentIndex() == 0:  # if Default Value --> Not Validated.
-                self.close()
-                validated = False
-
         if max_sensors == 2:
             if self.viz_sens_1_dropdown.currentIndex() == 0:  # if Default Value --> Not Validated.
-                self.close()
+                # self.close()
                 validated = False
-            if self.viz_sens_2_dropdown.currentIndex() != 0:
-                self.close()
+            if self.viz_sens_2_dropdown.currentIndex() == 0:
+                # self.close()
                 validated = False
 
+        if max_sensors == 1:
+            if self.viz_sens_1_dropdown.currentIndex() == 0:  # if Default Value --> Not Validated.
+                # self.close()
+                validated = False
+        self.close()
         return validated
 
+    def set_number_sensors(self, amount: int):
+        self.number_of_sensors = amount
+
+    def get_number_sensors(self):
+        return self.number_of_sensors
 
     def init_object(self):
         """

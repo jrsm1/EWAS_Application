@@ -185,7 +185,6 @@ class Data_Handler():
         for module in connected_modules:
             print(list)  # String necessary here to connect inner and outer variables apparently.
             try:
-                # im = ins_man.instruction_manager(get_port())
                 list = ins.send_request_data(module)
             except serial.SerialException:
                 GUI_Handler.base_window.display_error('Device has been Disconnected. <br>'

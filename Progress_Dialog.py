@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
 
 # FIXME Process finished with exit code -1073740791 (0xC0000409)

@@ -1,5 +1,5 @@
 import Control_Module_Comm.serial_interface as serial_interface
-import Exceptions
+
 log = 1
 
 

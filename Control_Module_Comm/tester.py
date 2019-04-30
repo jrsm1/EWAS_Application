@@ -1,5 +1,6 @@
-import Control_Module_Comm.serial_interface as serial_interface
 import Control_Module_Comm.instruction_manager as instruction_manager
+import Control_Module_Comm.serial_interface as serial_interface
+
 
 def test_listen():
     tester = serial_interface.serial_interface('COM6')

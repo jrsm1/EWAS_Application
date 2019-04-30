@@ -1,7 +1,6 @@
-import string
-import time
-import uuid
 import random
+import string
+import uuid
 
 SAMPLING_RATES = ['2 Hz', '4 Hz', '8 Hz', '16 Hz', '32 Hz', '64 Hz', '128 Hz', '256 Hz', '512 Hz',
                   '1024 Hz', '2048 Hz', '4096 Hz', '8192 Hz', '16384 Hz', '20000 Hz']

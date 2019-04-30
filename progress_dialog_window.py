@@ -1,6 +1,6 @@
+from PyQt5 import uic
 from PyQt5.QtCore import QThread
-from PyQt5 import QtWidgets, uic
-import Control_Module_Comm.instruction_manager as instruction_manager
+
 
 class progress_dialog_window(QThread):
 

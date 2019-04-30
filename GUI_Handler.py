@@ -9,13 +9,13 @@ import Exceptions
 import Window
 from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
+from Data_Processing.CSV_Handler import Data_Handler
 from Main_Window import MainWindow
 from Progress_Dialog import ProgressDialog
 from Save_Data_Option_Dialog import SaveDataOptionDialog
 from Sensor_Selection_Matrix import SensorSelectionMatrix
 from Settings import setting_data_manager as set_dat_man
 from Window import Window
-from Data_Processing.CSV_Handler import Data_Handler
 
 app = QtWidgets.QApplication([])
 file_sys_win = uic.loadUi('GUI/Qt_Files/file_system_window.ui')
@@ -161,7 +161,7 @@ def save_port():  # TODO adapt for class reconstruction
     port = 'COM-1'
     pid = "0403"
     hid = "6001"
-    ports = list(serial.tools.list_ports.comports())
+    ports = list(serial.tools.list_ports_windows.comports())
 
     for p in ports:
         if pid and hid in p.hwid:

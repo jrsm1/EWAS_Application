@@ -1,11 +1,9 @@
+import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib
+
 import GUI_Handler
-import os
-import sys
-import time
 
 # Testing
 log = 1

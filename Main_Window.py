@@ -1,22 +1,18 @@
-from time import sleep
-
-import serial
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QIcon, QRegExpValidator, QIntValidator
 from PyQt5.QtWidgets import QDesktopWidget
-from Data_Processing import CSV_Handler
-from Data_Processing import Plot_Data
-import Exceptions
+
 import GUI_Handler
 import Window
-from Control_Module_Comm import instruction_manager as ins_man
 from Control_Module_Comm.Structures import DAQ_Configuration
+from Data_Processing import CSV_Handler
+from Data_Processing import Plot_Data
 from FileName_Input_Window import FileInputWindow
 from Module_Selection_Window import ModuleSelectionWindow as ModuleSelect
 from Settings import setting_data_manager as set_dat_man
-from Window import Window as windowClass
 from Visualization_Sensor_Selection_Dialog import VizSensorSelector
+from Window import Window as windowClass
 
 # Global Variables.
 app = QtWidgets.QApplication([])
@@ -835,28 +831,33 @@ class MainWindow(windowClass):
                                                          'Please Select Only one Sensor.')
             self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
             self.disable_viz_2_dropdown()
+            self.selection_dialog.number_of_sensors = 1
 
         elif plot == FREQ_PLOT:
             self.selection_dialog.viz_name_label.setText('Plot Frequency Spectrum. <br>'
                                                          'Please Select Only one Sensor.')
             self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
             self.disable_viz_2_dropdown()
+            self.selection_dialog.number_of_sensors = 1
 
         elif plot == APS_PLOT:
             self.selection_dialog.viz_name_label.setText('Plot Auto-Power Spectrum. <br>'
                                                          'Please Select Only one Sensor.')
             self.selection_dialog.viz_sens_2_dropdown.setCurrentIndex(0)
             self.disable_viz_2_dropdown()
+            self.selection_dialog.number_of_sensors = 1
 
         elif plot == CPS_PLOT:
             self.selection_dialog.viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
                                                          'Please Select Two Sensors.')
             self.enable_viz_2_dropdown()
+            self.selection_dialog.number_of_sensors = 2
 
         elif plot == COHERENCE_PLOT:
             self.selection_dialog.viz_name_label.setText('Plot Coherence Function. <br>'
                                                          'Please Select Two Sensors.')
             self.enable_viz_2_dropdown()
+            self.selection_dialog.number_of_sensors = 2
 
         self.selection_dialog.open()
 
@@ -883,28 +884,33 @@ class MainWindow(windowClass):
 
             plot = visualization_values['requested_plot']
 
-            if self.selection_dialog.validate_visualize_sensor_selection(1):  # Only have to Validate One Sensor.
-                # Choose which Plot.
-                if plot == TIME_PLOT:
-                    self.plot_time(filename)
-                elif plot == FREQ_PLOT:
-                    self.plot_fft(filename)
-                elif plot == APS_PLOT:
-                    self.plot_aps(filename)
+            if self.selection_dialog.get_number_sensors() == 2:  # Requires 2 Sensors.
+                if self.selection_dialog.validate_visualize_sensor_selection(2):
+                    if plot == CPS_PLOT:
+                        self.plot_cps(filename)
+                    elif plot == PHASE_PLOT:
+                        self.plot_phase(filename)
+                    elif plot == COHERENCE_PLOT:
+                        self.plot_cohere(filename)
 
-                self.selection_dialog.close()
+                    self.selection_dialog.close()
+                else:
+                    self.display_error('Sensor not selected.')
 
-            elif self.selection_dialog.validate_visualize_sensor_selection(2):  # Requires 2 Sensors.
-                if plot == CPS_PLOT:
-                    self.plot_cps(filename)
-                elif plot == PHASE_PLOT:
-                    self.plot_phase(filename)
-                elif plot == COHERENCE_PLOT:
-                    self.plot_cohere(filename)
+            elif self.selection_dialog.get_number_sensors() == 1:  # Only have to Validate One Sensor.
+                if self.selection_dialog.validate_visualize_sensor_selection(1):
+                    # Choose which Plot.
+                    if plot == TIME_PLOT:
+                        self.plot_time(filename)
+                    elif plot == FREQ_PLOT:
+                        self.plot_fft(filename)
+                    elif plot == APS_PLOT:
+                        self.plot_aps(filename)
 
-                self.selection_dialog.close()
-            else:
-                self.display_error('Sensor not selected.')
+                    self.selection_dialog.close()
+                else:
+                    self.display_error('Sensor not selected.')
+
         else:
             self.display_error('File name or Path incorrect.1 <br> <br>'
                                        'Choose a File from: C://[USER PATH]/EWAS_Applocation/Data/')

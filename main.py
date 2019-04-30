@@ -1,4 +1,3 @@
-from PyQt5 import QtWidgets
 import GUI_Handler
 
 if __name__ == "__main__":

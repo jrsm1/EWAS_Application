@@ -3,10 +3,7 @@ from PyQt5 import uic
 from PyQt5.QtGui import QIcon
 
 from Control_Module_Comm.Structures import Module_Individual, Sensor_Individual
-from Settings import setting_data_manager as set_dat_man
 from Window import Window
-from FileName_Input_Window import FileInputWindow
-import GUI_Handler
 
 # Global Variables.
 

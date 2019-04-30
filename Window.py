@@ -1,9 +1,9 @@
 from PyQt5 import QtWidgets
 # import Main_Window
 from PyQt5.QtWidgets import QFileDialog, QDesktopWidget
-from Control_Module_Comm import instruction_manager
 from regex import regex
-import GUI_Handler
+
+from Control_Module_Comm import instruction_manager
 
 # Global Variables.
 ins_manager = None

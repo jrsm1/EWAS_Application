@@ -4,7 +4,6 @@ from PyQt5.QtGui import QIcon
 
 import GUI_Handler
 from Window import Window
-from time import sleep
 
 # TESTING
 log =1
