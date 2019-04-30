@@ -1,124 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="[X] Expanded validation in start acquisition to check for durations less than 5">
-      <change beforePath="$PROJECT_DIR$/.idea/EWAS_Application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EWAS_Application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/cancel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/cancel.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Important_Documents/get-pip.py" beforeDir="false" afterPath="$PROJECT_DIR$/Important_Documents/get-pip.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module_Info_Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module_Info_Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Progress_Dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Progress_Dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sensor_Selection_Matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sensor_Selection_Matrix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/setting_data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/setting_data_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Visualization_Sensor_Selection_Dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Visualization_Sensor_Selection_Dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/Analysis-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/COLLECT-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/COLLECT-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/EXE-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/PKG-00.pkg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/PKG-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/PYZ-00.pyz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/PYZ-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/Tree-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/Tree-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/Tree-01.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/Tree-01.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/base_library.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/main.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/main.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/warn-main.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/warn-main.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/main/xref-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/xref-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progress_dialog_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/progress_dialog_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thread_tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/thread_tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cycler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_constrained_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_constrained_layout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_layoutbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_layoutbox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_pylab_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_pylab_helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/afm.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/afm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/animation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/artist.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/artist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_subplots.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_subplots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axis.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_bases.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_bases.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_managers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/_backend_tk.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/_backend_tk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_agg.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_agg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_pdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_pdf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_pgf.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_pgf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_ps.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_ps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt4.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt5.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_svg.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_svg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_wx.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_wx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/qt_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/qt_compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/tkagg.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/tkagg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/wx_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/wx_compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/category.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/cbook/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/cbook/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/cm.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/cm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/collections.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/colorbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/colorbar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/colors.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/colors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/compat/subprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/compat/subprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/container.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/container.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/contour.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/contour.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/dates.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/dates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/dviread.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/dviread.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/font_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/font_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/fontconfig_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/fontconfig_pattern.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/gridspec.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/gridspec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/lines.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/lines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mathtext.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mathtext.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mlab.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mlab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/offsetbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/offsetbox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/patches.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/patches.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/patheffects.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/patheffects.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pylab.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pylab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pyplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pyplot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/quiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/quiver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/rcsetup.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/rcsetup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/sankey.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/sankey.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/scale.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/scale.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/spines.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/spines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/streamplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/streamplot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/style/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/style/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/table.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/compare.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/determinism.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/determinism.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/texmanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/texmanager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/textpath.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/textpath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/ticker.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/ticker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tight_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tight_layout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/transforms.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/transforms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/triangulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/triangulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/tricontour.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/tricontour.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/trifinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/trifinder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/triinterpolate.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/triinterpolate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/trirefine.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/trirefine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/type1font.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/type1font.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/units.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/units.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pylab.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pylab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing.py" afterDir="false" />
     </list>
     <ignored path="C:\Users\chris\PycharmProjects\EWAS_Application\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -132,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main_Window.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="898" column="16" selection-start-line="898" selection-start-column="16" selection-end-line="898" selection-end-column="16" />
+            <state relative-caret-position="168">
+              <caret line="883" lean-forward="true" selection-start-line="883" selection-end-line="883" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -144,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visualization_Sensor_Selection_Dialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="605">
               <caret line="57" selection-start-line="57" selection-end-line="57" />
             </state>
           </provider>
@@ -574,13 +458,6 @@
       <option name="presentableId" value="Default" />
       <updated>1552944095439</updated>
     </task>
-    <task id="LOCAL-00014" summary="- [X] Reformatted Some Code.&#10;- [X] Changes Plot methods to correct size and color.&#10;- [X] Correctly Improving performance on rendering plots.">
-      <created>1555092376527</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1555092376527</updated>
-    </task>
     <task id="LOCAL-00015" summary="- [X] Reformatted Some Code.&#10;- [X] Added .ui Windows&#10;- [X] imported objects for most windows( EXCLUDING main window)">
       <created>1555134555021</created>
       <option name="number" value="00015" />
@@ -917,7 +794,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556570160874</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="[X] fixed cross-power and coherence plotting">
+      <created>1556589487265</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1556589487265</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -1016,7 +900,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed bug that cropped latitude and longitude" />
     <MESSAGE value="Cleaned up gGUI_Handler a bit. made serial verification more robust" />
     <MESSAGE value="Code cleanup; Fixed serial connection crash" />
     <MESSAGE value="Load/Store File System Update" />
@@ -1041,7 +924,8 @@
     <MESSAGE value="[X] Tried to fix visualization, se rompe 3 lineas mas alante en el codigo" />
     <MESSAGE value="[X] Fixed Channel Info Button, saves module info in dicts" />
     <MESSAGE value="[X] Expanded validation in start acquisition to check for durations less than 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="[X] Expanded validation in start acquisition to check for durations less than 5" />
+    <MESSAGE value="[X] fixed cross-power and coherence plotting" />
+    <option name="LAST_COMMIT_MESSAGE" value="[X] fixed cross-power and coherence plotting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1050,11 +934,6 @@
           <url>file://$PROJECT_DIR$/Main_Window.py</url>
           <line>866</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Visualization_Sensor_Selection_Dialog.py</url>
-          <line>57</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1444,13 +1323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6210">
-          <caret line="231" column="32" selection-start-line="231" selection-start-column="32" selection-end-line="231" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -1470,15 +1342,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Visualization_Sensor_Selection_Dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="605">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6210">
+          <caret line="231" column="32" selection-start-line="231" selection-start-column="32" selection-end-line="231" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main_Window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="898" column="16" selection-start-line="898" selection-start-column="16" selection-end-line="898" selection-end-column="16" />
+        <state relative-caret-position="168">
+          <caret line="883" lean-forward="true" selection-start-line="883" selection-end-line="883" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
