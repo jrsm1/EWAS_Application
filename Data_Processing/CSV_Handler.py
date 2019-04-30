@@ -168,7 +168,6 @@ class Data_Handler():
 
         # Join Timestamp to all_data and set it as Index
         self.all_data = timedf.join(self.all_data)
-        # self.all_data.set_index(TIMESTAMP)
 
     def request_all_data(self, connected_modules: set, ins: ins_man):
         """

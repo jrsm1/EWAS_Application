@@ -115,6 +115,10 @@ def validate_path(path: str):
     # Keep to validate Filename : Done like this to maintain Code clarity and naming convention on functions.
     filename = path
 
+    # if no path receives --> user hit cancel --> do nothing.
+    if filename == '':
+        return True
+
     if '/EWAS_Application/' in path:  # If user cancels --> Path is empty --> NOT VALID
         validated = True
 
