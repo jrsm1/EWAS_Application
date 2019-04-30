@@ -214,7 +214,10 @@ def read_sensor_headers(filename: str):
 
     :return: Pandas Series with the Data.
     """
+    # try:
     return pd.read_csv(filename, header=90, nrows=0).columns.tolist()[1:]
+    # except:
+    #     pass
 
 def select_data_columns():
     """

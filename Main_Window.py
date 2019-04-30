@@ -16,7 +16,6 @@ from FileName_Input_Window import FileInputWindow
 from Module_Selection_Window import ModuleSelectionWindow as ModuleSelect
 from Settings import setting_data_manager as set_dat_man
 from Window import Window as windowClass
-from Progress_Dialog import ProgressDialog
 from Visualization_Sensor_Selection_Dialog import VizSensorSelector
 
 # Global Variables.
@@ -818,7 +817,7 @@ class MainWindow(windowClass):
         visualization_values['requested_plot'] = plot
 
         sensors = CSV_Handler.read_sensor_headers(visualization_values['plot_filename'])
-        self.selection_dialog = VizSensorSelector(sensors)
+        self.selection_dialog = VizSensorSelector(self, visualization_values)
         # Clear DropDown to prepare for new plot option.
         #   Clear everything but Placeholder [Index 0].
         for item in range(1, self.selection_dialog.viz_sens_1_dropdown.count(), 1):
@@ -851,12 +850,12 @@ class MainWindow(windowClass):
 
         elif plot == CPS_PLOT:
             self.selection_dialog.viz_name_label.setText('Plot Cross-Power Spectrum. <br>'
-                                                         'Please Select Two Sensor.')
+                                                         'Please Select Two Sensors.')
             self.enable_viz_2_dropdown()
 
         elif plot == COHERENCE_PLOT:
             self.selection_dialog.viz_name_label.setText('Plot Coherence Function. <br>'
-                                                         'Please Select Two Sensor.')
+                                                         'Please Select Two Sensors.')
             self.enable_viz_2_dropdown()
 
         self.selection_dialog.open()
@@ -880,7 +879,7 @@ class MainWindow(windowClass):
         Begins Visualization Analysis for user selected plots.
         """
         filename = visualization_values['plot_filename']
-        if self.validate_file_path(filename):
+        if Window.validate_path(filename):
 
             plot = visualization_values['requested_plot']
 
@@ -915,7 +914,7 @@ class MainWindow(windowClass):
         [1]
         Creates and Opens Window with Time plot using user information from file.
         """
-        sensor = VizSensorSelector.viz_sens_1_dropdown.currentText()
+        sensor = self.selection_dialog.viz_sens_1_dropdown.currentText()
 
         Plot_Data.Plot_Data(filename).plt_time(sensor)
 
@@ -924,7 +923,7 @@ class MainWindow(windowClass):
         [2]
         Creats and Opens Window with Time plot using user information from file.
         """
-        sensor = VizSensorSelector.viz_sens_1_dropdown.currentText()
+        sensor = self.selection_dialog.viz_sens_1_dropdown.currentText()
 
         Plot_Data.Plot_Data(filename).plot_fft(sensor)
 
@@ -933,7 +932,7 @@ class MainWindow(windowClass):
         [3]
         Creates and Opens Window with Time plot using user information from file.
         """
-        sensor = VizSensorSelector.viz_sens_1_dropdown.currentText()
+        sensor = self.selection_dialog.viz_sens_1_dropdown.currentText()
 
         Plot_Data.Plot_Data(filename).plot_PSD(sensor)
 
@@ -942,8 +941,8 @@ class MainWindow(windowClass):
         [4]
         Creates and Opens Window with Time plot using user information from file.
         """
-        sensor_1 = VizSensorSelector.viz_sens_1_dropdown.currentText()
-        sensor_2 = VizSensorSelector.viz_sens_2_dropdown.currentText()
+        sensor_1 = self.selection_dialog.viz_sens_1_dropdown.currentText()
+        sensor_2 = self.selection_dialog.viz_sens_2_dropdown.currentText()
 
         Plot_Data.Plot_Data(filename).plot_CSD(sensor_1=sensor_1, sensor_2=sensor_2)
 
@@ -952,7 +951,7 @@ class MainWindow(windowClass):
         [5]
         Creates and Opens Window with Time plot using user information from file.
         """
-        sensor = VizSensorSelector.viz_sens_1_dropdown.currentText()
+        sensor = self.selection_dialog.viz_sens_1_dropdown.currentText()
 
         Plot_Data.Plot_Data(filename).plot_Phase(sensor)
 
@@ -961,10 +960,10 @@ class MainWindow(windowClass):
         [6]
         Creates and Opens Window with Time plot using user information from file.
         """
-        sensor_1 = VizSensorSelector.viz_sens_1_dropdown.currentText()
-        sensor_2 = VizSensorSelector.viz_sens_2_dropdown.currentText()
+        sensor_1 = self.selection_dialog.viz_sens_1_dropdown.currentText()
+        sensor_2 = self.selection_dialog.viz_sens_2_dropdown.currentText()
 
-        Plot_Data.Plot_Data('Data/Random_Dummy_Data_v2.csv').plot_coherence(sensor_1=sensor_1, sensor_2=sensor_2)
+        Plot_Data.Plot_Data(filename).plot_coherence(sensor_1=sensor_1, sensor_2=sensor_2)
 
     def get_visualization_values(self):
         return visualization_values

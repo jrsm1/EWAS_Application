@@ -1,10 +1,10 @@
-from PyQt5 import uic
+from PyQt5 import uic, QtWidgets
 from PyQt5.QtGui import QIcon
 
 from Window import Window
 
 class VizSensorSelector(Window):
-    def __init__(self, visualization_values):
+    def __init__(self, main_window_parent: QtWidgets, visualization_values):
         super().__init__()
 
         self.viz_sensor_sel_win = uic.loadUi('GUI/Qt_Files/visualize_sensor_selection_dropdown.ui')
@@ -12,6 +12,7 @@ class VizSensorSelector(Window):
         # self.init_objects()
 
         self.visualization_values = visualization_values
+        self.parent = main_window_parent
 
         # Objects
         self.viz_name_label = self.viz_sensor_sel_win.plot_name_label
@@ -19,7 +20,7 @@ class VizSensorSelector(Window):
         self.viz_sens_2_dropdown = self.viz_sensor_sel_win.sensor_2_DropDown
 
         # Signals
-        self.viz_next_btn = self.viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: self.viz.begin_visualization())
+        self.viz_next_btn = self.viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: self.parent.begin_visualization())
 
         pass
 
@@ -84,6 +85,6 @@ class VizSensorSelector(Window):
         self.viz_sens_2_dropdown = self.viz_sensor_sel_win.sensor_2_DropDown
 
         # Signals
-        self.viz_next_btn = self.viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: self.viz.begin_visualization())
+        self.viz_next_btn = self.viz_sensor_sel_win.NEXT_button.clicked.connect(lambda: self.parent.begin_visualization())
 
         pass

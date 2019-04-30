@@ -14,7 +14,6 @@ from Progress_Dialog import ProgressDialog
 from Save_Data_Option_Dialog import SaveDataOptionDialog
 from Sensor_Selection_Matrix import SensorSelectionMatrix
 from Settings import setting_data_manager as set_dat_man
-from Visualization_Sensor_Selection_Dialog import VizSensorSelector
 from Window import Window
 from Data_Processing.CSV_Handler import Data_Handler
 
@@ -79,7 +78,6 @@ daq_config = DAQ_Configuration.DAQconfigs()
 base_window = Window()
 setting_data_manager = set_dat_man.Setting_File_Manager(daq_config=daq_config, module_config=modules_all)
 main_window = MainWindow(daq_configuration=daq_config, setting_manager=setting_data_manager, modules=modules_all)
-viz_selector = VizSensorSelector(main_window.get_visualization_values())
 store_data_window = SaveDataOptionDialog(daq_config)
 sensor_matrix = SensorSelectionMatrix()
 prog_dlg = ProgressDialog()
