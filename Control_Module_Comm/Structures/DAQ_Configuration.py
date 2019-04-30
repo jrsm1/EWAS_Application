@@ -16,7 +16,7 @@ class DAQconfigs:
     def __init__(self,
                  sampling_rate=7, cutoff_frequency=7, signal_gain=1,
                  test_duration=15, test_name='Test' + uuid.uuid4().hex, record_type=0, test_delay=0,
-                 loc_name='NoName', latitude='+0000.0000', longitude='-0000.0000', hour='00', minute='00', second='00',
+                 loc_name='NoName', latitude='+0000.00000', longitude='-00000.00000', hour='00', minute='00', second='00',
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
                  store='1111'):

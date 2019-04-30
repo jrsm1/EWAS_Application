@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>924</width>
-    <height>822</height>
+    <height>805</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -88,18 +88,6 @@ color:rgb(0, 0, 0);</string>
             <number>4</number>
            </property>
            <item row="0" column="1">
-            <widget class="QLabel" name="channel_info_sensor1_nameLabel">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-															style=&quot; font-size:12pt;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-														</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
             <spacer name="horizontalSpacer_31">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -112,7 +100,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="3" column="0">
+           <item row="1" column="0">
             <widget class="QLabel" name="channel_info_sensor1_type_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -121,7 +109,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
+           <item row="1" column="1">
             <widget class="QComboBox" name="channel_info_sensor1_type_DropDown">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -151,7 +139,7 @@ color:rgb(0, 0, 0);</string>
              </item>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="2" column="1">
             <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -164,7 +152,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="5" column="0">
+           <item row="3" column="0">
             <widget class="QLabel" name="channel_info_sensor1_Sensitivity_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -176,7 +164,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="3" column="1">
             <widget class="QLineEdit" name="channel_info_sensor1_Sensitivity_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -189,7 +177,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
+           <item row="4" column="1">
             <spacer name="horizontalSpacer_32">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -202,7 +190,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="7" column="0">
+           <item row="5" column="0">
             <widget class="QLabel" name="channel_info_sensor1_frequency_Bandwidth_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -211,7 +199,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
+           <item row="5" column="1">
             <widget class="QLineEdit" name="channel_info_sensor1_frequency_Bandwidth_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -224,7 +212,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
+           <item row="6" column="1">
             <spacer name="horizontalSpacer_33">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -237,7 +225,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="9" column="0">
+           <item row="7" column="0">
             <widget class="QLabel" name="channel_info_sensor1_full_Scale_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -246,7 +234,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="1">
+           <item row="7" column="1">
             <widget class="QLineEdit" name="channel_info_sensor1_full_Scale_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -259,7 +247,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="0" colspan="2">
+           <item row="8" column="0" colspan="2">
             <spacer name="horizontalSpacer_34">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -272,7 +260,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="11" column="0">
+           <item row="9" column="0">
             <widget class="QLabel" name="channel_info_sensor1_dampingLabel">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -281,7 +269,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="1">
+           <item row="9" column="1">
             <widget class="QLineEdit" name="channel_info_sensor1_dampingLineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -294,7 +282,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="0" colspan="2">
+           <item row="10" column="0" colspan="2">
             <spacer name="horizontalSpacer_35">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -307,7 +295,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="13" column="0">
+           <item row="11" column="0">
             <widget class="QLabel" name="channel_info_sensor1_locationLabel">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -319,7 +307,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="1">
+           <item row="11" column="1">
             <widget class="QTextEdit" name="channel_info_sensor1_location_Edit">
              <property name="maximumSize">
               <size>
@@ -335,22 +323,6 @@ color:rgb(0, 0, 0);</string>
              </property>
              <property name="placeholderText">
               <string>Where is the Sensor Located?</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="channel_info_sensor1_nameLineEdit">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(255, 255, 255);
-															color: rgb(0, 0, 0);
-															font: 12pt &quot;MS Shell Dlg 2&quot;;
-														</string>
-             </property>
-             <property name="placeholderText">
-              <string>Sensor_1</string>
              </property>
             </widget>
            </item>
@@ -417,32 +389,7 @@ color:rgb(0, 0, 0);</string>
            <property name="verticalSpacing">
             <number>4</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="channel_info_sensor2_nameLabel">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-															style=&quot; font-size:12pt;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-														</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="channel_info_sensor2_nameLineEdit">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 255);
-															color: rgb(0, 0, 0);
-															font: 12pt &quot;MS Shell Dlg 2&quot;;
-														</string>
-             </property>
-             <property name="placeholderText">
-              <string>Sensor_2</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
             <spacer name="horizontalSpacer_6">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -455,7 +402,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="2" column="0">
+           <item row="1" column="0">
             <widget class="QLabel" name="channel_info_sensor2_type_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -464,7 +411,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="1">
+           <item row="1" column="1">
             <widget class="QComboBox" name="channel_info_sensor2_type_DropDown">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -494,7 +441,7 @@ color:rgb(0, 0, 0);</string>
              </item>
             </widget>
            </item>
-           <item row="3" column="0" colspan="2">
+           <item row="2" column="0" colspan="2">
             <spacer name="horizontalSpacer_36">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -507,7 +454,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="4" column="0">
+           <item row="3" column="0">
             <widget class="QLabel" name="channel_info_sensor2_Sensitivity_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -516,7 +463,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="3" column="1">
             <widget class="QLineEdit" name="channel_info_sensor2_Sensitivity_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -529,7 +476,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="4" column="1">
             <spacer name="horizontalSpacer_37">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -542,7 +489,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="6" column="1">
+           <item row="5" column="1">
             <widget class="QLabel" name="channel_info_sensor2_frequency_Bandwidth_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -551,7 +498,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
+           <item row="6" column="1">
             <widget class="QLineEdit" name="channel_info_sensor2_frequency_Bandwidth_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -564,7 +511,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
+           <item row="7" column="1">
             <spacer name="horizontalSpacer_38">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -577,7 +524,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="9" column="0">
+           <item row="8" column="0">
             <widget class="QLabel" name="channel_info_sensor2_full_Scale_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -586,7 +533,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="1">
+           <item row="8" column="1">
             <widget class="QLineEdit" name="channel_info_sensor2_full_Scale_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -599,7 +546,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="1">
+           <item row="9" column="1">
             <spacer name="horizontalSpacer_39">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -612,7 +559,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="11" column="0">
+           <item row="10" column="0">
             <widget class="QLabel" name="channel_info_sensor2_dampingLabel">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -621,7 +568,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="1">
+           <item row="10" column="1">
             <widget class="QLineEdit" name="channel_info_sensor2_dampingLineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -634,7 +581,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="1">
+           <item row="11" column="1">
             <spacer name="horizontalSpacer_40">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -647,7 +594,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="13" column="0">
+           <item row="12" column="0">
             <widget class="QLabel" name="channel_info_sensor2_location_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
@@ -659,7 +606,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="1">
+           <item row="12" column="1">
             <widget class="QTextEdit" name="channel_info_sensor2_location_Edit">
              <property name="maximumSize">
               <size>
@@ -748,31 +695,6 @@ color:rgb(0, 0, 0);</string>
             <number>4</number>
            </property>
            <item row="0" column="1">
-            <widget class="QLabel" name="channel_info_sensor3_nameLabel">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-															style=&quot; font-size:12pt;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-														</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="channel_info_sensor3_nameLineEdit">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 255);
-															color: rgb(0, 0, 0);
-															font: 12pt &quot;MS Shell Dlg 2&quot;;
-														</string>
-             </property>
-             <property name="placeholderText">
-              <string>Sensor_3</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
             <spacer name="horizontalSpacer_41">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -785,7 +707,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="3" column="0">
+           <item row="1" column="0">
             <widget class="QLabel" name="channel_info_sensor3_type_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -794,7 +716,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
+           <item row="1" column="1">
             <widget class="QComboBox" name="channel_info_sensor3_type_DropDown">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -824,7 +746,7 @@ color:rgb(0, 0, 0);</string>
              </item>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="2" column="1">
             <spacer name="horizontalSpacer_42">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -837,7 +759,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="5" column="0">
+           <item row="3" column="0">
             <widget class="QLabel" name="channel_info_sensor3_Sensitivity_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -846,7 +768,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="3" column="1">
             <widget class="QLineEdit" name="channel_info_sensor3_Sensitivity_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -859,7 +781,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
+           <item row="4" column="1">
             <spacer name="horizontalSpacer_43">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -872,7 +794,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="7" column="1">
+           <item row="5" column="1">
             <widget class="QLabel" name="channel_info_sensor3_frequency_Bandwidth_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -881,7 +803,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
+           <item row="6" column="1">
             <widget class="QLineEdit" name="channel_info_sensor3_frequency_Bandwidth_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -894,7 +816,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="1">
+           <item row="7" column="1">
             <spacer name="horizontalSpacer_44">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -907,7 +829,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="10" column="0">
+           <item row="8" column="0">
             <widget class="QLabel" name="channel_info_sensor3_full_Scale_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -916,7 +838,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="1">
+           <item row="8" column="1">
             <widget class="QLineEdit" name="channel_info_sensor3_full_scale_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -929,7 +851,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="1">
+           <item row="9" column="1">
             <spacer name="horizontalSpacer_45">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -942,7 +864,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="12" column="0">
+           <item row="10" column="0">
             <widget class="QLabel" name="channel_info_sensor3_dampingLabel">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -951,7 +873,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="1">
+           <item row="10" column="1">
             <widget class="QLineEdit" name="channel_info_sensor3_dampingLineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -964,7 +886,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="1">
+           <item row="11" column="1">
             <spacer name="horizontalSpacer_46">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -977,7 +899,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="14" column="0">
+           <item row="12" column="0">
             <widget class="QLabel" name="channel_info_sensor3_location_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
@@ -989,7 +911,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="14" column="1">
+           <item row="12" column="1">
             <widget class="QTextEdit" name="channel_info_sensor3_location_Edit">
              <property name="maximumSize">
               <size>
@@ -1075,31 +997,6 @@ color:rgb(0, 0, 0);</string>
             <number>4</number>
            </property>
            <item row="0" column="1">
-            <widget class="QLabel" name="channel_info_sensor4_nameLabel">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
-															style=&quot; font-size:12pt;&quot;&gt; Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-														</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="channel_info_sensor4_nameLineEdit">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 255);
-															color: rgb(0, 0, 0);
-															font: 12pt &quot;MS Shell Dlg 2&quot;;
-														</string>
-             </property>
-             <property name="placeholderText">
-              <string>Sensor_4</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
             <spacer name="horizontalSpacer_47">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1112,7 +1009,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="3" column="0">
+           <item row="1" column="0">
             <widget class="QLabel" name="channel_info_sensor4_type_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -1121,7 +1018,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
+           <item row="1" column="1">
             <widget class="QComboBox" name="channel_info_sensor4_type_DropDown">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -1151,7 +1048,7 @@ color:rgb(0, 0, 0);</string>
              </item>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="2" column="1">
             <spacer name="horizontalSpacer_48">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1164,7 +1061,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="5" column="0">
+           <item row="3" column="0">
             <widget class="QLabel" name="channel_info_sensor4_Sensitivity_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -1173,7 +1070,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="3" column="1">
             <widget class="QLineEdit" name="channel_info_sensor4_Sensitivity_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -1186,7 +1083,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="0" colspan="2">
+           <item row="4" column="0" colspan="2">
             <spacer name="horizontalSpacer_49">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1199,7 +1096,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="7" column="0">
+           <item row="5" column="0">
             <widget class="QLabel" name="channel_info_sensor4_frequency_Bandwidth_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -1208,7 +1105,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
+           <item row="5" column="1">
             <widget class="QLineEdit" name="channel_info_sensor4_frequency_Bandwidth_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -1221,7 +1118,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
+           <item row="6" column="1">
             <spacer name="horizontalSpacer_50">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1234,7 +1131,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="9" column="0">
+           <item row="7" column="0">
             <widget class="QLabel" name="channel_info_sensor4_full_scale_Label">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -1243,7 +1140,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="1">
+           <item row="7" column="1">
             <widget class="QLineEdit" name="channel_info_senson4_full_Scale_LineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -1256,7 +1153,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="1">
+           <item row="8" column="1">
             <spacer name="horizontalSpacer_51">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1269,7 +1166,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="11" column="1">
+           <item row="9" column="1">
             <widget class="QLabel" name="channel_info_sensor4_dampingLabel">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span
@@ -1278,7 +1175,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="1">
+           <item row="10" column="1">
             <widget class="QLineEdit" name="channel_info_sensor4_dampingLineEdit">
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -1291,7 +1188,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="1">
+           <item row="11" column="1">
             <spacer name="horizontalSpacer_52">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1304,7 +1201,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="14" column="0">
+           <item row="12" column="0">
             <widget class="QLabel" name="channel_info_ensor4_LocalizationLabel">
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
@@ -1316,7 +1213,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="14" column="1">
+           <item row="12" column="1">
             <widget class="QPlainTextEdit" name="channel_info_sensor4_location_Edit">
              <property name="maximumSize">
               <size>
@@ -1335,7 +1232,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="15" column="1">
+           <item row="13" column="1">
             <spacer name="horizontalSpacer_53">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1348,7 +1245,20 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="17" column="1">
+           <item row="14" column="1">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="15" column="1">
             <spacer name="horizontalSpacer_54">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1361,7 +1271,7 @@ color:rgb(0, 0, 0);</string>
              </property>
             </spacer>
            </item>
-           <item row="18" column="1">
+           <item row="16" column="1">
             <widget class="QPushButton" name="channel_info_SAVE_Button">
              <property name="styleSheet">
               <string notr="true">background-color:rgb(204, 51, 0);
@@ -1373,19 +1283,6 @@ color:rgb(0, 0, 0);</string>
               <string>Save Module Information</string>
              </property>
             </widget>
-           </item>
-           <item row="16" column="1">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </item>
@@ -1404,6 +1301,33 @@ color:rgb(0, 0, 0);</string>
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>channel_info_sensor1_Sensitivity_LineEdit</tabstop>
+  <tabstop>channel_info_sensor1_frequency_Bandwidth_LineEdit</tabstop>
+  <tabstop>channel_info_sensor1_full_Scale_LineEdit</tabstop>
+  <tabstop>channel_info_sensor1_dampingLineEdit</tabstop>
+  <tabstop>channel_info_sensor1_location_Edit</tabstop>
+  <tabstop>channel_info_sensor1_type_DropDown</tabstop>
+  <tabstop>channel_info_sensor2_type_DropDown</tabstop>
+  <tabstop>channel_info_sensor2_Sensitivity_LineEdit</tabstop>
+  <tabstop>channel_info_sensor2_frequency_Bandwidth_LineEdit</tabstop>
+  <tabstop>channel_info_sensor2_full_Scale_LineEdit</tabstop>
+  <tabstop>channel_info_sensor2_dampingLineEdit</tabstop>
+  <tabstop>channel_info_sensor2_location_Edit</tabstop>
+  <tabstop>channel_info_sensor3_type_DropDown</tabstop>
+  <tabstop>channel_info_sensor3_Sensitivity_LineEdit</tabstop>
+  <tabstop>channel_info_sensor3_frequency_Bandwidth_LineEdit</tabstop>
+  <tabstop>channel_info_sensor3_full_scale_LineEdit</tabstop>
+  <tabstop>channel_info_sensor3_dampingLineEdit</tabstop>
+  <tabstop>channel_info_sensor3_location_Edit</tabstop>
+  <tabstop>channel_info_sensor4_type_DropDown</tabstop>
+  <tabstop>channel_info_sensor4_Sensitivity_LineEdit</tabstop>
+  <tabstop>channel_info_sensor4_frequency_Bandwidth_LineEdit</tabstop>
+  <tabstop>channel_info_senson4_full_Scale_LineEdit</tabstop>
+  <tabstop>channel_info_sensor4_dampingLineEdit</tabstop>
+  <tabstop>channel_info_sensor4_location_Edit</tabstop>
+  <tabstop>channel_info_SAVE_Button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

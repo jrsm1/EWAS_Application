@@ -3,18 +3,17 @@ from PyQt5.QtGui import QIcon
 
 from Window import Window
 
-
 class VizSensorSelector(Window):
     def __init__(self, main_window_parent: QtWidgets, visualization_values):
         super().__init__()
 
         self.viz_sensor_sel_win = uic.loadUi('GUI/Qt_Files/visualize_sensor_selection_dropdown.ui')
         self.viz_sensor_sel_win.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
-        # self.init_objects()
 
         self.visualization_values = visualization_values
         self.parent = main_window_parent
         self.number_of_sensors = 0
+
         # Objects
         self.viz_name_label = self.viz_sensor_sel_win.plot_name_label
         self.viz_sens_1_dropdown = self.viz_sensor_sel_win.sensor_1_DropDown

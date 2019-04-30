@@ -272,7 +272,7 @@
                 <number>4</number>
                </property>
                <property name="placeholderText">
-                <string>1800</string>
+                <string>3600</string>
                </property>
               </widget>
              </item>
@@ -1674,9 +1674,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <stylestrategy>PreferAntialias</stylestrategy>
     </font>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+Shift+V</string>
-   </property>
   </action>
   <action name="actionFrequency">
    <property name="text">
@@ -1732,10 +1729,12 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
  <tabstops>
   <tabstop>main_tab_RecordingSettings_name_LineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_durationLineEdit</tabstop>
+  <tabstop>main_tab_RecordingSettings_delay_LineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_type_DropDown</tabstop>
   <tabstop>main_tab_RecordingSettings_LOAD_SETTINGS_Button</tabstop>
   <tabstop>main_tab_RecordingSettings__SAVE_button</tabstop>
   <tabstop>main_tab_LocalizationSettings_type_DropBox</tabstop>
+  <tabstop>main_tab_LocalizationSettings_acquire_GPS_Button</tabstop>
   <tabstop>main_tab_LocalizationSettings_Name_lineEdit</tabstop>
   <tabstop>main_tab_LocalizationSettings_longitudLineEdit</tabstop>
   <tabstop>main_tab_LocalizationSettings_latitudLineEdit</tabstop>
@@ -1753,11 +1752,13 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   <tabstop>main_tab_LocalizationSettings_LOAD_LOCATION_button</tabstop>
   <tabstop>main_tab_LocalizationSettings_SAVE_LOCATION_button</tabstop>
   <tabstop>main_tab_DAQParams_Cutoff_Frequency_DropDown</tabstop>
+  <tabstop>main_tab_DAQParams_samplingRate_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_gain_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_LOAD_PARAMS_button</tabstop>
   <tabstop>main_tab_DAQParams_SAVE_PARAMS_button</tabstop>
   <tabstop>main_tab_CHANNEL_INFO_button</tabstop>
   <tabstop>main_tab_START_button</tabstop>
+  <tabstop>main_tab_LAYOUT</tabstop>
  </tabstops>
  <resources/>
  <connections/>
