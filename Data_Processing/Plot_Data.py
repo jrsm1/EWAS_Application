@@ -59,7 +59,7 @@ class Plot_Data():
 
         # Setup Plot Parameters.
         plt.title('RAW DATA')
-        plt.ylabel('Voltage (V)')
+        plt.ylabel('ADC Counts')
         plt.legend()
         plt.show()
 

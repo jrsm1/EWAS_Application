@@ -11,7 +11,7 @@ import pandas as pd
 # Global Variables
 TIMESTAMP = 'timestamp'
 
-log = 1
+log = 0
 
 
 class Data_Handler():
@@ -123,7 +123,7 @@ class Data_Handler():
         :return: Pandas DataFrame containing Sensor Names and Data.
         """
         filename = r'Data/' + filename
-        data_read = pd.read_csv(filename, header=90, index_col=TIMESTAMP)  # TODO Test
+        data_read = pd.read_csv(filename, header=90, index_col=TIMESTAMP)
 
         return data_read
 
@@ -197,9 +197,9 @@ class Data_Handler():
         self.all_data = self.all_data.dropna()
         self.all_data.astype(int)
 
-        # if log:
-            # print(self.all_data)
-            # print(self.all_data.info())
+        if log:
+            print(self.all_data)
+            print(self.all_data.info())
 
         return self.all_data
 

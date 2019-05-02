@@ -1,6 +1,6 @@
 import Control_Module_Comm.serial_interface as serial_interface
 
-log = 1
+log = 0
 
 
 class instruction_manager():
@@ -13,7 +13,7 @@ class instruction_manager():
         :param: string with configuration
         sends an instruction byte to know what it must do, and then the configuration as a string
         """
-        self.serial_interface.send_byte(b'\x80')
+        self.serial_interface.send_byte(b'\x80')  # 128
         self.serial_interface.send_string(string)
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
@@ -30,7 +30,7 @@ class instruction_manager():
         """
         requests configuration
         """
-        self.serial_interface.send_instruction(b'\x81')
+        self.serial_interface.send_instruction(b'\x81') # 129
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x81':
@@ -61,7 +61,7 @@ class instruction_manager():
         """
         this is for requesting the number of modules that the device has connected at any one time. it returns
         """
-        self.serial_interface.send_instruction(b'\x84')
+        self.serial_interface.send_instruction(b'\x84') # 132
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x84':
@@ -78,7 +78,7 @@ class instruction_manager():
         return [-1, -1, -1, -1, -1, -1, -1, -1]
 
     def send_live_stream_request(self, module, channel1, channel2):
-        self.serial_interface.send_byte(b'\x88')
+        self.serial_interface.send_byte(b'\x88')  # 136
         info = str(module) + str(channel1) + str(channel2)
         self.serial_interface.send_string(info)
         line = self.serial_interface.listen()
@@ -91,7 +91,7 @@ class instruction_manager():
         instruction to request all data. sends a single byte for instruction
         the byte in hexadecimal is x86
         """
-        self.serial_interface.send_instruction(b'\x86')
+        self.serial_interface.send_instruction(b'\x86') # 134
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         line = str(line)
@@ -106,7 +106,7 @@ class instruction_manager():
         return 0
 
     def send_request_data(self, daq):
-        self.serial_interface.send_byte(b'\x87')
+        self.serial_interface.send_byte(b'\x87') # 135
         self.serial_interface.send_instruction(bytes([daq]))
         line = self.serial_interface.listen()
         line = str(line)
@@ -116,11 +116,13 @@ class instruction_manager():
             if log:
                 print("line is " + str(line))
                 print("request daq data successful")
-            # while True:
-                line1 = self.serial_interface.listen_file()
+
+            line1 = self.serial_interface.listen_file()
+            if log:
                 print("entered lines")
                 print(line1)
             data = self.organize_data(line1)
+
             return data
         return 0
 
@@ -134,48 +136,92 @@ class instruction_manager():
         array.append([])
         array.append([])
         array.append([])
-        next = [1, 0, 0, 0]
+        sensor_number = 1
 
-        for i in range(0, int(length / 3), 3):
-            print("num starting is", i)
-            print("type is ", type(data[i]))
-            print("type is ", type(data[i+1]))
-            print("type is ", type(data[i+2]))
+        # TESTING
+        s1_c = 0
+        s2_c = 0
+        s3_c = 0
+        s4_c = 0
+        if_count = 0
+        for_count = 0
+        sample_length = 12
+        sensor_data_length =3
+
+        for i in range(0, int(length-69)-3, 3):
+            for_count += 1  # TESTING
+            if log:
+                print("num starting is", i)
+                print("type is ", type(data[i]))
+                print("type is ", type(data[i+1]))
+                print("type is ", type(data[i+2]))
+
             if isinstance(data[i], int) and isinstance(data[i+1], int) and isinstance(data[i+2], int):
-            # if True:
                 bits = bytes([data[i]]) + bytes([data[i + 1]]) + bytes([data[i + 2]])
                 num = int.from_bytes(bits, byteorder='big')
-                # if num > pow_comp:
-                #     num = num - pow_sub
+                if num > pow_comp:
+                    num = num - pow_sub
                     # num += 4278190080
 
-                print("num is ", num)
+                if log: print("num is ", num)
+                if_count += 1  # TESTING
 
-                if next[0]:
+                if sensor_number == 1:
                     array[0].append(num)
-                    next[0] = 0
-                    next[1] = 1
-                elif next[1]:
+                    sensor_number += 1
+                    s1_c += 1  # TESTING
+                elif sensor_number == 2:
                     array[1].append(num)
-                    next[1] = 0
-                    next[2] = 1
-                elif next[2]:
+                    sensor_number += 1
+                    s2_c += 1  # TESTING
+                elif sensor_number == 3:
                     array[2].append(num)
-                    next[2] = 0
-                    next[3] = 1
-                elif next[3]:
+                    sensor_number += 1
+                    s3_c += 1  # TESTING
+                elif sensor_number == 4:
                     array[3].append(num)
-                    next[3] = 0
-                    next[0] = 1
-                print("number is ", num)
-        print("array is ", array)
+                    sensor_number = 1 # reset counter
+                    s4_c += 1  # TESTING
+
+                if log: print("number is ", num)
+
+        # for sample in range(0, int(length-69), sample_length):          # Divide data into samples.
+        #     for i in range(0, sample_length, sensor_data_length):    # Divide sample into sensor data.
+        #         if isinstance(data[sample + i], int) and isinstance(data[sample + i + 1], int) and isinstance(data[sample + i + 2], int):
+        #             bits = bytes([data[sample + i]]) + bytes([data[sample + i + 1]]) + bytes([data[sample + i + 2]])
+        #             print(bits)
+        #             num = int.from_bytes(bits, byteorder='big')
+        #             if num > pow_comp:
+        #                 num = num - pow_sub
+        #                 # num += 4278190080
+        #
+        #             if log: print("num is ", num)
+        #             if_count += 1                           # TESTING
+        #
+        #             if sensor_number == 1:
+        #                 array[0].append(num)
+        #                 sensor_number += 1
+        #                 s1_c += 1                           # TESTING
+        #             elif sensor_number == 2:
+        #                 array[1].append(num)
+        #                 sensor_number += 1
+        #                 s2_c += 1                           # TESTING
+        #             elif sensor_number == 3:
+        #                 array[2].append(num)
+        #                 sensor_number += 1
+        #                 s3_c += 1                           # TESTING
+        #             elif sensor_number == 4:
+        #                 array[3].append(num)
+        #                 sensor_number = 1 # reset counter
+        #                 s4_c += 1                           # TESTING
+        if log: print("array is ", array)
         return array
 
     def send_request_live_bytes(self):
         """
         must be called while visualize is active. as in in a while loop.
         """
-        self.serial_interface.send_instruction(b'\x88')
+        self.serial_interface.send_instruction(b'\x88')  # 136?
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x88':
@@ -193,7 +239,7 @@ class instruction_manager():
         returns a string formatted a certain way.
         format pending.
         """
-        self.serial_interface.send_instruction(b'\x89')
+        self.serial_interface.send_instruction(b'\x89') # 137
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x89':
@@ -210,7 +256,7 @@ class instruction_manager():
         send gps sync request. It uses the devices internal gps to sync the local RTC
         byte is 8A
         """
-        self.serial_interface.send_instruction(b'\x8A')
+        self.serial_interface.send_instruction(b'\x8A')  # 138
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x8A':
@@ -219,7 +265,7 @@ class instruction_manager():
         return 0
 
     def send_diagnose_request(self):
-        self.serial_interface.send_instruction(b'\x8B')
+        self.serial_interface.send_instruction(b'\x8B') # 139
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x8B':
@@ -231,7 +277,7 @@ class instruction_manager():
         return 0
 
     def send_request_status(self):
-        self.serial_interface.send_instruction(b'\x83')
+        self.serial_interface.send_instruction(b'\x83') # 131
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if log: print('Received ' + str(line) + 'in send request status')
@@ -256,7 +302,7 @@ class instruction_manager():
         return [-1, -1, -1]
 
     def send_request_configuration_validity(self):
-        self.serial_interface.send_instruction(b'\x8C')
+        self.serial_interface.send_instruction(b'\x8C')  # 140
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\x8C':
@@ -275,7 +321,7 @@ class instruction_manager():
         duration
         """
         if log: print("entered send recording parameters")
-        self.serial_interface.send_byte(b'\x85')
+        self.serial_interface.send_byte(b'\x85')  # 133
         if log: print("sent byte of instruction")
         duration = self.fix_duration(duration)
         start_delay = self.fix_duration(start_delay)
@@ -352,7 +398,7 @@ class instruction_manager():
         return new_duration
 
     def send_cancel_request(self):
-        self.serial_interface.send_instruction(b'\xFF')
+        self.serial_interface.send_instruction(b'\xFF')  # 255
         line = self.serial_interface.listen()
         line = line.strip(b'\r\n')
         if line == b'\xFF':

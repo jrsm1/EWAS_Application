@@ -121,7 +121,7 @@ def start_acquisition(who_called: int):
         error_string += main_window.validate_gps_location_settings()
     else:
         # specimen by module
-        error_string += main_window.nvalidate_module_location_settings()
+        error_string += main_window.validate_module_location_settings()
 
     if not main_window.validate_daq_params():
         error_string += 'Error: Invalid Signal Parameters. Please select a valid option from the drop-downs.<br>'
@@ -230,7 +230,7 @@ def check_status():
 
 def send_diagnostics():
     try:
-        im = insinstruction_manager(ins_port)
+        im = ins_man.instruction_manager(ins_port)
     except serial.SerialException:
         base_window.not_connected_error()
 
@@ -346,9 +346,9 @@ def init():
     main_window.enable_gps_disable_spec()  # Begin with GPS only enabled.
 
     ins_port = save_port()
-    # base_window.create_instruction_manager(ins_port)
+    # ins = ins_man.instruction_manager(ins_port)
     # data_handler = Data_Handler(modules_all, daq_config)
-    # data_handler.store_data('test.csv', data_handler.request_all_data({1}))
+    # data_handler.store_data('test.csv', data_handler.request_all_data({1},ins))
 
     if ins_port == 'COM-1':
         base_window.display_error('Device Not Connected. Please try again.')
