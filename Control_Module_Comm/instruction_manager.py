@@ -145,20 +145,25 @@ class instruction_manager():
         s4_c = 0
         if_count = 0
         for_count = 0
+        count = 0
         sample_length = 12
         sensor_data_length =3
 
-        for i in range(0, int(length-69)-3, 3):
+        for i in range(0, int(length)-3, 3):
             for_count += 1  # TESTING
+            # if count == 0:
+            #     count += 1
             if log:
                 print("num starting is", i)
                 print("type is ", type(data[i]))
                 print("type is ", type(data[i+1]))
                 print("type is ", type(data[i+2]))
 
-            if isinstance(data[i], int) and isinstance(data[i+1], int) and isinstance(data[i+2], int):
-                bits = bytes([data[i]]) + bytes([data[i + 1]]) + bytes([data[i + 2]])
+            if isinstance(data[count], int) and isinstance(data[count+1], int) and isinstance(data[count+2], int):
+                bits = bytes([data[count]]) + bytes([data[count + 1]]) + bytes([data[count + 2]])
+                print("bits, ", bits, " for count,", for_count)
                 num = int.from_bytes(bits, byteorder='big')
+                count += 3
                 if num > pow_comp:
                     num = num - pow_sub
                     # num += 4278190080

@@ -212,6 +212,12 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
         base_window.not_connected_error()
 
 def check_status():
+    """
+    Asks Control Module for status flags on:
+        recorded --> status[0]
+        stored --> status[1]
+        gps_sync --> status[2]
+    """
     global recorded, stored, gps_sync
     try:
         ins = Window.get_instruction_manager()
@@ -234,48 +240,49 @@ def send_diagnostics():
     except serial.SerialException:
         base_window.not_connected_error()
 
-def action_begin_recording(sens: SensorSelectionMatrix, start_diagnose: int):
+def action_begin_recording(sensor_selection_matrix: SensorSelectionMatrix, start_diagnose: int):
     """
     Prepares GUI and sends request to control module for begin recording data.
+
+    :param sensor_selection_matrix: Sensor Selection Matrix Window to ask user for desired sensors.
+    :param start_diagnose: Integer used to decide between START action or DIAGNOSE action.
     """
-    # Send Setting Information to Control Module.
+    try:
+        configuration = setting_data_manager.settings_to_string()
 
-    # try:
-    configuration = setting_data_manager.settings_to_string()
+        sens_selected, mods_selected = sensor_matrix.get_modules_and_sensors_selected()
+        sensor_selection_matrix.close()
 
-    sens_selected, mods_selected = sensor_matrix.get_modules_and_sensors_selected()
-    sens.close()
+        sensors_enabled = get_sensor_enabled()
+        ins = ins_man.instruction_manager(ins_port)
 
-    sensors_enabled = get_sensor_enabled()
-    ins = ins_man.instruction_manager(ins_port)
-    # ins.send_set_configuration(setting_data_manager.settings_to_string())
-    # Send Begin Recording FLAG to Control Module.
-    if start_diagnose == START_TEST:
-        if configuration:
-            # ins = ins_man.instruction_manager(ins_port)
-            # ins.send_set_configuration(configuration)
-            bool = ins.send_recording_parameters(sfrequency=daq_config.sampling_rate_index,
-                                                 cutoff=daq_config.cutoff_freq_index,
-                                                 gain=daq_config.gain_index,
-                                                 duration=daq_config.recording_configs["test_duration"],
-                                                 start_delay=daq_config.recording_configs["test_start_delay"],
-                                                 store_data_sd=daq_config.data_handling_configs["store"],
-                                                 sensor_enable=sensors_enabled,
-                                                 name="Not Used", location="Not Used")
-            # Send Begin Recording FLAG to Control Module.
-            print("sent was " + str(bool))
-            if bool: sent = True
-            sleep(1)
-        ins.send_request_start()
-    elif start_diagnose == DIAGNOSE:
-        ins.send_diagnose_request()
-    # Close Window
-    sensor_matrix.close()
-    check_status_during_test(ins, mods_selected)
-    # except serial.SerialException:
-    #     show_not_connected_error()
-    # except Exceptions.noPowerException:
-    #     show_error('The Control Module appears to be disconnected or has a major power problem.')
+        # Send Begin Recording FLAG to Control Module.
+        if start_diagnose == START_TEST:
+            if configuration:
+                params = ins.send_recording_parameters(sfrequency=daq_config.sampling_rate_index,
+                                                       cutoff=daq_config.cutoff_freq_index,
+                                                       gain=daq_config.gain_index,
+                                                       duration=daq_config.recording_configs["test_duration"],
+                                                       start_delay=daq_config.recording_configs["test_start_delay"],
+                                                       store_data_sd=daq_config.data_handling_configs["store"],
+                                                       sensor_enable=sensors_enabled,
+                                                       name="Not Used", location="Not Used")
+
+                # Send Begin Recording FLAG to Control Module.
+                print("sent was " + str(params))
+                # Allow time for Control Module and DAQ to
+                sleep(1)
+            ins.send_request_start()
+
+        elif start_diagnose == DIAGNOSE:
+            ins.send_diagnose_request()
+
+        # Close Window
+        sensor_matrix.close()
+        check_status_during_test(ins, mods_selected)
+
+    except serial.SerialException:
+        base_window.not_connected_error()
 
 
 def check_status_during_test(ins, mods_selected):

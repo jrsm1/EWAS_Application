@@ -26,8 +26,9 @@ class Plot_Data():
             self.sampling_rate = self.get_sampling_rate()
         except ValueError:
             GUI_Handler.close_visualization_sensor_selection_window()
-            GUI_Handler.show_error(' FATAL ERROR !!! <br> <br> File formatting Error <br> File seems to be corrupted. '
-                                   ' <br>  <br> Restart Program...')
+            GUI_Handler.base_window.display_error(' FATAL ERROR !!! <br> <br> File formatting Error <br> '
+                                                  'File seems to be corrupted. '
+                                                  ' <br>  <br> Restart Program...')
 
         self.data_read = pd.read_csv(self.filename, header=90)
         if log: print(self.data_read)
