@@ -4,10 +4,6 @@
     <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="[X] Working. Make master">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control_Module_Comm/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control_Module_Comm/tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Processing/Plot_Data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
     </list>
     <ignored path="C:\Users\chris\PycharmProjects\EWAS_Application\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,113 +15,54 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main_Window.py">
+        <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="633" column="13" lean-forward="true" selection-start-line="633" selection-start-column="13" selection-end-line="636" selection-end-column="26" />
+            <state relative-caret-position="4437">
+              <caret line="267" selection-start-line="267" selection-end-line="267" />
               <folding>
-                <element signature="e#872#1218#0" />
-                <element signature="e#1496#1562#0" />
-                <element signature="e#2768#2789#0" />
-                <element signature="e#3043#3139#0" />
-                <element signature="e#3193#3267#0" />
-                <element signature="e#5485#5509#0" />
-                <marker date="1556736205411" expanded="false" signature="671:1562" ph="..." />
-                <marker date="1556736205411" expanded="false" signature="1583:1938" ph="..." />
-                <marker date="1556736205411" expanded="false" signature="1959:2437" ph="..." />
+                <marker date="1556899167497" expanded="true" signature="8785:10450" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+        <entry file="file://$PROJECT_DIR$/Visualization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="88" column="28" lean-forward="true" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="561">
+              <caret line="37" column="84" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Processing/CSV_Handler.py">
+        <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="154" column="42" lean-forward="true" selection-start-line="154" selection-start-column="42" selection-end-line="154" selection-end-column="42" />
-              <folding>
-                <element signature="e#350#405#1" />
-                <element signature="e#476#573#0" />
-                <element signature="e#644#3326#0" />
-                <element signature="e#1084#1093#0" />
-                <element signature="e#2087#3051#0" />
-                <element signature="e#3395#3687#1" />
-                <element signature="e#4002#4212#1" />
-                <element signature="e#4453#4811#0" />
-                <element signature="e#4453#4659#1" />
-                <element signature="e#4861#5291#0" />
-                <element signature="e#4861#5084#1" />
-                <element signature="e#5330#5459#1" />
-                <element signature="e#5757#5855#0" />
-                <element signature="e#6360#6680#1" />
-                <element signature="e#7036#7215#0" />
-                <element signature="e#7074#7192#0" />
-                <element signature="e#7581#7871#1" />
-                <element signature="e#7961#7970#0" />
-                <element signature="e#8018#10089#0" />
-                <element signature="e#8018#8100#1" />
-                <element signature="e#8158#8164#0" />
-                <element signature="e#8504#8651#0" />
-                <element signature="e#8693#8840#0" />
-                <element signature="e#8882#9032#0" />
-                <element signature="e#9074#9225#0" />
-                <element signature="e#9267#9418#0" />
-                <element signature="e#9460#9611#0" />
-                <element signature="e#9653#9804#0" />
-                <element signature="e#9846#9997#0" />
-                <element signature="e#10111#10351#0" />
-                <element signature="e#10262#10315#0" />
-              </folding>
+            <state relative-caret-position="6834">
+              <caret line="409" column="1" selection-start-line="409" selection-start-column="1" selection-end-line="409" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+        <entry file="file://$PROJECT_DIR$/Data/Huerta - nw301001.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="271660">
+              <caret line="15980" column="8" selection-end-line="16001" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Window.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="342" column="7" lean-forward="true" selection-start-line="342" selection-start-column="7" selection-end-line="342" selection-end-column="7" />
+            <state relative-caret-position="1071">
+              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
               <folding>
-                <element signature="e#2601#2925#0" />
-                <element signature="e#3629#3700#0" />
-                <element signature="e#4450#4730#0" />
-                <element signature="e#4777#4818#1" />
-                <element signature="e#5892#5924#0" />
-                <element signature="e#6401#6649#0" />
-                <element signature="e#6560#6613#0" />
-                <element signature="e#6719#8163#0" />
-                <element signature="e#6992#8061#0" />
-                <element signature="e#7273#7780#0" />
-                <element signature="e#7587#7780#0" />
-                <element signature="e#7832#7950#0" />
-                <element signature="e#8105#8163#0" />
-                <element signature="e#8189#8740#0" />
-                <element signature="e#8240#8489#0" />
-                <element signature="e#8533#8587#0" />
-                <element signature="e#9016#9106#1" />
-                <element signature="e#9429#9500#0" />
-                <element signature="e#9627#9672#0" />
-                <element signature="e#11611#11834#0" />
-                <element signature="e#12703#12984#0" />
-                <element signature="e#12703#12918#1" />
-                <element signature="e#13007#13208#0" />
-                <element signature="e#13007#13090#1" />
-                <element signature="e#13226#13310#1" />
-                <element signature="e#13685#13793#0" />
-                <element signature="e#13845#13877#0" />
-                <marker date="1556740231965" expanded="false" signature="5906:6243" ph="..." />
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,84 +71,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+            <state relative-caret-position="17">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1742">
-              <caret line="215" column="35" selection-start-line="187" selection-start-column="46" selection-end-line="215" selection-end-column="35" />
+            <state relative-caret-position="51">
+              <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
               <folding>
-                <element signature="e#142#205#0" />
-                <element signature="e#261#751#0" />
-                <element signature="e#261#455#1" />
-                <element signature="e#676#734#0" />
-                <element signature="e#757#795#1" />
-                <element signature="e#847#1254#0" />
-                <element signature="e#847#893#1" />
-                <element signature="e#1071#1237#0" />
-                <element signature="e#1298#1841#0" />
-                <element signature="e#1298#1363#1" />
-                <element signature="e#1548#1824#0" />
-                <element signature="e#1904#2606#0" />
-                <element signature="e#1904#2030#1" />
-                <element signature="e#2208#2558#0" />
-                <element signature="e#2480#2534#0" />
-                <element signature="e#2684#3005#0" />
-                <element signature="e#3052#3678#0" />
-                <element signature="e#3052#3183#1" />
-                <element signature="e#3508#3661#0" />
-                <element signature="e#5958#6443#0" />
-                <element signature="e#5958#6046#1" />
-                <element signature="e#6224#6426#0" />
-                <element signature="e#6490#7126#0" />
-                <element signature="e#6490#6700#1" />
-                <element signature="e#6878#7107#0" />
-                <element signature="e#7173#7565#0" />
-                <element signature="e#7173#7293#1" />
-                <element signature="e#7471#7548#0" />
-                <element signature="e#7612#7998#0" />
-                <element signature="e#7781#7981#0" />
-                <element signature="e#8043#9036#0" />
-                <element signature="e#8274#8298#0" />
-                <element signature="e#8436#9008#0" />
-                <element signature="e#9097#9483#0" />
-                <element signature="e#9266#9466#0" />
-                <element signature="e#9629#12492#0" />
-                <element signature="e#9629#9726#1" />
-                <element signature="e#10013#10115#0" />
-                <element signature="e#12093#12475#0" />
-                <element signature="e#12158#12197#0" />
-                <element signature="e#12540#13107#0" />
-                <element signature="e#12963#13079#0" />
-                <element signature="e#13152#13398#0" />
-                <element signature="e#13321#13381#0" />
+                <element signature="e#58#225#0" />
+                <element signature="e#247#414#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data/Test7_zjfx.csv">
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="3507">
-              <caret line="224" column="23" lean-forward="true" selection-start-line="224" selection-start-column="23" selection-end-line="224" selection-end-column="23" />
+        <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="206" column="20" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
+              <folding>
+                <element signature="e#142#205#0" />
+                <element signature="e#261#455#1" />
+              </folding>
             </state>
-          </provider>
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/serialwin32.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="63" selection-end-column="54" />
+            <state relative-caret-position="731">
+              <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -219,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="166" column="15" lean-forward="true" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
+            <state relative-caret-position="2805">
+              <caret line="166" column="15" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -308,6 +207,7 @@
         <entry key="$PROJECT_DIR$" value="data_visualization" />
       </map>
     </option>
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -367,10 +267,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1256" />
-    <option name="y" value="-237" />
-    <option name="width" value="1088" />
-    <option name="height" value="824" />
+    <option name="x" value="207" />
+    <option name="y" value="-1097" />
+    <option name="width" value="1858" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
@@ -387,7 +287,13 @@
             <path>
               <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Control_Module_Comm" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Control_Module_Comm" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Structures" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -997,15 +903,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-230" width="1874" height="1096" extended-state="6" />
+    <frame x="-8" y="-1088" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.122340426" visible="true" weight="0.16557734" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.122340426" visible="true" weight="0.15858799" />
       <window_info id="Structure" order="1" sideWeight="0.87765956" side_tool="true" weight="0.13126361" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32606438" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.035306334" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.034669556" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.33125648" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1129,7 +1036,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py</url>
-          <line>217</line>
+          <line>206</line>
           <option name="timeStamp" value="409" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1218,18 +1125,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Module_Info_Window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="50" column="93" selection-start-line="50" selection-start-column="93" selection-end-line="50" selection-end-column="93" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#4700#7799#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/1274547368/PyQt5/QtCore/QObject.py" />
     <entry file="file://$PROJECT_DIR$/Important_Documents/Commit_Comments">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
@@ -1302,11 +1197,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Config/DAQ/Location/Default_Configuration.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="63" lean-forward="true" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
@@ -1314,6 +1204,11 @@
       </provider>
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="63" lean-forward="true" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -1368,11 +1263,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Config/DAQ/Recording/Default_Configuration.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
@@ -1381,31 +1271,19 @@
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Huerta - nw301001.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="580">
-          <caret line="16001" lean-forward="true" selection-end-line="16001" />
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Data/test.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="563">
-          <caret line="95" column="47" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="47" />
-        </state>
-      </provider>
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="98" />
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="563">
+          <caret line="95" column="47" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1417,22 +1295,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Data/Testing.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="68">
-          <caret line="94" column="58" lean-forward="true" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
-        </state>
-      </provider>
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="105" column="26" lean-forward="true" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="68">
+          <caret line="94" column="58" lean-forward="true" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1446,67 +1314,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="33" />
-          <folding>
-            <element signature="e#58#225#0" />
-            <element signature="e#247#414#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Test0_rgtw.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-2443">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Test6_hlfy.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="199">
-          <caret line="89" column="92" lean-forward="true" selection-start-line="89" selection-start-column="92" selection-end-line="89" selection-end-column="92" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Testd_rtlx.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="34">
-          <caret line="95" column="40" lean-forward="true" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Teste_dbuu.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="270">
-          <caret line="93" column="19" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="19" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="88" column="28" lean-forward="true" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Test0_rgtw.csv" />
+    <entry file="file://$PROJECT_DIR$/Data/Test6_hlfy.csv" />
+    <entry file="file://$PROJECT_DIR$/Data/Testd_rtlx.csv" />
+    <entry file="file://$PROJECT_DIR$/Data/Teste_dbuu.csv" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/core/dtypes/cast.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1514,16 +1325,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Test8_hjhf.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="1130">
-          <caret line="521" lean-forward="true" selection-start-line="521" selection-end-line="521" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Test8_hjhf.csv" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/core/frame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1531,31 +1333,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Test0_hvqe.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="211">
-          <caret line="469" column="33" lean-forward="true" selection-start-line="469" selection-start-column="33" selection-end-line="469" selection-end-column="33" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Testd_jxlw.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-1205" />
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="166" column="15" lean-forward="true" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Test0_hvqe.csv" />
+    <entry file="file://$PROJECT_DIR$/Data/Testd_jxlw.csv" />
     <entry file="file://$PROJECT_DIR$/Main_Window.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
@@ -1578,43 +1357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="63" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="342" column="7" lean-forward="true" selection-start-line="342" selection-start-column="7" selection-end-line="342" selection-end-column="7" />
-          <folding>
-            <element signature="e#2601#2925#0" />
-            <element signature="e#3629#3700#0" />
-            <element signature="e#4450#4730#0" />
-            <element signature="e#4777#4818#1" />
-            <element signature="e#5892#5924#0" />
-            <element signature="e#6401#6649#0" />
-            <element signature="e#6560#6613#0" />
-            <element signature="e#6719#8163#0" />
-            <element signature="e#6992#8061#0" />
-            <element signature="e#7273#7780#0" />
-            <element signature="e#7587#7780#0" />
-            <element signature="e#7832#7950#0" />
-            <element signature="e#8105#8163#0" />
-            <element signature="e#8189#8740#0" />
-            <element signature="e#8240#8489#0" />
-            <element signature="e#8533#8587#0" />
-            <element signature="e#9016#9106#1" />
-            <element signature="e#9429#9500#0" />
-            <element signature="e#9627#9672#0" />
-            <element signature="e#11611#11834#0" />
-            <element signature="e#12703#12984#0" />
-            <element signature="e#12703#12918#1" />
-            <element signature="e#13007#13208#0" />
-            <element signature="e#13007#13090#1" />
-            <element signature="e#13226#13310#1" />
-            <element signature="e#13685#13793#0" />
-            <element signature="e#13845#13877#0" />
-            <marker date="1556740231965" expanded="false" signature="5906:6243" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1658,16 +1400,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/Test7_zjfx.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="3507">
-          <caret line="224" column="23" lean-forward="true" selection-start-line="224" selection-start-column="23" selection-end-line="224" selection-end-column="23" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Test7_zjfx.csv" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/io.pyi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1675,62 +1408,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="101" column="58" selection-start-line="101" selection-start-column="58" selection-end-line="101" selection-end-column="58" />
+          <folding>
+            <element signature="e#2601#2925#0" />
+            <element signature="e#3629#3700#0" />
+            <marker date="1556906690224" expanded="false" signature="973:2586" ph="..." />
+            <marker date="1556906690224" expanded="false" signature="2976:3614" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4437">
+          <caret line="267" selection-start-line="267" selection-end-line="267" />
+          <folding>
+            <marker date="1556899167497" expanded="true" signature="8785:10450" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="37" column="84" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Settings/setting_data_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6834">
+          <caret line="409" column="1" selection-start-line="409" selection-start-column="1" selection-end-line="409" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/Huerta - nw301001.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="271660">
+          <caret line="15980" column="8" selection-end-line="16001" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+        <state relative-caret-position="17">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/DAQ_Configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+          <folding>
+            <element signature="e#58#225#0" />
+            <element signature="e#247#414#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control_Module_Comm/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2805">
+          <caret line="166" column="15" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1742">
-          <caret line="215" column="35" selection-start-line="187" selection-start-column="46" selection-end-line="215" selection-end-column="35" />
+        <state relative-caret-position="1020">
+          <caret line="206" column="20" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
           <folding>
             <element signature="e#142#205#0" />
-            <element signature="e#261#751#0" />
             <element signature="e#261#455#1" />
-            <element signature="e#676#734#0" />
-            <element signature="e#757#795#1" />
-            <element signature="e#847#1254#0" />
-            <element signature="e#847#893#1" />
-            <element signature="e#1071#1237#0" />
-            <element signature="e#1298#1841#0" />
-            <element signature="e#1298#1363#1" />
-            <element signature="e#1548#1824#0" />
-            <element signature="e#1904#2606#0" />
-            <element signature="e#1904#2030#1" />
-            <element signature="e#2208#2558#0" />
-            <element signature="e#2480#2534#0" />
-            <element signature="e#2684#3005#0" />
-            <element signature="e#3052#3678#0" />
-            <element signature="e#3052#3183#1" />
-            <element signature="e#3508#3661#0" />
-            <element signature="e#5958#6443#0" />
-            <element signature="e#5958#6046#1" />
-            <element signature="e#6224#6426#0" />
-            <element signature="e#6490#7126#0" />
-            <element signature="e#6490#6700#1" />
-            <element signature="e#6878#7107#0" />
-            <element signature="e#7173#7565#0" />
-            <element signature="e#7173#7293#1" />
-            <element signature="e#7471#7548#0" />
-            <element signature="e#7612#7998#0" />
-            <element signature="e#7781#7981#0" />
-            <element signature="e#8043#9036#0" />
-            <element signature="e#8274#8298#0" />
-            <element signature="e#8436#9008#0" />
-            <element signature="e#9097#9483#0" />
-            <element signature="e#9266#9466#0" />
-            <element signature="e#9629#12492#0" />
-            <element signature="e#9629#9726#1" />
-            <element signature="e#10013#10115#0" />
-            <element signature="e#12093#12475#0" />
-            <element signature="e#12158#12197#0" />
-            <element signature="e#12540#13107#0" />
-            <element signature="e#12963#13079#0" />
-            <element signature="e#13152#13398#0" />
-            <element signature="e#13321#13381#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Processing/Plot_Data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

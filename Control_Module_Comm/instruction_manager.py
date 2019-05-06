@@ -136,85 +136,74 @@ class instruction_manager():
         array.append([])
         array.append([])
         array.append([])
-        sensor_number = 1
+        next = [1, 0, 0, 0]
+        count = 0
+        count_imp = 0
 
-        # TESTING
-        s1_c = 0
-        s2_c = 0
-        s3_c = 0
-        s4_c = 0
-        if_count = 0
-        for_count = 0
-        sample_length = 12
-        sensor_data_length =3
+        while count < 20:
+            # print("pre_data =", data[count_imp])
+            if data[count_imp] == 67:
+                count_imp = count_imp - 11
+                break
+            count_imp += 1
+            count += 1
+        count = 0
 
-        for i in range(0, int(length-69)-3, 3):
-            for_count += 1  # TESTING
-            if log:
-                print("num starting is", i)
-                print("type is ", type(data[i]))
-                print("type is ", type(data[i+1]))
-                print("type is ", type(data[i+2]))
+        # print("count_imp =", count_imp)
 
-            if isinstance(data[i], int) and isinstance(data[i+1], int) and isinstance(data[i+2], int):
-                bits = bytes([data[i]]) + bytes([data[i + 1]]) + bytes([data[i + 2]])
-                num = int.from_bytes(bits, byteorder='big')
-                if num > pow_comp:
-                    num = num - pow_sub
+        for i in range(0, int(length / 3), 3):
+            # print("count =", count)
+            if count >= 400:
+                pass
+            else:
+                # print("num starting is", count_imp)
+                # print("type is ", type(data[count_imp]))
+                # print("type is ", type(data[count_imp+1]))
+                # print("type is ", type(data[count_imp+2]))
+                if isinstance(data[count_imp], int) and isinstance(data[count_imp + 1], int) and isinstance(
+                        data[count_imp + 2], int):
+                    # if True:
+                    bits = bytes([data[count_imp]]) + bytes([data[count_imp + 1]]) + bytes([data[count_imp + 2]])
+                    # print("bits =", bits)
+                    num = int.from_bytes(bits, byteorder='big')
+                    if num > pow_comp:
+                        num = num - pow_sub
                     # num += 4278190080
 
-                if log: print("num is ", num)
-                if_count += 1  # TESTING
+                    # print("num is ", num)
+                    # if count_imp < 2460:
+                    #     print("important count =", count_imp)
+                    #     print("count =", count)
+                    #     print("bits =", bits)
 
-                if sensor_number == 1:
-                    array[0].append(num)
-                    sensor_number += 1
-                    s1_c += 1  # TESTING
-                elif sensor_number == 2:
-                    array[1].append(num)
-                    sensor_number += 1
-                    s2_c += 1  # TESTING
-                elif sensor_number == 3:
-                    array[2].append(num)
-                    sensor_number += 1
-                    s3_c += 1  # TESTING
-                elif sensor_number == 4:
-                    array[3].append(num)
-                    sensor_number = 1 # reset counter
-                    s4_c += 1  # TESTING
-
-                if log: print("number is ", num)
-
-        # for sample in range(0, int(length-69), sample_length):          # Divide data into samples.
-        #     for i in range(0, sample_length, sensor_data_length):    # Divide sample into sensor data.
-        #         if isinstance(data[sample + i], int) and isinstance(data[sample + i + 1], int) and isinstance(data[sample + i + 2], int):
-        #             bits = bytes([data[sample + i]]) + bytes([data[sample + i + 1]]) + bytes([data[sample + i + 2]])
-        #             print(bits)
-        #             num = int.from_bytes(bits, byteorder='big')
-        #             if num > pow_comp:
-        #                 num = num - pow_sub
-        #                 # num += 4278190080
-        #
-        #             if log: print("num is ", num)
-        #             if_count += 1                           # TESTING
-        #
-        #             if sensor_number == 1:
-        #                 array[0].append(num)
-        #                 sensor_number += 1
-        #                 s1_c += 1                           # TESTING
-        #             elif sensor_number == 2:
-        #                 array[1].append(num)
-        #                 sensor_number += 1
-        #                 s2_c += 1                           # TESTING
-        #             elif sensor_number == 3:
-        #                 array[2].append(num)
-        #                 sensor_number += 1
-        #                 s3_c += 1                           # TESTING
-        #             elif sensor_number == 4:
-        #                 array[3].append(num)
-        #                 sensor_number = 1 # reset counter
-        #                 s4_c += 1                           # TESTING
-        if log: print("array is ", array)
+                    if next[0]:
+                        array[0].append(num)
+                        next[0] = 0
+                        next[1] = 1
+                    elif next[1]:
+                        array[1].append(num)
+                        next[1] = 0
+                        next[2] = 1
+                    elif next[2]:
+                        array[2].append(num)
+                        next[2] = 0
+                        next[3] = 1
+                    elif next[3]:
+                        array[3].append(num)
+                        next[3] = 0
+                        next[0] = 1
+                    # print("number is ", num)
+                count_imp += 3
+            if count == 403:
+                count_imp = count_imp + 11
+                count = 3
+            count += 1
+            # print("count =", count)
+            # print("important count =", count_imp)
+        # print("array is ", array)
+        print("---------------------------------sensor1-----------------------------------")
+        for a in array[0]:
+            print(a)
         return array
 
     def send_request_live_bytes(self):
