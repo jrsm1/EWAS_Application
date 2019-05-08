@@ -1,7 +1,7 @@
 import serial.tools
 from serial.tools import list_ports_windows
 
-log = 1
+log = 0
 
 class serial_interface():
 
@@ -19,18 +19,14 @@ class serial_interface():
             timeout=2)
         print("connected to: " + self.ser.portstr)
 
-    """
-    listen will block until it receives a tranmission ending with
-    bytes \r\n and then it will return it to it's caller. it would be advantegous to use it as a thread. 
-    """
-
     def listen(self):
+        """
+        listen will block until it receives a tranmission ending with
+        bytes \r\n and then it will return it to it's caller. it would be advantegous to use it as a thread.
+        """
         ser = self.ser
         line = ser.readline()
         if log: print("entered listen")
-        # while not line:
-        #     line = ser.readline()
-        #     continue
         if log: print("received: " + str(line))
         if log: print("left listen")
         return line
@@ -43,7 +39,7 @@ class serial_interface():
         while not line == b'':
             line1 = line1 + line
             line = ser.readline()
-            print("read line", line)
+            # print("read line", line)
             # continue
         if log: print("received: " + str(line))
         if log: print("left listen")
@@ -60,29 +56,26 @@ class serial_interface():
         # send stop byte
         self.ser.write(b'\r')
 
-    """
-    send string byte with no ending
-    """
     def send_string_bytes(self, byte):
+        """
+        send string byte with no ending
+        """
         st = bytes(byte, 'ascii')
         self.ser.write(st)
 
-    """
-    send ending byte
-    """
     def send_end_byte(self):
+        """
+        send ending byte
+        """
         self.ser.write(b'\r')
 
-
-    """
-    send byte is important to be able to send instructions as bytes, that are not on the ascii table. 
-    """
-
     def send_byte(self, byte):
+        """
+        send byte is important to be able to send instructions as bytes, that are not on the ascii table.
+        """
         self.ser.write(bytes(byte))
         if log == 1:
             print("byte is " + str(bytes(byte)))
-
 
     def send_instruction(self, byte):
         """

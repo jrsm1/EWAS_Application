@@ -16,6 +16,9 @@ class Window(QtWidgets.QMainWindow):
         pass
 
     def center(self):
+        """
+        Center the window frame in the screen.
+        """
         # geometry of the main window
         qr = self.frameGeometry()
         # center point of screen

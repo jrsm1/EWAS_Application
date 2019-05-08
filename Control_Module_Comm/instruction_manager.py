@@ -130,69 +130,64 @@ class instruction_manager():
         pow_comp = pow(2, 23) - 1
         pow_sub = pow(2, 24)
         length = len(data)
-        print("length is ", length)
+
+        if log: print("length is ", length)
+
         array = []
         array.append([])
         array.append([])
         array.append([])
         array.append([])
-        next = [1, 0, 0, 0]
+        next_sensor = [1, 0, 0, 0]
         count = 0
         count_imp = 0
 
         while count < 20:
-            # print("pre_data =", data[count_imp])
             if data[count_imp] == 67:
                 count_imp = count_imp - 11
                 break
             count_imp += 1
             count += 1
         count = 0
+        erased = 0
 
-        # print("count_imp =", count_imp)
-
-        for i in range(0, int(length / 3), 3):
-            # print("count =", count)
+        for i in range(0, int(length - 3), 3):
             if count >= 400:
                 pass
+            elif erased < 4:  # Erase first 4 bytes to compensate for alignment bytes.
+                erased += 1
             else:
                 if isinstance(data[count_imp], int) and isinstance(data[count_imp + 1], int) and isinstance(
                         data[count_imp + 2], int):
                     # if True:
                     bits = bytes([data[count_imp]]) + bytes([data[count_imp + 1]]) + bytes([data[count_imp + 2]])
-                    # print("bits =", bits)
+                    print("count_imp", count_imp, "bits =", bits)
                     num = int.from_bytes(bits, byteorder='big')
                     if num > pow_comp:
                         num = num - pow_sub
 
-                    if next[0]:
+                    if next_sensor[0]:
                         array[0].append(num)
-                        next[0] = 0
-                        next[1] = 1
-                    elif next[1]:
+                        next_sensor[0] = 0
+                        next_sensor[1] = 1
+                    elif next_sensor[1]:
                         array[1].append(num)
-                        next[1] = 0
-                        next[2] = 1
-                    elif next[2]:
+                        next_sensor[1] = 0
+                        next_sensor[2] = 1
+                    elif next_sensor[2]:
                         array[2].append(num)
-                        next[2] = 0
-                        next[3] = 1
-                    elif next[3]:
+                        next_sensor[2] = 0
+                        next_sensor[3] = 1
+                    elif next_sensor[3]:
                         array[3].append(num)
-                        next[3] = 0
-                        next[0] = 1
-                    # print("number is ", num)
+                        next_sensor[3] = 0
+                        next_sensor[0] = 1
                 count_imp += 3
             if count == 403:
                 count_imp = count_imp + 11
                 count = 3
             count += 1
-            # print("count =", count)
-            # print("important count =", count_imp)
-        # print("array is ", array)
-        print("---------------------------------sensor1-----------------------------------")
-        for a in array[0]:
-            print(a)
+
         return array
 
     def send_request_live_bytes(self):

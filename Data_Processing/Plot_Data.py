@@ -32,9 +32,6 @@ class Plot_Data():
         self.data_read = pd.read_csv(self.filename, header=90)
         if log: print(self.data_read)
 
-        # Open in New Qt5 Interactive Window
-        # matplotlib.use('Qt5Agg')
-
         # Faster Rendering
         matplotlib.rcParams['path.simplify'] = True
         matplotlib.rcParams['path.simplify_threshold'] = 1.0
@@ -80,7 +77,7 @@ class Plot_Data():
         fourier = np.fft.fft(self.data_read[sensor])/n # Normalize
 
         # Calculate Sample spacing (inverse of the sampling rate).
-        freq = np.fft.fftfreq(fourier.size, d=(1 / self.sampling_rate)/2)
+        freq = np.fft.fftfreq(fourier.size, d=(1 / self.sampling_rate))
 
         plt.plot(freq, fourier.real ** 2 + fourier.imag ** 2)
 

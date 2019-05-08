@@ -63,7 +63,7 @@ class VizSensorSelector(Window):
         if max_sensors == 1:
             if self.viz_sens_1_dropdown.currentIndex() == 0:  # if Default Value --> Not Validated.
                 validated = False
-        self.close()
+        # self.close()
         return validated
 
     def set_number_sensors(self, amount: int):

@@ -102,13 +102,16 @@ class Data_Handler():
             columns = select_data_columns()
         return pd.DataFrame([x.split(',') for x in string.split(';')], columns=columns)
 
-    def list_to_dataframe(self, list_of_lists: []):
+    def list_to_dataframe(self, list_of_lists: [], ins: ins_man):
         """
         Converts a list of module sensors containing list of its data.
+
         :param list_of_lists: containing list of sensor data.
+        :param ins: Instruction Manger Instance.
+
         :return: Dataframe where the columns are sensor data.
         """
-        columns = select_data_columns()
+        columns = select_data_columns(ins)
         dataframe = pd.DataFrame(list_of_lists)
         dataframe = dataframe.transpose()
         dataframe.columns = columns
@@ -191,7 +194,7 @@ class Data_Handler():
                                                       ' Data Collection Aborted.')
                 break
 
-            self.all_data = self.all_data.join(self.list_to_dataframe(list))
+            self.all_data = self.all_data.join(self.list_to_dataframe(list, ins))
 
         # Convert Data Values as float.
         self.all_data = self.all_data.dropna()
@@ -221,18 +224,18 @@ def read_sensor_headers(filename: str):
 def read_header():
     pass
 
-def select_data_columns():
+def select_data_columns(ins: ins_man):
     """
     Selects Connected Sensors
 
     :return: List of connected Sensors.
     """
-    connected_module_list = [1, 0, 0, 0, 0, 0, 0, 0]
-    # try:
-    #     connected_module_list = ins_man.instruction_manager(get_port()).send_request_number_of_mods_connected()
-    # except serial.SerialException:
-    #     # show_error('')
-    #     print('Serial Error.')
+    connected_module_list = [0, 0, 0, 0, 0, 0, 0, 0]
+    try:
+        connected_module_list = ins.send_request_number_of_mods_connected()
+    except serial.SerialException:
+        # show_error('')
+        print('Serial Error.')
 
     sensor_list = []
     if log: print("CSV_Handler - entered Select sensor Headers")
@@ -285,24 +288,10 @@ def get_port():
     port = 'COM-1'
     pid = "0403"
     hid = "6001"
-    ports = list(serial.tools.list_ports.comports())
+    ports = list(serial.tools.list_ports_windows.comports())
 
     for p in ports:
         if pid and hid in p.hwid:
             port = p.device
     ins_port = port
     return port
-
-# ----------  TESTING  ------------------
-# sc1 = Sensor_Individual.Sensor('S1', 0)
-# sc2 = Sensor_Individual.Sensor('S2', 0)
-# sc3 = Sensor_Individual.Sensor('S3', 0)
-# sc4 = Sensor_Individual.Sensor('S4', 0)
-# dc = DAQ_Configuration.DAQconfigs()
-# cc = Module_Individual.Module('mName', sc1, sc2, sc3, sc4)
-# dh = Data_Handler([cc,cc,cc,cc,cc,cc,cc,cc], dc)
-#
-# data = '1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4;1555879810,sens1,sens2,sens3,sens4'
-# # dh.store_data('Testing.csv', data)
-# print(dh.data_to_string('Testing.csv'))
-# dh.read_sensor_headers('Testing.csv')

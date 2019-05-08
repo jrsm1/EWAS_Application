@@ -261,30 +261,23 @@ def check_status_during_test(ins, mods_selected):
     prog_dlg.acquire_dialog('Test in Progress')
     prog_dlg.progress_bar.setMaximum(0)
     # Setup Local Variables.
-    timeout = 0
     synced = True  # Used to not request data if synched==False.
-    duration = daq_config.recording_configs['test_duration']
-    time_break = 0
+
     # Wait for Control Module to store data.
     while ins.send_request_status()[1] != 1 and stop_break_loop:  # Status[1] --> stored
         if log: print('Waiting for test to finish....')
-        sleep(0.1)
-        timeout += 1
-        time_break += 1
+        sleep(0.3)
         app.processEvents()
-        if time_break == 10*duration + 100: # timeout in seconds.
-            break
 
     if synced and stop_break_loop:
         print('get all data')
         data_handler = Data_Handler(modules_all, daq_config)
-        data_handler.store_data(daq_config.test_id['Test ID'], data_handler.request_all_data(mods_selected, ins))
+        data_handler.store_data(DAQ_Configuration.generate_ID(daq_config.recording_configs['test_name']), data_handler.request_all_data(mods_selected, ins))
 
     if not stop_break_loop:
         ins.send_cancel_request()
     prog_dlg.close()
     del ins
-    # get_all_data TODO CHANGE TO CSV HANDLER GETT ALL DATA METHOD
 
     prog_dlg.close()
 
