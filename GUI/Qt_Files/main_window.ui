@@ -237,7 +237,7 @@
                 <number>4</number>
                </property>
                <property name="placeholderText">
-                <string>1800</string>
+                <string>min:5 max:1800</string>
                </property>
               </widget>
              </item>
@@ -256,7 +256,7 @@
                 <number>20</number>
                </property>
                <property name="placeholderText">
-                <string>TestName</string>
+                <string>Enter Test Name</string>
                </property>
               </widget>
              </item>
@@ -275,7 +275,7 @@
                 <number>4</number>
                </property>
                <property name="placeholderText">
-                <string>3600</string>
+                <string>min:0 max:3600</string>
                </property>
               </widget>
              </item>
@@ -663,7 +663,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>20</number>
                   </property>
                   <property name="placeholderText">
-                   <string>Please enter a name</string>
+                   <string>Enter Location Name</string>
                   </property>
                  </widget>
                 </item>
@@ -750,7 +750,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>2</number>
                   </property>
                   <property name="placeholderText">
-                   <string>23</string>
+                   <string>24-hour format</string>
                   </property>
                  </widget>
                 </item>
@@ -779,7 +779,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>2</number>
                   </property>
                   <property name="placeholderText">
-                   <string>09</string>
+                   <string>24-hour format</string>
                   </property>
                  </widget>
                 </item>
@@ -808,7 +808,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>2</number>
                   </property>
                   <property name="placeholderText">
-                   <string>00</string>
+                   <string>24-hour format</string>
                   </property>
                  </widget>
                 </item>
@@ -862,6 +862,9 @@ color: rgb(0, 0, 0)
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
@@ -886,6 +889,9 @@ color: rgb(0, 0, 0)
                     </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -912,6 +918,9 @@ color: rgb(0, 0, 0)
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="3" column="0">
@@ -934,8 +943,14 @@ color: rgb(0, 0, 0)
 																				color: rgb(0, 0, 0)
 																			</string>
                     </property>
+                    <property name="text">
+                     <string/>
+                    </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -961,6 +976,9 @@ color: rgb(0, 0, 0)
                     </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -990,6 +1008,9 @@ color: rgb(0, 0, 0)
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="6" column="0">
@@ -1015,6 +1036,9 @@ color: rgb(0, 0, 0)
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="7" column="0">
@@ -1039,6 +1063,9 @@ color: rgb(0, 0, 0)
                     </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -1216,7 +1243,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																font: 10pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0);
 															</string>
                </property>
@@ -1315,7 +1342,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																font: 10pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0)
 															</string>
                </property>
@@ -1402,7 +1429,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																font: 10pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0);
 															</string>
                </property>

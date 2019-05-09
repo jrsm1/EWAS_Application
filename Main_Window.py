@@ -257,8 +257,6 @@ class MainWindow(windowClass):
                 self.load_save_instructions['who_to_load'] = who
                 self.do_saving_loading_action()
 
-        pass
-
     def do_saving_loading_action(self):
         """
         Function continues to correct method depending on saving/loading and option combinations.
@@ -368,15 +366,16 @@ class MainWindow(windowClass):
         relative_path = 'Config/DAQ/Location'
         # Get filename from User
         filename = self.file_system(relative_path)
+
+        self.change_local_allowed()
+
         # Load Params from File
         self.setting_manager.load_location_configs(filename)
         if set_dat_man.verify_file_exists(filename):
             # Set Params into GUI.
             self.load_local_settings_to_gui()
             # Close Window
-            self.filename_input_win.close()
-
-        pass
+            # self.filename_input_win.close()
 
     def action_store_rec_setts(self):
         """
@@ -448,19 +447,14 @@ class MainWindow(windowClass):
     def set_GPS_into_gui(self):
         """
         Sets GPS information on current settings into GUI fields.
-
-        :return:
         """
         self.loc_type_dropdown.setCurrentIndex(0)  # Set to GPS in Drop Down.
         self.loc_name_edit.setText(str(self.daq_config.location_configs['loc_name']))
-        self.loc_longitude_edit.setText(
-            str(self.daq_config.location_configs['longitude']))
+        self.loc_longitude_edit.setText(str(self.daq_config.location_configs['longitude']))
         self.loc_latitude_edit.setText(str(self.daq_config.location_configs['latitude']))
         self.loc_hour_edit.setText(str(self.daq_config.location_configs['hour']))
         self.loc_minute_edit.setText(str(self.daq_config.location_configs['minute']))
         self.loc_seconds_edit.setText(str(self.daq_config.location_configs['second']))
-
-        pass
 
     def set_specimen_location_into_gui(self):
         """
@@ -740,6 +734,9 @@ class MainWindow(windowClass):
         """
         Enables all GPS location fields of self Window (main window)
         """
+        # Enable Frame
+        self.loc_gps_frame.setEnabled(True)
+
         # Enable GPS Fields
         self.enable_field(self.loc_name_edit)
         self.enable_field(self.loc_latitude_edit)
@@ -761,6 +758,9 @@ class MainWindow(windowClass):
         """
         Enables all GPS location fields of self Window (main window)
         """
+        # Enable Frame
+        self.loc_specimen_frame.setEnabled(True)
+
         # Enable Specimen Location Fields.
         self.enable_field(self.specimen_loc_1)
         self.enable_field(self.specimen_loc_2)

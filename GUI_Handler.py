@@ -233,13 +233,27 @@ def action_begin_recording(sel_matrix: SensorSelectionMatrix, start_diagnose: in
                                                             sensor_enable=sens_selected,  # TODO TEST CHANGE.
                                                             name="Not Used", location="Not Used")
                 print("sent was " + str(params_sent))
-                sleep(1)
+                sleep(0.5)
             ins.send_request_start()
 
         # Send Run Diagnostic FLAG to Control Module.
         elif start_diagnose == DIAGNOSE:
-            ins.send_diagnose_request()
-
+            if configuration:
+                # ins = ins_man.instruction_manager(ins_port)
+                # ins.send_set_configuration(configuration)
+                ins.send_diagnose_request()
+                sleep(0.5)
+                params_sent = ins.send_recording_parameters(sfrequency=daq_config.sampling_rate_index,
+                                                            cutoff=daq_config.cutoff_freq_index,
+                                                            gain=daq_config.gain_index,
+                                                            duration=daq_config.recording_configs["test_duration"],
+                                                            start_delay=daq_config.recording_configs["test_start_delay"],
+                                                            store_data_sd=daq_config.data_handling_configs["store"],
+                                                            sensor_enable=sens_selected,
+                                                            name="Not Used", location="Not Used")
+                print("sent was " + str(params_sent))
+                sleep(0.5)
+                ins.send_request_start()
         # Close Window
         sensor_matrix.close()
         check_status_during_test(ins, mods_selected)
@@ -323,6 +337,6 @@ def init():
     else:
         sync_gps()
 
-    auto_fill()
+    # auto_fill()
 
     sys.exit(app.exec_())

@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.14: http://docutils.sourceforge.net/" />
+<title>Plot_Data.py</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+
+
+<p>import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd</p>
+<p>import GUI_Handler</p>
+<p># Testing
+log = 1
+TIMESTAMP = 'timestamp'</p>
+<dl class="docutils">
+<dt>class Plot_Data():</dt>
+<dd><dl class="first last docutils">
+<dt>def __init__(self, filename):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Loads Data from CSV File plots it's Raw_Data vs. Time | Auto-Powr Spectru, | Cross-Power Spectrum |
+Coherence | Phase Function | Fast Fourier Transform.</p>
+<p>Will also get from files needed parameters needed to plot.</p>
+<p>This Class Assumes User Application will always handle passing a valid Sensor from File.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">param filename:</th><td class="field-body">File Containing Desired Data.</td>
+</tr>
+</tbody>
+</table>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 23)</p>
+Field list ends without a blank line; unexpected unindent.</div>
+<p>&quot;&quot;&quot;
+self.filename = filename
+try:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 26)</p>
+Unexpected indentation.</div>
+<blockquote>
+self.sampling_rate = self.get_sampling_rate()</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 27)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="docutils">
+<dt>except ValueError:</dt>
+<dd><dl class="first last docutils">
+<dt>GUI_Handler.base_window.display_error(</dt>
+<dd>' FATAL ERROR !!! &lt;br&gt; &lt;br&gt; File formatting Error &lt;br&gt; File seems to be corrupted. '
+' &lt;br&gt;  &lt;br&gt; Restart Program...')</dd>
+</dl>
+</dd>
+</dl>
+<p>self.data_read = pd.read_csv(self.filename, header=90)
+if log: print(self.data_read)</p>
+<p># Open in New Qt5 Interactive Window
+# matplotlib.use('Qt5Agg')</p>
+<p class="last"># Faster Rendering
+matplotlib.rcParams['path.simplify'] = True
+matplotlib.rcParams['path.simplify_threshold'] = 1.0
+# Init Figure Parameters
+matplotlib.rcParams[&quot;figure.figsize&quot;] = (20, 6)
+matplotlib.rcParams[&quot;figure.dpi&quot;] = 80  # Makes Window Size in PIXELS = FIGURE_SIZE * DPI
+matplotlib.rcParams[&quot;figure.facecolor&quot;] = '0.85'
+# Customizing Fonts
+plt.rcParams[&quot;font.family&quot;] = &quot;Times New Roman&quot;
+plt.rcParams[&quot;font.size&quot;] = &quot;14&quot;</p>
+</dd>
+<dt>def plt_time(self, sensor: str):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Plots raw data with respect to timestamp from file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">param sensor:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>:return Plotted data in new Qt5Agg interactive Window.
+&quot;&quot;&quot;
+# TODO Read only the sensor column --&gt; Optimization
+self.data_read.plot(x=TIMESTAMP, y=sensor, legend=False, label=sensor)</p>
+<p># Setup Plot Parameters.
+plt.title('RAW DATA')
+plt.ylabel('ADC Counts')
+plt.legend()
+plt.show()</p>
+<p class="last">return self  # Return Instance so that it can be linearly written in code.</p>
+</dd>
+<dt>def plot_fft(self, sensor: str):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Plot Fourier Transform using Numpy .fft algorithm.</p>
+<p>:param sensor : The sensor name which should be the name of the column which contains desired sensor information.</p>
+<p>:return Return Instance so that it can be linearly written in code.
+&quot;&quot;&quot;</p>
+<p>n = len(self.data_read[sensor])</p>
+<p>#  Get Sensor columns values in a Series.
+fourier = np.fft.fft(self.data_read[sensor])/n # Normalize</p>
+<p># Calculate Sample spacing (inverse of the sampling rate).
+freq = np.fft.fftfreq(fourier.size, d=(1 / self.sampling_rate))</p>
+<p>plt.plot(freq, fourier.real ** 2 + fourier.imag ** 2)</p>
+<p># Setup Plot Parameters.
+plt.title('Frequency Spectrum of  ' + sensor)
+plt.ylabel('<a href="#id1"><span class="problematic" id="id2">|Y(f)|</span></a>')
+plt.xlabel('Frequency (Hz)')
+plt.show()</p>
+<p class="last">return self  # Return Instance so that it can be linearly written in code.</p>
+</dd>
+<dt>def plot_PSD(self, sensor: str):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Plots Auto Power Spectrum</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">param sensor:</th><td class="field-body">The value of the column name from the loaded files where the desired information is. [SENSOR NAME]</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">param sampling_freq:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body">The signal sampling frequency.</td>
+</tr>
+<tr class="field"><th class="field-name">return:</th><td class="field-body">Instance so that it can be linearly written in code.</td>
+</tr>
+</tbody>
+</table>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 103)</p>
+Field list ends without a blank line; unexpected unindent.</div>
+<p>&quot;&quot;&quot;</p>
+<p>plt.psd(self.data_read[sensor], Fs=self.sampling_rate)</p>
+<p># Setup Plot Parameters.
+plt.title('Auto-Power Spectrum of ' + sensor)
+plt.show()</p>
+<p class="last">return self  # Return Instance so that it can be linearly written in code.</p>
+</dd>
+<dt>def plot_CSD(self, sensor_1: str, sensor_2: str):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Plots Cross Power Spectrum</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">param sensor_1:</th><td class="field-body">The value of the column name from the loaded files where the desired information is. [SENSOR 1 NAME]</td>
+</tr>
+<tr class="field"><th class="field-name">param sensor_2:</th><td class="field-body">The value of the column name from the loaded files where the desired information is. [SENSOR 2 NAME]</td>
+</tr>
+<tr class="field"><th class="field-name">return:</th><td class="field-body">Instance so that it can be linearly written in code.</td>
+</tr>
+</tbody>
+</table>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 121)</p>
+Field list ends without a blank line; unexpected unindent.</div>
+<p>&quot;&quot;&quot;</p>
+<p>plt.csd(self.data_read[sensor_1], self.data_read[sensor_2], Fs=self.sampling_rate)</p>
+<p># Setup Plot Parameters.
+plt.title('Cross-Power Spectrum between  ' + sensor_1 + '  and  ' + sensor_2)
+plt.show()</p>
+<p class="last">return self  # Return Instance so that it can be linearly written in code.</p>
+</dd>
+<dt>def plot_Phase(self, sensor: str):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Plots Phase Function of a single sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">param sensor:</th><td class="field-body">The value of the column name from the loaded files where the desired information is. [SENSOR NAME]</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">param sampling_freq:</th></tr>
+<tr class="field"><td>&nbsp;</td><td class="field-body">The signal sampling frequency.</td>
+</tr>
+</tbody>
+</table>
+<p>:return Return Instance so that it can be linearly written in code.
+&quot;&quot;&quot;</p>
+<p>plt.phase_spectrum(x=self.data_read[sensor], Fs=self.sampling_rate)</p>
+<p># Setup Plot Parameters.
+plt.title('Phase Function of  ' + sensor)
+plt.show()</p>
+<p class="last">return self  # Return Instance so that it can be linearly written in code.</p>
+</dd>
+<dt>def plot_coherence(self, sensor_1: str, sensor_2: str):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Plot Coherence between two sensors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">param sensor_1:</th><td class="field-body">The value of the column name from the loaded files where the desired information is. [SENSOR 1 NAME]</td>
+</tr>
+<tr class="field"><th class="field-name">param sensor_2:</th><td class="field-body">The value of the column name from the loaded files where the desired information is. [SENSOR 2 NAME]</td>
+</tr>
+</tbody>
+</table>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 155)</p>
+Field list ends without a blank line; unexpected unindent.</div>
+<p>:param sampling_freq : The signal sampling frequency.</p>
+<p>:return Return Instance so that it can be linearly written in code.
+&quot;&quot;&quot;</p>
+<p># Get Columns as Series.
+s1 = self.data_read[sensor_1]  # each row is a list
+s2 = self.data_read[sensor_2]  # each row is a list</p>
+<p>plt.cohere(s1, s2, self.sampling_rate)</p>
+<p># Setup Plot Parameters.
+plt.title('Coherence Function between  ' + sensor_1 + '  and  ' + sensor_2)
+plt.show()</p>
+<p class="last">return self  # Return Instance so that it can be linearly written in code.</p>
+</dd>
+<dt>def get_sampling_rate(self):</dt>
+<dd><p class="first">&quot;&quot;&quot;
+Gets Test Sample Frequency from File as an Integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">return:</th><td class="field-body">Sampling Rate as Integer.</td>
+</tr>
+</tbody>
+</table>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 177)</p>
+Field list ends without a blank line; unexpected unindent.</div>
+<p>&quot;&quot;&quot;
+sf_string = self.data_read = pd.read_csv(self.filename, header=5, nrows=1, dtype=str).columns.tolist()[0]
+sample_freq = int(sf_string.split(' ')[0])</p>
+<p class="last">return sample_freq</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p># TESTING.
+# pdata = Plot_Data('../Data/Testing.csv')
+# time = pdata.plt_time('Sensor_1')
+# cohere = pdata.plot_coherence('Sensor_1', 'Sensor_2')
+# fft = pdata.plot_fft('Sensor_1')
+# phase = pdata.plot_Phase('Sensor_1')
+# csd = pdata.plot_CSD('Sensor_1', '<a href="#id3"><span class="problematic" id="id4">Sensor_</span></a>')
+# psd = pdata.plot_PSD('Sensor_1')</p>
+<p># pdata.plt_time('Sensor_1').plot_coherence('Sensor_1', 'Sensor_2').plot_fft('Sensor_1').plot_PSD('Sensor_1').plot_CSD(
+#     'Sensor_1', 'Sensor_2').plot_Phase('Sensor_1')
+# pdata.plot_fft('Sensor_1')</p>
+<div class="system-messages section">
+<h1>Docutils System Messages</h1>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 87); <em><a href="#id2">backlink</a></em></p>
+Undefined substitution referenced: &quot;Y(f)&quot;.</div>
+<div class="system-message" id="id3">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data_Processing\Plot_Data.py</tt>, line 184); <em><a href="#id4">backlink</a></em></p>
+Unknown target name: &quot;sensor&quot;.</div>
+</div>
+</div>
+</body>
+</html>

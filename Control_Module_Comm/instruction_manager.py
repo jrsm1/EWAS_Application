@@ -188,7 +188,11 @@ class instruction_manager():
                 count = 3
             count += 1
 
-        return array
+        array2 = []
+        for a in array:
+            b = a[1:len(a)]
+            array2.append(b)
+        return array2
 
     def send_request_live_bytes(self):
         """

@@ -65,8 +65,9 @@ class SensorSelectionMatrix(Window):
                                       self.win_sens_31, self.win_sens_32]
 
         # Signals
-        self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(
-            lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
+        self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
+        # self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: self.validate_sensors_selected())
+
 
         pass
 
@@ -89,6 +90,19 @@ class SensorSelectionMatrix(Window):
         super().close()
         self.sensor_selection_matrix.close()
         pass
+
+    def validate_sensors_selected(self):
+        """
+        Validates user has selected at least one sensor before running experiment.
+
+        :return: True if Validated
+        """
+        for sensor in self.get_modules_and_sensors_selected()[0]:
+            if sensor == 1: # Any sensor has been selected --> Validate.
+                GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision)
+                return True
+
+        return False
 
     def get_modules_and_sensors_selected(self):
         """
