@@ -18,7 +18,9 @@ class SensorSelectionMatrix(Window):
         self.sensor_selection_matrix.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
         # Objects
-        self.sensor_selection_matrix.sensor_select_MAX_Label
+        self.select_all_checkbox = self.sensor_selection_matrix.Select_all_sensors_checkBox
+
+        # Sensor Checkboxes
         self.win_sens_1 = self.sensor_selection_matrix.Sensor_1
         self.win_sens_2 = self.sensor_selection_matrix.Sensor_2
         self.win_sens_3 = self.sensor_selection_matrix.Sensor_3
@@ -51,6 +53,7 @@ class SensorSelectionMatrix(Window):
         self.win_sens_30 = self.sensor_selection_matrix.Sensor_30
         self.win_sens_31 = self.sensor_selection_matrix.Sensor_31
         self.win_sens_32 = self.sensor_selection_matrix.Sensor_32
+
         # List Used to get values easily (goes from 0 to 31)
         self.sensor_selection_list = [self.win_sens_1, self.win_sens_2, self.win_sens_3,
                                       self.win_sens_4, self.win_sens_5, self.win_sens_6,
@@ -67,7 +70,7 @@ class SensorSelectionMatrix(Window):
         # Signals
         self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
         # self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: self.validate_sensors_selected())
-
+        # self.select_all_checkbox.stateChanged(lambda: selection_all()) TODO TODO TODO
 
         pass
 
@@ -91,6 +94,7 @@ class SensorSelectionMatrix(Window):
         self.sensor_selection_matrix.close()
         pass
 
+    # TODO Implement. (called in line 72 (this is line 97 at moment of writing.))
     def validate_sensors_selected(self):
         """
         Validates user has selected at least one sensor before running experiment.
@@ -202,3 +206,11 @@ class SensorSelectionMatrix(Window):
 
         # If not Connected to not continue.
         return continuar, connected_module_list
+
+    def selection_all(self):
+        """
+        Checks or unChecks all enabled sensors.
+        """
+        # if : # Chechbox Selected:
+            # TODO ME QUEDE AQUI
+        pass

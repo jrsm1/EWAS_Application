@@ -9,6 +9,7 @@ import GUI_Handler
 log = 1
 TIMESTAMP = 'timestamp'
 
+# TODO Make Plots Pretty
 class Plot_Data():
     def __init__(self, filename):
         """
@@ -24,6 +25,7 @@ class Plot_Data():
         self.filename = filename
         try:
             self.sampling_rate = self.get_sampling_rate()
+            self.gain = self.get_gain()
         except ValueError:
             GUI_Handler.base_window.display_error(
                 ' FATAL ERROR !!! <br> <br> File formatting Error <br> File seems to be corrupted. '
@@ -56,6 +58,7 @@ class Plot_Data():
 
         # Setup Plot Parameters.
         plt.title('RAW DATA')
+        plt.xlabel('Timestamp (in seconds)')
         plt.ylabel('ADC Counts')
         plt.legend()
         plt.show()
@@ -177,16 +180,13 @@ class Plot_Data():
 
         return sample_freq
 
+    def get_gain(self):
+        """
+        Gets Test Voltage Gain from File as an Integer.
 
-# TESTING.
-# pdata = Plot_Data('../Data/Testing.csv')
-# time = pdata.plt_time('Sensor_1')
-# cohere = pdata.plot_coherence('Sensor_1', 'Sensor_2')
-# fft = pdata.plot_fft('Sensor_1')
-# phase = pdata.plot_Phase('Sensor_1')
-# csd = pdata.plot_CSD('Sensor_1', 'Sensor_')
-# psd = pdata.plot_PSD('Sensor_1')
+        :return: Sampling Rate as Integer.
+        """
+        gain_string = self.data_read = pd.read_csv(self.filename, header=5, nrows=1, dtype=str).columns.tolist()[2]
+        gain = int(gain_string.split(' ')[0])
 
-# pdata.plt_time('Sensor_1').plot_coherence('Sensor_1', 'Sensor_2').plot_fft('Sensor_1').plot_PSD('Sensor_1').plot_CSD(
-#     'Sensor_1', 'Sensor_2').plot_Phase('Sensor_1')
-# pdata.plot_fft('Sensor_1')
+        return gain

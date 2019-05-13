@@ -1,7 +1,8 @@
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from serial import SerialException
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QIcon, QRegExpValidator, QIntValidator
-from PyQt5.QtWidgets import QDesktopWidget
+from PyQt5.QtWidgets import QDesktopWidget, QListView
 
 import GUI_Handler
 import Window
@@ -60,12 +61,12 @@ regex_longitude = QRegExpValidator(QRegExp('^(\+|-)\d{5}(\.)\d{5}$'))
 regex_latitude = QRegExpValidator(QRegExp('^(\+|-)\d{4}(\.)\d{5}$'))
 
 # ToolTip Messages
-toolTip_description = 'Restricted to lower-case letters, upper-case letters, numbers and dashes'
-toolTip_duration = 'Restricted to positive integers with a minimum of 5 seconds up to 1800 seconds'
-toolTip_Delay = 'Restricted to positive integers including 0 up to a maximum of 3600 seconds(1 hour)'
-toolTip_Longitude = 'Restricted to NMEA format of (+/-)Dddmm.mmmmm'
-toolTip_Latitude = 'Restricted to NMEA format of (+/-)ddmm.mmmmm'
-toolTip_time = 'Restricted to 24-hour format'
+toolTip_description = 'Lower-case letters, upper-case letters, numbers and dashes'
+toolTip_duration = 'Positive integers with a minimum of 5 seconds up to 1800 seconds'
+toolTip_Delay = 'Positive integers including 0 up to a maximum of 3600 seconds(1 hour)'
+toolTip_Longitude = 'NMEA format of +/-Dddmm.mmmmm'
+toolTip_Latitude = 'NMEA format of +/-ddmm.mmmmm'
+toolTip_time = '24-hour format'
 
 # Testing
 log = 1
@@ -120,9 +121,13 @@ class MainWindow(windowClass):
         self.specimen_loc_8 = self.main_window.main_tab_module_loc_LineEdit_8
 
         # Data Acquisition Settings
-        self.samfreq_dropdown = self.main_window.main_tab_DAQParams_samplingRate_DropDown
         self.cutfreq_drodown = self.main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
+        self.samfreq_dropdown = self.main_window.main_tab_DAQParams_samplingRate_DropDown
         self.gain_dropdown = self.main_window.main_tab_DAQParams_gain_DropDown
+        # Change Spacing for better DropDown Option reading.
+        self.cutfreq_drodown.view().setSpacing(1)
+        self.samfreq_dropdown.view().setSpacing(1)
+        self.gain_dropdown.view().setSpacing(1)
 
         # -------------------------------------------------------- Signals ---------------------------------------------
         # Menu Bar
@@ -146,7 +151,7 @@ class MainWindow(windowClass):
         self.cutfreq_drodown.currentIndexChanged.connect(lambda: self.suggest_sampling_rate())
         self.samfreq_dropdown.currentIndexChanged.connect(lambda: self.check_duration())
 
-        # START
+        # START | Module Information
         self.main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: ModuleSelect(modules).open())
         self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.check_for_port('START'))
 

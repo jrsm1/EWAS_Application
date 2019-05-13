@@ -310,8 +310,8 @@
               <widget class="QComboBox" name="main_tab_RecordingSettings_type_DropDown">
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 12pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0)
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);
 															</string>
                </property>
                <property name="maxCount">
@@ -1243,9 +1243,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 10pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0);
-															</string>
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);</string>
                </property>
                <property name="currentIndex">
                 <number>15</number>
@@ -1342,9 +1341,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 10pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0)
-															</string>
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);</string>
                </property>
                <property name="currentIndex">
                 <number>10</number>
@@ -1429,8 +1427,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 10pt &quot;MS Shell Dlg 2&quot;;
-																color: rgb(0, 0, 0);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);
 															</string>
                </property>
                <property name="currentIndex">
@@ -1696,7 +1694,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   </action>
   <action name="actionTime">
    <property name="text">
-    <string>Time</string>
+    <string>Raw Data</string>
    </property>
    <property name="font">
     <font>
@@ -1707,7 +1705,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   </action>
   <action name="actionFrequency">
    <property name="text">
-    <string>Frequency</string>
+    <string>Fourier Transform</string>
    </property>
    <property name="font">
     <font>
@@ -1717,7 +1715,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   </action>
   <action name="actionAuto_Power">
    <property name="text">
-    <string>Auto-Power</string>
+    <string>Auto-Power Spectrum</string>
    </property>
    <property name="font">
     <font>
@@ -1727,7 +1725,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   </action>
   <action name="actionCross_Power">
    <property name="text">
-    <string>Cross-Power</string>
+    <string>Cross-Power Spectrum</string>
    </property>
    <property name="font">
     <font>
@@ -1737,7 +1735,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   </action>
   <action name="actionCoherence">
    <property name="text">
-    <string>Coherence</string>
+    <string>Coherence Function</string>
    </property>
    <property name="font">
     <font>

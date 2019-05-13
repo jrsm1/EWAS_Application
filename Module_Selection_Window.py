@@ -1,3 +1,4 @@
+from serial import SerialException
 from PyQt5 import uic
 from PyQt5.QtGui import QIcon
 
@@ -63,13 +64,14 @@ class ModuleSelectionWindow(Window):
         Done before Channel Selection.
         """
         # Disable not connected modules.
-        # connected_modules = [1, 0, 0, 0, 0, 0, 0, 0]
-        im = ins_man.instruction_manager(GUI_Handler.ins_port)  # TODO TEST
-        connected_modules = im.send_request_number_of_mods_connected()  # FIXME ENABLE FOR REAL
-        self.disable_buttons(connected_modules)
-        self.module_selection_win.show()
+        try:
+            im = ins_man.instruction_manager(GUI_Handler.ins_port)
+            connected_modules = im.send_request_number_of_mods_connected()
 
-        pass
+            self.disable_buttons(connected_modules)
+            self.module_selection_win.show()
+        except SerialException:
+            GUI_Handler.base_window.not_connected_error()
 
     def close(self):
         """

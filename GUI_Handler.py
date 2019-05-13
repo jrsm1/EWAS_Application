@@ -242,7 +242,7 @@ def action_begin_recording(sel_matrix: SensorSelectionMatrix, start_diagnose: in
                 # ins = ins_man.instruction_manager(ins_port)
                 # ins.send_set_configuration(configuration)
                 ins.send_diagnose_request()
-                sleep(0.5)
+                sleep(0.3)
                 params_sent = ins.send_recording_parameters(sfrequency=daq_config.sampling_rate_index,
                                                             cutoff=daq_config.cutoff_freq_index,
                                                             gain=daq_config.gain_index,
@@ -272,7 +272,8 @@ def check_status_during_test(ins, mods_selected):
     global stop_break_loop
     stop_break_loop = True
     # Prepare Infinite Progress Dialog.
-    prog_dlg.acquire_dialog('Test in Progress')
+    prog_dlg.progress_dialog('Running Test and Acquiring Data. <br><br>'
+                             'This window will close automatically when done.')
     prog_dlg.progress_bar.setMaximum(0)
     # Setup Local Variables.
     synced = True  # Used to not request data if synched==False.

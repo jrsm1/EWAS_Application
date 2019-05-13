@@ -44,6 +44,16 @@ color:rgb(0, 0, 0);
      </widget>
     </item>
     <item>
+     <widget class="QCheckBox" name="Select_all_sensors_checkBox">
+      <property name="text">
+       <string>Select All Connected Sensors</string>
+      </property>
+      <property name="tristate">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QFrame" name="frame">
       <property name="minimumSize">
        <size>
