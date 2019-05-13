@@ -1,14 +1,13 @@
+import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib
+
 import GUI_Handler
-import os
-import sys
-import time
 
 # Testing
 log = 1
+TIMESTAMP = 'timestamp'
 
 class Plot_Data():
     def __init__(self, filename):
@@ -26,15 +25,12 @@ class Plot_Data():
         try:
             self.sampling_rate = self.get_sampling_rate()
         except ValueError:
-            GUI_Handler.close_visualization_sensor_selection_window()
-            GUI_Handler.show_error(' FATAL ERROR !!! <br> <br> File formatting Error <br> File seems to be corrupted. '
-                                   ' <br>  <br> Restart Program...')
+            GUI_Handler.base_window.display_error(
+                ' FATAL ERROR !!! <br> <br> File formatting Error <br> File seems to be corrupted. '
+                ' <br>  <br> Restart Program...')
 
         self.data_read = pd.read_csv(self.filename, header=90)
         if log: print(self.data_read)
-
-        # Open in New Qt5 Interactive Window
-        matplotlib.use('Qt5Agg')
 
         # Faster Rendering
         matplotlib.rcParams['path.simplify'] = True
@@ -56,11 +52,11 @@ class Plot_Data():
         :return Plotted data in new Qt5Agg interactive Window.
         """
         # TODO Read only the sensor column --> Optimization
-        self.data_read.plot(x='Timestamp', y=sensor, legend=False, label=sensor)
+        self.data_read.plot(x=TIMESTAMP, y=sensor, legend=False, label=sensor)
 
         # Setup Plot Parameters.
         plt.title('RAW DATA')
-        plt.ylabel('Voltage (V)')
+        plt.ylabel('ADC Counts')
         plt.legend()
         plt.show()
 
@@ -81,7 +77,7 @@ class Plot_Data():
         fourier = np.fft.fft(self.data_read[sensor])/n # Normalize
 
         # Calculate Sample spacing (inverse of the sampling rate).
-        freq = np.fft.fftfreq(fourier.size, d=(1 / self.sampling_rate)/2)
+        freq = np.fft.fftfreq(fourier.size, d=(1 / self.sampling_rate))
 
         plt.plot(freq, fourier.real ** 2 + fourier.imag ** 2)
 

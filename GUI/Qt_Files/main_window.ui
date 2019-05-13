@@ -237,7 +237,7 @@
                 <number>4</number>
                </property>
                <property name="placeholderText">
-                <string>1800</string>
+                <string>min:5 max:1800</string>
                </property>
               </widget>
              </item>
@@ -256,7 +256,7 @@
                 <number>20</number>
                </property>
                <property name="placeholderText">
-                <string>TestName</string>
+                <string>Enter Test Name</string>
                </property>
               </widget>
              </item>
@@ -268,11 +268,14 @@
 													color: rgb(0, 0, 0)
 												</string>
                </property>
+               <property name="text">
+                <string>0</string>
+               </property>
                <property name="maxLength">
                 <number>4</number>
                </property>
                <property name="placeholderText">
-                <string>1800</string>
+                <string>min:0 max:3600</string>
                </property>
               </widget>
              </item>
@@ -660,7 +663,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>20</number>
                   </property>
                   <property name="placeholderText">
-                   <string>Please enter a name</string>
+                   <string>Enter Location Name</string>
                   </property>
                  </widget>
                 </item>
@@ -689,7 +692,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>12</number>
                   </property>
                   <property name="placeholderText">
-                   <string>+1234.12345</string>
+                   <string>+12345.12345</string>
                   </property>
                  </widget>
                 </item>
@@ -718,7 +721,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>11</number>
                   </property>
                   <property name="placeholderText">
-                   <string>-12345.12345</string>
+                   <string>-1234.12345</string>
                   </property>
                  </widget>
                 </item>
@@ -747,7 +750,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>2</number>
                   </property>
                   <property name="placeholderText">
-                   <string>23</string>
+                   <string>24-hour format</string>
                   </property>
                  </widget>
                 </item>
@@ -776,7 +779,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>2</number>
                   </property>
                   <property name="placeholderText">
-                   <string>09</string>
+                   <string>24-hour format</string>
                   </property>
                  </widget>
                 </item>
@@ -805,7 +808,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                    <number>2</number>
                   </property>
                   <property name="placeholderText">
-                   <string>00</string>
+                   <string>24-hour format</string>
                   </property>
                  </widget>
                 </item>
@@ -851,14 +854,16 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                   <item row="0" column="1">
                    <widget class="QLineEdit" name="main_tab_module_loc_LineEdit_1">
                     <property name="styleSheet">
-                     <string notr="true">background-color:
-																				rgb(255, 255, 255);
-																				font: 12pt &quot;MS Shell Dlg 2&quot;;
-																				color: rgb(0, 0, 0)
-																			</string>
+                     <string notr="true">background-color:rgb(255, 255, 255); 
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0)
+</string>
                     </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -885,6 +890,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="2" column="0">
@@ -910,6 +918,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="3" column="0">
@@ -932,8 +943,14 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
 																				color: rgb(0, 0, 0)
 																			</string>
                     </property>
+                    <property name="text">
+                     <string/>
+                    </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -959,6 +976,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                     </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -988,6 +1008,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="6" column="0">
@@ -1013,6 +1036,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                     <property name="maxLength">
                      <number>30</number>
                     </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="7" column="0">
@@ -1037,6 +1063,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                     </property>
                     <property name="maxLength">
                      <number>30</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Module Location Description</string>
                     </property>
                    </widget>
                   </item>
@@ -1214,7 +1243,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <widget class="QComboBox" name="main_tab_DAQParams_Cutoff_Frequency_DropDown">
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																font: 10pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0);
 															</string>
                </property>
@@ -1313,7 +1342,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																font: 10pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0)
 															</string>
                </property>
@@ -1400,7 +1429,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);
-																font: 14pt &quot;MS Shell Dlg 2&quot;;
+																font: 10pt &quot;MS Shell Dlg 2&quot;;
 																color: rgb(0, 0, 0);
 															</string>
                </property>
@@ -1675,9 +1704,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <stylestrategy>PreferAntialias</stylestrategy>
     </font>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+Shift+V</string>
-   </property>
   </action>
   <action name="actionFrequency">
    <property name="text">
@@ -1733,10 +1759,12 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
  <tabstops>
   <tabstop>main_tab_RecordingSettings_name_LineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_durationLineEdit</tabstop>
+  <tabstop>main_tab_RecordingSettings_delay_LineEdit</tabstop>
   <tabstop>main_tab_RecordingSettings_type_DropDown</tabstop>
   <tabstop>main_tab_RecordingSettings_LOAD_SETTINGS_Button</tabstop>
   <tabstop>main_tab_RecordingSettings__SAVE_button</tabstop>
   <tabstop>main_tab_LocalizationSettings_type_DropBox</tabstop>
+  <tabstop>main_tab_LocalizationSettings_acquire_GPS_Button</tabstop>
   <tabstop>main_tab_LocalizationSettings_Name_lineEdit</tabstop>
   <tabstop>main_tab_LocalizationSettings_longitudLineEdit</tabstop>
   <tabstop>main_tab_LocalizationSettings_latitudLineEdit</tabstop>
@@ -1754,11 +1782,13 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   <tabstop>main_tab_LocalizationSettings_LOAD_LOCATION_button</tabstop>
   <tabstop>main_tab_LocalizationSettings_SAVE_LOCATION_button</tabstop>
   <tabstop>main_tab_DAQParams_Cutoff_Frequency_DropDown</tabstop>
+  <tabstop>main_tab_DAQParams_samplingRate_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_gain_DropDown</tabstop>
   <tabstop>main_tab_DAQParams_LOAD_PARAMS_button</tabstop>
   <tabstop>main_tab_DAQParams_SAVE_PARAMS_button</tabstop>
   <tabstop>main_tab_CHANNEL_INFO_button</tabstop>
   <tabstop>main_tab_START_button</tabstop>
+  <tabstop>main_tab_LAYOUT</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -1,5 +1,6 @@
-import Control_Module_Comm.serial_interface as serial_interface
 import Control_Module_Comm.instruction_manager as instruction_manager
+import Control_Module_Comm.serial_interface as serial_interface
+
 
 def test_listen():
     tester = serial_interface.serial_interface('COM6')
@@ -155,12 +156,13 @@ def test_wrong_instruction_acknowledge():
     if line == b'\xFE': print("wrong instruction succesful")
 
 def test_specific_daq(daq):
-    tester = instruction_manager.instruction_manager('COM7')
+    tester = instruction_manager.instruction_manager('COM6')
     line = tester.send_request_data(daq)
     print("recieved line " + str(line))
     
     
 # if __name__ == "__main__":
+# test_request_status()
 # test_specific_daq(1)
 # test_listen()
 # test_send()
@@ -170,7 +172,7 @@ def test_specific_daq(daq):
 # test_send_configuration()
 # test_request_configuration()
 # test_request_start()
-#test_request_number_of_modules_connected()
+# test_request_number_of_modules_connected()
 # test_request_live_bytes()
 # test_send_cancel()
 # test_request_all_data()

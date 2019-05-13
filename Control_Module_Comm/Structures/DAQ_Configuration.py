@@ -1,7 +1,6 @@
-import string
-import time
-import uuid
 import random
+import string
+import uuid
 
 SAMPLING_RATES = ['2 Hz', '4 Hz', '8 Hz', '16 Hz', '32 Hz', '64 Hz', '128 Hz', '256 Hz', '512 Hz',
                   '1024 Hz', '2048 Hz', '4096 Hz', '8192 Hz', '16384 Hz', '20000 Hz']
@@ -16,11 +15,12 @@ NAME_LIMIT = 20
 class DAQconfigs:
     def __init__(self,
                  sampling_rate=7, cutoff_frequency=7, signal_gain=1,
-                 test_duration=15, test_name='Test' + uuid.uuid4().hex, record_type=0, test_delay=0,
-                 loc_name='NoName', latitude='+0000.0000', longitude='-0000.0000', hour='00', minute='00', second='00',
+                 test_duration=5, test_name='Test' + uuid.uuid4().hex, record_type=0, test_delay=0,
+                 loc_name='NoName', latitude='+0000.00000', longitude='-00000.00000', hour='00', minute='00', second='00',
                  specimen_1='Not Used', specimen_2='Not Used', specimen_3='Not Used', specimen_4='Not Used',
                  specimen_5='Not Used', specimen_6='Not Used', specimen_7='Not Used', specimen_8='Not Used',
                  store='1111'):
+
         self.signal_configs = {
             'sampling_rate': str,
             'cutoff_frequency': str,
@@ -29,7 +29,6 @@ class DAQconfigs:
 
         self.recording_configs = {
             "test_name": str,
-            # "test_ID": str,
             "test_duration": int,  # In Seconds
             "test_type": str,  # get from list. Should be same as position in drop-down.
             'test_start_delay': int  # Number in Seconds.
@@ -114,6 +113,9 @@ class DAQconfigs:
 
     def get_sampling_freq(self):
         return int(self.signal_configs['sampling_rate'].split()[0])
+
+    def get_duration(self):
+        return int(self.recording_configs['test_duration'])
 
 
 def generate_ID(name: str):
