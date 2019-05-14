@@ -53,9 +53,9 @@ visualization_values = {'requested_plot': 0,
 
 # Regex expressions
 regex_description = QRegExpValidator(QRegExp('[a-zA-Z0-9-]+'))
-regex_duration = QIntValidator(5, 1800)
+regex_duration = QIntValidator(0, 1801)
 regex_hour = QIntValidator(0, 23)
-regex_delay = QIntValidator(0, 3600)
+regex_delay = QIntValidator(0, 3601)
 regex_minute_second = QIntValidator(0, 59)
 regex_longitude = QRegExpValidator(QRegExp('^(\+|-)\d{5}(\.)\d{5}$'))
 regex_latitude = QRegExpValidator(QRegExp('^(\+|-)\d{4}(\.)\d{5}$'))
@@ -136,6 +136,7 @@ class MainWindow(windowClass):
 
         # Recording Settings
         self.rec_duration_edit.textEdited.connect(lambda: self.check_sampling_rate())
+        self.rec_duration_edit.editingFinished.connect(lambda: self.validate_duration()) # TODO TEST
         self.main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, 1))
         self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
 
@@ -301,7 +302,7 @@ class MainWindow(windowClass):
         """
         # Get filename from User
         self.filename_input_win.open()
-        filename = self.filename_input_win.fn_in.text()  # TODO FIXME May cause error. --> verify if method .text()
+        filename = self.filename_input_win.fn_in.text()
         if Window.validate_filename(filename):
             if self.validate_daq_params():
                 self.setting_manager.store_signal_params(filename)
@@ -338,7 +339,7 @@ class MainWindow(windowClass):
         """
         # Get filename from User
         self.filename_input_win.open()
-        filename = self.filename_input_win.fn_in.text()  # TODO FIXME if error --> Verify .text() method
+        filename = self.filename_input_win.fn_in.text()
         if Window.validate_filename(filename):
             # Get info from GUI.
             # get_location_from_gui()
@@ -589,15 +590,15 @@ class MainWindow(windowClass):
         test_duration = self.rec_duration_edit.text()
         print(test_duration)
         if not test_duration == '':
-            if int(test_duration) < 5:
-                self.display_error('Must be higher than 5 seconds and less than 1800 seconds')
-            else:
-                if not self.samfreq_dropdown.currentText() == 'Please Select':
-                    max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
-                    if not max_duration == 'Please Select':
-                        if int(test_duration) > max_duration:
-                            self.display_error('Durations higher than ' + str(max_duration) +
-                                               ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+            # if int(test_duration) < 5:
+            #     self.display_error('Must be higher than 5 seconds and less than 1800 seconds')
+            # else:
+            if not self.samfreq_dropdown.currentText() == 'Please Select': # TODO TEST
+                max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
+                if not max_duration == 'Please Select':
+                    if int(test_duration) > max_duration:
+                        self.display_error('Durations higher than ' + str(max_duration) +
+                                           ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
 
     def check_duration(self):
         """
@@ -611,6 +612,8 @@ class MainWindow(windowClass):
                 if int(test_duration) > max_duration:
                     self.display_error('Durations higher than ' + str(max_duration) +
                                        ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+                    return False
+        return True
 
     def validate_rec_settings(self):
         there_is_no_error = True
@@ -713,6 +716,12 @@ class MainWindow(windowClass):
             valid = False
 
         return valid
+
+    def validate_duration(self):
+        test_duration = self.rec_duration_edit.text()
+        max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
+        if int(test_duration) < 5:
+            self.display_error('Duration is lower than 5 seconds')
 
     # ======================================= MISCELLANEOUS ==================================
     def display_error(self, message: str):

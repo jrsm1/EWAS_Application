@@ -1,6 +1,6 @@
 import Control_Module_Comm.serial_interface as serial_interface
 
-log = 0
+log = 1
 
 
 class instruction_manager():
@@ -260,8 +260,9 @@ class instruction_manager():
         if log: print('Received ' + str(line) + 'in send request status')
         status = []
         # while line != b'\x83':
+        #     print(line)
         #     line = self.serial_interface.listen()
-        #     if log:print("still in while")
+        #     if log: print("still in while")
         if line == b'\x83':
             if log: print("diagnose request successful")
             line = self.serial_interface.listen()

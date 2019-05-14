@@ -17,9 +17,10 @@ class SensorSelectionMatrix(Window):
         self.sensor_selection_matrix = uic.loadUi('GUI/Qt_Files/main_sensor_selection_matrix.ui')
         self.sensor_selection_matrix.setWindowIcon(QIcon('GUI/EWAS_Logo_1.svg'))
 
-        # Objects
-        self.select_all_checkbox = self.sensor_selection_matrix.Select_all_sensors_checkBox
+        # Instance Variables.
+        self.all_selected = False
 
+        # Objects
         # Sensor Checkboxes
         self.win_sens_1 = self.sensor_selection_matrix.Sensor_1
         self.win_sens_2 = self.sensor_selection_matrix.Sensor_2
@@ -68,9 +69,42 @@ class SensorSelectionMatrix(Window):
                                       self.win_sens_31, self.win_sens_32]
 
         # Signals
-        self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
-        # self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: self.validate_sensors_selected())
-        # self.select_all_checkbox.stateChanged(lambda: selection_all()) TODO TODO TODO
+        # self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
+        self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: self.validate_sensors_selected())
+        self.sensor_selection_matrix.Select_all_sensors_button.clicked.connect(lambda: self.selection_all())
+        # Uncheck Signals.
+        self.win_sens_1.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_2.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_3.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_4.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_5.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_6.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_7.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_8.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_9.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_10.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_11.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_12.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_13.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_14.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_15.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_16.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_17.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_18.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_19.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_20.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_21.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_22.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_23.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_24.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_25.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_26.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_27.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_28.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_29.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_30.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_31.stateChanged.connect(lambda: self.set_select_all_false())
+        self.win_sens_32.stateChanged.connect(lambda: self.set_select_all_false())
 
         pass
 
@@ -94,6 +128,10 @@ class SensorSelectionMatrix(Window):
         self.sensor_selection_matrix.close()
         pass
 
+    def set_select_all_false(self):
+        self.all_selected = False
+        pass
+
     # TODO Implement. (called in line 72 (this is line 97 at moment of writing.))
     def validate_sensors_selected(self):
         """
@@ -101,7 +139,8 @@ class SensorSelectionMatrix(Window):
 
         :return: True if Validated
         """
-        for sensor in self.get_modules_and_sensors_selected()[0]:
+        sensors, xmodules = self.get_modules_and_sensors_selected()
+        for sensor in sensors:
             if sensor == 1: # Any sensor has been selected --> Validate.
                 GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision)
                 return True
@@ -121,9 +160,9 @@ class SensorSelectionMatrix(Window):
         modules_selected = set()
 
         index = 0
-        for i in self.sensor_selection_list:
+        for sensor_checkbox in self.sensor_selection_list:
             # Check if User has selected each checkBox.
-            if i.isChecked():
+            if sensor_checkbox.isChecked():
                 sensors_selected[index] = 1
                 module = int(index / 4) + 1
                 modules_selected.add(module)
@@ -133,8 +172,8 @@ class SensorSelectionMatrix(Window):
         if log: print("sensors selected are: ", sensors_selected)
 
         # Reset all Checkboxes.
-        for i in self.sensor_selection_list:
-            i.setChecked(False)
+        for sensor_checkbox in self.sensor_selection_list:
+            sensor_checkbox.setChecked(False)
 
         return sensors_selected, modules_selected
 
@@ -145,12 +184,11 @@ class SensorSelectionMatrix(Window):
 
         :return: False if there are no sensors connected.
         """
-        # TODO TEST
         continuar = False
 
         # Get Connected Modules
         # connected_module_list = [1, 0, 0, 0, 0, 0, 0, 0]
-        ins = ins_man.instruction_manager(GUI_Handler.ins_port)  # TODO UNCOMMENT FOR REAL
+        ins = ins_man.instruction_manager(GUI_Handler.ins_port)
         connected_module_list = ins.send_request_number_of_mods_connected()
 
         if log: print("entered enable start, array is " + str(connected_module_list))
@@ -207,10 +245,20 @@ class SensorSelectionMatrix(Window):
         # If not Connected to not continue.
         return continuar, connected_module_list
 
-    def selection_all(self):
+    def selection_all(self): # TODO TEST
         """
-        Checks or unChecks all enabled sensors.
+        Checks all enabled sensors.
         """
-        # if : # Chechbox Selected:
-            # TODO ME QUEDE AQUI
+        if not self.all_selected:  # if not all sensors are selected.
+            # Check All Enabled Sensors.
+            for checkbox in self.sensor_selection_list:
+                if checkbox.isEnabled():
+                    checkbox.setChecked(True)
+                # Change all selected status.
+                self.all_selected = not self.all_selected
+        else:
+            # Un-Check All Sensors.
+            for checkbox in self.sensor_selection_list:  # if all sensors are selected.
+                checkbox.setChecked(False)
+
         pass

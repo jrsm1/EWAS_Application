@@ -91,7 +91,7 @@ start_diagnose_decision = 0
 START_TEST = 1
 DIAGNOSE = 2
 
-def start_acquisition(who_called: int):
+def start_acquisition(who_called: int): # TODO TEST NEW LOGIC
     """
     Begin Acquisition Process.
     who_called can be START_TEST or DIAGNOSE.
@@ -99,32 +99,43 @@ def start_acquisition(who_called: int):
     :param who_called: Integer that tells if user wants to START_TEST or DIAGNOSE.
     """
     global start_diagnose_decision
-    error_string = ''
-    error_string += main_window.validate_rec_settings()
-    loc_type = main_window.loc_type_dropdown.currentIndex()
-    if not loc_type:
-        error_string += main_window.validate_gps_location_settings()
-    else:
-        # specimen by module
-        error_string += main_window.validate_module_location_settings()
 
-    if not main_window.validate_daq_params():
-        error_string += 'Error: Invalid Signal Parameters. Please select a valid option from the drop-downs.<br>'
-    if not error_string:
-        if save_port() == 'COM-1':
-            base_window.not_connected_error()
-        else:
-            # Find out who called me
-            if who_called == START_TEST:
+    if save_port() == 'COM-1':
+        base_window.not_connected_error()
+    else:
+        # Find out who called me
+        if who_called == START_TEST:
+            error_string = ''
+            error_string += main_window.validate_rec_settings()
+            loc_type = main_window.loc_type_dropdown.currentIndex()
+            if not loc_type:
+                error_string += main_window.validate_gps_location_settings()
+            else:
+                # specimen by module
+                error_string += main_window.validate_module_location_settings()
+
+            if not main_window.validate_daq_params():
+                error_string += 'Error: Invalid Signal Parameters. Please select a valid option from the drop-downs.<br>'
+
+            if not main_window.check_duration():
+                error_string += 'Error: Durations higher than allowed for sampling rate.<br>'
+                return
+
+            if not error_string:
                 start_diagnose_decision = START_TEST
-            elif who_called == DIAGNOSE:
-                start_diagnose_decision = DIAGNOSE
-            # show_main_sens_sel_window()
-            store_data_window.open()
-    else:
-        main_window.display_error(error_string)
+                store_data_window.open()
+            else:
+                main_window.display_error(error_string)
 
-def check_for_port(what_was_clicked: str): # TODO Document.
+        elif who_called == DIAGNOSE:
+            start_diagnose_decision = DIAGNOSE
+            store_data_window.open()
+
+def check_for_port(what_was_clicked: str): # TODO TEST.
+    """
+
+    :param what_was_clicked:
+    """
     # if not save_port() == 'COM-1':
     #     if what_was_clicked == 'START':
     #         start_acquisition(START_TEST)
@@ -134,7 +145,7 @@ def check_for_port(what_was_clicked: str): # TODO Document.
     #         sync_gps()
     # else:
     #     main_window.not_connected_error()
-    # _________________________________________ TODO change BAck for real.
+    # _________________________________________ TODO change BAck for working.
 
     if what_was_clicked == 'START':
         start_acquisition(START_TEST)
@@ -162,6 +173,7 @@ def save_port():  # TODO adapt for class reconstruction
     ins_port = port
     return port
 
+
 def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
     # Show Progress Dialog.
     global stop_break_loop
@@ -175,27 +187,34 @@ def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
         ins = ins_man.instruction_manager(ins_port)
         ins.send_gps_sync_request()
         timeout = 0
+        sleep_value = 0.1 # Wait for half a second before asking again.
+        max_timeout = 30 # desired timeout in seconds
         synced = True  # Used to not request data if synched==False.
+
         while (ins.send_request_status()[2] != 1) and stop_break_loop:  # Status[2] --> gps_synched
             print('GPS Waiting....')
-            sleep(0.1)  # Wait for half a second before asking again.
+            sleep(sleep_value)
             timeout += 1
-            prog_dlg.progress_bar.setValue(timeout * 1.3)
+            prog_dlg.progress_bar.setValue((timeout / (max_timeout * (1/sleep_value)))*100)
             app.processEvents()
-            if timeout == 6 * 10:  # = [desired timeout in seconds] * [1/(sleep value)]
+
+            if timeout == max_timeout * (1/sleep_value) + 1:  # = [desired timeout in seconds] * [1/(sleep value)] + begin at 1%.
                 prog_dlg.progress_bar.setValue(100)
                 base_window.display_error('GPS Failed to Synchronize.')
                 prog_dlg.close()
                 synced = False
                 break
+
         if synced and stop_break_loop:
             prog_dlg.progress_bar.setValue(100)
             ins.send_gps_data_request()
             main_window.set_GPS_into_gui()
+
         if not stop_break_loop:
             ins.send_cancel_request()
         prog_dlg.close()
         del ins
+
     except serial.SerialException:
         prog_dlg.close()
         base_window.not_connected_error()
@@ -217,7 +236,6 @@ def action_begin_recording(sel_matrix: SensorSelectionMatrix, start_diagnose: in
         sel_matrix.close()
 
         ins = ins_man.instruction_manager(ins_port)
-        # ins.send_set_configuration(setting_data_manager.settings_to_string()) TODO REMOVE
 
         # SendRecording Parameters & Begin Recording FLAG to Control Module.
         if start_diagnose == START_TEST:
@@ -230,11 +248,11 @@ def action_begin_recording(sel_matrix: SensorSelectionMatrix, start_diagnose: in
                                                             duration=daq_config.recording_configs["test_duration"],
                                                             start_delay=daq_config.recording_configs["test_start_delay"],
                                                             store_data_sd=daq_config.data_handling_configs["store"],
-                                                            sensor_enable=sens_selected,  # TODO TEST CHANGE.
+                                                            sensor_enable=sens_selected,
                                                             name="Not Used", location="Not Used")
                 print("sent was " + str(params_sent))
                 sleep(0.5)
-            ins.send_request_start()
+                ins.send_request_start()
 
         # Send Run Diagnostic FLAG to Control Module.
         elif start_diagnose == DIAGNOSE:
@@ -272,8 +290,8 @@ def check_status_during_test(ins, mods_selected):
     global stop_break_loop
     stop_break_loop = True
     # Prepare Infinite Progress Dialog.
-    prog_dlg.progress_dialog('Running Test and Acquiring Data. <br><br>'
-                             'This window will close automatically when done.')
+    prog_dlg.acquire_dialog('<br> Running Test and Acquiring Data. <br><br>'
+                            'This window will close automatically when done.')
     prog_dlg.progress_bar.setMaximum(0)
     # Setup Local Variables.
     synced = True  # Used to not request data if synched==False.
@@ -295,8 +313,6 @@ def check_status_during_test(ins, mods_selected):
     del ins
 
     prog_dlg.close()
-
-
 
 def cancel_everything():
     """
@@ -338,6 +354,6 @@ def init():
     else:
         sync_gps()
 
-    # auto_fill()
+    auto_fill()
 
     sys.exit(app.exec_())

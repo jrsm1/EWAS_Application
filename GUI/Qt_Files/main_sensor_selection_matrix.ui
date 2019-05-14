@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1077</width>
-    <height>313</height>
+    <height>348</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -36,6 +36,9 @@ color:rgb(0, 0, 0);
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <item alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="sensor_select_MAX_Label">
       <property name="text">
@@ -43,14 +46,40 @@ color:rgb(0, 0, 0);
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QCheckBox" name="Select_all_sensors_checkBox">
-      <property name="text">
-       <string>Select All Connected Sensors</string>
+    <item alignment="Qt::AlignLeft">
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-      <property name="tristate">
-       <bool>false</bool>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
       </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPushButton" name="Select_all_sensors_button">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(204, 51, 0);
+color: rgb(255, 255, 255);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Select All</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>
@@ -749,6 +778,12 @@ color:rgb(0, 0, 0);
        </item>
        <item>
         <widget class="QPushButton" name="sensor_selection_DONE_Button">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">background-color:rgb(204, 51, 0);
 color: rgb(255, 255, 255);
