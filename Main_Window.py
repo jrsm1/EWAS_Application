@@ -1,8 +1,7 @@
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
-from serial import SerialException
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QIcon, QRegExpValidator, QIntValidator
-from PyQt5.QtWidgets import QDesktopWidget, QListView
+from PyQt5.QtWidgets import QDesktopWidget
 
 import GUI_Handler
 import Window
@@ -53,20 +52,20 @@ visualization_values = {'requested_plot': 0,
 
 # Regex expressions
 regex_description = QRegExpValidator(QRegExp('[a-zA-Z0-9-]+'))
-regex_duration = QIntValidator(0, 1801)
+regex_duration = QIntValidator(5, 1800)
 regex_hour = QIntValidator(0, 23)
-regex_delay = QIntValidator(0, 3601)
+regex_delay = QIntValidator(0, 3600)
 regex_minute_second = QIntValidator(0, 59)
 regex_longitude = QRegExpValidator(QRegExp('^(\+|-)\d{5}(\.)\d{5}$'))
 regex_latitude = QRegExpValidator(QRegExp('^(\+|-)\d{4}(\.)\d{5}$'))
 
 # ToolTip Messages
-toolTip_description = 'Lower-case letters, upper-case letters, numbers and dashes'
-toolTip_duration = 'Positive integers with a minimum of 5 seconds up to 1800 seconds'
-toolTip_Delay = 'Positive integers including 0 up to a maximum of 3600 seconds(1 hour)'
-toolTip_Longitude = 'NMEA format of +/-Dddmm.mmmmm'
-toolTip_Latitude = 'NMEA format of +/-ddmm.mmmmm'
-toolTip_time = '24-hour format'
+toolTip_description = 'Restricted to lower-case letters, upper-case letters, numbers and dashes'
+toolTip_duration = 'Restricted to positive integers with a minimum of 5 seconds up to 1800 seconds'
+toolTip_Delay = 'Restricted to positive integers including 0 up to a maximum of 3600 seconds(1 hour)'
+toolTip_Longitude = 'Restricted to NMEA format of (+/-)Dddmm.mmmmm'
+toolTip_Latitude = 'Restricted to NMEA format of (+/-)ddmm.mmmmm'
+toolTip_time = 'Restricted to 24-hour format'
 
 # Testing
 log = 1
@@ -95,10 +94,12 @@ class MainWindow(windowClass):
         self.rec_name_edit = self.main_window.main_tab_RecordingSettings_name_LineEdit
         self.rec_duration_edit = self.main_window.main_tab_RecordingSettings_durationLineEdit
         self.rec_type_dropdown = self.main_window.main_tab_RecordingSettings_type_DropDown
+        self.rec_type_dropdown.view().setSpacing(1)
         self.delay_edit = self.main_window.main_tab_RecordingSettings_delay_LineEdit
 
         # Localization Settings
         self.loc_type_dropdown = self.main_window.main_tab_LocalizationSettings_type_DropBox
+        self.loc_type_dropdown.view().setSpacing(1)
         self.loc_name_edit = self.main_window.main_tab_LocalizationSettings_Name_lineEdit
         self.loc_longitude_edit = self.main_window.main_tab_LocalizationSettings_longitudLineEdit
         self.loc_latitude_edit = self.main_window.main_tab_LocalizationSettings_latitudLineEdit
@@ -121,8 +122,8 @@ class MainWindow(windowClass):
         self.specimen_loc_8 = self.main_window.main_tab_module_loc_LineEdit_8
 
         # Data Acquisition Settings
-        self.cutfreq_drodown = self.main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
         self.samfreq_dropdown = self.main_window.main_tab_DAQParams_samplingRate_DropDown
+        self.cutfreq_drodown = self.main_window.main_tab_DAQParams_Cutoff_Frequency_DropDown
         self.gain_dropdown = self.main_window.main_tab_DAQParams_gain_DropDown
         # Change Spacing for better DropDown Option reading.
         self.cutfreq_drodown.view().setSpacing(1)
@@ -132,17 +133,16 @@ class MainWindow(windowClass):
         # -------------------------------------------------------- Signals ---------------------------------------------
         # Menu Bar
         self.main_window.action_Help.triggered.connect(lambda: self.open_documentation())
-        self.main_window.actionDiagnose.triggered.connect(lambda: GUI_Handler.check_for_port('DIAGNOSE'))  # TODO VErify if this is part of Start Logic
+        self.main_window.actionDiagnose.triggered.connect(lambda: GUI_Handler.sensor_matrix.open())  # TODO VErify if this is part of Start Logic
 
         # Recording Settings
         self.rec_duration_edit.textEdited.connect(lambda: self.check_sampling_rate())
-        self.rec_duration_edit.editingFinished.connect(lambda: self.validate_duration()) # TODO TEST
         self.main_window.main_tab_RecordingSettings_LOAD_SETTINGS_Button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, 1))
         self.main_window.main_tab_RecordingSettings__SAVE_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_RECORDING_SETTINGS))
 
         # Localization
         self.loc_type_dropdown.currentIndexChanged.connect(lambda: self.change_local_allowed())
-        self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.check_for_port('GPS'))
+        self.main_window.main_tab_LocalizationSettings_acquire_GPS_Button.clicked.connect(lambda: GUI_Handler.sync_gps())
         self.main_window.main_tab_LocalizationSettings_LOAD_LOCATION_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_LOAD, STORE_LOAD_LOCATION))
         self.main_window.main_tab_LocalizationSettings_SAVE_LOCATION_button.clicked.connect(lambda: self.handle_storing_loading(ACTION_SAVE, STORE_LOAD_LOCATION))
 
@@ -152,9 +152,9 @@ class MainWindow(windowClass):
         self.cutfreq_drodown.currentIndexChanged.connect(lambda: self.suggest_sampling_rate())
         self.samfreq_dropdown.currentIndexChanged.connect(lambda: self.check_duration())
 
-        # START | Module Information
-        self.main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: ModuleSelect(modules).open())
-        self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.check_for_port('START'))
+        # START
+        self.main_window.main_tab_CHANNEL_INFO_button.clicked.connect(lambda: ModuleSelect([1,0]).open())
+        self.main_window.main_tab_START_button.clicked.connect(lambda: GUI_Handler.store_data_window.open())
 
         # Visualization
         self.main_window.actionTime.triggered.connect(lambda: self.do_plot(TIME_PLOT))
@@ -302,7 +302,7 @@ class MainWindow(windowClass):
         """
         # Get filename from User
         self.filename_input_win.open()
-        filename = self.filename_input_win.fn_in.text()
+        filename = self.filename_input_win.fn_in.text()  # TODO FIXME May cause error. --> verify if method .text()
         if Window.validate_filename(filename):
             if self.validate_daq_params():
                 self.setting_manager.store_signal_params(filename)
@@ -339,7 +339,7 @@ class MainWindow(windowClass):
         """
         # Get filename from User
         self.filename_input_win.open()
-        filename = self.filename_input_win.fn_in.text()
+        filename = self.filename_input_win.fn_in.text()  # TODO FIXME if error --> Verify .text() method
         if Window.validate_filename(filename):
             # Get info from GUI.
             # get_location_from_gui()
@@ -590,15 +590,15 @@ class MainWindow(windowClass):
         test_duration = self.rec_duration_edit.text()
         print(test_duration)
         if not test_duration == '':
-            # if int(test_duration) < 5:
-            #     self.display_error('Must be higher than 5 seconds and less than 1800 seconds')
-            # else:
-            if not self.samfreq_dropdown.currentText() == 'Please Select': # TODO TEST
-                max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
-                if not max_duration == 'Please Select':
-                    if int(test_duration) > max_duration:
-                        self.display_error('Durations higher than ' + str(max_duration) +
-                                           ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
+            if int(test_duration) < 5:
+                self.display_error('Must be higher than 5 seconds and less than 1800 seconds')
+            else:
+                if not self.samfreq_dropdown.currentText() == 'Please Select':
+                    max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
+                    if not max_duration == 'Please Select':
+                        if int(test_duration) > max_duration:
+                            self.display_error('Durations higher than ' + str(max_duration) +
+                                               ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
 
     def check_duration(self):
         """
@@ -612,8 +612,6 @@ class MainWindow(windowClass):
                 if int(test_duration) > max_duration:
                     self.display_error('Durations higher than ' + str(max_duration) +
                                        ' seconds at this sampling rate will exceed DAQ memory and rewrite samples.')
-                    return False
-        return True
 
     def validate_rec_settings(self):
         there_is_no_error = True
@@ -716,12 +714,6 @@ class MainWindow(windowClass):
             valid = False
 
         return valid
-
-    def validate_duration(self):
-        test_duration = self.rec_duration_edit.text()
-        max_duration = MAX_DURATION[self.samfreq_dropdown.currentText()]
-        if int(test_duration) < 5:
-            self.display_error('Duration is lower than 5 seconds')
 
     # ======================================= MISCELLANEOUS ==================================
     def display_error(self, message: str):

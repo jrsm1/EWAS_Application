@@ -17,8 +17,8 @@ class SaveDataOptionDialog(Window):
         self.daq_config = daq_config
 
         # Objects
-        self.yes_button = self.store_data_window.store_data_yes_button.clicked.connect(lambda: self.set_store_data_SDcard('yes'))
-        self.no_button = self.store_data_window.store_data_no_button.clicked.connect(lambda: self.set_store_data_SDcard('no'))
+        self.yes_button = self.store_data_window.store_data_yes_button.clicked.connect(lambda: GUI_Handler.sensor_matrix.open())
+        self.no_button = self.store_data_window.store_data_no_button.clicked.connect(lambda: GUI_Handler.sensor_matrix.open())
 
         pass
 

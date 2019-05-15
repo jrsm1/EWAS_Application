@@ -70,7 +70,7 @@ class SensorSelectionMatrix(Window):
 
         # Signals
         # self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
-        self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: self.validate_sensors_selected())
+        self.sensor_selection_matrix.sensor_selection_DONE_Button.clicked.connect(lambda: GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision))
         self.sensor_selection_matrix.Select_all_sensors_button.clicked.connect(lambda: self.selection_all())
         # Uncheck Signals.
         self.win_sens_1.stateChanged.connect(lambda: self.set_select_all_false())
@@ -187,9 +187,9 @@ class SensorSelectionMatrix(Window):
         continuar = False
 
         # Get Connected Modules
-        # connected_module_list = [1, 0, 0, 0, 0, 0, 0, 0]
-        ins = ins_man.instruction_manager(GUI_Handler.ins_port)
-        connected_module_list = ins.send_request_number_of_mods_connected()
+        connected_module_list = [1, 0, 0, 0, 0, 0, 0, 0]
+        # ins = ins_man.instruction_manager(GUI_Handler.ins_port)
+        # connected_module_list = ins.send_request_number_of_mods_connected()
 
         if log: print("entered enable start, array is " + str(connected_module_list))
         if connected_module_list[0]:

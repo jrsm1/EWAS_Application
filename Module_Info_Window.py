@@ -27,14 +27,14 @@ class ModuleInformationWindow(Window):
         self.sensor_1_bandwidth = self.module_info_win.channel_info_sensor1_frequency_Bandwidth_LineEdit
         self.sensor_1_fullscale = self.module_info_win.channel_info_sensor1_full_Scale_LineEdit
         self.sensor_1_location = self.module_info_win.channel_info_sensor1_location_Edit
-        self.module_info_win.channel_info_sensor1_TITLE.setText(module.module_info['Sensor 1'].sensor_info['sensor_name'])
+        self.module_info_win.channel_info_sensor1_TITLE.setText('Sensor 1')
         self.sensor_1_type = self.module_info_win.channel_info_sensor1_type_DropDown
         # Channel 2
         self.sensor_2_damping = self.module_info_win.channel_info_sensor2_dampingLineEdit
         self.sensor_2_bandwidth = self.module_info_win.channel_info_sensor2_frequency_Bandwidth_LineEdit
         self.sensor_2_sensitivity = self.module_info_win.channel_info_sensor2_Sensitivity_LineEdit
         self.sensor_2_type = self.module_info_win.channel_info_sensor2_type_DropDown
-        self.module_info_win.channel_info_sensor2_TITLE.setText(module.module_info['Sensor 2'].sensor_info['sensor_name'])
+        self.module_info_win.channel_info_sensor2_TITLE.setText('Sensor 2')
         self.sensor_2_location = self.module_info_win.channel_info_sensor2_location_Edit
         self.sensor_2_fullscale = self.module_info_win.channel_info_sensor2_full_Scale_LineEdit
         # Channel 3
@@ -44,7 +44,7 @@ class ModuleInformationWindow(Window):
         self.sensor_3_fullscale = self.module_info_win.channel_info_sensor3_full_scale_LineEdit
         self.sensor_3_damping = self.module_info_win.channel_info_sensor3_dampingLineEdit
         self.sensor_3_location = self.module_info_win.channel_info_sensor3_location_Edit
-        self.module_info_win.channel_info_sensor3_TITLE.setText(module.module_info['Sensor 3'].sensor_info['sensor_name'])
+        self.module_info_win.channel_info_sensor3_TITLE.setText('Sensor 3')
         # Channel 4
         self.sensor_4_type = self.module_info_win.channel_info_sensor4_type_DropDown
         self.sensor_4_sensitivity = self.module_info_win.channel_info_sensor4_Sensitivity_LineEdit
@@ -52,10 +52,10 @@ class ModuleInformationWindow(Window):
         self.sensor_4_fullscale = self.module_info_win.channel_info_senson4_full_Scale_LineEdit
         self.sensor_4_location = self.module_info_win.channel_info_sensor4_location_Edit
         self.sensor_4_damping = self.module_info_win.channel_info_sensor4_dampingLineEdit
-        self.module_info_win.channel_info_sensor4_TITLE.setText(module.module_info['Sensor 4'].sensor_info['sensor_name'])
+        self.module_info_win.channel_info_sensor4_TITLE.setText('Sensor 4')
 
         # Signals
-        self.module_info_win.channel_info_SAVE_Button.clicked.connect(lambda: self.save_module_info())
+        self.module_info_win.channel_info_SAVE_Button.clicked.connect(lambda: self.close())
 
         pass
 
@@ -64,7 +64,7 @@ class ModuleInformationWindow(Window):
         Opens Module Information Window. [Does not create a new instance]
         """
         super().open()
-        self.populate_fields()
+        # self.populate_fields()
         self.module_info_win.show()
 
         pass
