@@ -134,8 +134,9 @@ def start_acquisition(who_called: int): # TODO TEST NEW LOGIC
 
 def check_for_port(what_was_clicked: str): # TODO TEST.
     """
+    Decides if request to Record, Diagnose or SyncGPS
 
-    :param what_was_clicked:
+    :param what_was_clicked: string with name of who called this function.
     """
     # if not save_port() == 'COM-1':
     #     if what_was_clicked == 'START':
@@ -176,6 +177,9 @@ def save_port():  # TODO adapt for class reconstruction
 
 
 def sync_gps():  # TODO TEST IN ENVIRONMENT WHERE IT DOES SYNC.
+    """
+    Calls Control Module for GPS nada.
+    """
     # Show Progress Dialog.
     global stop_break_loop
     stop_break_loop = True
@@ -253,7 +257,7 @@ def action_begin_recording(sel_matrix: SensorSelectionMatrix, start_diagnose: in
                                                             name="Not Used", location="Not Used")
                 print("sent was " + str(params_sent))
                 sleep(0.5)
-                ins.send_request_start()
+            ins.send_request_start()
 
         # Send Run Diagnostic FLAG to Control Module.
         elif start_diagnose == DIAGNOSE:
@@ -272,7 +276,7 @@ def action_begin_recording(sel_matrix: SensorSelectionMatrix, start_diagnose: in
                                                             name="Not Used", location="Not Used")
                 print("sent was " + str(params_sent))
                 sleep(0.5)
-                ins.send_request_start()
+            ins.send_request_start()
         # Close Window
         sensor_matrix.close()
         check_status_during_test(ins, mods_selected)

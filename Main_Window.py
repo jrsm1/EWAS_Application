@@ -204,6 +204,9 @@ class MainWindow(windowClass):
         pass
 
     def center(self):
+        """
+        Center Window on Screen.
+        """
         # geometry of the main window
         qr = self.frameGeometry()
         # center point of screen
@@ -297,8 +300,7 @@ class MainWindow(windowClass):
 
     def action_store_DAQ_params(self):
         """
-
-        :return:
+        Store DAQ Parameters as CSV File.
         """
         # Get filename from User
         self.filename_input_win.open()
@@ -315,8 +317,7 @@ class MainWindow(windowClass):
 
     def action_load_DAQ_params(self):
         """
-
-        :return:
+        Loads DAQ Params from file
         """
         relative_path = 'Config/DAQ/Signal'
         # Get filename from User
@@ -334,8 +335,7 @@ class MainWindow(windowClass):
 
     def action_store_location(self):
         """
-
-        :return:
+        Store Location Information as CSV File.
         """
         # Get filename from User
         self.filename_input_win.open()
@@ -366,8 +366,7 @@ class MainWindow(windowClass):
 
     def action_load_location(self):
         """
-
-        :return:
+        Loads Location Information from file
         """
         relative_path = 'Config/DAQ/Location'
         # Get filename from User
@@ -385,8 +384,7 @@ class MainWindow(windowClass):
 
     def action_store_rec_setts(self):
         """
-
-        :return:
+        Store Recording Parameters as CSV File.
         """
         # Get filename from User
         filename = self.filename_input_win.fn_in.text()
@@ -404,8 +402,7 @@ class MainWindow(windowClass):
 
     def action_load_rec_setts(self):
         """
-
-        :return:
+        Loads Recording Parameters from file
         """
         relative_path = 'Config/DAQ/Recording'
         # Get filename from User

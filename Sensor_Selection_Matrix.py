@@ -140,6 +140,10 @@ class SensorSelectionMatrix(Window):
         :return: True if Validated
         """
         sensors, xmodules = self.get_modules_and_sensors_selected()
+        # # Reset all Checkboxes.
+        # for sensor_checkbox in self.sensor_selection_list:
+        #     sensor_checkbox.setChecked(False)
+
         for sensor in sensors:
             if sensor == 1: # Any sensor has been selected --> Validate.
                 GUI_Handler.action_begin_recording(self, GUI_Handler.start_diagnose_decision)
@@ -170,10 +174,6 @@ class SensorSelectionMatrix(Window):
             index += 1
 
         if log: print("sensors selected are: ", sensors_selected)
-
-        # Reset all Checkboxes.
-        for sensor_checkbox in self.sensor_selection_list:
-            sensor_checkbox.setChecked(False)
 
         return sensors_selected, modules_selected
 
