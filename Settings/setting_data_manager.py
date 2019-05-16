@@ -214,6 +214,11 @@ class Setting_File_Manager:
         return self.daq_config.signal_configs
 
     def store_module_configs(self, filename: str, module: Module_Individual):
+        """
+        Store Only Module Configurations in CSV File.
+
+        :param filename: The desires File Name.
+        """
         module_file = 'Config/Module/' + filename
         if verify_file_exists(module_file):
             with open(module_file, 'w+', newline='') as f:
@@ -248,6 +253,13 @@ class Setting_File_Manager:
             if log: print('File Error')
 
     def load_module_config(self, filename: str):
+        """
+        Loads Module Configuration from settings file.
+
+        :param filename : the path and name of the file.
+
+        :return Module Individual Dictionary
+        """
         # module_file = 'Config/Module/' + filename
         if verify_file_exists(filename):
             name_dict = pd.read_csv(filename, header=0, nrows=1).to_dict('r')[0]

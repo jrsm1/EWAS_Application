@@ -1,6 +1,6 @@
 import Control_Module_Comm.serial_interface as serial_interface
 
-log = 0
+log = 1
 
 
 class instruction_manager():
@@ -260,8 +260,9 @@ class instruction_manager():
         if log: print('Received ' + str(line) + 'in send request status')
         status = []
         # while line != b'\x83':
+        #     print(line)
         #     line = self.serial_interface.listen()
-        #     if log:print("still in while")
+        #     if log: print("still in while")
         if line == b'\x83':
             if log: print("diagnose request successful")
             line = self.serial_interface.listen()
@@ -292,10 +293,18 @@ class instruction_manager():
 
     def send_recording_parameters(self, sfrequency, cutoff, gain, duration, start_delay, store_data_sd, sensor_enable, name, location):
         """
-        sampling frequency
-        cutoff frequency
-        gain
-        duration
+        Possible Error if sensor_enables is all zeros.
+
+        :param sfrequency: Sampling Frequency.
+        :param cutoff: Cutoff Frequency.
+        :param gain: Signal Gain.
+        :param duration: Test Duration.
+        :param start_delay: Delay to begin recording.
+        :param store_data_sd: Indicates if data should be saved in SD card.
+        :param sensor_enable: Binary List of Sensors User has selected.
+        :param name: Test Name.
+        :param location: Test Location.
+        :return:
         """
         if log: print("entered send recording parameters")
         self.serial_interface.send_byte(b'\x85')  # 133
