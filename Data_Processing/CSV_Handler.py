@@ -1,6 +1,4 @@
-from time import sleep
-
-from Control_Module_Comm.Structures import Module_Individual, DAQ_Configuration, Sensor_Individual
+from Control_Module_Comm.Structures import DAQ_Configuration
 from Control_Module_Comm import instruction_manager as ins_man
 import numpy as np
 import GUI_Handler

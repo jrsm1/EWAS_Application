@@ -1,8 +1,7 @@
 from PyQt5 import QtWidgets, uic, QtCore, QtGui
-from serial import SerialException
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QIcon, QRegExpValidator, QIntValidator
-from PyQt5.QtWidgets import QDesktopWidget, QListView
+from PyQt5.QtWidgets import QDesktopWidget
 
 import GUI_Handler
 import Window

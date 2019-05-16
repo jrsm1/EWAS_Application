@@ -1,8 +1,6 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
 
-# FIXME Process finished with exit code -1073740791 (0xC0000409)
-#   Error Related to QtThreading.
 import GUI_Handler
 
 
