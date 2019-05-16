@@ -1,7 +1,8 @@
 # EWAS_Android
 
 ### Count conversion to input voltage
-    $$Vin=(counts)(298^-9)(12)/gain$$
+    $$ Vin=(counts)(298^-9)(12)/gain $$
+	
 ### Instructions to begin recording.
     1. Write a Test Name.
     2. Input Test Duration.
