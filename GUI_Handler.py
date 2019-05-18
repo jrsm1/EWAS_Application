@@ -2,7 +2,7 @@
 import sys
 from time import sleep
 
-import serial
+import serial.tools.list_ports
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QIcon
 
@@ -167,7 +167,7 @@ def save_port():  # TODO adapt for class reconstruction
     port = 'COM-1'
     pid = "0403"
     hid = "6001"
-    ports = list(serial.tools.list_ports_windows.comports())
+    ports = list(serial.tools.list_ports.comports())
 
     for p in ports:
         if pid and hid in p.hwid:
