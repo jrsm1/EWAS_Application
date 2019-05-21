@@ -1,7 +1,14 @@
 # EWAS_Android
 
+## Running the program.
+	1. Download Project. 
+	2. Edit run.bat to your:
+		Python .exe --> "C:\Users\[YOUR USERNAME]\AppData\Local\Programs\Python\Python37\python.exe"
+		main.py --> "C:\Users\[YOUR USERNAME]\[YOUR PATH]\EWAS_Application\main.py"
+	3. Open (Double-Click) run.bat to run the program next time. 
+
 ### Count conversion to input voltage
-    $$ Vin=(counts)(298^-9)(12)/gain $$
+    $$ Vin=(counts)(298^-9)(12) / gain $$
 	
 ### Instructions to begin recording.
     1. Write a Test Name.
