@@ -22,7 +22,7 @@ VERSION = '1.0.0'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'pandas', 'numpy', 'matplotlib', 'serial', 'pip', 'PyQt5', 'regex',
+    'pandas', 'numpy', 'matplotlib', 'serial', 'pip', 'PyQt5', 'regex'
 ]
 
 # What packages are optional?
