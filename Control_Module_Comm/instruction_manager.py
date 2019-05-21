@@ -1,6 +1,6 @@
 import Control_Module_Comm.serial_interface as serial_interface
 
-log = 1
+log = 0
 
 
 class instruction_manager():

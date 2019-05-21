@@ -1,5 +1,5 @@
 import serial.tools
-
+from serial.tools import list_ports_windows
 log = 0
 
 class serial_interface():
