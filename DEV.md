@@ -23,3 +23,15 @@ DEV.md contains instructions to download all needed python dependencies and soft
         [ pyinstaller -F main.py ] then rename executable file. 
     
 Suggested to use PyCharm IDE as it is easiest to integrate with git.
+
+___
+___
+___
+####IF git push IS FAILING --> TRY [git config http.postBuffer 524288000]
+    - This issue might be caused because execute file is too big.
+    - The EWAS Application.exe might cause the push to be significantly slower.
+    * Recommendation is to only work on the .exe file only in distribution branch. (Delete from all other bdevelopment brances.)
+
+---
+---
+---
