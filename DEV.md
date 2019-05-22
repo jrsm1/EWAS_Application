@@ -4,12 +4,7 @@ DEV.md contains instructions to download all needed python dependencies and soft
 ## Installing all needed dependencies.
 	1. Install Python 3.7.1
 	2. Intall pip by runnig EWAS_Application/Important_Documents/get-pip.py
-	3. pip install pandas 
-			numpy
-			matplotlib
-			serial
-			PyQt5
-			regex
+	3. Install dependencies [ pip install -r Important_Documents/requirements.txt ]
 
 
 ## Downloading and Opening PyQt Designer.
