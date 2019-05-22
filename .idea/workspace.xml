@@ -2,11 +2,517 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8fe3281-f6a1-4e34-a7e0-8b0f541998af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Important_Documents/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EWAS Application.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Plot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Plot.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEV.md" beforeDir="false" afterPath="$PROJECT_DIR$/DEV.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EWAS_Application.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_Handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info/DESCRIPTION.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info/metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler-0.10.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/cycler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver-1.0.1.dist-info/DESCRIPTION.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver-1.0.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver-1.0.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver-1.0.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver-1.0.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver-1.0.1.dist-info/metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver-1.0.1.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/kiwisolver.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib-3.0.3-py3.7-nspkg.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib-3.0.3.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib-3.0.3.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib-3.0.3.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib-3.0.3.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib-3.0.3.dist-info/namespace_packages.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib-3.0.3.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_animation_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_cm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_cm_listed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_color_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_constrained_layout.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_contour.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_image.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_layoutbox.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_mathtext_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_path.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_png.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_pylab_helpers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_qhull.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_tri.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/_windowing.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/afm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/animation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/artist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_subplots.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_bases.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_managers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backend_tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/_backend_agg.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/_backend_tk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/_gtk3_compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/_tkagg.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_agg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_cairo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_gtk3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_gtk3agg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_gtk3cairo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_macosx.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_mixed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_nbagg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_pdf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_pgf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_ps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt4agg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt4cairo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt5agg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_qt5cairo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_svg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_template.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_tkagg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_tkcairo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_webagg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_webagg_core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_wx.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_wxagg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/backend_wxcairo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/qt_compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/qt_editor/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/qt_editor/figureoptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/qt_editor/formlayout.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/qt_editor/formsubplottool.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/tkagg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/all_figures.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/css/boilerplate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/css/fbm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/css/page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/ipython_inline_figure.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/AUTHORS.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/external/jquery/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/images/ui-icons_777620_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.structure.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.structure.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/jquery-ui.theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery/js/jquery-1.11.3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery/js/jquery-1.11.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/js/mpl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/js/mpl_tornado.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/js/nbagg_mpl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/nbagg_uat.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/single_figure.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/windowing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/wx_compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/bezier.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/blocking_input.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/cbook/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/cbook/deprecation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/cm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/collections.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/colorbar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/colors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/compat/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/compat/subprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/container.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/contour.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/dates.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/docstring.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/dviread.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/font_manager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/fontconfig_pattern.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/ft2font.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/gridspec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/hatch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend_handler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/lines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/markers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mathtext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mlab.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/cmex10.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/cmmi10.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/cmr10.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/cmsy10.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/cmtt10.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pagd8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pagdo8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pagk8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pagko8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pbkd8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pbkdi8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pbkl8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pbkli8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pcrb8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pcrbo8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pcrr8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pcrro8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvb8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvb8an.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvbo8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvbo8an.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvl8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvlo8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvr8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvr8an.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvro8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/phvro8an.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pncb8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pncbi8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pncr8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pncri8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pplb8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pplbi8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pplr8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pplri8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/psyr.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/ptmb8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/ptmbi8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/ptmr8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/ptmri8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/putb8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/putbi8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/putr8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/putri8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pzcmi8a.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/afm/pzdr.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Courier-Bold.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Courier-BoldOblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Courier-Oblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Courier.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Helvetica-Bold.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Helvetica-BoldOblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Helvetica-Oblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Helvetica.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Symbol.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Times-Bold.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Times-BoldItalic.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Times-Italic.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/Times-Roman.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/ZapfDingbats.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/LICENSE_STIX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/local.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/back.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/back.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/back.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/back_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/back_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/filesave.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/filesave.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/filesave.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/filesave.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/filesave_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/filesave_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/forward.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/forward.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/forward.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/forward.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/forward_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/forward_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/hand.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/hand.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/hand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/hand.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/hand_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/help.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/help.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/help.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/help_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/help_large.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/home.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/home.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/home.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/home_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/home_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/matplotlib.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/matplotlib.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/matplotlib.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/matplotlib.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/matplotlib_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/move.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/move.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/move.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/move.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/move_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/move_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/qt4_editor_options.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/qt4_editor_options.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/qt4_editor_options.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/qt4_editor_options_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/subplots.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/subplots.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/subplots.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/subplots.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/subplots_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/subplots_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect_large.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/matplotlibrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/Minduka_Present_Blue_Pack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/None_vs_nearest-pdf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/aapl.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/ada.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/axes_grid/bivariate_normal.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/ct.raw.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/data_x_x2_x3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/demodata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/eeg.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/embedding_in_wx3.xrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/goog.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/grace_hopper.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/grace_hopper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/jacksboro_fault_dem.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/membrane.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/msft.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/percent_bachelors_degrees_women_usa.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/sample_data/s1045.ima.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/Solarize_Light2.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/bmh.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/classic.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/dark_background.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/fast.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/fivethirtyeight.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/ggplot.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/grayscale.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-bright.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-colorblind.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-dark-palette.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-dark.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-darkgrid.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-deep.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-muted.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-notebook.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-paper.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-pastel.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-poster.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-talk.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-ticks.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-white.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn-whitegrid.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/seaborn.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/mpl-data/stylelib/tableau-colorblind10.mplstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/offsetbox.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/patches.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/path.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/patheffects.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/projections/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/projections/geo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/projections/polar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pylab.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pyplot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/quiver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/rcsetup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/sankey.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/scale.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/sphinxext/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/sphinxext/mathmpl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/sphinxext/plot_directive.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/spines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/stackplot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/streamplot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/style/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/style/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/compare.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/conftest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/decorators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/determinism.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/disable_internet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/Duration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/Epoch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/EpochConverter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/StrConverter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/UnitDbl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/UnitDblConverter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/UnitDblFormatter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/testing/jpl_units/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/texmanager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/text.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/textpath.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/ticker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tight_bbox.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tight_layout.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/triangulation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/tricontour.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/trifinder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/triinterpolate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/tripcolor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/triplot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/trirefine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/tri/tritools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/ttconv.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/type1font.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/units.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/widgets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/anchored_artists.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/angle_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/axes_divider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/axes_grid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/axes_rgb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/axes_size.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/axis_artist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/axisline_style.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/axislines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/clip_path.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/colorbar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/floating_axes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/grid_finder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/grid_helper_curvelinear.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/inset_locator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid/parasite_axes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/anchored_artists.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/axes_divider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/axes_grid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/axes_rgb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/axes_size.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/colorbar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/inset_locator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/mpl_axes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axes_grid1/parasite_axes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/angle_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/axes_divider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/axes_grid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/axes_rgb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/axis_artist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/axisline_style.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/axislines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/clip_path.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/floating_axes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/grid_finder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/grid_helper_curvelinear.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/axisartist/parasite_axes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/mplot3d/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/mplot3d/art3d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/mplot3d/axes3d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/mplot3d/axis3d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/mpl_toolkits/mplot3d/proj3d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pylab.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/DESCRIPTION.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing-2.4.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyparsing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/tcl8.6/init.tcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/Activate.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_asyncio.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_bz2.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_contextvars.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_ctypes.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_ctypes_test.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_decimal.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_distutils_findvs.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_elementtree.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_hashlib.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_lzma.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_msi.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_multiprocessing.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_overlapped.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_queue.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_socket.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_sqlite3.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_ssl.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_testbuffer.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_testcapi.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_testconsole.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_testimportmultiple.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_testmultiphase.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/_tkinter.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/activate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/activate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/deactivate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/pyexpat.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/select.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/unicodedata.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/winsound.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pyvenv.cfg" beforeDir="false" />
     </list>
     <ignored path="C:\Users\chris\PycharmProjects\EWAS_Application\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,9 +523,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="677">
+              <caret line="356" column="18" lean-forward="true" selection-start-line="356" selection-start-column="18" selection-end-line="356" selection-end-column="18" />
+              <folding>
+                <element signature="e#13#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Important_Documents/requirements.txt">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="85">
+                <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DEV.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="306">
+                <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -111,7 +653,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GUI/module_selection_window.ui" />
         <option value="$PROJECT_DIR$/GUI/main_sensor_selection_matrix.ui" />
         <option value="$PROJECT_DIR$/GUI/filename_editor_window.ui" />
         <option value="$PROJECT_DIR$/GUI/main_window.ui" />
@@ -150,7 +691,6 @@
         <option value="$PROJECT_DIR$/Module_Selection_Window.py" />
         <option value="$PROJECT_DIR$/Data_Processing/Plot_Data.py" />
         <option value="$PROJECT_DIR$/Sensor_Selection_Matrix.py" />
-        <option value="$PROJECT_DIR$/GUI_Handler.py" />
         <option value="$PROJECT_DIR$/Settings/setting_data_manager.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/serial_output.py" />
         <option value="$PROJECT_DIR$/Data_Processing/CSV_Handler.py" />
@@ -158,10 +698,12 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/Main_Window.py" />
         <option value="$PROJECT_DIR$/Progress_Dialog.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/serial_interface.py" />
         <option value="$PROJECT_DIR$/Control_Module_Comm/instruction_manager.py" />
         <option value="$PROJECT_DIR$/run.bat" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/GUI_Handler.py" />
+        <option value="$PROJECT_DIR$/DEV.md" />
       </list>
     </option>
   </component>
@@ -198,17 +740,6 @@
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
               <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
@@ -270,6 +801,11 @@
               <item name="GUI" type="462c0819:PsiDirectoryNode" />
               <item name="Qt_Files" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="EWAS_Application" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EWAS_Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Important_Documents" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -286,18 +822,18 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/GUI_Handler.py" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Important_Documents" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Control_Module_Comm" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Testers" />
+      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Data" />
       <recent name="C:\Users\chris\PycharmProjects\EWAS_Application" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Config\DAQ\Signal" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Config\DAQ\Location" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Control_Module_Comm" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Testers" />
-      <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\Important_Documents" />
       <recent name="C:\Users\drgdm\OneDrive\Documents\GitHub\EWAS_Application\GUI" />
     </key>
   </component>
@@ -500,20 +1036,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552944095439</updated>
-    </task>
-    <task id="LOCAL-00025" summary="* [X] Change Main method --&gt; fixed double window bug.&#10;* [X] Fixed some spelling.&#10;* [X] Logic for loading and enabling location parameters.&#10;* [X] Logic for GPS sync and display info to GUI.&#10;* [X] Setting Recording data to Display in GUI.&#10;* [x] Logic for channel info ALMOST ready.&#10;* [-] Added Logo to some Windows.&#10;&#10;* [ ] GPS Sync Request timeout.&#10;* [ ] Error Dialog when sync times out.&#10;* [ ] Finish Channel Info Logic.">
-      <created>1555538858729</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1555538858729</updated>
-    </task>
-    <task id="LOCAL-00026" summary="* [X] Store Chanel config with sensors ready.">
-      <created>1555705011217</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1555705011217</updated>
     </task>
     <task id="LOCAL-00027" summary="main window change">
       <created>1555705604286</created>
@@ -844,7 +1366,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558452755659</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="[X] added requirements file.">
+      <created>1558509248703</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1558509248704</updated>
+    </task>
+    <task id="LOCAL-00075" summary="[X] added requirements file. and Readme Documentation.">
+      <created>1558509465047</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1558509465047</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -858,6 +1394,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1858" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.11921459" visible="true" weight="0.16538462" />
       <window_info id="Structure" order="1" sideWeight="0.8807854" side_tool="true" weight="0.16538462" />
@@ -943,8 +1480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[X] All plots working&#10;&#10;[ ] $ Bug CRASH when user does not select a sensor in visualization sensor selection window.  {VALIDATE}" />
-    <MESSAGE value="Load Savin Working again" />
     <MESSAGE value="[X] Saved DEFAULT CONFIGURATIONS." />
     <MESSAGE value="[X] File format incorrect ALMOST handling it xD" />
     <MESSAGE value="[X] Generating Timestamp and setting it to dataframe in first column ready to plot." />
@@ -968,7 +1503,9 @@
     <MESSAGE value="[X] Added Project zipfile" />
     <MESSAGE value="[X] Added Project zipfile&#10;[X] Added run batch file" />
     <MESSAGE value="[X] edited batch file" />
-    <option name="LAST_COMMIT_MESSAGE" value="[X] edited batch file" />
+    <MESSAGE value="[X] added requirements file." />
+    <MESSAGE value="[X] added requirements file. and Readme Documentation." />
+    <option name="LAST_COMMIT_MESSAGE" value="[X] added requirements file. and Readme Documentation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1073,18 +1610,8 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/io.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/GUI_Handler.py" />
     <entry file="file://$PROJECT_DIR$/Visualization.py" />
-    <entry file="file://$PROJECT_DIR$/transmit_data.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/thread_tester.py" />
     <entry file="file://$PROJECT_DIR$/progress_dialog_window.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/serial/__init__.py">
@@ -1247,13 +1774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Module_Info_Window.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
@@ -1287,16 +1807,6 @@
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/Structures/Module_Individual.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4301">
-          <caret line="268" column="41" selection-start-line="268" selection-start-column="34" selection-end-line="268" selection-end-column="41" />
-          <folding>
-            <element signature="e#13#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Control_Module_Comm/serial_interface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -1311,16 +1821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="527">
-            <caret line="31" selection-start-line="31" selection-end-line="31" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1381,6 +1881,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Important_Documents/requirements.txt">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transmit_data.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI_Handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="356" column="18" lean-forward="true" selection-start-line="356" selection-start-column="18" selection-end-line="356" selection-end-column="18" />
+          <folding>
+            <element signature="e#13#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DEV.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="306">
+            <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="85">
+            <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

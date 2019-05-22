@@ -359,6 +359,6 @@ def init():
     else:
         sync_gps()
 
-    auto_fill()
+    # auto_fill()
 
     sys.exit(app.exec_())

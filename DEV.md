@@ -14,5 +14,12 @@ DEV.md contains instructions to download all needed python dependencies and soft
 	4. pip install pyqt-tools --pre
 	5. Open QtDesigner. **Keep in mind that some of these files may be hidden.
 		C:\Users\[YOUR USERNAME]\AppData\Local\Programs\Python\Python37\Lib\site-packages\pyqt5_tools\designer
-		
+
+
+## Generating executable File
+    1. Install PyInstaller. [ pip install pyinstaller ]
+    2. cd into EWAS_Application.
+    3. Try [ pyinstaller -F main.py -n EWAS Application.exe ] OR
+        [ pyinstaller -F main.py ] then rename executable file. 
+    
 Suggested to use PyCharm IDE as it is easiest to integrate with git.

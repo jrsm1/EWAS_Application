@@ -3,10 +3,13 @@
 ## Running the program.
 	1. Download Project.
 	2. Install dependencies [ pip install -r Important_Documents/requirements.txt ]
-	3. Edit run.bat to your:
+	3. There are 2 ways to run it:
+	    A) Run (Double-Click) EWAS "Application.exe"
+	    ------------------------------------------------
+	    B.1) Edit run.bat to your:
 		Python .exe --> "C:\Users\[YOUR USERNAME]\AppData\Local\Programs\Python\Python37\python.exe"
 		main.py --> "C:\Users\[YOUR USERNAME]\[YOUR PATH]\EWAS_Application\main.py"
-	4. Open (Double-Click) run.bat to run the program next time. 
+	    B.2). Open (Double-Click) run.bat to run the program next time. 
 
 ### Count conversion to input voltage
     $$ Vin=(counts)(298^-9)(12) / gain $$
@@ -23,6 +26,7 @@
         
         [--- Module Location Information ---]
         1. Write a description for the location of the sensors in each module.
+    
     5. Select Cutoff Frequency
     6. Select Sampling rate or use suggested.
     7. Select Gain
